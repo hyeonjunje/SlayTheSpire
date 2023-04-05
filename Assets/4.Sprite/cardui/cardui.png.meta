@@ -1,7 +1,154 @@
 fileFormatVersion: 2
 guid: c30fd4d99114d614a83e0489dde0a15d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8783021853406769408
+    second: cardui_0
+  - first:
+      213: -1800840040912423797
+    second: cardui_1
+  - first:
+      213: -8832594463211816922
+    second: cardui_2
+  - first:
+      213: -5361738371724827044
+    second: cardui_3
+  - first:
+      213: 9083194344635645897
+    second: cardui_4
+  - first:
+      213: -8795237219399803370
+    second: cardui_5
+  - first:
+      213: -8925147266190699050
+    second: cardui_6
+  - first:
+      213: 1645429234203838156
+    second: cardui_7
+  - first:
+      213: 6902839700821584932
+    second: cardui_8
+  - first:
+      213: 8406758473421020671
+    second: cardui_9
+  - first:
+      213: -498660510656315523
+    second: cardui_10
+  - first:
+      213: -3417901843031768389
+    second: cardui_11
+  - first:
+      213: -608936673377635038
+    second: cardui_12
+  - first:
+      213: -8866202164727360929
+    second: cardui_13
+  - first:
+      213: -7689656832147461473
+    second: cardui_14
+  - first:
+      213: -2664912065076725077
+    second: cardui_15
+  - first:
+      213: 3854013943071716633
+    second: cardui_16
+  - first:
+      213: -7295166414730010699
+    second: cardui_17
+  - first:
+      213: -8348838084907236908
+    second: cardui_18
+  - first:
+      213: -4535160751783158124
+    second: cardui_19
+  - first:
+      213: 2109255216722457810
+    second: cardui_20
+  - first:
+      213: -7257545708551642426
+    second: cardui_21
+  - first:
+      213: 4814785379756475520
+    second: cardui_22
+  - first:
+      213: -9154658933893972196
+    second: cardui_23
+  - first:
+      213: -7222074490088985933
+    second: cardui_24
+  - first:
+      213: -8935565606309353151
+    second: cardui_25
+  - first:
+      213: -2250200901045834943
+    second: cardui_26
+  - first:
+      213: -6208670494825103647
+    second: cardui_27
+  - first:
+      213: -4074629803612731954
+    second: cardui_28
+  - first:
+      213: -769465422591384353
+    second: cardui_29
+  - first:
+      213: -3161307367969863655
+    second: cardui_30
+  - first:
+      213: 96416162667739140
+    second: cardui_31
+  - first:
+      213: 8982657204468937433
+    second: cardui_32
+  - first:
+      213: -144729651156632946
+    second: cardui_33
+  - first:
+      213: -5426150718864665372
+    second: cardui_34
+  - first:
+      213: -3099995149901937531
+    second: cardui_35
+  - first:
+      213: 8315919436535436194
+    second: cardui_36
+  - first:
+      213: -4226132933777886170
+    second: cardui_37
+  - first:
+      213: -4597317849508516195
+    second: cardui_38
+  - first:
+      213: 7470146212306270397
+    second: cardui_39
+  - first:
+      213: 1690514371663650372
+    second: cardui_40
+  - first:
+      213: 4767117943477811334
+    second: cardui_41
+  - first:
+      213: -849181029047220575
+    second: cardui_42
+  - first:
+      213: 1586120040229349710
+    second: cardui_43
+  - first:
+      213: 5793892069971191728
+    second: cardui_44
+  - first:
+      213: -4108790118659556219
+    second: cardui_45
+  - first:
+      213: 2614330050230972121
+    second: cardui_46
+  - first:
+      213: 8642320262320674260
+    second: cardui_47
+  - first:
+      213: 2752704148845499311
+    second: cardui_48
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +188,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +222,1074 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: cardui_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1808
+        width: 268
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f4235a8207c1680800000000000000
+      internalID: -8783021853406769408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_1
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1808
+        width: 262
+        height: 185
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b847d1826812207e0800000000000000
+      internalID: -1800840040912423797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_2
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 1850
+        width: 648
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6287d2ff1225c6580800000000000000
+      internalID: -8832594463211816922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_3
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 1935
+        width: 324
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c56a2cecb574795b0800000000000000
+      internalID: -5361738371724827044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_4
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 1935
+        width: 324
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf38d1b12dfd0e70800000000000000
+      internalID: 9083194344635645897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1331
+        width: 536
+        height: 475
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e516e195a01f580800000000000000
+      internalID: -8795237219399803370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_6
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1695
+        width: 648
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d597ae49d1832480800000000000000
+      internalID: -8925147266190699050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_7
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 1695
+        width: 268
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc643cfab2db5d610800000000000000
+      internalID: 1645429234203838156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_8
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 1695
+        width: 268
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c2fe49220dbcf50800000000000000
+      internalID: 6902839700821584932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_9
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 1695
+        width: 263
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffdd3c86a4ecaa470800000000000000
+      internalID: 8406758473421020671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 854
+        width: 536
+        height: 475
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7fb0d658e66419f0800000000000000
+      internalID: -498660510656315523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_11
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 854
+        width: 598
+        height: 839
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb240f0f16c2190d0800000000000000
+      internalID: -3417901843031768389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_12
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 854
+        width: 600
+        height: 839
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2253e94625f9c87f0800000000000000
+      internalID: -608936673377635038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_13
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 1274
+        width: 302
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5250a83b1ce4f480800000000000000
+      internalID: -8866202164727360929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_14
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 853
+        width: 302
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ae13b4ad9d84590800000000000000
+      internalID: -7689656832147461473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_15
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 13
+        width: 604
+        height: 839
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baaf27b9894540bd0800000000000000
+      internalID: -2664912065076725077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_16
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 14
+        width: 604
+        height: 838
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 915313403453c7530800000000000000
+      internalID: 3854013943071716633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_17
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 13
+        width: 606
+        height: 837
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf58a81ccc52ca90800000000000000
+      internalID: -7295166414730010699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_18
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 811
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d10addeef7f22c80800000000000000
+      internalID: -8348838084907236908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_19
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 811
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49edba6135fdf01c0800000000000000
+      internalID: -4535160751783158124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_20
+      rect:
+        serializedVersion: 2
+        x: 1905
+        y: 805
+        width: 62
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4b16db174954d10800000000000000
+      internalID: 2109255216722457810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_21
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 805
+        width: 62
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c26e9451a4084b90800000000000000
+      internalID: -7257545708551642426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_22
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 732
+        width: 69
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08401260bcd81d240800000000000000
+      internalID: 4814785379756475520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_23
+      rect:
+        serializedVersion: 2
+        x: 1905
+        y: 732
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1fb46df33e14f080800000000000000
+      internalID: -9154658933893972196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_24
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 740
+        width: 62
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bae5d4f38906cb90800000000000000
+      internalID: -7222074490088985933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_25
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 598
+        width: 132
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 149abb87c6e7ef380800000000000000
+      internalID: -8935565606309353151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_26
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 671
+        width: 67
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b26ebd33ea5c0e0800000000000000
+      internalID: -2250200901045834943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_27
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 598
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee3084741f56d9a0800000000000000
+      internalID: -6208670494825103647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_28
+      rect:
+        serializedVersion: 2
+        x: 1829
+        y: 444
+        width: 144
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5817c28c10477c0800000000000000
+      internalID: -4074629803612731954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_29
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 539
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4ae73664f4255f0800000000000000
+      internalID: -769465422591384353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_30
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 561
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 918c45ab2b7c024d0800000000000000
+      internalID: -3161307367969863655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_31
+      rect:
+        serializedVersion: 2
+        x: 2026
+        y: 561
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408ba663df9865100800000000000000
+      internalID: 96416162667739140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_32
+      rect:
+        serializedVersion: 2
+        x: 1978
+        y: 514
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d27973a22fc8ac70800000000000000
+      internalID: 8982657204468937433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_33
+      rect:
+        serializedVersion: 2
+        x: 2012
+        y: 514
+        width: 29
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ab75a2621ddfdf0800000000000000
+      internalID: -144729651156632946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_34
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 481
+        width: 7
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e457509ba072b4b0800000000000000
+      internalID: -5426150718864665372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_35
+      rect:
+        serializedVersion: 2
+        x: 1978
+        y: 444
+        width: 67
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58449ace5da9af4d0800000000000000
+      internalID: -3099995149901937531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_36
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 302
+        width: 143
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3167bfaa4186370800000000000000
+      internalID: 8315919436535436194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_37
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 157
+        width: 146
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624f69cdc72c955c0800000000000000
+      internalID: -4226132933777886170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_38
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 279
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e6b7406cb0330c0800000000000000
+      internalID: -4597317849508516195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_39
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 254
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db8bebcc66a4ba760800000000000000
+      internalID: 7470146212306270397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_40
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 229
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e54b24dd9e57710800000000000000
+      internalID: 1690514371663650372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_41
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 160
+        width: 8
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 688b2672384382240800000000000000
+      internalID: 4767117943477811334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_42
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 204
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a6c3ad6a5a1734f0800000000000000
+      internalID: -849181029047220575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_43
+      rect:
+        serializedVersion: 2
+        x: 1979
+        y: 157
+        width: 29
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49aff0e5c7030610800000000000000
+      internalID: 1586120040229349710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_44
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 121
+        width: 5
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b7e599e32a086050800000000000000
+      internalID: 5793892069971191728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_45
+      rect:
+        serializedVersion: 2
+        x: 1835
+        y: 13
+        width: 144
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c79a80825aaf6c0800000000000000
+      internalID: -4108790118659556219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_46
+      rect:
+        serializedVersion: 2
+        x: 1981
+        y: 107
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de65a15457f74420800000000000000
+      internalID: 2614330050230972121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_47
+      rect:
+        serializedVersion: 2
+        x: 1981
+        y: 60
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5d8c65d70bfe770800000000000000
+      internalID: 8642320262320674260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cardui_48
+      rect:
+        serializedVersion: 2
+        x: 1981
+        y: 13
+        width: 28
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa31ea3c6d1933620800000000000000
+      internalID: 2752704148845499311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
