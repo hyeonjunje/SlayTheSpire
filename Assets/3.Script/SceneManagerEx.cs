@@ -5,5 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerEx
 {
+    public void Init()
+    {
 
+    }
 }
