@@ -8,9 +8,12 @@ public class Room
     private float _posY;
     private bool _isGenerate;
 
+    public List<Room> connectedRooms;
+
     public float PosX => _posX;
     public float PosY => _posY;
     public bool IsGenerate { get { return _isGenerate; } set { _isGenerate = value; } }
+
 
     public Room(float posX, float posY)
     {
@@ -18,5 +21,7 @@ public class Room
         _posY = posY;
 
         _isGenerate = false;
+
+        connectedRooms = new List<Room>();
     }
 }
