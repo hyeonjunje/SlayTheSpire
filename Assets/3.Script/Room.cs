@@ -93,7 +93,8 @@ public class Room : MonoBehaviour
         _isEnable = true;
 
         _anim.SetBool("isGoable", _isGoable);
-        _anim.SetBool("isBigger", _isBigger);
+        _anim.SetBool("isBigger", false);
+        _anim.SetBool("isHighlight", false);
     }
 
     private void OnDisable()

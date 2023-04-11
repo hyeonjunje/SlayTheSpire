@@ -53,10 +53,13 @@ public class GameManagerEx
     public void SetMapArray(Room[,] mapArray)
     {
         _mapArray = mapArray;
+    }
 
-        for(int x = 0; x < _mapArray.GetLength(1); x++)
+    public void StartMap()
+    {
+        for (int x = 0; x < _mapArray.GetLength(1); x++)
         {
-            if(_mapArray[1, x] != null)
+            if (_mapArray[1, x] != null)
             {
                 _mapArray[1, x].IsGoable = true;
             }
