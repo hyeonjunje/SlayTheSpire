@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseScene : MonoBehaviour
+public abstract class BaseScene : Singleton<BaseScene>
 {
     protected Stack<GameObject> _stackUI = new Stack<GameObject>();
 
@@ -11,7 +11,10 @@ public abstract class BaseScene : MonoBehaviour
         Init();
     }
 
-    public abstract void Init();
+    public virtual void Init()
+    {
+        GameManager.Instance.Init();
+    }
 
     public virtual void ShowUI(GameObject go)
     {

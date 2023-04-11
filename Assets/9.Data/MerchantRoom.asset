@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1447b7013e320346b172d749436beba, type: 3}
+  m_Name: MerchantRoom
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 6840857970483876212, guid: 459df356cf7d88f4fa828bbf82dbfe49, type: 3}
+  spriteOutline: {fileID: 509254394241136187, guid: 5e5336995d6904c45b507304ff50cff4, type: 3}
+  percentage: 5
+  roomName: "\uC0C1\uC810"
+  roomExplanation: "\uC2E0\uBE44\uB85C\uC6B4 \uC0C1\uC778\uC758 \uC0C1\uC810\uC785\uB2C8\uB2E4.\n\n\uADF8
+    \uB3D9\uC548 \uBAA8\uC740 \uACE8\uB4DC\uB97C \n\uC0AC\uC6A9\uD569\uC2DC\uB2E4!"

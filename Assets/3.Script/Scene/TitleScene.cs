@@ -22,7 +22,7 @@ public class TitleScene : BaseScene
 
     public override void Init()
     {
-        GameManager.Instance.Init();
+        base.Init();
 
         GameManager.Sound.PlayBGM(EBGM.Menu);
 
@@ -91,7 +91,6 @@ public class TitleScene : BaseScene
             selectedCharacters[index].transform.position += new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) * _vibrationForce;
             yield return new WaitForSeconds(0.03f);
             selectedCharacters[index].transform.position = origin;
-
         }
     }
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1447b7013e320346b172d749436beba, type: 3}
+  m_Name: TreasureRoom
+  m_EditorClassIdentifier: 
+  sprite: {fileID: -6834524911116659543, guid: f8e01bae729557e44bc7becd3969e94d, type: 3}
+  spriteOutline: {fileID: 7036086956925734926, guid: cf8afb740a62ad24288482d15f387343, type: 3}
+  percentage: 0
+  roomName: "\uBCF4\uBB3C \uBC29"
+  roomExplanation: "\uC720\uBB3C\uACFC \uACE8\uB4DC\uB97C \uC5BB\uC744 \uC218 \n\uC788\uB294
+    \uBC29\uC785\uB2C8\uB2E4."

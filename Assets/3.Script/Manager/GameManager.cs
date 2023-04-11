@@ -11,10 +11,17 @@ public class GameManager : Singleton<GameManager>
     public static SceneManagerEx Scene => Instance._scene;
     public static GameManagerEx Game => Instance._game;
 
+    private bool _isInit = false;
+
     public void Init()
     {
-        _sound.Init();
-        _scene.Init();
-        _game.Init();
+        if(!_isInit)
+        {
+            _isInit = true;
+
+            _sound.Init();
+            _scene.Init();
+            _game.Init();
+        }
     }
 }
