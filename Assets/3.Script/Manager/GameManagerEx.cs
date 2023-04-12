@@ -8,8 +8,6 @@ public class GameManagerEx
     private Room _selectedRoom; // 터치한 방
     private Room _currentRoom; // 현재 위치한 방
 
-    public TipUI tipUI;
-
     public Room SelectedRoom
     {
         get { return _selectedRoom; }
@@ -85,10 +83,5 @@ public class GameManagerEx
                 }
             }
         }
-    }
-
-    public void ShowTipUI(string title, string content, ETipPos tipPos, Transform parent = null)
-    {
-        tipUI.ShowTipUI(title + "\n" +  content, tipPos, parent);
     }
 }

@@ -38,6 +38,14 @@ public class Act1Scene : BaseScene
         _exitButton.onClick.AddListener(() => ExitUI());
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            GameManager.Scene.LoadScene(ESceneName.Act2);
+        }
+    }
+
     public override void ShowUI(GameObject go)
     {
         _stackUI.Clear();

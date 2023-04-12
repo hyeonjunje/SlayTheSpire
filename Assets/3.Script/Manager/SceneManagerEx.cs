@@ -13,6 +13,10 @@ public enum ESceneName
 
 public class SceneManagerEx
 {
+    // 씬 이동시 실행할 함수들
+    public delegate void OnMoveOtherScene();
+    public OnMoveOtherScene onMoveOtherScene;
+
     public void Init()
     {
 
@@ -21,6 +25,7 @@ public class SceneManagerEx
 
     public void LoadScene(ESceneName sceneName)
     {
+        onMoveOtherScene?.Invoke();
         SceneManager.LoadScene((int)sceneName);
     }
 }

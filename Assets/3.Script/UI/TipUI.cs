@@ -31,7 +31,6 @@ public class TipUI : MonoBehaviour
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
-        GameManager.Game.tipUI = this;
     }
 
     public void ShowTipUI(string content, ETipPos tipPos, Transform parent)

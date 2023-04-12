@@ -38,7 +38,7 @@ public class Neow : MonoBehaviour
     {
         Debug.Log(dialogIndex + " 0 ");
 
-        for(int i = 0; i < Act1Scene.Instance.buttons.Length; i++)
+        /*for(int i = 0; i < Act1Scene.Instance.buttons.Length; i++)
         {
             Act1Scene.Instance.buttons[i].gameObject.SetActive(false);
             Act1Scene.Instance.buttons[i].onClick.RemoveAllListeners();
@@ -52,7 +52,7 @@ public class Neow : MonoBehaviour
             
             Act1Scene.Instance.buttons[i].GetComponentInChildren<Text>().text = dialogs[dialogIndex].answers[i];
             Act1Scene.Instance.buttons[i].onClick.AddListener(() => dialogs[dialogIndex - 1].onClickButtons());
-        }
+        }*/
 
         dialogIndex++;
     }

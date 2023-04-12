@@ -30,7 +30,7 @@ public class Legend : MonoBehaviour
         {
             int index = i;
             legendButtons[i].onClick.AddListener(() => GameManager.Game.ShowRoomWithType((ERoomType)index));
-            legendButtons[i].onClick.AddListener(() => GameManager.Game.ShowTipUI(stageData[index].roomName, stageData[index].roomExplanation, 
+            legendButtons[i].onClick.AddListener(() => GameManager.UI.ShowTipUI(stageData[index].roomName, stageData[index].roomExplanation, 
                 ETipPos.Down, transform));
         }
     }

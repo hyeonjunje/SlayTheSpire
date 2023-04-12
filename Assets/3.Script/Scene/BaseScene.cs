@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class BaseScene : Singleton<BaseScene>
+public abstract class BaseScene : MonoBehaviour
 {
     protected Stack<GameObject> _stackUI = new Stack<GameObject>();
-
-    // 대화, 이벤트 시 버튼(최대 4개)
-    public Button[] buttons;
 
     private void Awake()
     {
