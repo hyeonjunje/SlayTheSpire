@@ -4740,6 +4740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs: []
   speechBubbleText: {fileID: 5960694327241668370}
+  parent: {fileID: 1528360429}
 --- !u!1 &1884574285
 GameObject:
   m_ObjectHideFlags: 0

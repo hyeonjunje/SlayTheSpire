@@ -8,6 +8,8 @@ public class UIManager
     private GameObject _root = null;
     private Canvas _rootCanvas = null;
 
+    private Vector2 _originPos;
+
     public TipUI TipUI { get; private set; }
     public List<Button> SelectedButtons { get; private set; } = new List<Button>();
 
@@ -46,6 +48,8 @@ public class UIManager
             SelectedButtons.Add(Object.Instantiate(Resources.Load<Button>("UI/EnableButton"), RootCanvas.transform));
         }
 
+        _originPos = SelectedButtons[0].GetComponent<RectTransform>().anchoredPosition;
+
         InitUIParent();
         GameManager.Scene.onMoveOtherScene += InitUIParent;
     }
@@ -64,12 +68,36 @@ public class UIManager
         TipUI.transform.SetParent(RootCanvas.transform);
     }
 
+
+    public void ShowSelectedButton(Dialog dialog, Transform parent)
+    {
+        InitSelectedButton();
+
+        for(int i = 0; i < dialog.Count; i++)
+        {
+            SelectedButtons[i].gameObject.SetActive(true);
+            SelectedButtons[i].transform.SetParent(parent);
+            SelectedButtons[i].GetComponentInChildren<Text>().text = dialog.answers[i];
+            SelectedButtons[i].onClick.AddListener(() => dialog.onClickButtons());
+
+            SelectedButtons[i].GetComponent<RectTransform>().anchoredPosition += Vector2.up * (SelectedButtons[0].GetComponent<RectTransform>().sizeDelta.y * i);
+        }
+    }
+
+    public void InitSelectedButton()
+    {
+        SelectedButtons.ForEach(selectedButton => selectedButton.transform.SetParent(RootCanvas.transform));
+        SelectedButtons.ForEach(selectedButton => selectedButton.onClick.RemoveAllListeners());
+        SelectedButtons.ForEach(selectgedButton => selectgedButton.gameObject.SetActive(false));
+        
+        SelectedButtons[0].GetComponent<RectTransform>().anchoredPosition = _originPos;
+    }
+
     // UI 비활성화하고 원래부모로 이동
     public void InitUIParent()
     {
         TipUI.transform.SetParent(RootCanvas.transform);
         TipUI.gameObject.SetActive(false);
-        SelectedButtons.ForEach(selectedButton => selectedButton.transform.SetParent(RootCanvas.transform));
-        SelectedButtons.ForEach(selectgedButton => selectgedButton.gameObject.SetActive(false));
+        InitSelectedButton();
     }
 }

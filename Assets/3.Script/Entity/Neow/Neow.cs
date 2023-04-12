@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class Neow : MonoBehaviour
 {
@@ -11,6 +10,8 @@ public class Neow : MonoBehaviour
 
     [SerializeField]
     private Text speechBubbleText;
+    [SerializeField]
+    private Transform parent;
 
     private int dialogIndex = 0;
 
@@ -36,24 +37,7 @@ public class Neow : MonoBehaviour
 
     public void ProceedConversation()
     {
-        Debug.Log(dialogIndex + " 0 ");
-
-        /*for(int i = 0; i < Act1Scene.Instance.buttons.Length; i++)
-        {
-            Act1Scene.Instance.buttons[i].gameObject.SetActive(false);
-            Act1Scene.Instance.buttons[i].onClick.RemoveAllListeners();
-        }
-
-        speechBubbleText.text = dialogs[dialogIndex].contents;
-
-        for(int i = 0; i < dialogs[dialogIndex].Count; i++)
-        {
-            Act1Scene.Instance.buttons[i].gameObject.SetActive(true);
-            
-            Act1Scene.Instance.buttons[i].GetComponentInChildren<Text>().text = dialogs[dialogIndex].answers[i];
-            Act1Scene.Instance.buttons[i].onClick.AddListener(() => dialogs[dialogIndex - 1].onClickButtons());
-        }*/
-
+        GameManager.UI.ShowSelectedButton(dialogs[dialogIndex], parent);
         dialogIndex++;
     }
 
