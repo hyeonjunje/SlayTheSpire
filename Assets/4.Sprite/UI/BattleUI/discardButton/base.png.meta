@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 21229561386387347a2a45669be14742
+guid: 9dc974e696eaad4478128ed11a75bb12
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6240155770578682594
-    second: energyRedVFX_0
+      213: -3966044189379602213
+    second: base_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: energyRedVFX_0
+      name: base_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 50
-        width: 160
-        height: 160
+        x: 18
+        y: 15
+        width: 92
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1dbd8f63638669a0800000000000000
-      internalID: -6240155770578682594
+      spriteID: bd8d680a2d7c5f8c0800000000000000
+      internalID: -3966044189379602213
       vertices: []
       indices: 
       edges: []

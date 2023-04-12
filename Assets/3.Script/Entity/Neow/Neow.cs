@@ -37,6 +37,7 @@ public class Neow : MonoBehaviour
 
     public void ProceedConversation()
     {
+        speechBubbleText.text = dialogs[dialogIndex].contents;
         GameManager.UI.ShowSelectedButton(dialogs[dialogIndex], parent);
         dialogIndex++;
     }

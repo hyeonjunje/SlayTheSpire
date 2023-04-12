@@ -41,7 +41,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField]
     private float _stepDistance = 20f;  // 발자국간의 간격
 
-    public void GenerateMap()
+    public Room[,] GenerateMap()
     {
         _mapArray = new Room[16, 7];
 
@@ -52,11 +52,8 @@ public class MapGenerator : MonoBehaviour
 
         DecideRoomType();
         VisualizeMap();
-    }
 
-    public void SetMapArrayToGameManager()
-    {
-        GameManager.Game.SetMapArray(_mapArray);
+        return _mapArray;
     }
 
     // 경로 생성
