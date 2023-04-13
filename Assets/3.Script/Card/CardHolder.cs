@@ -30,11 +30,18 @@ public class CardHolder : MonoBehaviour
     private BaseCard _selectedCard;  // 현재 집은 카드
 
     [SerializeField]
+    private BezierCurve _bezierCurve;
+
+    [SerializeField]
     private float offsetAngle;
     [SerializeField]
     private float angle;
     [SerializeField]
     private float distance;
+    [SerializeField]
+    private float sideAmound;  // 카드에 마우스 오버시 양옆으로 이동하는 값
+
+    public BezierCurve BezierCurve => _bezierCurve;
 
     void Update()
     {
@@ -121,8 +128,55 @@ public class CardHolder : MonoBehaviour
         Util.ShuffleList(_cardDeck);
     }
 
+    // 패에 해당 인덱스에 카드에 마우스를 댈 때 양 옆의 카드들 비켜줌
+    public void OnPointerEnterCardHand(BaseCard card)
+    {
+        int index = 0;
+
+        for(int i = 0; i < _cardHands.Count; i++)
+        {
+            if(card == _cardHands[i])
+            {
+                index = i;
+                break;
+            }
+        }
+
+        float startTheta = 0;
+        if (_cardHands.Count % 2 == 0)
+        {
+            startTheta -= _cardHands.Count / 2 * angle - (angle / 2) - 90;
+        }
+        else
+        {
+            startTheta -= (_cardHands.Count / 2) * angle - 90;
+        }
+
+        // 카드 관리
+        for (int i = 0; i < _cardHands.Count; i++)
+        {
+            float theta = startTheta + angle * i;
+            Vector3 targetPos = transform.position + new Vector3(Mathf.Cos(theta * Mathf.Deg2Rad), Mathf.Sin(theta * Mathf.Deg2Rad), 0) * distance;
+
+            // 왼쪽으로
+            if (i > index)
+            {
+                _cardHands[i].MoveCard(targetPos - Vector3.right * sideAmound);
+            }
+            // 오른쪽으로
+            else if (i < index)
+            {
+                _cardHands[i].MoveCard(targetPos + Vector3.right * sideAmound);
+            }
+            else
+            {
+                _cardHands[i].transform.SetAsLastSibling();
+            }
+        }
+    }
+
     // 핸드 위치 조정
-    private void DisplayMyHand()
+    public void DisplayMyHand()
     {
         float startTheta = 0;
         if (_cardHands.Count % 2 == 0)
@@ -143,6 +197,7 @@ public class CardHolder : MonoBehaviour
             Vector3 targetScl = Vector3.one;
 
             _cardHands[i].MoveCard(targetPos, targetRot, targetScl);
+            _cardHands[i].transform.SetAsFirstSibling();
         }
     }
 

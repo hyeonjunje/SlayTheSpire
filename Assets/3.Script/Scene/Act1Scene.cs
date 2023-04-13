@@ -9,6 +9,8 @@ public class Act1Scene : BaseScene
     [SerializeField] private Button _exitButton;
     [SerializeField] private CanvasGroup _actInfo;
 
+    [SerializeField] private CardHolder _cardHolder;
+
     [SerializeField] private GameObject _map;
 
     private Vector3 _exitButtonOriginPos;
@@ -25,6 +27,8 @@ public class Act1Scene : BaseScene
         // 시작 시 맵 만들기 (보여주는 건 x)
         // 맵 생성 && 맵 데이터 넘겨주기
         GameManager.Game.SetMapArray(_mapGenerator.GenerateMap());
+        // 카드 홀더 넘겨주기
+        GameManager.Game.SetCardHolder(_cardHolder);
 
         // 1막 태초 코루틴으로 보여주기
         StartCoroutine(CoAppearActInfo());

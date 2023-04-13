@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
 
     public void Init()
     {
+
         if(!_isInit)
         {
             _isInit = true;
