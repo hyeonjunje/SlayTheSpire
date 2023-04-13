@@ -1,26 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BezierCurve : MonoBehaviour
 {
     public Transform p0, p1, p2;
 
     [SerializeField]
-    private Transform[] bezierCureveImage;
+    private Image[] bezierCureveImage;
    
     [SerializeField]
     private float minSize, maxSize;
     [SerializeField]
-    private float arrowSize = 5f;
+    private float arrowSize = 3f;
+
+    [SerializeField]
+    private Color highlightColor, originColor;
+
 
     private void Awake()
     {
         for (int i = 0; i < bezierCureveImage.Length - 1; i++)
         {
-            bezierCureveImage[i].localScale = Vector3.one * Mathf.Lerp(minSize, maxSize, (float)i / (bezierCureveImage.Length - 1));
+            bezierCureveImage[i].transform.localScale = Vector3.one * Mathf.Lerp(minSize, maxSize, (float)i / (bezierCureveImage.Length - 1));
         }
-        bezierCureveImage[bezierCureveImage.Length - 1].localScale = Vector3.one * arrowSize;
+        bezierCureveImage[bezierCureveImage.Length - 1].transform.localScale = Vector3.one * arrowSize;
     }
 
     public Vector3 Bezier(float t)
@@ -34,18 +39,27 @@ public class BezierCurve : MonoBehaviour
         return result;
     }
 
-    public float test = 180f;
+    public void Highlight(bool flag)
+    {
+        for(int i = 0; i < bezierCureveImage.Length; i++)
+        {
+            if(flag)
+                bezierCureveImage[i].color = highlightColor;
+            else
+                bezierCureveImage[i].color = originColor;
+        }
+    }
 
     private void Update()
     {
         for (int i = 0; i < bezierCureveImage.Length; i++)
         {
             Vector3 pos = Bezier((float)i / (bezierCureveImage.Length - 1));
-            bezierCureveImage[i].position = pos;
+            bezierCureveImage[i].transform.position = pos;
             
             if(i != 0)
             {
-                Vector3 dir = (bezierCureveImage[i].position - bezierCureveImage[i - 1].position).normalized;
+                Vector3 dir = (bezierCureveImage[i].transform.position - bezierCureveImage[i - 1].transform.position).normalized;
                 float theta = 0;
 
                 if (dir.x != 0)
@@ -60,7 +74,7 @@ public class BezierCurve : MonoBehaviour
                     }
                 }
 
-                bezierCureveImage[i].localEulerAngles = new Vector3(0f, 0f, theta);
+                bezierCureveImage[i].transform.localEulerAngles = new Vector3(0f, 0f, theta);
             }
         }
     }

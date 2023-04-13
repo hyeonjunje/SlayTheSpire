@@ -7,7 +7,9 @@ public class NonTargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHan
 {
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _isDrag = true;
+        CardHolder.isDrag = true;
+
+        CardHolder.selectedCard = this;
 
         // 이동 시 현재 이동하는 코루틴 정지
         ClearCoroutine();
@@ -18,17 +20,25 @@ public class NonTargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHan
     public void OnDrag(PointerEventData eventData)
     {
         // 카드가 마우스 따라가게
-        transform.position = Input.mousePosition;
+        transform.position = eventData.position;
     }
 
     // 드랍할 때
     public void OnDrop(PointerEventData eventData)
     {
+        CardHolder.isDrag = false;
+
         // 사용가능(코스트 등등)이거나 사용범위에 있을 때만 사용
+        // 사용 범위 y값이 300이상 -> 이는 해상도에 따라 바꾸는 로직이 필요
+        if (eventData.position.y > 300f)
+        {
+            SetActiveRaycast(false);
+            UseCardMove();
+        }
+
         // 아니면 재정렬
-
-        _isDrag = false;
-
-        _cardHolder.DisplayMyHand();
+        CardHolder.Relocation();
+        // 할거 다 하고 null처리
+        CardHolder.selectedCard = null;
     }
 }

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHandler, IEndDragHandler
+public class TargetCard : BaseCard, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    private BezierCurve _bezierCurve => GameManager.Game.CardHolder.BezierCurve;
+    private BezierCurve _bezierCurve => CardHolder.BezierCurve;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _isDrag = true;
+        CardHolder.isDrag = true;
+
+        CardHolder.selectedCard = this;
 
         // 이동 시 현재 이동하는 코루틴 정지
         ClearCoroutine();
@@ -26,27 +28,27 @@ public class TargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHandle
         _bezierCurve.p2.position = eventData.position;
     }
 
-    // 드랍할 수 있는 곳에 드랍할 때
-    public void OnDrop(PointerEventData eventData)
-    {
-        // 사용가능(코스트 등등)이거나 사용범위에 있을 때만 사용
-        // 아니면 재정렬
 
-        _isDrag = false;
-
-        _cardHolder.DisplayMyHand();
-        _bezierCurve.gameObject.SetActive(false);
-    }
-
-    // 둘다 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // 사용가능(코스트 등등)이거나 사용범위에 있을 때만 사용
-        // 아니면 재정렬
+        CardHolder.isDrag = false;
 
-        _isDrag = false;
+        // 타겟이 있을 때만 사용
+        if (BattleManager.Instance.TargetEnemy != null)
+        {
+            SetActiveRaycast(false);
+            UseCardMove();
+        }
 
-        _cardHolder.DisplayMyHand();
+        // 때리고 나면 적 null처리
+        BattleManager.Instance.TargetEnemy = null;
+
+        // 할거 다 하고 null처리
+        CardHolder.selectedCard = null;
+
+        // 재정렬 후 베지어 곡선 비활성화
+        CardHolder.Relocation();
         _bezierCurve.gameObject.SetActive(false);
+
     }
 }

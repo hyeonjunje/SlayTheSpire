@@ -12,6 +12,10 @@ public enum ECardScale
 
 public class CardHolder : MonoBehaviour
 {
+    public BaseCard selectedCard;  // 현재 집은 카드
+    public bool isDrag = false;
+
+
     [SerializeField]
     private Transform _cardDeckTransform; // 카드 덱 위치
     [SerializeField]
@@ -27,9 +31,6 @@ public class CardHolder : MonoBehaviour
     private List<BaseCard> _cardExtinction; // 카드 소멸
 
     [SerializeField]
-    private BaseCard _selectedCard;  // 현재 집은 카드
-
-    [SerializeField]
     private BezierCurve _bezierCurve;
 
     [SerializeField]
@@ -39,7 +40,11 @@ public class CardHolder : MonoBehaviour
     [SerializeField]
     private float distance;
     [SerializeField]
-    private float sideAmound;  // 카드에 마우스 오버시 양옆으로 이동하는 값
+    private float overSidePosition = 50f;  // 카드 마우스 오버 시 양옆으로 이동하는 값
+    [SerializeField]
+    private float overScale = 1.3f;  // 카드 마우스 오버 시 해당 카드가 커지는 값
+    [SerializeField]
+    private float overUpPosition = 200f; // 카드 마우스 오버 시 해당 카드 Y위치 증가량
 
     public BezierCurve BezierCurve => _bezierCurve;
 
@@ -53,144 +58,118 @@ public class CardHolder : MonoBehaviour
 
 
         // 핸드 다 버리기 테스트
-        if(Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            GoToCemetryAllHands();
+            DiscardAllCard();
         }
     }
 
-    // 전투 시작시 플레이어의 카드를 카드 홀더에 넣는다.
-    public void InitCardHolder(List<BaseCard> cardDeck)
-    {
-        _cardDeck = cardDeck;
-
-        // Todo : 5말고 player의 카드 드로우 수만큼 뽑아야 함
-        for (int i = 0; i < 5; i++)
-        {
-            DrawCard();
-        }
-    }
-
-    // 카드 드로우
+    /// <summary>
+    /// 카드 드로우
+    /// </summary>
     public void DrawCard()
     {
-        // 덱에 카드가 없으면 묘지에 있는 카드를 덱에 넣고 섞어준다.
-        if (_cardDeck.Count == 0)
+        // 패에 카드 10장이상이면 더이상 카드를 드로우하지 못함
+        if(_cardHands.Count >= 10)
+        {
+            return;
+        }
+
+        // 뽑을 카드가 없으면 묘지에 있는 카드를 전부 덱에 넣고 셔플한 다음 드로우
+        if(_cardDeck.Count <= 0)
         {
             ReturnToDeck();
-            ShuffleDeck();
+            Util.ShuffleList(_cardDeck);
         }
 
-        // 덱의 맨 위 카드를 패에 넣어준다.
-        _cardHands.Add(_cardDeck[_cardDeck.Count - 1]);
-        _cardDeck.RemoveAt(_cardDeck.Count - 1);
+        // 덱에 한 장 뽑아서 패에 넣음
+        BaseCard card = _cardDeck[_cardDeck.Count - 1];
+        _cardHands.Add(card);
+        _cardDeck.Remove(card);
 
-        DisplayMyHand();
-
-        // 뽑은 카드는 제일 앞으로
-        _cardHands[_cardHands.Count - 1].transform.SetAsFirstSibling();
+        Relocation();
     }
 
-    // 패에 있는 모든 카드 버리기
-    public void GoToCemetryAllHands()
+    /// <summary>
+    /// 카드 버리기
+    /// </summary>
+    /// <param name="card">버릴 카드</param>
+    public void DiscardCard(BaseCard card)
     {
-        MoveAllHandsToCemetry();
+        Debug.Log("카드 버려?");
 
-        while (_cardHands.Count != 0)
-        {
-            _cardCemetry.Add(_cardHands[_cardHands.Count - 1]);
-            _cardHands.RemoveAt(_cardHands.Count - 1);
-        }
+        _cardCemetry.Add(card);
+        _cardHands.Remove(card);
+
+        Relocation();
+        card.MoveCard(_cardCemetryTransform.localPosition, Vector3.zero, Vector3.zero);
     }
 
-    // 덱의 카드를 다 쓰면 묘지에 있는 카드가 덱에 들어감
-    public void ReturnToDeck()
+    /// <summary>
+    /// 패에 있는 카드 마우스 오버 시 호출
+    /// </summary>
+    /// <param name="card">마우스를 댄 카드</param>
+    public void OverCard(BaseCard card)
     {
-        // 카드 transform 초기화
-        for(int i = 0; i < _cardCemetry.Count; i++)
-        {
-            _cardCemetry[i].transform.localPosition = _cardDeckTransform.localPosition;
-            _cardCemetry[i].transform.localEulerAngles = new Vector3(0f, 0f, 0f);
-            _cardCemetry[i].transform.localScale = Vector3.zero;
-        }
+        float startTheta = GetStartTheta();
 
-        // 카드를 묘지에서 덱으로 이동
-        while (_cardCemetry.Count != 0)
-        {
-            _cardDeck.Add(_cardCemetry[_cardCemetry.Count - 1]);
-            _cardCemetry.RemoveAt(_cardCemetry.Count - 1);
-        }
-    }
+        int index = GetCardIndex(card);
 
-    // 덱을 셔플해준다.
-    public void ShuffleDeck()
-    {
-        Util.ShuffleList(_cardDeck);
-    }
-
-    // 패에 해당 인덱스에 카드에 마우스를 댈 때 양 옆의 카드들 비켜줌
-    public void OnPointerEnterCardHand(BaseCard card)
-    {
-        int index = 0;
-
-        for(int i = 0; i < _cardHands.Count; i++)
-        {
-            if(card == _cardHands[i])
-            {
-                index = i;
-                break;
-            }
-        }
-
-        float startTheta = 0;
-        if (_cardHands.Count % 2 == 0)
-        {
-            startTheta -= _cardHands.Count / 2 * angle - (angle / 2) - 90;
-        }
-        else
-        {
-            startTheta -= (_cardHands.Count / 2) * angle - 90;
-        }
-
-        // 카드 관리
+        // 카드 배치
         for (int i = 0; i < _cardHands.Count; i++)
         {
+            _cardHands[i].transform.SetAsFirstSibling();
+
             float theta = startTheta + angle * i;
             Vector3 targetPos = transform.position + new Vector3(Mathf.Cos(theta * Mathf.Deg2Rad), Mathf.Sin(theta * Mathf.Deg2Rad), 0) * distance;
+            Vector3 targetRot = new Vector3(0f, 0f, theta - 90);
+            Vector3 targetScl = Vector3.one;
 
-            // 왼쪽으로
-            if (i > index)
+            if(i < index)
             {
-                _cardHands[i].MoveCard(targetPos - Vector3.right * sideAmound);
+                targetPos += Vector3.right * overSidePosition;
             }
-            // 오른쪽으로
-            else if (i < index)
+            else if(i > index)
             {
-                _cardHands[i].MoveCard(targetPos + Vector3.right * sideAmound);
+                targetPos -= Vector3.right * overSidePosition;
             }
             else
             {
-                _cardHands[i].transform.SetAsLastSibling();
+                targetPos += Vector3.up * overUpPosition;
+                targetRot = Vector3.zero;
+                targetScl = Vector3.one * overScale;
             }
+
+            _cardHands[i].MoveCard(targetPos, targetRot, targetScl);
+            _cardHands[i].transform.SetAsFirstSibling();
+        }
+
+        _cardHands[index].transform.SetAsLastSibling();
+    }
+
+    // 패에 있는 모든 카드 버리기
+    private void DiscardAllCard()
+    {
+        while(_cardHands.Count != 0)
+        {
+            BaseCard card = _cardHands[_cardHands.Count - 1];
+            DiscardCard(card);
+            card.SetActiveRaycast(true);
         }
     }
 
-    // 핸드 위치 조정
-    public void DisplayMyHand()
+    /// <summary>
+    /// 패에 있는 카드 재배치
+    /// </summary>
+    public void Relocation()
     {
-        float startTheta = 0;
-        if (_cardHands.Count % 2 == 0)
-        {
-            startTheta -= _cardHands.Count / 2 * angle - (angle / 2) - 90;
-        }
-        else
-        {
-            startTheta -= (_cardHands.Count / 2) * angle - 90;
-        }
+        float startTheta = GetStartTheta();
 
-        // 카드 관리
+        // 카드 배치
         for (int i = 0; i < _cardHands.Count; i++)
         {
+            _cardHands[i].transform.SetAsFirstSibling();
+
             float theta = startTheta + angle * i;
             Vector3 targetPos = transform.position + new Vector3(Mathf.Cos(theta * Mathf.Deg2Rad), Mathf.Sin(theta * Mathf.Deg2Rad), 0) * distance;
             Vector3 targetRot = new Vector3(0f, 0f, theta - 90);
@@ -201,16 +180,42 @@ public class CardHolder : MonoBehaviour
         }
     }
 
-    // 핸드에서 묘지로 카드 이동
-    private void MoveAllHandsToCemetry()
-    {
-        for (int i = 0; i < _cardHands.Count; i++)
-        {
-            Vector3 targetPos = _cardCemetryTransform.localPosition;
-            Vector3 targetRot = new Vector3(0f, 0f, 0f);
-            Vector3 targetScl = Vector3.zero;
 
-            _cardHands[i].MoveCard(targetPos, targetRot, targetScl);
+    // 패의 시작 각도를 반환
+    private float GetStartTheta()
+    {
+        float startTheta = 0;
+        if (_cardHands.Count % 2 == 0)
+            startTheta -= _cardHands.Count / 2 * angle - (angle / 2) - 90;
+        else
+            startTheta -= (_cardHands.Count / 2) * angle - 90;
+
+        return startTheta;
+    }
+
+    // 해당 카드가 패에 몇번째있는지 반환
+    private int GetCardIndex(BaseCard card)
+    {
+        for(int i = 0; i < _cardHands.Count; i++)
+        {
+            if(card == _cardHands[i])
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // 묘지 카드 전부 덱으로 귀환
+    private void ReturnToDeck()
+    {
+        while(_cardCemetry.Count != 0)
+        {
+            BaseCard card = _cardCemetry[_cardCemetry.Count - 1];
+            _cardDeck.Add(card);
+            _cardCemetry.Remove(card);
+
+            card.transform.localPosition = _cardDeckTransform.localPosition;
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -8,67 +9,55 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private Vector3 _targetPos;
     private Vector3 _targetRot;
     private Vector3 _targetScl;
-    protected Coroutine _coMove;
+
+    private Coroutine _coMove;
 
     [SerializeField]
-    private float _moveTime = 0.2f;
-
+    private float _moveTime = 0.2f;   // 움직이는 시간
     [SerializeField]
-    private float _upPosition = 100f;
+    private float _upPosition = 100f;  // 마우스 오버 시 올라가는 정도
+    [SerializeField]
+    private float _overScale = 1.3f;  // 마우스 오버 시 커지는 정도
 
-    private Vector3 _prevRot;
-
-    protected bool _isDrag = false;
-    protected CardHolder _cardHolder => GameManager.Game.CardHolder;
+    protected CardHolder CardHolder => GameManager.Game.CardHolder;
 
 
     // 해당 그림에 마우스를 댈 때
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // 해당 카드 커짐
-        // 양 옆에 카드 이동
-        _prevRot = _targetRot;
+        if (CardHolder.isDrag)
+            return;
 
-        _targetPos += new Vector3(0, _upPosition, 0);
-        _targetRot = Vector3.zero;
-        _targetScl = Vector3.one * 1.5f;
-
-        MoveCard();
-        _cardHolder.OnPointerEnterCardHand(this);
+        CardHolder.OverCard(this);
     }
 
     // 해당 그림에 마우스가 떠날 때
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (_isDrag)
+        if (CardHolder.isDrag)
             return;
 
-        _targetPos -= new Vector3(0, _upPosition, 0);
-        _targetRot = _prevRot;
-        _targetScl = Vector3.one * 1f;
-
-        _cardHolder.DisplayMyHand();
+        CardHolder.Relocation();
     }
 
 
-    // 카드를 뽑을 때
-    public void MoveCard(Vector3 targetPos = default(Vector3), Vector3 targetRot = default(Vector3), Vector3 targetScl = default(Vector3))
+    // 카드 이동
+    public void MoveCard(Vector3 targetPos, Vector3 targetRot, Vector3 targetScl)
     {
-        if (_isDrag)
-            return;
-
-        if (targetPos != default(Vector3))
-            _targetPos = targetPos;
-        if (targetRot != default(Vector3))
-            _targetRot = targetRot;
-        if (targetScl != default(Vector3))
-            _targetScl = targetScl;
+        _targetPos = targetPos;
+        _targetRot = targetRot;
+        _targetScl = targetScl;
 
         if(_coMove != null)
         {
             StopCoroutine(_coMove);
         }
         _coMove = StartCoroutine(CoMove());
+    }
+
+    protected void UseCardMove()
+    {
+        CardHolder.DiscardCard(this);
     }
 
     protected void ClearCoroutine()
@@ -96,6 +85,15 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
 
             yield return null;
+        }
+    }
+
+    public void SetActiveRaycast(bool flag)
+    {
+        Image[] children = GetComponentsInChildren<Image>();
+        foreach (Image child in children)
+        {
+            child.raycastTarget = flag;
         }
     }
 }
