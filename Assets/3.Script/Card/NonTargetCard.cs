@@ -41,4 +41,10 @@ public class NonTargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHan
         // 할거 다 하고 null처리
         CardHolder.selectedCard = null;
     }
+
+    protected override void Use()
+    {
+        base.Use();
+        BattleManager.Instance.Player.ShieldAmount += 5;
+    }
 }

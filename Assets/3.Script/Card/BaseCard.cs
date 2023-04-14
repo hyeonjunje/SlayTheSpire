@@ -57,6 +57,8 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     protected void UseCardMove()
     {
+        // 사용하고 그 카드는 버림
+        Use();
         CardHolder.DiscardCard(this);
     }
 
@@ -95,5 +97,10 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             child.raycastTarget = flag;
         }
+    }
+
+    protected virtual void Use()
+    {
+        Debug.Log("사용합니다.");
     }
 }

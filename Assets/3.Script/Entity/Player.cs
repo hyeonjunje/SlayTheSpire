@@ -7,12 +7,6 @@ public class Player : Character
     public delegate void OnDieEvent();
     public OnDieEvent onDieEvent;
     
-    private Animator _anim;
-
-    private void Awake()
-    {
-        _anim = GetComponent<Animator>();
-    }
 
     public override void Dead()
     {
@@ -20,8 +14,9 @@ public class Player : Character
         Debug.Log("À¸¾Ó ÁÖ±Ý");
     }
 
-    public override void Hit()
+    public override void Hit(int damage)
     {
         Debug.Log("À¸¾Ó ¾ÆÆÄ");
+        base.Hit(damage);
     }
 }

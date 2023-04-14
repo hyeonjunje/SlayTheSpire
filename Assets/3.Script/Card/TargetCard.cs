@@ -49,6 +49,12 @@ public class TargetCard : BaseCard, IBeginDragHandler, IDragHandler, IEndDragHan
         // 재정렬 후 베지어 곡선 비활성화
         CardHolder.Relocation();
         _bezierCurve.gameObject.SetActive(false);
+    }
 
+
+    protected override void Use()
+    {
+        base.Use();
+        BattleManager.Instance.TargetEnemy.Hit(5);
     }
 }

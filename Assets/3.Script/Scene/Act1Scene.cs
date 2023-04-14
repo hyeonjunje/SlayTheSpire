@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Act1Scene : BaseScene
 {
+    [SerializeField] private Player _player;
+    [SerializeField] private List<Enemy> _enemies;
+
     [SerializeField] private MapGenerator _mapGenerator;
     [SerializeField] private Button _exitButton;
     [SerializeField] private CanvasGroup _actInfo;
@@ -38,6 +41,9 @@ public class Act1Scene : BaseScene
 
         _exitButtonOriginPos = _exitButton.transform.position;
         _exitButton.onClick.AddListener(() => ExitUI());
+
+
+        BattleManager.Instance.StartBattle(_player, _enemies);
     }
 
     public override void ShowUI(GameObject go)

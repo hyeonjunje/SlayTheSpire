@@ -13,9 +13,9 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 
     }
 
-    public override void Hit()
+    public override void Hit(int damage)
     {
-
+        base.Hit(damage);
     }
 
     public void LockOn()
