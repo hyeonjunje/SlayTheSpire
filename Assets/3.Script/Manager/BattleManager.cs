@@ -16,8 +16,27 @@ public enum EBattleState
 public class BattleManager : Singleton<BattleManager>
 {
     public BattleTurnUI turnUI;
+    public TurnEndUI turnEndUI;
     public int myTurnCount = 1;
-    public bool isDone = false;
+    private bool _myTurn = false;
+    public bool MyTurn
+    {
+        get { return _myTurn; }
+        set
+        {
+            _myTurn = value;
+
+            
+            if(_myTurn)
+            {
+                turnEndUI.ActiveButton();  // myTurn이 true가 되면 버튼 활성화
+            }
+            else
+            {
+                turnEndUI.OnClickButtonEvent(); // myTurn이 false가 되면 클릭한 이벤트 실행
+            }
+        }
+    }
 
     private Player _player;
     private List<Enemy> _enemies;
@@ -26,7 +45,7 @@ public class BattleManager : Singleton<BattleManager>
     private Coroutine _coBattle = null;
 
     public Player Player => _player;
-    private List<Enemy> Enemies => _enemies;
+    public List<Enemy> Enemies => _enemies;
 
     private Enemy targetEnemy = null;
 
@@ -35,7 +54,7 @@ public class BattleManager : Singleton<BattleManager>
         get { return targetEnemy; }
         set
         {
-            if (GameManager.Game.CardHolder.selectedCard == null)
+            if (Player.CardHolder.selectedCard == null)
                 return;
 
             targetEnemy?.LockOff();
@@ -43,7 +62,7 @@ public class BattleManager : Singleton<BattleManager>
             targetEnemy?.LockOn();
 
             // 타겟이 널이 아니면 베지어 곡선 하이라이트
-            GameManager.Game.CardHolder.BezierCurve.Highlight(targetEnemy != null);
+            Player.CardHolder.BezierCurve.Highlight(targetEnemy != null);
         }
     }
 
@@ -55,8 +74,11 @@ public class BattleManager : Singleton<BattleManager>
         _enemies = enemies;
 
         myTurnCount = 1;
+        _myTurn = true;
 
-        if(_coBattle != null)
+        _stateFactory.ChangeState(EBattleState.MyTurnStart);
+
+        if (_coBattle != null)
         {
             StopCoroutine(_coBattle);
         }
@@ -86,11 +108,5 @@ public class BattleManager : Singleton<BattleManager>
         // 적 턴 출력
 
         // 적은 순차적으로 행동함
-    }
-
-
-    public void OnClickTurnEnd()
-    {
-        isDone = true;
     }
 }

@@ -13,31 +13,51 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private Coroutine _coMove;
 
     [SerializeField]
+    private int cost;
+    [SerializeField]
+    private Text costText;
+
+    [SerializeField]
     private float _moveTime = 0.2f;   // 움직이는 시간
     [SerializeField]
     private float _upPosition = 100f;  // 마우스 오버 시 올라가는 정도
     [SerializeField]
     private float _overScale = 1.3f;  // 마우스 오버 시 커지는 정도
 
-    protected CardHolder CardHolder => GameManager.Game.CardHolder;
+    protected CardHolder _cardHolder;
 
+    private int Cost
+    {
+        get { return cost; }
+        set
+        {
+            cost = value;
+            costText.text = cost.ToString();
+        }
+    }
+
+    private void Awake()
+    {
+        Cost = cost;
+        _cardHolder = FindObjectOfType<CardHolder>();
+    }
 
     // 해당 그림에 마우스를 댈 때
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (CardHolder.isDrag)
+        if (_cardHolder.isDrag)
             return;
 
-        CardHolder.OverCard(this);
+        _cardHolder.OverCard(this);
     }
 
     // 해당 그림에 마우스가 떠날 때
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (CardHolder.isDrag)
+        if (_cardHolder.isDrag)
             return;
 
-        CardHolder.Relocation();
+        _cardHolder.Relocation();
     }
 
 
@@ -58,8 +78,11 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     protected void UseCardMove()
     {
         // 사용하고 그 카드는 버림
-        Use();
-        CardHolder.DiscardCard(this);
+        bool isUsable = Use();
+        if(isUsable)
+        {
+            _cardHolder.DiscardCard(this);
+        }
     }
 
     protected void ClearCoroutine()
@@ -99,8 +122,20 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    protected virtual void Use()
+    protected virtual bool Use()
     {
         Debug.Log("사용합니다.");
+
+        // 코스트가 된다면 true반환
+        if(BattleManager.Instance.Player.Orb >= cost)
+        {
+            BattleManager.Instance.Player.Orb -= cost;
+            return true;
+        }
+        else
+        {
+            SetActiveRaycast(true);
+            return false;
+        }
     }
 }

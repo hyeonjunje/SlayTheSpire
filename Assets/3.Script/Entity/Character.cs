@@ -7,8 +7,21 @@ public abstract class Character : MonoBehaviour
 {
     // 몬스터, 플레이어의 부모 스크립트
 
+    // 자신의 턴이 시작될 때 실행될 델리게이트
+    public delegate void OnStartTurn();
+    public OnStartTurn onStartTurn;
+
+    // 자신의 턴이 끝날 때 실행될 델리게이트
+    public delegate void OnEndTurn();
+    public OnEndTurn onEndTurn;
+
     [SerializeField]
     private HpBar _hpBar;
+
+    protected Animator _animator;
+
+    /*private int _animIsHittedHash = Animator.StringToHash("isHitted");
+    private int _animIsDeadHash = Animator.StringToHash("isDead");*/
 
     /*
      hp가 있고 방어막
@@ -50,17 +63,23 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    public bool IsDead => CurrentHp == 0;
+
     // 죽기
-    public abstract void Dead();
+    public virtual void Dead()
+    {
+        // 죽는 애니메이션
+        _animator.SetTrigger("isDead");
+    }
 
     // 맞기
     public virtual void Hit(int damage)
     {
-        // 맞는 애니메이션
-
+        if (IsDead)
+            return;
 
         // 데미지 입기
-        if(ShieldAmount > damage)
+        if (ShieldAmount > damage)
         {
             ShieldAmount -= damage;
             damage = 0;
@@ -72,12 +91,62 @@ public abstract class Character : MonoBehaviour
         }
 
         CurrentHp -= damage;
+
+        if (IsDead)
+            return;
+
+        // 맞는 애니메이션
+        _animator.SetTrigger("isHitted");
     }
 
+    public abstract void Act();
 
-    private void Awake()
+    protected virtual void Awake()
     {
         CurrentHp = _maxHp;
         ShieldAmount = 0;
+
+        _animator = GetComponent<Animator>();
+    }
+
+    protected IEnumerator CoAct(bool isRight)
+    {
+        Vector3 dir = isRight ? Vector3.right : Vector3.left;
+
+        Vector3 origion = transform.position;
+
+        float moveTime = 0.1f;
+        float currentTime = 0f;
+
+        while(true)
+        {
+            currentTime += Time.deltaTime;
+
+            transform.position = Vector3.Lerp(origion, origion + dir, currentTime / moveTime);
+
+            if(currentTime >= moveTime)
+            {
+                break;
+            }
+
+            yield return null;
+        }
+
+        currentTime = 0f;
+        origion = transform.position;
+
+        while (true)
+        {
+            currentTime += Time.deltaTime;
+
+            transform.position = Vector3.Lerp(origion, origion - dir, currentTime / moveTime);
+
+            if (currentTime >= moveTime)
+            {
+                break;
+            }
+
+            yield return null;
+        }
     }
 }

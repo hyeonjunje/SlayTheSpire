@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MyTurnEndState : BaseBattleState
 {
+    CardHolder cardHolder => _battleManager.Player.CardHolder;
+
     public MyTurnEndState(BattleManager battleManager, StateFactory stateFactory) : base(battleManager, stateFactory)
     {
         battleState = EBattleState.MyTurnEnd;
@@ -11,7 +13,9 @@ public class MyTurnEndState : BaseBattleState
 
     public override void Enter()
     {
-        GameManager.Game.CardHolder.DiscardAllCard();
+        cardHolder.DiscardAllCard();
+
+        _battleManager.Player.onEndTurn?.Invoke();
     }
 
     public override void Exit()

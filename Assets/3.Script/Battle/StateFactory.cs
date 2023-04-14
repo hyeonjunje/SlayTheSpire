@@ -21,8 +21,6 @@ public class StateFactory
         _dicState[EBattleState.EnemyTurnStart] = new EnemyTurnStartState(_battleManager, this);
         _dicState[EBattleState.EnemyTurn] = new EnemyTurnState(_battleManager, this);
         _dicState[EBattleState.EnemyTurnEnd] = new EnemyTurnEndState(_battleManager, this);
-
-        ChangeState(EBattleState.MyTurnStart);
     }
 
     public void ChangeState(EBattleState battleState)

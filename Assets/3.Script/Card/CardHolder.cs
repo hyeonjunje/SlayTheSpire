@@ -89,8 +89,6 @@ public class CardHolder : MonoBehaviour
     /// <param name="card">버릴 카드</param>
     public void DiscardCard(BaseCard card)
     {
-        Debug.Log("카드 버려?");
-
         card.SetActiveRaycast(true);
 
         _cardCemetry.Add(card);
@@ -140,6 +138,15 @@ public class CardHolder : MonoBehaviour
         }
 
         _cardHands[index].transform.SetAsLastSibling();
+    }
+
+    public void MoveCenter(BaseCard card)
+    {
+        Vector3 targetPos = Vector3.up * (-Screen.height / 2 + overUpPosition);
+        Vector3 targetRot = Vector3.zero;
+        Vector3 targetScl = Vector3.one * overScale;
+
+        card.MoveCard(targetPos, targetRot, targetScl);
     }
 
     // 패에 있는 모든 카드 버리기

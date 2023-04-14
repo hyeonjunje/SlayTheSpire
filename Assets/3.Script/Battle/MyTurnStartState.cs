@@ -17,6 +17,10 @@ public class MyTurnStartState : BaseBattleState
         _battleManager.turnUI.gameObject.SetActive(true);
         _battleManager.turnUI.DisplayBattleTurn(battleState, myTurnCount);
         myTurnCount++;
+
+        _battleManager.Player.onStartTurn?.Invoke();
+
+        _battleManager.MyTurn = true;
     }
 
     public override void Exit()

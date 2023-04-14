@@ -7,9 +7,9 @@ public class NonTargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHan
 {
     public void OnBeginDrag(PointerEventData eventData)
     {
-        CardHolder.isDrag = true;
+        _cardHolder.isDrag = true;
 
-        CardHolder.selectedCard = this;
+        _cardHolder.selectedCard = this;
 
         // 이동 시 현재 이동하는 코루틴 정지
         ClearCoroutine();
@@ -26,7 +26,7 @@ public class NonTargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHan
     // 드랍할 때
     public void OnDrop(PointerEventData eventData)
     {
-        CardHolder.isDrag = false;
+        _cardHolder.isDrag = false;
 
         // 사용가능(코스트 등등)이거나 사용범위에 있을 때만 사용
         // 사용 범위 y값이 300이상 -> 이는 해상도에 따라 바꾸는 로직이 필요
@@ -37,14 +37,20 @@ public class NonTargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHan
         }
 
         // 아니면 재정렬
-        CardHolder.Relocation();
+        _cardHolder.Relocation();
         // 할거 다 하고 null처리
-        CardHolder.selectedCard = null;
+        _cardHolder.selectedCard = null;
     }
 
-    protected override void Use()
+    protected override bool Use()
     {
-        base.Use();
-        BattleManager.Instance.Player.ShieldAmount += 5;
+        bool isUsable = base.Use();
+
+        if(isUsable)
+        {
+            BattleManager.Instance.Player.ShieldAmount += 5;
+        }
+
+        return isUsable;
     }
 }

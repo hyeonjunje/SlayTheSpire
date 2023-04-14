@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2028323556502028750}
   - component: {fileID: 2028323556502028748}
   - component: {fileID: 2028323556502028749}
+  - component: {fileID: 2946357383011846782}
   m_Layer: 0
   m_Name: Cultist
   m_TagString: Untagged
@@ -206,10 +207,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f50f89573675f4885e34dd9dc4f480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
   _hpBar: {fileID: 804376901955624150}
   _maxHp: 48
   _reticle: {fileID: 2028323557595065655}
+--- !u!95 &2946357383011846782
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028323556502028785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 08dc0b4586958684198c01f020518f6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2028323556618432876
 GameObject:
   m_ObjectHideFlags: 0

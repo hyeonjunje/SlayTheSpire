@@ -30,8 +30,6 @@ public class Act1Scene : BaseScene
         // 시작 시 맵 만들기 (보여주는 건 x)
         // 맵 생성 && 맵 데이터 넘겨주기
         GameManager.Game.SetMapArray(_mapGenerator.GenerateMap());
-        // 카드 홀더 넘겨주기
-        GameManager.Game.SetCardHolder(_cardHolder);
 
         // 1막 태초 코루틴으로 보여주기
         StartCoroutine(CoAppearActInfo());
@@ -41,9 +39,14 @@ public class Act1Scene : BaseScene
 
         _exitButtonOriginPos = _exitButton.transform.position;
         _exitButton.onClick.AddListener(() => ExitUI());
+    }
 
-
-        BattleManager.Instance.StartBattle(_player, _enemies);
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            BattleManager.Instance.StartBattle(_player, _enemies);
+        }
     }
 
     public override void ShowUI(GameObject go)

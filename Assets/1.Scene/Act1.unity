@@ -859,6 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnUI: {fileID: 1640180604}
+  turnEndUI: {fileID: 581407111}
   myTurnCount: 1
 --- !u!4 &113422758
 Transform:
@@ -1273,6 +1274,10 @@ PrefabInstance:
     - target: {fileID: 1053198872930093315, guid: 9b47bf23dd0ff604db611caf7bc2b1c6, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028323556502028749, guid: 9b47bf23dd0ff604db611caf7bc2b1c6, type: 3}
+      propertyPath: _maxHp
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2028323556502028751, guid: 9b47bf23dd0ff604db611caf7bc2b1c6, type: 3}
       propertyPath: m_RootOrder
@@ -2928,6 +2933,7 @@ GameObject:
   - component: {fileID: 581407110}
   - component: {fileID: 581407109}
   - component: {fileID: 581407108}
+  - component: {fileID: 581407111}
   m_Layer: 5
   m_Name: TurnEndUI
   m_TagString: Untagged
@@ -2946,6 +2952,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 753929366}
   - {fileID: 1605661778}
   m_Father: {fileID: 126497303}
   m_RootOrder: 2
@@ -2998,19 +3005,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 581407109}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 113422757}
-        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
-        m_MethodName: OnClickTurnEnd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &581407109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3049,6 +3044,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581407106}
   m_CullTransparentMesh: 1
+--- !u!114 &581407111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581407106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e07433913c5834ba40f559ec8e4ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 581407108}
+  image: {fileID: 581407109}
+  lockSpriteColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
+  originSpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverTurnEnd: {fileID: 753929365}
+  turnEndText: {fileID: 1605661779}
 --- !u!1 &608669384
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,6 +4118,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750500204}
+  m_CullTransparentMesh: 1
+--- !u!1 &753929365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753929366}
+  - component: {fileID: 753929368}
+  - component: {fileID: 753929367}
+  m_Layer: 5
+  m_Name: TurnEndUIHover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &753929366
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753929365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 581407107}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &753929367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753929365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1535283576280912637, guid: 2a50bbd528947404ebc3a92ce68bb6c1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &753929368
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753929365}
   m_CullTransparentMesh: 1
 --- !u!1 &758025187
 GameObject:
@@ -8308,7 +8396,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 581407107}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10267,7 +10355,7 @@ GameObject:
   - component: {fileID: 2057693783}
   - component: {fileID: 2057693782}
   m_Layer: 5
-  m_Name: Text
+  m_Name: OrbText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10848,6 +10936,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hpBar: {fileID: 1290512783}
   _maxHp: 80
+  _cardHolder: {fileID: 1252302025}
+  energyText: {fileID: 2057693780}
+  maxOrb: 3
 --- !u!1001 &1349878450265109997
 PrefabInstance:
   m_ObjectHideFlags: 0

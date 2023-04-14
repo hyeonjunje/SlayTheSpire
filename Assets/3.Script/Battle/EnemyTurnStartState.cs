@@ -13,6 +13,8 @@ public class EnemyTurnStartState : BaseBattleState
     {
         _battleManager.turnUI.gameObject.SetActive(true);
         _battleManager.turnUI.DisplayBattleTurn(battleState);
+
+        _battleManager.Enemies.ForEach(enemy => enemy.onStartTurn?.Invoke());
     }
 
     public override void Exit()
@@ -24,7 +26,7 @@ public class EnemyTurnStartState : BaseBattleState
     {
         if (!_battleManager.turnUI.gameObject.activeSelf)
         {
-            _stateFactory.ChangeState(EBattleState.MyTurn);
+            _stateFactory.ChangeState(EBattleState.EnemyTurn);
         }
     }
 }

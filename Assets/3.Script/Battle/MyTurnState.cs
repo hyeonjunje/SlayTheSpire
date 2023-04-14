@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MyTurnState : BaseBattleState
 {
+    CardHolder cardHolder => _battleManager.Player.CardHolder;
+
     public MyTurnState(BattleManager battleManager, StateFactory stateFactory) : base(battleManager, stateFactory)
     {
         battleState = EBattleState.MyTurn;
@@ -14,18 +16,18 @@ public class MyTurnState : BaseBattleState
     {
         for(int i = 0; i < 5; i++)
         {
-            GameManager.Game.CardHolder.DrawCard();
+            cardHolder.DrawCard();
         }
     }
 
     public override void Exit()
     {
-        _battleManager.isDone = false;
+        _battleManager.MyTurn = false;
     }
 
     public override void Update()
     {
-        if(_battleManager.isDone)
+        if(!_battleManager.MyTurn)
         {
             _stateFactory.ChangeState(EBattleState.MyTurnEnd);
         }

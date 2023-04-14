@@ -8,9 +8,6 @@ public class GameManagerEx
     private Room _selectedRoom; // 터치한 방
     private Room _currentRoom; // 현재 위치한 방
 
-    private CardHolder _cardHolder;
-    public CardHolder CardHolder => _cardHolder;
-
     public Room SelectedRoom
     {
         get { return _selectedRoom; }
@@ -56,10 +53,6 @@ public class GameManagerEx
         _mapArray = mapArray;
     }
 
-    public void SetCardHolder(CardHolder cardHolder)
-    {
-        _cardHolder = cardHolder;
-    }
 
     public void StartMap()
     {
