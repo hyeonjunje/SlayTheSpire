@@ -2,13 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ECardScale
-{
-    bigger,
-    smaller,
-    same,
-    size,
-}
 
 public class CardHolder : MonoBehaviour
 {
@@ -98,6 +91,8 @@ public class CardHolder : MonoBehaviour
     {
         Debug.Log("카드 버려?");
 
+        card.SetActiveRaycast(true);
+
         _cardCemetry.Add(card);
         _cardHands.Remove(card);
 
@@ -148,13 +143,12 @@ public class CardHolder : MonoBehaviour
     }
 
     // 패에 있는 모든 카드 버리기
-    private void DiscardAllCard()
+    public void DiscardAllCard()
     {
         while(_cardHands.Count != 0)
         {
             BaseCard card = _cardHands[_cardHands.Count - 1];
             DiscardCard(card);
-            card.SetActiveRaycast(true);
         }
     }
 
