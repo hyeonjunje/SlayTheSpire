@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpBar: {fileID: 804376901955624150}
-  _maxHp: 48
+  _maxHp: 15
   _reticle: {fileID: 2028323557595065655}
 --- !u!95 &2946357383011846782
 Animator:

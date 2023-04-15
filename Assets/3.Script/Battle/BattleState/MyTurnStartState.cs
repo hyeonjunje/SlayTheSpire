@@ -13,14 +13,10 @@ public class MyTurnStartState : BaseBattleState
 
     public override void Enter()
     {
-        // 내 턴 출력 (몇번째 턴인지도 알려줌)
-        _battleManager.turnUI.gameObject.SetActive(true);
-        _battleManager.turnUI.DisplayBattleTurn(battleState, myTurnCount);
-        myTurnCount++;
-
+        _battleManager.onStartMyTurn?.Invoke();
         _battleManager.Player.onStartTurn?.Invoke();
 
-        _battleManager.MyTurn = true;
+        _battleManager.myTurn = true;
     }
 
     public override void Exit()
@@ -30,7 +26,7 @@ public class MyTurnStartState : BaseBattleState
 
     public override void Update()
     {
-        if (!_battleManager.turnUI.gameObject.activeSelf)
+        if (_battleManager.inBattleUI.EndStartTurn)
         {
             _stateFactory.ChangeState(EBattleState.MyTurn);
         }

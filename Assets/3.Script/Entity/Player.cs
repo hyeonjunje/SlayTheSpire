@@ -13,6 +13,9 @@ public class Player : Character
     [SerializeField]
     private Text energyText;
 
+    [SerializeField]
+    private List<BaseCard> myCards;
+
     public CardHolder CardHolder => _cardHolder;
 
     public int maxOrb = 3;
@@ -60,5 +63,10 @@ public class Player : Character
     public override void Act()
     {
         StartCoroutine(CoAct(true));
+    }
+
+    public void StartBattle()
+    {
+        _cardHolder.InitCardHolder(myCards);
     }
 }

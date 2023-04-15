@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,20 +12,20 @@ public class BattleTurnUI : MonoBehaviour
     [SerializeField]
     private Text myTurnCountText;
 
-    public void DisplayBattleTurn(EBattleState battleState, int turnCount = 0)
+    public void DisplayBattleMyTurn()
     {
-        if(battleState == EBattleState.MyTurnStart)
-        {
-            myTurn.SetActive(true);
-            myTurnCountText.text = turnCount + "턴";
-        }
-        else if(battleState == EBattleState.EnemyTurnStart)
-        {
-            enemyTurn.SetActive(true);
-        }
+        myTurn.SetActive(true);
+        // myTurnCountText.text = turnCount + "턴";
     }
 
-    public void SetActiveFalse()
+    public void DisplayBattleEnemyTurn()
+    {
+        enemyTurn.SetActive(true);
+    }
+
+
+    // 애니메이션 이벤트로 넣어둠
+    private void SetActiveFalse()
     {
         myTurn.SetActive(false);
         enemyTurn.SetActive(false);

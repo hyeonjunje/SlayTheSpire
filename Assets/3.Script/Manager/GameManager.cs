@@ -8,10 +8,13 @@ public class GameManager : Singleton<GameManager>
     private SceneManagerEx _scene = new SceneManagerEx();
     private GameManagerEx _game = new GameManagerEx();
     private UIManager _ui = new UIManager();
+    private RoomManager _room = new RoomManager();
+
     public static SoundManager Sound => Instance._sound;
     public static SceneManagerEx Scene => Instance._scene;
     public static GameManagerEx Game => Instance._game;
     public static UIManager UI => Instance._ui;
+    public static RoomManager Room => Instance._room;
 
     private bool _isInit = false;
 
@@ -26,6 +29,7 @@ public class GameManager : Singleton<GameManager>
             _scene.Init();
             _game.Init();
             _ui.Init();
+            _room.Init();
         }
     }
 }

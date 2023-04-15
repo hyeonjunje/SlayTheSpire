@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class Act1Scene : BaseScene
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private List<Enemy> _enemies;
-
     [SerializeField] private MapGenerator _mapGenerator;
     [SerializeField] private Button _exitButton;
     [SerializeField] private CanvasGroup _actInfo;
@@ -15,6 +12,8 @@ public class Act1Scene : BaseScene
     [SerializeField] private CardHolder _cardHolder;
 
     [SerializeField] private GameObject _map;
+
+    [SerializeField] private Neow _neow;
 
     private Vector3 _exitButtonOriginPos;
     private Coroutine _coAppearExitButton;
@@ -24,12 +23,16 @@ public class Act1Scene : BaseScene
     {
         base.Init();
 
+        _neow.gameObject.SetActive(true);
+
         // 씬 bgm 실행
         GameManager.Sound.PlayBGM(EBGM.Level1);
 
         // 시작 시 맵 만들기 (보여주는 건 x)
         // 맵 생성 && 맵 데이터 넘겨주기
         GameManager.Game.SetMapArray(_mapGenerator.GenerateMap());
+
+        GameManager.Room.SetScene(this, _neow);
 
         // 1막 태초 코루틴으로 보여주기
         StartCoroutine(CoAppearActInfo());
@@ -39,14 +42,6 @@ public class Act1Scene : BaseScene
 
         _exitButtonOriginPos = _exitButton.transform.position;
         _exitButton.onClick.AddListener(() => ExitUI());
-    }
-
-    public void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.D))
-        {
-            BattleManager.Instance.StartBattle(_player, _enemies);
-        }
     }
 
     public override void ShowUI(GameObject go)
@@ -73,6 +68,18 @@ public class Act1Scene : BaseScene
     {
         ShowUI(_map);
     }
+
+    public void ShowMyCard()
+    {
+
+    }
+
+    public void ShowSetting()
+    {
+
+    }
+
+
 
     private IEnumerator CoAppearActInfo()
     {

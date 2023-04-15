@@ -41,20 +41,30 @@ public class CardHolder : MonoBehaviour
 
     public BezierCurve BezierCurve => _bezierCurve;
 
-    void Update()
+    public void InitCardHolder(List<BaseCard> myCard)
     {
-        // 드로우 테스트
-        if (Input.GetKeyDown(KeyCode.A))
+        // 초기화
+        selectedCard = null;
+        isDrag = false;
+
+        _cardDeck = new List<BaseCard>();
+        _cardHands = new List<BaseCard>();
+        _cardCemetry = new List<BaseCard>();
+        _cardExtinction = new List<BaseCard>();
+
+        // 내 카드 넣기
+        foreach (BaseCard card in myCard)
         {
-            DrawCard();
+            // 위치 초기화
+            card.transform.localPosition = _cardDeckTransform.localPosition;
+            card.transform.localEulerAngles = Vector3.zero;
+            card.transform.localScale = Vector3.zero;
+
+            _cardDeck.Add(card);
         }
 
-
-        // 핸드 다 버리기 테스트
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            DiscardAllCard();
-        }
+        // 셔플
+        Util.ShuffleList(_cardDeck);
     }
 
     /// <summary>

@@ -21,7 +21,7 @@ public class Neow : MonoBehaviour
 
         List<string> answers = new List<string>();
         answers.Add("[대화한다]");
-        dialogs.Add(new Dialog("한번 더 \n 도전할텐가...?", answers, ProceedConversation));
+        dialogs.Add(new Dialog("반갑군...", answers, ProceedConversation));
 
         answers = new List<string>();
         answers.Add("[다음 세 전투를 적들의 체력이 1인 상태로 시작합니다]");

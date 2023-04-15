@@ -15,30 +15,17 @@ public enum EBattleState
 
 public class BattleManager : Singleton<BattleManager>
 {
-    public BattleTurnUI turnUI;
-    public TurnEndUI turnEndUI;
+    public System.Action onStartMyTurn;     // 내 턴 시작 시 발생
+    public System.Action onStartEnemyTurn;  // 적 턴 시작 시 발생
+
+    public InBattleUI inBattleUI;
+
     public int myTurnCount = 1;
-    private bool _myTurn = false;
-    public bool MyTurn
-    {
-        get { return _myTurn; }
-        set
-        {
-            _myTurn = value;
+    public bool myTurn = false;
 
-            
-            if(_myTurn)
-            {
-                turnEndUI.ActiveButton();  // myTurn이 true가 되면 버튼 활성화
-            }
-            else
-            {
-                turnEndUI.OnClickButtonEvent(); // myTurn이 false가 되면 클릭한 이벤트 실행
-            }
-        }
-    }
-
+    [SerializeField]
     private Player _player;
+
     private List<Enemy> _enemies;
     private StateFactory _stateFactory;
 
@@ -66,15 +53,36 @@ public class BattleManager : Singleton<BattleManager>
         }
     }
 
-    public void StartBattle(Player player, List<Enemy> enemies)
+    private void Awake()
     {
         _stateFactory = new StateFactory(this);
+    }
 
-        _player = player;
-        _enemies = enemies;
+    // 버튼에 onclick으로 넣어줌
+    public void EndMyTurn()
+    {
+        myTurn = false;
+    }
+
+
+    public void StartBattle(BattleData battleData)
+    {
+        // 배틀 UI 활성화
+        inBattleUI.gameObject.SetActive(true);
+
+        // 플레이어 전투 시작
+        _player.StartBattle();
+
+        // 적 생성
+        _enemies = new List<Enemy>();
+        for (int i = 0; i < battleData.Enemies.Count; i++)
+        {
+            Enemy enemy = Object.Instantiate(battleData.Enemies[i], battleData.SpawnPos[i], Quaternion.identity);
+            _enemies.Add(enemy);
+        }
 
         myTurnCount = 1;
-        _myTurn = true;
+        myTurn = true;
 
         _stateFactory.ChangeState(EBattleState.MyTurnStart);
 
@@ -91,22 +99,36 @@ public class BattleManager : Singleton<BattleManager>
         {
             _stateFactory.CurrentState.Update();
 
-            if(_stateFactory.CurrentState.battleState == EBattleState.BattleEnd)
-            {
-                Debug.Log("끝났습니다.");
+            // 플레이어 죽음 확인
+            if (_player.IsDead)
                 break;
-            }
+
+            // 적 죽음 확인
+            bool isAllEnemyDie = true;
+
+            foreach(Enemy enemy in _enemies)
+                if (!enemy.IsDead)
+                    isAllEnemyDie = false;
+
+            if (isAllEnemyDie)
+                break;
+
 
             yield return null;
         }
-        // 상태패턴으로??
 
-        // 내 턴 출력 (몇번째 턴인지도 알려줌)
+        if(_player.IsDead)
+        {
 
-        // 내가 턴 종료할 때까지 내 턴임
+        }
+        else
+        {
+            // 클리어 처리
+            GameManager.Game.CurrentRoom.ClearRoom();
 
-        // 적 턴 출력
+            // 보상
+        }
 
-        // 적은 순차적으로 행동함
+        inBattleUI.gameObject.SetActive(false);
     }
 }

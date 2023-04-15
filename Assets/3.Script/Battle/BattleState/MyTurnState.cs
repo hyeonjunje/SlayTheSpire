@@ -22,12 +22,12 @@ public class MyTurnState : BaseBattleState
 
     public override void Exit()
     {
-        _battleManager.MyTurn = false;
+        _battleManager.myTurn = false;
     }
 
     public override void Update()
     {
-        if(!_battleManager.MyTurn)
+        if(!_battleManager.myTurn)
         {
             _stateFactory.ChangeState(EBattleState.MyTurnEnd);
         }

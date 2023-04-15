@@ -90,7 +90,7 @@ public class UIManager
         SelectedButtons.ForEach(selectedButton => selectedButton.onClick.RemoveAllListeners());
         SelectedButtons.ForEach(selectgedButton => selectgedButton.gameObject.SetActive(false));
         
-        SelectedButtons[0].GetComponent<RectTransform>().anchoredPosition = _originPos;
+        // SelectedButtons[0].GetComponent<RectTransform>().anchoredPosition = _originPos;
     }
 
     // UI 비활성화하고 원래부모로 이동

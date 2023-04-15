@@ -147,8 +147,8 @@ public class Room : MonoBehaviour
             IsGoable = false;
 
             GameManager.Game.CurrentRoom = this;
-
-            ClearRoom();
+            // ClearRoom();
+            GameManager.Room.EnterRoom(RoomType);
         }
         else
         {
