@@ -9,9 +9,11 @@ public class Act1Scene : BaseScene
     [SerializeField] private Button _exitButton;
     [SerializeField] private CanvasGroup _actInfo;
 
+    [SerializeField] private Player _player;
     [SerializeField] private CardHolder _cardHolder;
 
     [SerializeField] private GameObject _map;
+    [SerializeField] private GameObject _myCard;
 
     [SerializeField] private Neow _neow;
 
@@ -71,7 +73,7 @@ public class Act1Scene : BaseScene
 
     public void ShowMyCard()
     {
-
+        ShowUI(_myCard);
     }
 
     public void ShowSetting()

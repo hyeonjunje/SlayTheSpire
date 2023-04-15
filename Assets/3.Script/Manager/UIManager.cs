@@ -77,6 +77,7 @@ public class UIManager
         {
             SelectedButtons[i].gameObject.SetActive(true);
             SelectedButtons[i].transform.SetParent(parent);
+            SelectedButtons[i].transform.SetAsFirstSibling();
             SelectedButtons[i].GetComponentInChildren<Text>().text = dialog.answers[i];
             SelectedButtons[i].onClick.AddListener(() => dialog.onClickButtons());
 

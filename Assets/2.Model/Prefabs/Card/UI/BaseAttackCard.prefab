@@ -509,7 +509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da83836c492e34f4a8fd2ec2a198d776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recentNum: 0
+  cardType: 0
   cost: 1
+  cardName: "\uD0C0\uACA9"
   costText: {fileID: 6530360184435241421}
   _moveTime: 0.2
   _upPosition: 150

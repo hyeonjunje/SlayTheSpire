@@ -13,8 +13,7 @@ public class Player : Character
     [SerializeField]
     private Text energyText;
 
-    [SerializeField]
-    private List<BaseCard> myCards;
+    public List<BaseCard> myCards;
 
     public CardHolder CardHolder => _cardHolder;
 

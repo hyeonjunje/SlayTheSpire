@@ -9,6 +9,9 @@ public class TargetCard : BaseCard, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!isBattle)
+            return;
+
         _cardHolder.isDrag = true;
 
         _cardHolder.selectedCard = this;
@@ -24,6 +27,9 @@ public class TargetCard : BaseCard, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!isBattle)
+            return;
+
         _bezierCurve.p0.position = transform.position;
         _bezierCurve.p2.position = eventData.position;
     }
@@ -31,6 +37,9 @@ public class TargetCard : BaseCard, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!isBattle)
+            return;
+
         _cardHolder.isDrag = false;
 
         // 타겟이 있을 때만 사용

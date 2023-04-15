@@ -376,7 +376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3a6c970d4f3e742a578b954c83870b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recentNum: 0
+  cardType: 1
   cost: 1
+  cardName: "\uC218\uBE44"
   costText: {fileID: 3492785635521950098}
   _moveTime: 0.2
   _upPosition: 150

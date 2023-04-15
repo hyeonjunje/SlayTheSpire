@@ -4,16 +4,31 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+public enum ECardType
+{
+    Attack,
+    Skill,
+    Power,
+    Common,
+    Injury,
+    Curse,
+}
+
 public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public int recentNum;
+    public ECardType cardType;
+    public int cost;
+    public string cardName;
+
+    public bool isBattle = true;
+
     private Vector3 _targetPos;
     private Vector3 _targetRot;
     private Vector3 _targetScl;
 
     private Coroutine _coMove;
 
-    [SerializeField]
-    private int cost;
     [SerializeField]
     private Text costText;
 
@@ -38,6 +53,8 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Awake()
     {
+        isBattle = true;
+
         Cost = cost;
         _cardHolder = FindObjectOfType<CardHolder>();
     }
@@ -45,6 +62,10 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // 해당 그림에 마우스를 댈 때
     public void OnPointerEnter(PointerEventData eventData)
     {
+        // 전투중이 아니라면(내 카드에서 볼 때...)
+        if (!isBattle)
+            return;
+
         if (_cardHolder.isDrag)
             return;
 
@@ -54,6 +75,9 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // 해당 그림에 마우스가 떠날 때
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (!isBattle)
+            return;
+
         if (_cardHolder.isDrag)
             return;
 

@@ -7,6 +7,9 @@ public class NonTargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHan
 {
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!isBattle)
+            return;
+
         _cardHolder.isDrag = true;
 
         _cardHolder.selectedCard = this;
@@ -19,6 +22,9 @@ public class NonTargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHan
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!isBattle)
+            return;
+
         // 카드가 마우스 따라가게
         transform.position = eventData.position;
     }
@@ -26,6 +32,9 @@ public class NonTargetCard : BaseCard, IBeginDragHandler, IDragHandler, IDropHan
     // 드랍할 때
     public void OnDrop(PointerEventData eventData)
     {
+        if (!isBattle)
+            return;
+
         _cardHolder.isDrag = false;
 
         // 사용가능(코스트 등등)이거나 사용범위에 있을 때만 사용
