@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
+  m_Name: Strike
+  m_EditorClassIdentifier: 
+  id: 1
+  cardImage: {fileID: 5397703368290560118, guid: 8d9740ccc8f1575438993ded872c07c8, type: 3}
+  cardName: "\uD0C0\uACA9"
+  cost: 1
+  cardType: 0
+  cardTypeString: "\uACF5\uACA9"
+  cardExplanation: "\uD53C\uD574\uB97C 6 \uC90D\uB2C8\uB2E4."
+  upgradeCardName: 
+  upgradeCardCost: 
+  upgradeCardExplanation: 
+  useEffect: []
+  upgradeUseEffect: []

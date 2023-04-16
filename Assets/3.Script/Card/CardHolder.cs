@@ -61,6 +61,8 @@ public class CardHolder : MonoBehaviour
             card.transform.localScale = Vector3.zero;
 
             _cardDeck.Add(card);
+
+            card.isBattle = true;
         }
 
         // ¼ÅÇÃ

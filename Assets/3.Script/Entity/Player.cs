@@ -68,4 +68,24 @@ public class Player : Character
     {
         _cardHolder.InitCardHolder(myCards);
     }
+
+    public void EndBattle()
+    {
+        foreach(BaseCard card in myCards)
+        {
+            card.isBattle = false;
+        }
+    }
+
+    // 플레이어의 카드를 더해준다.
+    public void AddCard(BaseCard card)
+    {
+        myCards.Add(card);
+    }
+
+    // 플레이어의 카드를 제거한다.
+    public void RemoveCard(BaseCard card)
+    {
+
+    }
 }

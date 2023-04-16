@@ -4,15 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public enum ECardType
-{
-    Attack,
-    Skill,
-    Power,
-    Common,
-    Injury,
-    Curse,
-}
 
 public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -20,6 +11,13 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public ECardType cardType;
     public int cost;
     public string cardName;
+
+    private CardData _cardData;
+    private int _generateNumber;
+
+
+    public CardData CardData => _cardData;
+    public int GenerateNumber => _generateNumber;
 
     public bool isBattle = true;
 
@@ -51,12 +49,18 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    private void Awake()
+    public void Init(CardData cardData, int generateNumber)
     {
-        isBattle = true;
+        isBattle = false;
 
-        Cost = cost;
         _cardHolder = FindObjectOfType<CardHolder>();
+
+        _cardData = cardData;
+        _generateNumber = generateNumber;
+
+        transform.localScale = Vector3.zero;
+
+        cost = cardData.cost;
     }
 
     // 해당 그림에 마우스를 댈 때

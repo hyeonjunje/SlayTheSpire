@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Act1Scene : BaseScene
 {
+    [SerializeField] private CardGenerator _cardGenerator;
     [SerializeField] private MapGenerator _mapGenerator;
     [SerializeField] private Button _exitButton;
     [SerializeField] private CanvasGroup _actInfo;
@@ -34,12 +35,20 @@ public class Act1Scene : BaseScene
         // 맵 생성 && 맵 데이터 넘겨주기
         GameManager.Game.SetMapArray(_mapGenerator.GenerateMap());
 
-        GameManager.Room.SetScene(this, _neow);
-
         // 1막 태초 코루틴으로 보여주기
         StartCoroutine(CoAppearActInfo());
 
         // 카드도 생성해야 하지
+        _player.AddCard(_cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack));
+        _player.AddCard(_cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack));
+        _player.AddCard(_cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack));
+        _player.AddCard(_cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack));
+        _player.AddCard(_cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack));
+        _player.AddCard(_cardGenerator.GenerateCard("수비", ECardGrade.Common, ECardType.Skill));
+        _player.AddCard(_cardGenerator.GenerateCard("수비", ECardGrade.Common, ECardType.Skill));
+        _player.AddCard(_cardGenerator.GenerateCard("수비", ECardGrade.Common, ECardType.Skill));
+        _player.AddCard(_cardGenerator.GenerateCard("수비", ECardGrade.Common, ECardType.Skill));
+        _player.AddCard(_cardGenerator.GenerateCard("수비", ECardGrade.Common, ECardType.Skill));
         // 캐릭터도 만들어야하지
 
         _exitButtonOriginPos = _exitButton.transform.position;

@@ -95,6 +95,8 @@ public class BattleManager : Singleton<BattleManager>
 
     IEnumerator CoBattle()
     {
+        // isBattle 트루로
+        
         while(true)
         {
             _stateFactory.CurrentState.Update();
@@ -117,7 +119,10 @@ public class BattleManager : Singleton<BattleManager>
             yield return null;
         }
 
-        if(_player.IsDead)
+        // isBattle false로
+        _player.EndBattle();
+
+        if (_player.IsDead)
         {
 
         }

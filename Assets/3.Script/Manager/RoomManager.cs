@@ -2,24 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomManager
+public class RoomManager : MonoBehaviour
 {
-    private List<BattleData> battleData;
+    [SerializeField]
+    private List<BattleData> act1BattleData;
+    [SerializeField]
+    private List<BattleData> act2BattleData;
+    [SerializeField]
+    private List<BattleData> act3BattleData;
 
+    [SerializeField]
     private Act1Scene act1Scene;
+    [SerializeField]
     private Neow neow;
-
-    public void Init()
-    {
-        battleData = new List<BattleData>();
-        battleData.Add(Resources.Load<BattleData>("Data/BattleData/BattleData1"));
-    }
-
-    public void SetScene(Act1Scene act1Scene, Neow neow)
-    {
-        this.act1Scene = act1Scene;
-        this.neow = neow;
-    }
 
     public void EnterRoom(ERoomType roomType)
     {
@@ -31,7 +26,6 @@ public class RoomManager
 
         // 대화창 없애주고
         GameManager.UI.InitSelectedButton();
-
 
 
         switch (roomType)
@@ -60,7 +54,7 @@ public class RoomManager
     // 일반 적 방에 들어갈 때
     private void OnEnterEnemyRoom()
     {
-        BattleManager.Instance.StartBattle(battleData[0]);
+        BattleManager.Instance.StartBattle(act1BattleData[0]);
     }
 
     // 엘리트 방에 들어갈 때
