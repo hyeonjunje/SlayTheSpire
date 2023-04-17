@@ -66,14 +66,14 @@ public class Player : Character
 
     public void StartBattle()
     {
-        _cardHolder.InitCardHolder(myCards);
+        _cardHolder.StartBattle(myCards);
     }
 
     public void EndBattle()
     {
         foreach(BaseCard card in myCards)
         {
-            card.isBattle = false;
+            card.EndBattle();
         }
     }
 

@@ -26,6 +26,9 @@ public class MyCardUI : MonoBehaviour
     [SerializeField]
     private Button[] sortButtons;
 
+    [SerializeField]
+    private Image[] sortDirImage;
+
     /*
     descending order
     ascending order
@@ -40,8 +43,9 @@ public class MyCardUI : MonoBehaviour
         for(int i = 0; i < sortButtons.Length; i++)
         {
             ESortType sortTypeIndex = (ESortType)i;
+            int index = i;
             sortButtons[i].onClick.AddListener(() => sortType = sortTypeIndex);
-            sortButtons[i].onClick.AddListener(() => Sort());
+            sortButtons[i].onClick.AddListener(() => Sort(index));
         }
     }
 
@@ -49,7 +53,10 @@ public class MyCardUI : MonoBehaviour
     {
         // 내림차순으로 초기화
         for(int i = 0; i < isAscending.Length; i++)
+        {
             isAscending[i] = false;
+            sortDirImage[i].transform.localScale = Vector3.one;
+        }
 
         // 초기화
         myCards = new List<BaseCard>();
@@ -58,9 +65,13 @@ public class MyCardUI : MonoBehaviour
         foreach (BaseCard card in BattleManager.Instance.Player.myCards)
         {
             BaseCard cloneCard = Instantiate(card, myCardsParent);
+
             cloneCard.transform.localEulerAngles = Vector3.zero;
             cloneCard.transform.localScale = Vector3.one;
-            cloneCard.isBattle = false;
+            
+            // 나중에 고쳐야 함
+            cloneCard.EndBattle();
+
             myCards.Add(cloneCard);
         }
 
@@ -80,28 +91,50 @@ public class MyCardUI : MonoBehaviour
                 Destroy(child.gameObject);
     }
 
-    public void Sort()
+    /// <summary>
+    /// 카드를 어떤 기준으로 정렬해줌
+    /// </summary>
+    /// <param name="isAscending">오름차순인가? </param>
+    public void Sort(int index)
     {
         Debug.Log("정렬합니다. " + sortType);
+
+        for(int i = 0; i < sortButtons.Length; i++)
+        {
+            foreach (Image childImage in sortButtons[i].GetComponentsInChildren<Image>())
+            {
+                childImage.color = i == index ? Color.yellow :  Color.white;
+            }
+        }
 
         // 해당 정렬타입으로 정렬하고 만약 순서가 같으면 최신신으로 정렬
         switch (sortType)
         {
             case ESortType.Recent:
-                myCards = myCards.OrderBy(x => x.recentNum).ToList();
+                myCards = myCards.OrderBy(x => x.generateNumber).ToList();
                 break;
             case ESortType.Type:
-                myCards = myCards.OrderBy(x => x.cardName).ThenBy(x => x.recentNum).ToList();
+                myCards = myCards.OrderBy(x => x.cardType).ThenBy(x => x.generateNumber).ToList();
                 break;
             case ESortType.Cost:
-                myCards = myCards.OrderBy(x => x.cost).ThenBy(x => x.recentNum).ToList();
+                myCards = myCards.OrderBy(x => x.cost).ThenBy(x => x.generateNumber).ToList();
                 break;
             case ESortType.Name:
-                myCards = myCards.OrderBy(x => x.cardName).ThenBy(x => x.recentNum).ToList();
+                myCards = myCards.OrderBy(x => x.cardName).ThenBy(x => x.generateNumber).ToList();
                 break;
         }
 
-        // 정렬 순서로 바꿔줌
-        myCards.ForEach(card => card.transform.SetAsLastSibling());
+        if(isAscending[index])
+        {
+            // 정렬 순서로 바꿔줌
+            myCards.ForEach(card => card.transform.SetAsLastSibling());
+            isAscending[index] = false;
+        }
+        else
+        {
+            isAscending[index] = true;
+        }
+        sortDirImage[index].transform.localScale = new Vector3(sortDirImage[index].transform.localScale.x, 
+            sortDirImage[index].transform.localScale.y * -1, sortDirImage[index].transform.localScale.z);
     }
 }

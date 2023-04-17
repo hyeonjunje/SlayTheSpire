@@ -5,164 +5,80 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class BaseCard : MonoBehaviour
 {
-    public int recentNum;
+    // 정렬기준
+    public int generateNumber;
     public ECardType cardType;
     public int cost;
     public string cardName;
 
-    private CardData _cardData;
-    private int _generateNumber;
-
-
-    public CardData CardData => _cardData;
-    public int GenerateNumber => _generateNumber;
-
-    public bool isBattle = true;
-
-    private Vector3 _targetPos;
-    private Vector3 _targetRot;
-    private Vector3 _targetScl;
-
-    private Coroutine _coMove;
-
     [SerializeField]
-    private Text costText;
-
+    private CardController _cardController;
     [SerializeField]
-    private float _moveTime = 0.2f;   // 움직이는 시간
-    [SerializeField]
-    private float _upPosition = 100f;  // 마우스 오버 시 올라가는 정도
-    [SerializeField]
-    private float _overScale = 1.3f;  // 마우스 오버 시 커지는 정도
+    private BaseCardBuilder _baseCardBuilder;
 
-    protected CardHolder _cardHolder;
+    private CardHolder _cardHolder;
+    private CardData _cardData;   // 카드 데이터
+    private int _generateNumber;  // 생성 넘버
 
-    private int Cost
+    public CardController CardController => _cardController;
+
+    // 카드를 생성할 때 이 함수가 실행
+    public void Init(CardHolder cardHolder, CardData cardData, int generateNumber, Sprite frameSprite, Sprite topFrameSprite)
     {
-        get { return cost; }
-        set
-        {
-            cost = value;
-            costText.text = cost.ToString();
-        }
-    }
-
-    public void Init(CardData cardData, int generateNumber)
-    {
-        isBattle = false;
-
-        _cardHolder = FindObjectOfType<CardHolder>();
-
+        _cardHolder = cardHolder;
         _cardData = cardData;
         _generateNumber = generateNumber;
 
-        transform.localScale = Vector3.zero;
+        _cardController.Init(cardHolder, _cardData.isBezierCurve, this);
+        _baseCardBuilder.Init(cardData, frameSprite, topFrameSprite, this);
 
-        cost = cardData.cost;
+        // 정렬 데이터
+        this.generateNumber = generateNumber;
+        cardType = _cardData.cardType;
+        cost = _cardData.cost;
+        cardName = _cardData.cardName;
     }
 
-    // 해당 그림에 마우스를 댈 때
-    public void OnPointerEnter(PointerEventData eventData)
+    // 배틀이 시작되면
+    public void StartBattle()
     {
-        // 전투중이 아니라면(내 카드에서 볼 때...)
-        if (!isBattle)
-            return;
-
-        if (_cardHolder.isDrag)
-            return;
-
-        _cardHolder.OverCard(this);
+        _cardController.isBattle = true;
     }
 
-    // 해당 그림에 마우스가 떠날 때
-    public void OnPointerExit(PointerEventData eventData)
+    // 배틀이 끝나면
+    public void EndBattle()
     {
-        if (!isBattle)
-            return;
-
-        if (_cardHolder.isDrag)
-            return;
-
-        _cardHolder.Relocation();
+        _cardController.isBattle = false;
     }
 
-
-    // 카드 이동
-    public void MoveCard(Vector3 targetPos, Vector3 targetRot, Vector3 targetScl)
+    public void UseCard()
     {
-        _targetPos = targetPos;
-        _targetRot = targetRot;
-        _targetScl = targetScl;
-
-        if(_coMove != null)
+        if (TryUseCard())
         {
-            StopCoroutine(_coMove);
-        }
-        _coMove = StartCoroutine(CoMove());
-    }
+            // 카드의 효과를 사용
+            _cardData.useEffect.ForEach(useEffect => useEffect?.Invoke());
 
-    protected void UseCardMove()
-    {
-        // 사용하고 그 카드는 버림
-        bool isUsable = Use();
-        if(isUsable)
-        {
+            // 카드 버림
             _cardHolder.DiscardCard(this);
+
+            // 카드 레이캐스트 활성화
+            _cardController.SetActiveRaycast(true);
         }
     }
 
-    protected void ClearCoroutine()
+    private bool TryUseCard()
     {
-        StopAllCoroutines();
-    }
-
-    private IEnumerator CoMove()
-    {
-        float currentTime = 0f;
-
-        Vector3 originPos = transform.localPosition;
-        Vector3 originRot = transform.localEulerAngles;
-        Vector3 originScl = transform.localScale;
-
-        while (true)
+        // 코스트 확인, 저주카드 확인, 부상카드 확인, 유물 확인
+        if (BattleManager.Instance.Player.Orb >= _cardData.cost)
         {
-            currentTime += Time.deltaTime;
-
-            transform.localPosition = Vector3.Lerp(originPos, _targetPos, currentTime / _moveTime);
-            transform.localEulerAngles = new Vector3(0f, 0f, Mathf.LerpAngle(originRot.z, _targetRot.z, currentTime / _moveTime));
-            transform.localScale = Vector3.Lerp(originScl, _targetScl, currentTime / _moveTime);
-
-            if (currentTime >= _moveTime)
-                break;
-
-            yield return null;
-        }
-    }
-
-    public void SetActiveRaycast(bool flag)
-    {
-        Image[] children = GetComponentsInChildren<Image>();
-        foreach (Image child in children)
-        {
-            child.raycastTarget = flag;
-        }
-    }
-
-    protected virtual bool Use()
-    {
-        Debug.Log("사용합니다.");
-
-        // 코스트가 된다면 true반환
-        if(BattleManager.Instance.Player.Orb >= cost)
-        {
-            BattleManager.Instance.Player.Orb -= cost;
+            BattleManager.Instance.Player.Orb -= _cardData.cost;
             return true;
         }
         else
         {
-            SetActiveRaycast(true);
+            _cardController.SetActiveRaycast(true);
             return false;
         }
     }

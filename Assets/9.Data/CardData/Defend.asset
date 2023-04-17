@@ -19,8 +19,27 @@ MonoBehaviour:
   cardType: 1
   cardTypeString: "\uC2A4\uD0AC"
   cardExplanation: "\uBC29\uC5B4\uB3C4 \uB97C 5\uC5BB\uC2B5\uB2C8\uB2E4."
+  cardGrade: 0
+  isBezierCurve: 0
   upgradeCardName: 
   upgradeCardCost: 
   upgradeCardExplanation: 
-  useEffect: []
+  useEffect:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
+        m_TargetAssemblyTypeName: CardEffect, Assembly-CSharp
+        m_MethodName: AddShield
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   upgradeUseEffect: []
+  test:
+    m_PersistentCalls:
+      m_Calls: []

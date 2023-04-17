@@ -7,14 +7,17 @@ public class BaseCardBuilder : MonoBehaviour
 {
     [SerializeField]
     private Image frame, topFrame;
-
     [SerializeField]
     private Text cardName, cardType, cardExplanation, cardCost;
     [SerializeField]
     private Image cardImage;
 
-    public void BuildCard(CardData cardData, Sprite frameSprite, Sprite topFrameSprite)
+    private BaseCard _baseCard;
+
+    public void Init(CardData cardData, Sprite frameSprite, Sprite topFrameSprite, BaseCard baseCard)
     {
+        _baseCard = baseCard;
+
         cardName.text = cardData.cardName;
         cardType.text = cardData.cardTypeString;
         cardExplanation.text = cardData.cardExplanation;
@@ -23,5 +26,7 @@ public class BaseCardBuilder : MonoBehaviour
 
         frame.sprite = frameSprite;
         topFrame.sprite = topFrameSprite;
+
+        transform.localScale = Vector3.zero;
     }
 }

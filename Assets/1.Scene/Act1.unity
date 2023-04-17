@@ -642,6 +642,11 @@ MonoBehaviour:
   - {fileID: 658783610}
   - {fileID: 970909134}
   - {fileID: 595632580}
+  sortDirImage:
+  - {fileID: 753896807}
+  - {fileID: 1586369171}
+  - {fileID: 336808934}
+  - {fileID: 1935234475}
 --- !u!1 &46434105
 GameObject:
   m_ObjectHideFlags: 0
@@ -10664,6 +10669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a1ab702110da84ea89784ee2dc04a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cardHolder: {fileID: 1252302025}
   _baseCard: {fileID: 1989126131308563894, guid: aa145287bab46494e84c2b360a63800f, type: 3}
   commonFrameSprites:
   - {fileID: -3235166575308849988, guid: 67b33f0ee213e334c86ea9e315df5d23, type: 3}

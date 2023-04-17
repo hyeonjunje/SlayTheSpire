@@ -41,7 +41,7 @@ public class CardHolder : MonoBehaviour
 
     public BezierCurve BezierCurve => _bezierCurve;
 
-    public void InitCardHolder(List<BaseCard> myCard)
+    public void StartBattle(List<BaseCard> myCard)
     {
         // 초기화
         selectedCard = null;
@@ -62,11 +62,17 @@ public class CardHolder : MonoBehaviour
 
             _cardDeck.Add(card);
 
-            card.isBattle = true;
+            card.StartBattle();
         }
 
         // 셔플
         Util.ShuffleList(_cardDeck);
+    }
+
+    public void EndBattle(List<BaseCard> myCard)
+    {
+        foreach (BaseCard card in myCard)
+            card.EndBattle();
     }
 
     /// <summary>
@@ -101,13 +107,11 @@ public class CardHolder : MonoBehaviour
     /// <param name="card">버릴 카드</param>
     public void DiscardCard(BaseCard card)
     {
-        card.SetActiveRaycast(true);
-
         _cardCemetry.Add(card);
         _cardHands.Remove(card);
 
         Relocation();
-        card.MoveCard(_cardCemetryTransform.localPosition, Vector3.zero, Vector3.zero);
+        card.CardController.MoveCard(_cardCemetryTransform.localPosition, Vector3.zero, Vector3.zero);
     }
 
     /// <summary>
@@ -145,7 +149,7 @@ public class CardHolder : MonoBehaviour
                 targetScl = Vector3.one * overScale;
             }
 
-            _cardHands[i].MoveCard(targetPos, targetRot, targetScl);
+            _cardHands[i].CardController.MoveCard(targetPos, targetRot, targetScl);
             _cardHands[i].transform.SetAsFirstSibling();
         }
 
@@ -158,7 +162,7 @@ public class CardHolder : MonoBehaviour
         Vector3 targetRot = Vector3.zero;
         Vector3 targetScl = Vector3.one * overScale;
 
-        card.MoveCard(targetPos, targetRot, targetScl);
+        card.CardController.MoveCard(targetPos, targetRot, targetScl);
     }
 
     // 패에 있는 모든 카드 버리기
@@ -188,7 +192,7 @@ public class CardHolder : MonoBehaviour
             Vector3 targetRot = new Vector3(0f, 0f, theta - 90);
             Vector3 targetScl = Vector3.one;
 
-            _cardHands[i].MoveCard(targetPos, targetRot, targetScl);
+            _cardHands[i].CardController.MoveCard(targetPos, targetRot, targetScl);
             _cardHands[i].transform.SetAsFirstSibling();
         }
     }

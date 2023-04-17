@@ -8,6 +8,8 @@ public class CardGenerator : MonoBehaviour
     private int generateNumber = 1;
 
     [SerializeField]
+    private CardHolder _cardHolder;
+    [SerializeField]
     private BaseCard _baseCard;
 
     [SerializeField]
@@ -113,8 +115,7 @@ public class CardGenerator : MonoBehaviour
         }
 
         BaseCard baseCard = Instantiate(_baseCard, transform);
-        baseCard.GetComponent<BaseCardBuilder>().BuildCard(cardData, frameSprite, topFrameSprite);
-        baseCard.Init(cardData, generateNumber);
+        baseCard.Init(_cardHolder, cardData, generateNumber, frameSprite, topFrameSprite);
         generateNumber++;
 
         return baseCard;
