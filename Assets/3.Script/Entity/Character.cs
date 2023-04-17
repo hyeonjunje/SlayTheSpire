@@ -33,6 +33,20 @@ public abstract class Character : MonoBehaviour
 
     protected int _shieldAmount;
 
+    public int MaxHp
+    {
+        get { return _maxHp; }
+        set
+        {
+            int changeValue = value - _maxHp;
+            _maxHp = value;
+
+            // 최대 hp증가한 만큼 현재체력도 올라감
+            if (changeValue > 0)
+                CurrentHp += changeValue;
+        }
+    }
+
     public int CurrentHp
     {
         get { return _currentHp; }

@@ -7,13 +7,12 @@ public class Player : Character
 {
     public delegate void OnDieEvent();
     public OnDieEvent onDieEvent;
+    public List<BaseCard> myCards;
 
     [SerializeField]
     private CardHolder _cardHolder;
     [SerializeField]
     private Text energyText;
-
-    public List<BaseCard> myCards;
 
     public CardHolder CardHolder => _cardHolder;
 
@@ -33,9 +32,25 @@ public class Player : Character
         }
     }
 
+    private int _money;
+    public int Money
+    {
+        get { return _money; }
+        set
+        {
+            _money = value;
+
+            _money = Mathf.Clamp(_money, 0, 9999);
+
+            // UI활성화
+        }
+    }
+
     protected override void Awake()
     {
         base.Awake();
+
+        Money = 99;
 
         onStartTurn += InitShield;
         onStartTurn += (() => Orb = maxOrb);
@@ -71,10 +86,7 @@ public class Player : Character
 
     public void EndBattle()
     {
-        foreach(BaseCard card in myCards)
-        {
-            card.EndBattle();
-        }
+        _cardHolder.EndBattle(myCards);
     }
 
     // 플레이어의 카드를 더해준다.

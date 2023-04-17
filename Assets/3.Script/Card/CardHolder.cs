@@ -71,8 +71,7 @@ public class CardHolder : MonoBehaviour
 
     public void EndBattle(List<BaseCard> myCard)
     {
-        foreach (BaseCard card in myCard)
-            card.EndBattle();
+        DiscardAllCard();
     }
 
     /// <summary>

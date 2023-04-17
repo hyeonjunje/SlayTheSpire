@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomManager : MonoBehaviour
+public class RoomManager : Singleton<RoomManager>
 {
     [SerializeField]
+    private InUnknownUI inUnknownUI;
+
+    [Header("Battle")]
+    [SerializeField]
     private List<BattleData> act1BattleData;
+    [Space(3)]
+
+    [Header("Unknown")]
     [SerializeField]
-    private List<BattleData> act2BattleData;
-    [SerializeField]
-    private List<BattleData> act3BattleData;
+    private List<UnknownData> act1UnknownData;
+    [Space(3)]
 
     [SerializeField]
     private Act1Scene act1Scene;
@@ -26,7 +32,6 @@ public class RoomManager : MonoBehaviour
 
         // 대화창 없애주고
         GameManager.UI.InitSelectedButton();
-
 
         switch (roomType)
         {
@@ -84,6 +89,15 @@ public class RoomManager : MonoBehaviour
     // 랜덤 방에 들어갈 때
     private void OnEnterUnknownRoom()
     {
+        inUnknownUI.gameObject.SetActive(true);
+        inUnknownUI.ShowUnknown(act1UnknownData[0]);
+    }
 
+    public void ClearRoom()
+    {
+        // UI 지워줘
+        GameManager.Game.CurrentRoom.ClearRoom();
+
+        inUnknownUI.gameObject.SetActive(false);
     }
 }

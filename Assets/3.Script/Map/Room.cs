@@ -149,8 +149,9 @@ public class Room : MonoBehaviour
             GameManager.Game.CurrentRoom = this;
 
             // 고치긴 해야 할듯 
-            FindObjectOfType<RoomManager>().EnterRoom(RoomType);
+            RoomManager.Instance.EnterRoom(RoomType);
 
+            // FindObjectOfType<RoomManager>().EnterRoom(RoomType);
             // GameManager.Room.EnterRoom(RoomType);
         }
         else

@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4f75fee85179843b1c67e64751e474, type: 3}
+  m_Name: RoomData1
+  m_EditorClassIdentifier: 
+  roomName: "\uB0A0\uAC1C \uC870\uAC01\uC0C1"
+  roomImage: {fileID: 21300000, guid: e9354e282fcd51b459d3b80d8afb5c6e, type: 3}
+  roomContents: "\uB3CC\uACFC \uBC14\uC704\uB4E4 \uC0AC\uC774\uC5D0\uC11C, \uB2F9\uC2E0\uC740
+    \uB0A0\uAC1C \uBAA8\uC591\uC758 \uBCF5\uC7A1\uD558\uACE0 \uCEE4\uB2E4\uB780 \uD478\uB978\n\uC870\uAC01\uC0C1\uC744
+    \uBC1C\uACAC\uD588\uC2B5\uB2C8\uB2E4.\n\uB2F9\uC2E0\uC740 \uADF8\uAC83\uC758
+    \uD2C8\uC0C8\uB85C\uBD80\uD130 \uC3DF\uC544\uC838 \uB098\uC624\uB294 \uACE8\uB4DC\uB97C
+    \uBC1C\uACAC\uD588\uC2B5\uB2C8\uB2E4.\n\uC544\uB9C8 \uC548\uCABD\uC5D0\uB294
+    \uB354 \uB9CE\uC774 \uC788\uACA0\uC8E0..."
+  optionText:
+  - "[\uB5A0\uB09C\uB2E4]"
+  - "[\uD30C\uAD34] \uACE8\uB4DC\uB97C 50-80 \uD68D\uB4DD\uD55C\uB2E4.(\uB371\uC5D0
+    \uACF5\uACA9\uB825 10\uC774\uC0C1 \uCE74\uB4DC \uD544\uC694)"
+  - "[\uAE30\uB3C4] \uCE74\uB4DC 1\uC7A5\uC744 \uB371\uC5D0\uC11C \uC81C\uAC70\uD569\uB2C8\uB2E4.
+    \uCCB4\uB825\uC744 7\uC783\uC2B5\uB2C8\uB2E4."
+  optionEvent:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ClearRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ChangeMoney
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 50
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ClearRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ChangeHp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ClearRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

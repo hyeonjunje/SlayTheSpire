@@ -119,9 +119,6 @@ public class BattleManager : Singleton<BattleManager>
             yield return null;
         }
 
-        // isBattle false로
-        _player.EndBattle();
-
         if (_player.IsDead)
         {
 
@@ -131,7 +128,11 @@ public class BattleManager : Singleton<BattleManager>
             // 클리어 처리
             GameManager.Game.CurrentRoom.ClearRoom();
 
+            // 카드 집어넣기
+            _player.EndBattle();
+
             // 보상
+            Debug.Log("보상을 줍니다.");
         }
 
         inBattleUI.gameObject.SetActive(false);
