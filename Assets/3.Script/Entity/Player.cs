@@ -13,6 +13,10 @@ public class Player : Character
     private CardHolder _cardHolder;
     [SerializeField]
     private Text energyText;
+    [SerializeField]
+    private Text hpText;
+    [SerializeField]
+    private Text moneyText;
 
     public CardHolder CardHolder => _cardHolder;
 
@@ -41,8 +45,8 @@ public class Player : Character
             _money = value;
 
             _money = Mathf.Clamp(_money, 0, 9999);
-
             // UIÈ°¼ºÈ­
+            moneyText.text = _money.ToString();
         }
     }
 
@@ -54,6 +58,8 @@ public class Player : Character
 
         onStartTurn += InitShield;
         onStartTurn += (() => Orb = maxOrb);
+
+        onChangeHp += (() => hpText.text = CurrentHp + "/" + MaxHp);
     }
 
     public override void Dead()

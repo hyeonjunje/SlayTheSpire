@@ -15,6 +15,10 @@ public abstract class Character : MonoBehaviour
     public delegate void OnEndTurn();
     public OnEndTurn onEndTurn;
 
+    // 플레이어 체력 UI 해줄려고 만든 델리게이트
+    protected delegate void OnChangeHp();
+    protected OnChangeHp onChangeHp;
+
     [SerializeField]
     private HpBar _hpBar;
 
@@ -44,6 +48,8 @@ public abstract class Character : MonoBehaviour
             // 최대 hp증가한 만큼 현재체력도 올라감
             if (changeValue > 0)
                 CurrentHp += changeValue;
+
+            onChangeHp?.Invoke();
         }
     }
 
@@ -57,6 +63,8 @@ public abstract class Character : MonoBehaviour
             _currentHp = Mathf.Clamp(_currentHp, 0, _maxHp);
 
             _hpBar.DisplayHpBar(_currentHp, _maxHp);
+
+            onChangeHp?.Invoke();
 
             if (_currentHp == 0)
             {
