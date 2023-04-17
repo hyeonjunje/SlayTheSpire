@@ -33,6 +33,9 @@ public class RoomManager : Singleton<RoomManager>
         // 대화창 없애주고
         GameManager.UI.InitSelectedButton();
 
+        // 초기화
+        inUnknownUI.gameObject.SetActive(false);
+
         switch (roomType)
         {
             case ERoomType.Elite:
@@ -93,11 +96,16 @@ public class RoomManager : Singleton<RoomManager>
         inUnknownUI.ShowUnknown(act1UnknownData[0]);
     }
 
+    public void ProceedNextUnknown()
+    {
+        inUnknownUI.ShowNext(act1UnknownData[0]);
+    }
+
     public void ClearRoom()
     {
         // UI 지워줘
         GameManager.Game.CurrentRoom.ClearRoom();
 
-        inUnknownUI.gameObject.SetActive(false);
+        GameObject.Find("@Act1Scene").GetComponent<Act1Scene>().ShowMap();
     }
 }

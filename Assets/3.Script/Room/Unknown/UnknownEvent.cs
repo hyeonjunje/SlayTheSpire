@@ -51,6 +51,11 @@ public class UnknownEvent : MonoBehaviour
         player.CurrentHp += amount;
     }
 
+    public void Proceed()
+    {
+        RoomManager.Instance.ProceedNextUnknown();
+    }
+
     public void ClearRoom()
     {
         RoomManager.Instance.ClearRoom();

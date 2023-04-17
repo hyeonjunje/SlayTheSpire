@@ -36,9 +36,28 @@ public class InUnknownUI : MonoBehaviour
         }
     }
 
+    public void ShowNext(UnknownData unknownData)
+    {
+        // 초기화
+        Init();
+
+        eventContents.text = unknownData.roomContentsAfter;
+
+        for (int i = 0; i < unknownData.afterOptionText.Length; i++)
+        {
+            optionsButton[i].gameObject.SetActive(true);
+
+            int index = i;
+
+            // 버튼 onclick, text 적용
+            optionsButton[index].onClick.AddListener(() => unknownData.afterOptionEvent[index].Invoke());
+            optionsButton[i].GetComponentInChildren<Text>().text = unknownData.optionText[i];
+        }
+    }
+
     private void Init()
     {
-        for(int i = 0; i < optionsButton.Length; i++)
+        for (int i = 0; i < optionsButton.Length; i++)
         {
             optionsButton[i].onClick.RemoveAllListeners();
             optionsButton[i].gameObject.SetActive(false);
