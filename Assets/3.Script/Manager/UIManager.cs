@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager
 {
+    private Stack<BaseUI> stackUI = new Stack<BaseUI>();
+
     private GameObject _root = null;
     private Canvas _rootCanvas = null;
 
@@ -52,6 +54,58 @@ public class UIManager
 
         InitUIParent();
         GameManager.Scene.onMoveOtherScene += InitUIParent;
+    }
+
+    public void ClearUI()
+    {
+        stackUI = new Stack<BaseUI>();
+    }
+
+    // ui를 보여줍니다.
+    public void ShowUI(BaseUI ui)
+    {
+        if(stackUI.Count > 0)
+        {
+            stackUI.Peek().gameObject.SetActive(false);
+            stackUI.Peek().Hide();
+        }
+        stackUI.Push(ui);
+        if(ui != null)
+        {
+            stackUI.Peek().gameObject.SetActive(true);
+            stackUI.Peek().Show();
+        }
+    }
+
+    // ui를 닫습니다.
+    public void PopUI()
+    {
+        if (stackUI.Count > 0)
+        {
+            stackUI.Peek().gameObject.SetActive(false);
+            stackUI.Peek().Hide();
+        }
+        stackUI.Pop();
+        if (stackUI.Count > 0)
+        {
+            stackUI.Peek().gameObject.SetActive(true);
+            stackUI.Peek().Show();
+        }
+    }
+
+    public void ShowThisUI(BaseUI ui)
+    {
+        PopAllUI();
+        ShowUI(ui);
+    }
+
+    // 모든 UI를 종료합니다.
+    public void PopAllUI()
+    {
+        while(stackUI.Count > 0)
+        {
+            PopUI();
+        }
     }
 
     // 카드나 범례 누를 때 팁UI 등장하는 함수

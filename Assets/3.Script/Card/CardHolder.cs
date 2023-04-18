@@ -8,6 +8,8 @@ public class CardHolder : MonoBehaviour
     public BaseCard selectedCard;  // 현재 집은 카드
     public bool isDrag = false;
 
+    [SerializeField]
+    private Transform _cardTransform;
 
     [SerializeField]
     private Transform _cardDeckTransform; // 카드 덱 위치
@@ -41,6 +43,31 @@ public class CardHolder : MonoBehaviour
 
     public BezierCurve BezierCurve => _bezierCurve;
 
+    public void ResumeBattle(List<BaseCard> myCard)
+    {
+        foreach (BaseCard card in myCard)
+        {
+            card.cardUsage = ECardUsage.Battle;
+            card.transform.SetParent(_cardTransform);
+        }
+
+        foreach (BaseCard card in _cardDeck)
+        {
+            card.transform.localPosition = _cardDeckTransform.localPosition;
+            card.transform.localEulerAngles = Vector3.zero;
+            card.transform.localScale = Vector3.zero;
+        }
+
+        foreach (BaseCard card in _cardCemetry)
+        {
+            card.transform.localPosition = _cardCemetryTransform.localPosition;
+            card.transform.localEulerAngles = Vector3.zero;
+            card.transform.localScale = Vector3.zero;
+        }
+
+        Relocation();
+    }
+
     public void StartBattle(List<BaseCard> myCard)
     {
         // 초기화
@@ -56,13 +83,13 @@ public class CardHolder : MonoBehaviour
         foreach (BaseCard card in myCard)
         {
             // 위치 초기화
+            card.transform.SetParent(_cardTransform);
+
             card.transform.localPosition = _cardDeckTransform.localPosition;
             card.transform.localEulerAngles = Vector3.zero;
             card.transform.localScale = Vector3.zero;
 
             _cardDeck.Add(card);
-
-            card.StartBattle();
         }
 
         // 셔플

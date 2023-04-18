@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class Neow : MonoBehaviour
 {
     [SerializeField]
+    private BaseUI mapUI;
+
+    [SerializeField]
     private List<Dialog> dialogs = new List<Dialog>();
 
     [SerializeField]
@@ -46,6 +49,6 @@ public class Neow : MonoBehaviour
     {
         // 첫번째 스테이지 isgoable 처리
         GameManager.Game.StartMap();
-        GameObject.Find("@Act1Scene").GetComponent<Act1Scene>().ShowMap();
+        GameManager.UI.ShowUI(mapUI);
     }
 }

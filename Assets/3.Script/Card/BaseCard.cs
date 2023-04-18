@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using System;
 
+public enum ECardUsage
+{
+    Battle,
+    Check,
+    Gain
+}
 
 public class BaseCard : MonoBehaviour
 {
@@ -13,6 +19,12 @@ public class BaseCard : MonoBehaviour
     public int cost;
     public string cardName;
 
+    // 용도 구분
+    public ECardUsage cardUsage;
+
+    // 온클릭 함수
+    public Action onClickAction;
+
     [SerializeField]
     private CardController _cardController;
     [SerializeField]
@@ -20,7 +32,6 @@ public class BaseCard : MonoBehaviour
 
     private CardHolder _cardHolder;
     private CardData _cardData;   // 카드 데이터
-    private int _generateNumber;  // 생성 넘버
 
     public CardController CardController => _cardController;
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
@@ -30,7 +41,6 @@ public class BaseCard : MonoBehaviour
     {
         _cardHolder = cardHolder;
         _cardData = cardData;
-        _generateNumber = generateNumber;
 
         _cardController.Init(cardHolder, _cardData.isBezierCurve, this);
         _baseCardBuilder.Init(cardData, frameSprite, topFrameSprite, this);
@@ -40,18 +50,6 @@ public class BaseCard : MonoBehaviour
         cardType = _cardData.cardType;
         cost = _cardData.cost;
         cardName = _cardData.cardName;
-    }
-
-    // 배틀이 시작되면
-    public void StartBattle()
-    {
-        _cardController.isBattle = true;
-    }
-
-    // 배틀이 끝나면
-    public void EndBattle()
-    {
-        _cardController.isBattle = false;
     }
 
     public void UseCard()

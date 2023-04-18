@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RewardManager : MonoBehaviour, IRegisterable
 {
     [SerializeField]
-    private GameObject rewardUI;
+    private BaseUI inRewardUI;
 
     [SerializeField]
     private GameObject cardRewardGameObject;
@@ -30,20 +30,20 @@ public class RewardManager : MonoBehaviour, IRegisterable
     [SerializeField]
     private Sprite relicsRewardImage;
 
+    private Reward cardReward;
+
     private CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
-    private void Awake()
-    {
-        passRewardButton.onClick.AddListener(() => GameObject.Find("@Act1Scene").GetComponent<Act1Scene>().ShowMap());
-    }
 
     public void ShowReward(BattleData battleData)
     {
-        Init();
+        rewardParent.DestroyAllChild();
+        cardRewardParent.DestroyAllChild();
 
         // 보상창 켜주기
-        rewardUI.gameObject.SetActive(true);
+        inRewardUI.gameObject.SetActive(true);
+        GameManager.UI.ShowThisUI(inRewardUI);
 
         // 전투 끝나고 무조건 카드는 주기 때문에 카드는 일단 생성
         GetCard();
@@ -57,7 +57,7 @@ public class RewardManager : MonoBehaviour, IRegisterable
 
 
         // 랜덤 카드 선택
-        Reward cardReward = Instantiate(rewardPrefab, rewardParent);
+        cardReward = Instantiate(rewardPrefab, rewardParent);
         Button cardRewardButton = cardReward.GetComponent<Button>();
         cardReward.Init("덱에 카드를 추가", cardRewardImage);
         cardRewardButton.onClick.AddListener(() => cardRewardGameObject.gameObject.SetActive(true));
@@ -72,26 +72,20 @@ public class RewardManager : MonoBehaviour, IRegisterable
         }
     }
 
-    public void HideReward()
-    {
-        rewardUI.gameObject.SetActive(false);
-    }
-
-    private void Init()
-    {
-        rewardParent.DestroyAllChild();
-        cardRewardParent.DestroyAllChild();
-
-        rewardUI.gameObject.SetActive(false);
-    }
-
-
     // 카드 3장 생성
     private void GetCard()
     {
         BaseCard card1 = cardGenerator.GenerateCard(1);
         BaseCard card2 = cardGenerator.GenerateCard(1);
         BaseCard card3 = cardGenerator.GenerateCard(1);
+
+        card1.cardUsage = ECardUsage.Gain;
+        card2.cardUsage = ECardUsage.Gain;
+        card3.cardUsage = ECardUsage.Gain;
+
+        card1.onClickAction += (() => OnClickGainCard());
+        card2.onClickAction += (() => OnClickGainCard());
+        card3.onClickAction += (() => OnClickGainCard());
 
         card1.transform.SetParent(cardRewardParent);
         card2.transform.SetParent(cardRewardParent);
@@ -100,6 +94,18 @@ public class RewardManager : MonoBehaviour, IRegisterable
         card1.transform.localScale = Vector3.one;
         card2.transform.localScale = Vector3.one;
         card3.transform.localScale = Vector3.one;
+    }
+
+    // 보상 카드를 눌렀을 때 실행될 함수
+    private void OnClickGainCard()
+    {
+        // 카드를 얻고
+        // 카드 보상 창을 닫고
+        // 카드 보상을 없애고
+
+        cardRewardGameObject.gameObject.SetActive(false);
+        rewardScreen.gameObject.SetActive(true);
+        Destroy(cardReward.gameObject);
     }
 
     private void GetMoney(int value)

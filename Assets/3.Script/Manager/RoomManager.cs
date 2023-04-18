@@ -5,6 +5,10 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour, IRegisterable
 {
     [SerializeField]
+    private MapUI mapUI;
+    [SerializeField]
+    private InBattleUI inBattleUI;
+    [SerializeField]
     private InUnknownUI inUnknownUI;
 
     [Header("Battle")]
@@ -32,7 +36,6 @@ public class RoomManager : MonoBehaviour, IRegisterable
 
         // UI뜬거 없애주고 (맵, 보상)
         act1Scene.ExitUI();
-        rewardManager.HideReward();
 
         // 대화창 없애주고
         GameManager.UI.InitSelectedButton();
@@ -66,6 +69,7 @@ public class RoomManager : MonoBehaviour, IRegisterable
     // 일반 적 방에 들어갈 때
     private void OnEnterEnemyRoom()
     {
+        GameManager.UI.ShowThisUI(inBattleUI);
         battleManager.StartBattle(act1BattleData[0]);
     }
 
@@ -96,7 +100,7 @@ public class RoomManager : MonoBehaviour, IRegisterable
     // 랜덤 방에 들어갈 때
     private void OnEnterUnknownRoom()
     {
-        inUnknownUI.gameObject.SetActive(true);
+        GameManager.UI.ShowThisUI(inUnknownUI);
         inUnknownUI.ShowUnknown(act1UnknownData[0]);
     }
 
@@ -110,6 +114,6 @@ public class RoomManager : MonoBehaviour, IRegisterable
         // UI 지워줘
         GameManager.Game.CurrentRoom.ClearRoom();
 
-        GameObject.Find("@Act1Scene").GetComponent<Act1Scene>().ShowMap();
+        GameManager.UI.ShowUI(mapUI);
     }
 }

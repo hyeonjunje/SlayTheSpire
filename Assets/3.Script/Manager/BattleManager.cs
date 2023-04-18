@@ -19,6 +19,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
     public System.Action onStartEnemyTurn;  // 적 턴 시작 시 발생
 
     public InBattleUI inBattleUI;
+    public InRewardUI inRewardUI;
 
     public int myTurnCount = 1;
     public bool myTurn = false;
@@ -74,11 +75,11 @@ public class BattleManager : MonoBehaviour, IRegisterable
         // 배틀데이터 저장
         _currentBattleData = battleData;
 
-        // 배틀 UI 활성화
-        inBattleUI.gameObject.SetActive(true);
-
         // 플레이어 전투 시작
         _player.StartBattle();
+
+        // 배틀 UI 활성화
+        inBattleUI.gameObject.SetActive(true);
 
         // 적 생성
         _enemies = new List<Enemy>();
@@ -141,6 +142,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
             // 보상
             Debug.Log("보상을 줍니다.");
             rewardManager.ShowReward(_currentBattleData);
+            GameManager.UI.ShowThisUI(inRewardUI);
         }
 
         inBattleUI.gameObject.SetActive(false);

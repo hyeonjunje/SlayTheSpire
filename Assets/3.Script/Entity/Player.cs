@@ -85,6 +85,11 @@ public class Player : Character
         StartCoroutine(CoAct(true));
     }
 
+    public void ResumeBattle()
+    {
+        _cardHolder.ResumeBattle(myCards);
+    }
+
     public void StartBattle()
     {
         _cardHolder.StartBattle(myCards);

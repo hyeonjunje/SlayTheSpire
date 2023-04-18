@@ -13,7 +13,7 @@ public enum ESortType
     Size
 }
 
-public class MyCardUI : MonoBehaviour
+public class MyCardUI : BaseUI
 {
     private List<BaseCard> myCards;
     private ESortType sortType = ESortType.Recent;
@@ -48,40 +48,34 @@ public class MyCardUI : MonoBehaviour
 
     private void OnEnable()
     {
+        myCards = new List<BaseCard>();
+        myCards = battleManager.Player.myCards;
+        for(int i = 0; i < myCards.Count; i++)
+        {
+            myCards[i].cardUsage = ECardUsage.Check;
+            myCards[i].transform.SetParent(myCardsParent);
+
+            myCards[i].transform.localEulerAngles = Vector3.zero;
+            myCards[i].transform.localScale = Vector3.one;
+        }
+
         // 내림차순으로 초기화
-        for(int i = 0; i < isAscending.Length; i++)
+        for (int i = 0; i < isAscending.Length; i++)
         {
             isAscending[i] = false;
             sortDirImage[i].transform.localScale = Vector3.one;
         }
 
-        // 초기화
-        myCards = new List<BaseCard>();
-
-        // 카드 넣어주기
-        foreach (BaseCard card in battleManager.Player.myCards)
-        {
-            BaseCard cloneCard = Instantiate(card, myCardsParent);
-
-            cloneCard.transform.localEulerAngles = Vector3.zero;
-            cloneCard.transform.localScale = Vector3.one;
-            
-            // 나중에 고쳐야 함
-            cloneCard.EndBattle();
-
-            myCards.Add(cloneCard);
-        }
-
         // 카드 수에 맞게 높이 조정
         int cardsRow = (myCards.Count - 1) / 5;
         content.sizeDelta += new Vector2(0, (cardsRow - 1) * 400f);
+
+        Sort((int)ESortType.Recent);
     }
 
     private void OnDisable()
     {
         content.sizeDelta = Vector2.up * Screen.height;
-
-        myCardsParent.DestroyAllChild();
     }
 
     /// <summary>
@@ -119,12 +113,12 @@ public class MyCardUI : MonoBehaviour
 
         if(isAscending[index])
         {
-            // 정렬 순서로 바꿔줌
             myCards.ForEach(card => card.transform.SetAsLastSibling());
             isAscending[index] = false;
         }
         else
         {
+            myCards.ForEach(card => card.transform.SetAsFirstSibling());
             isAscending[index] = true;
         }
         sortDirImage[index].transform.localScale = new Vector3(sortDirImage[index].transform.localScale.x, 

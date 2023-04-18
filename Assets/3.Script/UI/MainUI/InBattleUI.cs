@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class InBattleUI : MonoBehaviour
+public class InBattleUI : BaseUI
 {
-    [SerializeField]
-    private BattleManager battleManager;
-
     [SerializeField]
     private BattleTurnUI battleTurnUI; // 턴이 시작되면 나오는 UI
     [SerializeField]
@@ -15,6 +12,8 @@ public class InBattleUI : MonoBehaviour
 
     // battleTurnUI가 비활성화 되면 플레이어와 적의 시작 턴이 종료됨
     public bool EndStartTurn => !battleTurnUI.gameObject.activeSelf;
+
+    private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
     private void Awake()
     {
@@ -27,24 +26,16 @@ public class InBattleUI : MonoBehaviour
         battleManager.onStartEnemyTurn += turnEndUI.OnClickButtonEvent;
     }
 
-    private void OnEnable()
+    public override void Show()
     {
-        StartBattle();
+        base.Show();
+
+        // 카드 전투상태
+        battleManager.Player.ResumeBattle();
     }
 
-    private void OnDisable()
+    public override void Hide()
     {
-        EndBattle();
-    }
-
-    // UI들 활성화
-    private void StartBattle()
-    {
-
-    }
-
-    private void EndBattle()
-    {
-
+        base.Hide();
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InUnknownUI : MonoBehaviour
+public class InUnknownUI : BaseUI
 {
     [SerializeField]
     private Text eventName;

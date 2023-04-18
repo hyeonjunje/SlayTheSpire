@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public bool isBattle = false;
     public bool isDrag = false;
 
     [SerializeField]
@@ -30,8 +29,6 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         // isBattle이나 isDrag 처리
         // BaseCard도 여기서 넘겨주자
-
-        isBattle = false;
         isDrag = false;
 
         _isBezierCurve = isBezierCurve;
@@ -45,99 +42,112 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     // 카드를 드래그 시작할 때
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!isBattle)
-            return;
-        _cardHolder.isDrag = true;
-        _cardHolder.selectedCard = _baseCard;
-
-        StopAllCoroutines();
-
-        transform.SetAsLastSibling();
-
-        if(_isBezierCurve) 
+        if(_baseCard.cardUsage == ECardUsage.Battle)
         {
-            _bezierCurve.gameObject.SetActive(true);
-            _cardHolder.MoveCenter(_baseCard);
+            _cardHolder.isDrag = true;
+            _cardHolder.selectedCard = _baseCard;
+
+            StopAllCoroutines();
+
+            transform.SetAsLastSibling();
+
+            if (_isBezierCurve)
+            {
+                _bezierCurve.gameObject.SetActive(true);
+                _cardHolder.MoveCenter(_baseCard);
+            }
         }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!isBattle)
-            return;
-
-        if (_isBezierCurve) 
+        if (_baseCard.cardUsage == ECardUsage.Battle)
         {
-            _bezierCurve.p0.position = transform.position;
-            _bezierCurve.p2.position = eventData.position;
-        }
-        else
-        {
-            transform.position = eventData.position;
+            if (_isBezierCurve)
+            {
+                _bezierCurve.p0.position = transform.position;
+                _bezierCurve.p2.position = eventData.position;
+            }
+            else
+            {
+                transform.position = eventData.position;
+            }
         }
     }
 
     // 드래그를 끝낼 때(드래그할 수 있는 곳이 아니여도 됨)
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!isBattle)
-            return;
-        _cardHolder.isDrag = false;
-
-        if (_isBezierCurve) // 타겟이 있으면
+        if (_baseCard.cardUsage == ECardUsage.Battle)
         {
-            // 타겟이 있을 때만 사용
-            if (battleManager.TargetEnemy != null)
+            _cardHolder.isDrag = false;
+
+            if (_isBezierCurve) // 타겟이 있으면
             {
-                SetActiveRaycast(false);
-                _baseCard.UseCard();
+                // 타겟이 있을 때만 사용
+                if (battleManager.TargetEnemy != null)
+                {
+                    SetActiveRaycast(false);
+                    _baseCard.UseCard();
+                }
+
+                // 때리고 나면 적 null처리
+                battleManager.TargetEnemy = null;
+
+                _bezierCurve.gameObject.SetActive(false);
+            }
+            else
+            {
+                // 사용가능(코스트 등등)이거나 사용범위에 있을 때만 사용
+                // 사용 범위 y값이 300이상 -> 이는 해상도에 따라 바꾸는 로직이 필요
+                if (eventData.position.y > 300f)
+                {
+                    SetActiveRaycast(false);
+                    _baseCard.UseCard();
+                }
             }
 
-            // 때리고 나면 적 null처리
-            battleManager.TargetEnemy = null;
-
-            _bezierCurve.gameObject.SetActive(false);
+            // 할거 다 하고 null처리
+            _cardHolder.selectedCard = null;
+            // 재정렬 후 베지어 곡선 비활성화
+            _cardHolder.Relocation();
         }
-        else
-        {
-            // 사용가능(코스트 등등)이거나 사용범위에 있을 때만 사용
-            // 사용 범위 y값이 300이상 -> 이는 해상도에 따라 바꾸는 로직이 필요
-            if (eventData.position.y > 300f)
-            {
-                SetActiveRaycast(false);
-                _baseCard.UseCard();
-            }
-        }
-
-        // 할거 다 하고 null처리
-        _cardHolder.selectedCard = null;
-        // 재정렬 후 베지어 곡선 비활성화
-        _cardHolder.Relocation();
     }
 
     // 해당 카드에 마우스를 호버할 때
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // 전투중이 아니라면(내 카드에서 볼 때...)
-        if (!isBattle)
-            return;
+        if (_baseCard.cardUsage == ECardUsage.Battle)
+        {
+            if (_cardHolder.isDrag)
+                return;
 
-        if (_cardHolder.isDrag)
-            return;
+            _cardHolder.OverCard(_baseCard);
+        }
+    }
 
-        _cardHolder.OverCard(_baseCard);
+    // 해당 카드에 클릭했을 때
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        _baseCard.onClickAction?.Invoke();
+
+        // 얻을 수 있는 카드인 경우 내 덱에 카드를 추가
+        if(_baseCard.cardUsage == ECardUsage.Gain)
+        {
+            battleManager.Player.AddCard(_baseCard);
+        }
     }
 
     // 해당 카드에서 마우스를 나갈 때
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!isBattle)
-            return;
+        if (_baseCard.cardUsage == ECardUsage.Battle)
+        {
+            if (_cardHolder.isDrag)
+                return;
 
-        if (_cardHolder.isDrag)
-            return;
-
-        _cardHolder.Relocation();
+            _cardHolder.Relocation();
+        }
     }
 
     // 카드 이동

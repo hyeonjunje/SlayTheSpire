@@ -27,5 +27,8 @@ public class SceneManagerEx
     {
         onMoveOtherScene?.Invoke();
         SceneManager.LoadScene((int)sceneName);
+
+        // 씬 이동 시 UI들 제거
+        GameManager.UI.ClearUI();
     }
 }
