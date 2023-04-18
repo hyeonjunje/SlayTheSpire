@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class CardGenerator : MonoBehaviour
+public class CardGenerator : MonoBehaviour, IRegisterable
 {
     private int generateNumber = 1;
 
+    [SerializeField]
+    private Transform _cardParent;
     [SerializeField]
     private CardHolder _cardHolder;
     [SerializeField]
@@ -37,6 +39,65 @@ public class CardGenerator : MonoBehaviour
     [SerializeField]
     private List<int> cardPercentage;
 
+
+    public BaseCard GenerateRandomCard()
+    {
+        BaseCard result = null;
+
+        int percentage = Random.Range(0, 100);
+        int index = 0;
+        int sumAmount = 0;
+        for(int i = 0; i < cardPercentage.Count; i++)
+        {
+            sumAmount += cardPercentage[i];
+            if(percentage < sumAmount)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        int cardType = Random.Range(0, 3);
+
+        if(cardType == (int)ECardType.Attack && index == (int)ECardGrade.Common)
+        {
+            result = GetRandomCard(commonAttackCardData);
+        }
+        else if (cardType == (int)ECardType.Attack && index == (int)ECardGrade.Special)
+        {
+            result = GetRandomCard(speicalAttackCardData);
+        }
+        else if (cardType == (int)ECardType.Attack && index == (int)ECardGrade.Unique)
+        {
+            result = GetRandomCard(uniqueAttackCardData);
+        }
+        else if (cardType == (int)ECardType.Skill && index == (int)ECardGrade.Common)
+        {
+            result = GetRandomCard(commonAttackCardData);
+        }
+        else if (cardType == (int)ECardType.Skill && index == (int)ECardGrade.Special)
+        {
+            result = GetRandomCard(commonAttackCardData);
+        }
+        else if (cardType == (int)ECardType.Skill && index == (int)ECardGrade.Unique)
+        {
+            result = GetRandomCard(commonAttackCardData);
+        }
+        else if (cardType == (int)ECardType.Power && index == (int)ECardGrade.Common)
+        {
+            result = GetRandomCard(commonAttackCardData);
+        }
+        else if (cardType == (int)ECardType.Power && index == (int)ECardGrade.Special)
+        {
+            result = GetRandomCard(commonAttackCardData);
+        }
+        else if (cardType == (int)ECardType.Power && index == (int)ECardGrade.Unique)
+        {
+            result = GetRandomCard(commonAttackCardData);
+        }
+
+        return result;
+    }
 
     /// <summary>
     /// 사용자가 원하는 카드를 반환하는 카드
@@ -114,10 +175,18 @@ public class CardGenerator : MonoBehaviour
             cardData = uniquePowerCardData.Find(card => card.cardName == cardName);
         }
 
-        BaseCard baseCard = Instantiate(_baseCard, transform);
+        BaseCard baseCard = Instantiate(_baseCard, _cardParent);
         baseCard.Init(_cardHolder, cardData, generateNumber, frameSprite, topFrameSprite);
         generateNumber++;
 
         return baseCard;
+    }
+
+
+    private BaseCard GetRandomCard(List<CardData> cards)
+    {
+        int index = Random.Range(0, cards.Count);
+
+        return GenerateCard(cards[index].cardName, cards[index].cardGrade, cards[index].cardType);
     }
 }

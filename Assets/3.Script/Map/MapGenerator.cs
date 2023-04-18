@@ -14,7 +14,7 @@ public enum ERoomType
     Size = 6
 }
 
-public class MapGenerator : MonoBehaviour
+public class MapGenerator : MonoBehaviour, IRegisterable
 {
     private Room[,] _mapArray = new Room[16, 7];
 

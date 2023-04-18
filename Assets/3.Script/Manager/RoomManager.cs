@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomManager : Singleton<RoomManager>
+public class RoomManager : MonoBehaviour, IRegisterable
 {
     [SerializeField]
     private InUnknownUI inUnknownUI;
@@ -22,13 +22,17 @@ public class RoomManager : Singleton<RoomManager>
     [SerializeField]
     private Neow neow;
 
+    private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+    private RewardManager rewardManager => ServiceLocator.Instance.GetService<RewardManager>();
+
     public void EnterRoom(ERoomType roomType)
     {
         // 니오우 있으면 없애주고
         neow.gameObject.SetActive(false);
 
-        // UI뜬거 없애주고 (맵..)
+        // UI뜬거 없애주고 (맵, 보상)
         act1Scene.ExitUI();
+        rewardManager.HideReward();
 
         // 대화창 없애주고
         GameManager.UI.InitSelectedButton();
@@ -62,7 +66,7 @@ public class RoomManager : Singleton<RoomManager>
     // 일반 적 방에 들어갈 때
     private void OnEnterEnemyRoom()
     {
-        BattleManager.Instance.StartBattle(act1BattleData[0]);
+        battleManager.StartBattle(act1BattleData[0]);
     }
 
     // 엘리트 방에 들어갈 때

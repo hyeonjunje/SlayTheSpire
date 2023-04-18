@@ -88,6 +88,8 @@ public class Room : MonoBehaviour
 
     public ERoomType RoomType { get; set; }
 
+    private RoomManager roomManager => ServiceLocator.Instance.GetService<RoomManager>();
+
     private void OnEnable()
     {
         _isEnable = true;
@@ -148,11 +150,7 @@ public class Room : MonoBehaviour
 
             GameManager.Game.CurrentRoom = this;
 
-            // 고치긴 해야 할듯 
-            RoomManager.Instance.EnterRoom(RoomType);
-
-            // FindObjectOfType<RoomManager>().EnterRoom(RoomType);
-            // GameManager.Room.EnterRoom(RoomType);
+            roomManager.EnterRoom(RoomType);
         }
         else
         {

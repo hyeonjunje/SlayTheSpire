@@ -34,7 +34,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     {
         StartCoroutine(CoAct(false));
 
-        BattleManager.Instance.Player.Hit(5);
+        battleManager.Player.Hit(5);
     }
 
     public void LockOn()
@@ -49,12 +49,12 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        BattleManager.Instance.TargetEnemy = this;
+        battleManager.TargetEnemy = this;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        BattleManager.Instance.TargetEnemy = null;
+        battleManager.TargetEnemy = null;
     }
 
     public void InitShield()

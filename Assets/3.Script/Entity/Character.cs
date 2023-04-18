@@ -86,6 +86,7 @@ public abstract class Character : MonoBehaviour
     }
 
     public bool IsDead => CurrentHp == 0;
+    protected BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
     // ав╠Б
     public virtual void Dead()

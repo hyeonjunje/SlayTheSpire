@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class CardEffect : MonoBehaviour
 {
+    BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+
     // 목표에게 피해를 주기
     public void Hit(int damage)
     {
-        BattleManager.Instance.TargetEnemy.Hit(damage);
+        battleManager.TargetEnemy.Hit(damage);
     }
 
 
     public void AddShield(int amount)
     {
-        BattleManager.Instance.Player.ShieldAmount += amount;
+        battleManager.Player.ShieldAmount += amount;
     }
 }

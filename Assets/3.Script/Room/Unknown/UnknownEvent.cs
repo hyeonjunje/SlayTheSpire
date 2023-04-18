@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class UnknownEvent : MonoBehaviour
 {
-    Player player => BattleManager.Instance.Player;
+    BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+    RoomManager roomManager => ServiceLocator.Instance.GetService<RoomManager>();
 
     public void ChangeMoney(int amount)
     {
-        player.Money += amount;
+        battleManager.Player.Money += amount;
     }
 
     public void AddCard()
@@ -43,22 +44,22 @@ public class UnknownEvent : MonoBehaviour
 
     public void ChangeMaxHp(int amount)
     {
-        player.MaxHp += amount;
+        battleManager.Player.MaxHp += amount;
     }
 
     public void ChangeHp(int amount)
     {
-        player.CurrentHp += amount;
+        battleManager.Player.CurrentHp += amount;
     }
 
     public void Proceed()
     {
-        RoomManager.Instance.ProceedNextUnknown();
+        roomManager.ProceedNextUnknown();
     }
 
     public void ClearRoom()
     {
-        RoomManager.Instance.ClearRoom();
+        roomManager.ClearRoom();
     }
 
     // µ·,

@@ -29,13 +29,10 @@ public class MyCardUI : MonoBehaviour
     [SerializeField]
     private Image[] sortDirImage;
 
-    /*
-    descending order
-    ascending order
-     */
-
     // 오름차순인가??
     private bool[] isAscending = new bool[4];
+
+    private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
     private void Awake()
     {
@@ -62,7 +59,7 @@ public class MyCardUI : MonoBehaviour
         myCards = new List<BaseCard>();
 
         // 카드 넣어주기
-        foreach (BaseCard card in BattleManager.Instance.Player.myCards)
+        foreach (BaseCard card in battleManager.Player.myCards)
         {
             BaseCard cloneCard = Instantiate(card, myCardsParent);
 
@@ -84,11 +81,7 @@ public class MyCardUI : MonoBehaviour
     {
         content.sizeDelta = Vector2.up * Screen.height;
 
-        // myCardsParent의 자식 다 지우기
-        Transform[] children = myCardsParent.GetComponentsInChildren<Transform>();
-        foreach (Transform child in children)
-            if (child != myCardsParent.transform)
-                Destroy(child.gameObject);
+        myCardsParent.DestroyAllChild();
     }
 
     /// <summary>

@@ -23,6 +23,7 @@ public class BaseCard : MonoBehaviour
     private int _generateNumber;  // 생성 넘버
 
     public CardController CardController => _cardController;
+    private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
     // 카드를 생성할 때 이 함수가 실행
     public void Init(CardHolder cardHolder, CardData cardData, int generateNumber, Sprite frameSprite, Sprite topFrameSprite)
@@ -71,9 +72,9 @@ public class BaseCard : MonoBehaviour
     private bool TryUseCard()
     {
         // 코스트 확인, 저주카드 확인, 부상카드 확인, 유물 확인
-        if (BattleManager.Instance.Player.Orb >= _cardData.cost)
+        if (battleManager.Player.Orb >= _cardData.cost)
         {
-            BattleManager.Instance.Player.Orb -= _cardData.cost;
+            battleManager.Player.Orb -= _cardData.cost;
             return true;
         }
         else

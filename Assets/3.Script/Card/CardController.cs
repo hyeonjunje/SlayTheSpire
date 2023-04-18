@@ -24,6 +24,8 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private CardHolder _cardHolder;
     private BezierCurve _bezierCurve;
 
+    private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+
     public void Init(CardHolder cardHolder, bool isBezierCurve , BaseCard baseCard)
     {
         // isBattle이나 isDrag 처리
@@ -85,14 +87,14 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (_isBezierCurve) // 타겟이 있으면
         {
             // 타겟이 있을 때만 사용
-            if (BattleManager.Instance.TargetEnemy != null)
+            if (battleManager.TargetEnemy != null)
             {
                 SetActiveRaycast(false);
                 _baseCard.UseCard();
             }
 
             // 때리고 나면 적 null처리
-            BattleManager.Instance.TargetEnemy = null;
+            battleManager.TargetEnemy = null;
 
             _bezierCurve.gameObject.SetActive(false);
         }

@@ -22,4 +22,16 @@ public static class Util
             list[n] = value;
         }
     }
+
+    /// <summary>
+    /// 자식 오브젝트 다 지웁니다.
+    /// </summary>
+    /// <param name="parent">지울 오브젝트들의 부모</param>
+    public static void DestroyAllChild(this Transform parent)
+    {
+        Transform[] children = parent.GetComponentsInChildren<Transform>();
+        foreach (Transform child in children)
+            if (child != parent.transform)
+                GameObject.Destroy(child.gameObject);
+    }
 }

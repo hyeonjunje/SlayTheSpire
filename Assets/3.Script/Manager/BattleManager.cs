@@ -13,7 +13,7 @@ public enum EBattleState
     BattleEnd,
 }
 
-public class BattleManager : Singleton<BattleManager>
+public class BattleManager : MonoBehaviour, IRegisterable
 {
     public System.Action onStartMyTurn;     // 내 턴 시작 시 발생
     public System.Action onStartEnemyTurn;  // 적 턴 시작 시 발생
@@ -25,6 +25,8 @@ public class BattleManager : Singleton<BattleManager>
 
     [SerializeField]
     private Player _player;
+
+    private BattleData _currentBattleData;
 
     private List<Enemy> _enemies;
     private StateFactory _stateFactory;
@@ -53,6 +55,8 @@ public class BattleManager : Singleton<BattleManager>
         }
     }
 
+    private RewardManager rewardManager => ServiceLocator.Instance.GetService<RewardManager>();
+
     private void Awake()
     {
         _stateFactory = new StateFactory(this);
@@ -67,6 +71,9 @@ public class BattleManager : Singleton<BattleManager>
 
     public void StartBattle(BattleData battleData)
     {
+        // 배틀데이터 저장
+        _currentBattleData = battleData;
+
         // 배틀 UI 활성화
         inBattleUI.gameObject.SetActive(true);
 
@@ -133,6 +140,7 @@ public class BattleManager : Singleton<BattleManager>
 
             // 보상
             Debug.Log("보상을 줍니다.");
+            rewardManager.ShowReward(_currentBattleData);
         }
 
         inBattleUI.gameObject.SetActive(false);
