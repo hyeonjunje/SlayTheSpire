@@ -37,14 +37,6 @@ public class CardData : ScriptableObject
     public ECardGrade cardGrade;
     public bool isBezierCurve;
 
-    [Header("업그레이드")]
-    public string upgradeCardName;
-    public string upgradeCardCost;
-    public string upgradeCardExplanation;
-
     [Header("사용효과")]
     public List<UnityEvent> useEffect;
-
-    [Header("업그레이드 사용효과")]
-    public List<UnityEvent> upgradeUseEffect;
 }

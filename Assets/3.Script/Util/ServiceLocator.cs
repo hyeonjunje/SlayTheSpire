@@ -9,7 +9,19 @@ public interface IRegisterable
 
 public class ServiceLocator : MonoBehaviour
 {
-    public static ServiceLocator Instance;
+    public static ServiceLocator instance;
+    public static ServiceLocator Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<ServiceLocator>();
+                instance.Init();
+            }
+            return instance;
+        }
+    }
 
     private IDictionary<object, IRegisterable> services;
 
@@ -25,14 +37,6 @@ public class ServiceLocator : MonoBehaviour
     [SerializeField]
     private MapGenerator mapGenerator;
 
-    private void Awake()
-    {
-        if(Instance == null)
-        {
-            Instance = this;
-            Init();
-        }
-    }
 
     private void Init()
     {
@@ -49,6 +53,8 @@ public class ServiceLocator : MonoBehaviour
     {
         if (!services.ContainsKey(typeof(T)))
         {
+            // Init();
+
             Debug.LogError("ServiceLocator::GetService 없는 키입니다.");
             return default(T);
         }

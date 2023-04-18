@@ -10,11 +10,15 @@ public class RewardManager : MonoBehaviour, IRegisterable
 
     [SerializeField]
     private GameObject cardRewardGameObject;
-
+    [SerializeField]
+    private GameObject rewardScreen;
     [SerializeField]
     private Transform rewardParent;
     [SerializeField]
     private Transform cardRewardParent;
+
+    [SerializeField]
+    private Button passRewardButton;
 
     [SerializeField]
     private Reward rewardPrefab;
@@ -28,6 +32,11 @@ public class RewardManager : MonoBehaviour, IRegisterable
 
     private CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+
+    private void Awake()
+    {
+        passRewardButton.onClick.AddListener(() => GameObject.Find("@Act1Scene").GetComponent<Act1Scene>().ShowMap());
+    }
 
     public void ShowReward(BattleData battleData)
     {
@@ -52,6 +61,7 @@ public class RewardManager : MonoBehaviour, IRegisterable
         Button cardRewardButton = cardReward.GetComponent<Button>();
         cardReward.Init("덱에 카드를 추가", cardRewardImage);
         cardRewardButton.onClick.AddListener(() => cardRewardGameObject.gameObject.SetActive(true));
+        cardRewardButton.onClick.AddListener(() => rewardScreen.gameObject.SetActive(false));
 
         // 포션 만들꺼면 포션도
 
@@ -72,8 +82,6 @@ public class RewardManager : MonoBehaviour, IRegisterable
         rewardParent.DestroyAllChild();
         cardRewardParent.DestroyAllChild();
 
-        cardRewardParent.gameObject.SetActive(false);
-
         rewardUI.gameObject.SetActive(false);
     }
 
@@ -81,9 +89,9 @@ public class RewardManager : MonoBehaviour, IRegisterable
     // 카드 3장 생성
     private void GetCard()
     {
-        BaseCard card1 = cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack);
-        BaseCard card2 = cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack);
-        BaseCard card3 = cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack);
+        BaseCard card1 = cardGenerator.GenerateCard(1);
+        BaseCard card2 = cardGenerator.GenerateCard(1);
+        BaseCard card3 = cardGenerator.GenerateCard(1);
 
         card1.transform.SetParent(cardRewardParent);
         card2.transform.SetParent(cardRewardParent);

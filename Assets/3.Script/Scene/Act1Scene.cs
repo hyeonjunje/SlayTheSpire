@@ -40,16 +40,16 @@ public class Act1Scene : BaseScene
         StartCoroutine(CoAppearActInfo());
 
         // 카드도 생성해야 하지
-        _player.AddCard(cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack));
-        _player.AddCard(cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack));
-        _player.AddCard(cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack));
-        _player.AddCard(cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack));
-        _player.AddCard(cardGenerator.GenerateCard("타격", ECardGrade.Common, ECardType.Attack));
-        _player.AddCard(cardGenerator.GenerateCard("수비", ECardGrade.Common, ECardType.Skill));
-        _player.AddCard(cardGenerator.GenerateCard("수비", ECardGrade.Common, ECardType.Skill));
-        _player.AddCard(cardGenerator.GenerateCard("수비", ECardGrade.Common, ECardType.Skill));
-        _player.AddCard(cardGenerator.GenerateCard("수비", ECardGrade.Common, ECardType.Skill));
-        _player.AddCard(cardGenerator.GenerateCard("수비", ECardGrade.Common, ECardType.Skill));
+        _player.AddCard(cardGenerator.GenerateCard(1));
+        _player.AddCard(cardGenerator.GenerateCard(1));
+        _player.AddCard(cardGenerator.GenerateCard(1));
+        _player.AddCard(cardGenerator.GenerateCard(1));
+        _player.AddCard(cardGenerator.GenerateCard(2));
+        _player.AddCard(cardGenerator.GenerateCard(2));
+        _player.AddCard(cardGenerator.GenerateCard(2));
+        _player.AddCard(cardGenerator.GenerateCard(2));
+        _player.AddCard(cardGenerator.GenerateCard(2));
+
         // 캐릭터도 만들어야하지
 
         _exitButtonOriginPos = _exitButton.transform.position;

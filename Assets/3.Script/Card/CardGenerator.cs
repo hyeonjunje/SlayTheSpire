@@ -28,6 +28,9 @@ public class CardGenerator : MonoBehaviour, IRegisterable
     private Sprite uniqueTopFrameSprite;
 
     [SerializeField]
+    private List<CardData> allCardData;
+
+    [SerializeField]
     private List<CardData> commonAttackCardData, speicalAttackCardData, uniqueAttackCardData;
 
     [SerializeField]
@@ -38,6 +41,21 @@ public class CardGenerator : MonoBehaviour, IRegisterable
 
     [SerializeField]
     private List<int> cardPercentage;
+
+    public BaseCard GenerateCard(int id)
+    {
+        for(int i = 0; i < allCardData.Count; i++)
+        {
+            if(allCardData[i].id == id)
+            {
+                return GenerateCard(allCardData[i].cardName, allCardData[i].cardGrade, allCardData[i].cardType);
+            }
+        }
+
+        Debug.LogError("그런 카드는 없습니다.");
+
+        return null;
+    }
 
 
     public BaseCard GenerateRandomCard()
@@ -106,7 +124,7 @@ public class CardGenerator : MonoBehaviour, IRegisterable
     /// <param name="cardGrade">찾을 카드의 등급</param>
     /// <param name="cardType">찾을 카드의 타입</param>
     /// <returns>원하는 카드 반환</returns>
-    public BaseCard GenerateCard(string cardName, ECardGrade cardGrade, ECardType cardType)
+    private BaseCard GenerateCard(string cardName, ECardGrade cardGrade, ECardType cardType)
     {
         CardData cardData = null;
         Sprite frameSprite = null, topFrameSprite = null;
