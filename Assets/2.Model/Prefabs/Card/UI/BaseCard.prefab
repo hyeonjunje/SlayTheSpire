@@ -171,7 +171,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "\uD53C\uD574\uB97C 6 \uC90D\uB2C8\uB2E4."
@@ -511,6 +511,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302e358341ef7084bb84a3ec3ce84a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generateNumber: 0
+  cardType: 0
+  cost: 0
+  cardName: 
+  cardUsage: 0
   _cardController: {fileID: 6316809517184943177}
   _baseCardBuilder: {fileID: 1952976365138709271}
 --- !u!114 &1952976365138709271
@@ -544,7 +549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c9c07bc0082a144a0d5b33e032b813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBattle: 0
   isDrag: 0
   _moveTime: 0.2
 --- !u!1 &6360027792757214223

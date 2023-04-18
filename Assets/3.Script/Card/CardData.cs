@@ -33,6 +33,7 @@ public class CardData : ScriptableObject
     public int cost;
     public ECardType cardType;
     public string cardTypeString;
+    [Multiline(6)]
     public string cardExplanation;
     public ECardGrade cardGrade;
     public bool isBezierCurve;

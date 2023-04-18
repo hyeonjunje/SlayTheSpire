@@ -49,6 +49,7 @@ public class CardHolder : MonoBehaviour
         {
             card.cardUsage = ECardUsage.Battle;
             card.transform.SetParent(_cardTransform);
+            card.onClickAction = null;
         }
 
         foreach (BaseCard card in _cardDeck)

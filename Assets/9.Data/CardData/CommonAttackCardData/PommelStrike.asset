@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
-  m_Name: Strike
+  m_Name: PommelStrike
   m_EditorClassIdentifier: 
-  id: 1
-  cardImage: {fileID: 5397703368290560118, guid: 8d9740ccc8f1575438993ded872c07c8, type: 3}
-  cardName: "\uD0C0\uACA9"
+  id: 12
+  cardImage: {fileID: 5094003487727688001, guid: 8d9740ccc8f1575438993ded872c07c8, type: 3}
+  cardName: "\uD3FC\uBA5C \uD0C0\uACA9"
   cost: 1
   cardType: 0
   cardTypeString: "\uACF5\uACA9"
-  cardExplanation: "\uD53C\uD574\uB97C 6 \uC90D\uB2C8\uB2E4."
+  cardExplanation: "\uD53C\uD574\uB97C 9 \uC90D\uB2C8\uB2E4.\n\uCE74\uB4DC\uB97C
+    1\uC7A5 \uBF51\uC2B5\uB2C8\uB2E4."
   cardGrade: 0
   isBezierCurve: 1
-  upgradeCardName: 
-  upgradeCardCost: 
-  upgradeCardExplanation: 
   useEffect:
+  - m_PersistentCalls:
+      m_Calls: []
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
@@ -34,12 +34,20 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  upgradeUseEffect: []
-  test:
-    m_PersistentCalls:
-      m_Calls: []
+      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
+        m_TargetAssemblyTypeName: CardEffect, Assembly-CSharp
+        m_MethodName: Draw
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -1904,10 +1904,40 @@ MonoBehaviour:
   - {fileID: 1645429234203838156, guid: c30fd4d99114d614a83e0489dde0a15d, type: 3}
   uniqueTopFrameSprite: {fileID: 9083194344635645897, guid: c30fd4d99114d614a83e0489dde0a15d, type: 3}
   allCardData:
+  - {fileID: 11400000, guid: 7fb5cb2be8541bc469a334b232811a70, type: 2}
+  - {fileID: 11400000, guid: 144ad62a6eaa28b4193673b3df86c807, type: 2}
+  - {fileID: 11400000, guid: 5a4d2ba5f59c4424d94eb86c7038e140, type: 2}
+  - {fileID: 11400000, guid: f01c7837330c8de4482b7af0fa8720a7, type: 2}
+  - {fileID: 11400000, guid: 943bbf84a10ede2498855e0ead188ee0, type: 2}
+  - {fileID: 11400000, guid: cf70333bb05b5d8438457ec3f1f22404, type: 2}
+  - {fileID: 11400000, guid: 8b0bfaabf7480994a80ad050409b509c, type: 2}
+  - {fileID: 11400000, guid: 836923f77e3a4154180a67281d81bafc, type: 2}
+  - {fileID: 11400000, guid: 108f417ac2ab55c4391d1449d3dd4ccf, type: 2}
+  - {fileID: 11400000, guid: 6f75fe431fd033c4a80d1d30e2ddbce1, type: 2}
+  - {fileID: 11400000, guid: 11d4da387f654b64981417cd390047d8, type: 2}
   - {fileID: 11400000, guid: 2a226941b8ca1174aacae9bc284d2dab, type: 2}
+  - {fileID: 11400000, guid: 0d8eab8d45c716248b63dfbe0fd61dad, type: 2}
+  - {fileID: 11400000, guid: 13dd17b36b14d3a419a020db35caf2c9, type: 2}
+  - {fileID: 11400000, guid: c69e89b8846afe440b4314f75bcb4d92, type: 2}
+  - {fileID: 11400000, guid: 5a009b96ae9bf2346a6cb7eab90b6a9e, type: 2}
   - {fileID: 11400000, guid: 12bbe528be46e9644a7711971dda0345, type: 2}
   commonAttackCardData:
   - {fileID: 11400000, guid: 2a226941b8ca1174aacae9bc284d2dab, type: 2}
+  - {fileID: 11400000, guid: 7fb5cb2be8541bc469a334b232811a70, type: 2}
+  - {fileID: 11400000, guid: 144ad62a6eaa28b4193673b3df86c807, type: 2}
+  - {fileID: 11400000, guid: 5a4d2ba5f59c4424d94eb86c7038e140, type: 2}
+  - {fileID: 11400000, guid: f01c7837330c8de4482b7af0fa8720a7, type: 2}
+  - {fileID: 11400000, guid: 943bbf84a10ede2498855e0ead188ee0, type: 2}
+  - {fileID: 11400000, guid: cf70333bb05b5d8438457ec3f1f22404, type: 2}
+  - {fileID: 11400000, guid: 8b0bfaabf7480994a80ad050409b509c, type: 2}
+  - {fileID: 11400000, guid: 836923f77e3a4154180a67281d81bafc, type: 2}
+  - {fileID: 11400000, guid: 108f417ac2ab55c4391d1449d3dd4ccf, type: 2}
+  - {fileID: 11400000, guid: 6f75fe431fd033c4a80d1d30e2ddbce1, type: 2}
+  - {fileID: 11400000, guid: 11d4da387f654b64981417cd390047d8, type: 2}
+  - {fileID: 11400000, guid: 0d8eab8d45c716248b63dfbe0fd61dad, type: 2}
+  - {fileID: 11400000, guid: 13dd17b36b14d3a419a020db35caf2c9, type: 2}
+  - {fileID: 11400000, guid: c69e89b8846afe440b4314f75bcb4d92, type: 2}
+  - {fileID: 11400000, guid: 5a009b96ae9bf2346a6cb7eab90b6a9e, type: 2}
   speicalAttackCardData: []
   uniqueAttackCardData: []
   commonSkillCardData:
@@ -9980,8 +10010,6 @@ MonoBehaviour:
   isFirst: 1
   passButton: {fileID: 582239997}
   cardReward: {fileID: 1444812030}
-  rewardParent: {fileID: 909384754}
-  cardRewardParent: {fileID: 1162051401}
 --- !u!1 &1474556317
 GameObject:
   m_ObjectHideFlags: 0

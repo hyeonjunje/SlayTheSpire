@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1171901632981668240}
   - component: {fileID: 360811604901304999}
   m_Layer: 0
-  m_Name: Yab
+  m_Name: CardEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
