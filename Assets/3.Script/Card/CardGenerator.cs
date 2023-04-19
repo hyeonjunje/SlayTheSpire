@@ -57,8 +57,14 @@ public class CardGenerator : MonoBehaviour, IRegisterable
         return null;
     }
 
+    public BaseCard GeneratorRandomCard()
+    {
+        CardData randomCardData = allCardData[Random.Range(0, allCardData.Count)];
+        return GenerateCard(randomCardData.cardName, randomCardData.cardGrade, randomCardData.cardType);
+    }
 
-    public BaseCard GenerateRandomCard()
+
+    /*public BaseCard GenerateRandomCard()
     {
         BaseCard result = null;
 
@@ -115,7 +121,7 @@ public class CardGenerator : MonoBehaviour, IRegisterable
         }
 
         return result;
-    }
+    }*/
 
     /// <summary>
     /// 사용자가 원하는 카드를 반환하는 카드

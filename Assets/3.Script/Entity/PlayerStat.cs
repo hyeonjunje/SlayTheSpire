@@ -46,9 +46,9 @@ public class PlayerStat : CharacterStat
         }
     }
 
-    public override void Init()
+    public override void Init(Character character)
     {
-        base.Init();
+        base.Init(character);
 
         MaxOrb = 3;
         CurrentOrb = MaxOrb;

@@ -17,8 +17,8 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
         CharacterStat = GetComponent<CharacterStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
 
-        CharacterStat.Init();
-        CharacterAnimation.Init();
+        CharacterStat.Init(this);
+        CharacterAnimation.Init(this);
 
         onStartTurn += (() => CharacterStat.Shield = 0);
     }
@@ -58,7 +58,9 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     {
         Debug.Log("¸Â¾Ò´ç");
         CharacterStat.Hit(damage);
-        CharacterAnimation.SetTrigger("isHitted");
+
+        if (!CharacterStat.IsDead)
+            CharacterAnimation.SetTrigger("isHitted");
     }
 
     public override void Act()

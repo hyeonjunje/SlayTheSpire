@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
-  m_Name: Bash
+  m_Name: 13.SwordBoomerang
   m_EditorClassIdentifier: 
-  id: 2
-  cardImage: {fileID: 414904565320053323, guid: 0434d67f1627c05408bf6e37e8782abe, type: 3}
-  cardName: "\uAC15\uD0C0"
-  cost: 2
+  id: 13
+  cardImage: {fileID: -8398654740464828541, guid: 8d9740ccc8f1575438993ded872c07c8, type: 3}
+  cardName: "\uBD80\uBA54\uB791 \uCE7C\uB0A0"
+  cost: 1
   cardType: 0
   cardTypeString: "\uACF5\uACA9"
-  cardExplanation: "\uD53C\uD574\uB97C 8 \uC90D\uB2C8\uB2E4.\n\uCDE8\uC57D\uC744
-    2 \uBD80\uC5EC\uD569\n\uB2C8\uB2E4."
+  cardExplanation: "\uBB34\uC791\uC704 \uC801\uB4E4\uC5D0\uAC8C \uD53C\uD574\uB97C
+    3 \uB9CC\uD07C\n3\uBC88 \uC90D\uB2C8\uB2E4."
   cardGrade: 0
   isBezierCurve: 1
   useEffect:
@@ -28,25 +28,13 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
-        m_TargetAssemblyTypeName: CardEffect, Assembly-CSharp
-        m_MethodName: Hit
-        m_Mode: 3
+        m_TargetAssemblyTypeName: CommonAttackCardEffect, Assembly-CSharp
+        m_MethodName: SwordBoomerang
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
-        m_TargetAssemblyTypeName: CardEffect, Assembly-CSharp
-        m_MethodName: GiveWeek
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

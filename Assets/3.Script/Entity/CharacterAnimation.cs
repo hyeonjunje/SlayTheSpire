@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class CharacterAnimation : MonoBehaviour
 {
+    private Character _character;
     private Animator _animator;
-    public void Init()
+    public void Init(Character character)
     {
         _animator = GetComponent<Animator>();
+
+        this._character = character;
     }
 
     public void SetTrigger(string anim)

@@ -1921,6 +1921,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c69e89b8846afe440b4314f75bcb4d92, type: 2}
   - {fileID: 11400000, guid: 5a009b96ae9bf2346a6cb7eab90b6a9e, type: 2}
   - {fileID: 11400000, guid: 12bbe528be46e9644a7711971dda0345, type: 2}
+  - {fileID: 11400000, guid: 4e6d530cdcde4de4a9fc6139ba8f8b9a, type: 2}
+  - {fileID: 11400000, guid: 5ab5ca20eaaf57a4d9df98c9e1d73c14, type: 2}
+  - {fileID: 11400000, guid: 44222e482718fce4185a40000dfba2bb, type: 2}
+  - {fileID: 11400000, guid: 6f9d3dc4ab4512c4693615354972671a, type: 2}
+  - {fileID: 11400000, guid: 39e277f245c98c64b87879c7c2ae9813, type: 2}
+  - {fileID: 11400000, guid: 6bde7b398049e4e47b3ac0f63df1649c, type: 2}
   commonAttackCardData:
   - {fileID: 11400000, guid: 2a226941b8ca1174aacae9bc284d2dab, type: 2}
   - {fileID: 11400000, guid: 7fb5cb2be8541bc469a334b232811a70, type: 2}
@@ -1942,6 +1948,12 @@ MonoBehaviour:
   uniqueAttackCardData: []
   commonSkillCardData:
   - {fileID: 11400000, guid: 12bbe528be46e9644a7711971dda0345, type: 2}
+  - {fileID: 11400000, guid: 4e6d530cdcde4de4a9fc6139ba8f8b9a, type: 2}
+  - {fileID: 11400000, guid: 5ab5ca20eaaf57a4d9df98c9e1d73c14, type: 2}
+  - {fileID: 11400000, guid: 44222e482718fce4185a40000dfba2bb, type: 2}
+  - {fileID: 11400000, guid: 6f9d3dc4ab4512c4693615354972671a, type: 2}
+  - {fileID: 11400000, guid: 39e277f245c98c64b87879c7c2ae9813, type: 2}
+  - {fileID: 11400000, guid: 6bde7b398049e4e47b3ac0f63df1649c, type: 2}
   specialSkillCardData: []
   uniqueSkillCardData: []
   commonPowerCardData: []

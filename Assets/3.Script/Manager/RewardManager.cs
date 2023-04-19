@@ -75,13 +75,13 @@ public class RewardManager : MonoBehaviour, IRegisterable
     // 카드 3장 생성
     private void GetCard()
     {
-        int randomCardId1 = Random.Range(1, 18);
+/*        int randomCardId1 = Random.Range(1, 18);
         int randomCardId2 = Random.Range(1, 18);
-        int randomCardId3 = Random.Range(1, 18);
+        int randomCardId3 = Random.Range(1, 18);*/
 
-        BaseCard card1 = cardGenerator.GenerateCard(randomCardId1);
-        BaseCard card2 = cardGenerator.GenerateCard(randomCardId2);
-        BaseCard card3 = cardGenerator.GenerateCard(randomCardId3);
+        BaseCard card1 = cardGenerator.GeneratorRandomCard();
+        BaseCard card2 = cardGenerator.GeneratorRandomCard();
+        BaseCard card3 = cardGenerator.GeneratorRandomCard();
 
         card1.cardUsage = ECardUsage.Gain;
         card2.cardUsage = ECardUsage.Gain;

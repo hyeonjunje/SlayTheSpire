@@ -8,6 +8,8 @@ public class CharacterStat : MonoBehaviour
     protected delegate void OnChangeHp();
     protected OnChangeHp onChangeHp;
 
+    private Character _character;
+
     [Header("Stat")]
     [SerializeField] private int _maxHp;
     private int _currentHp;
@@ -66,17 +68,21 @@ public class CharacterStat : MonoBehaviour
         }
     }
 
+    public int Power { get; set; }
+    public int Agility { get; set; }
+
     public bool IsDead => CurrentHp == 0;
 
-    public virtual void Init()
+    public virtual void Init(Character character)
     {
         CurrentHp = _maxHp;
         Shield = 0;
+        this._character = character;
     }
 
     private void Dead()
     {
-
+        _character.Dead();
     }
 
     public void Hit(int damage)

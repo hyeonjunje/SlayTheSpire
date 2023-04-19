@@ -17,8 +17,8 @@ public class Player : Character
         PlayerStat = GetComponent<PlayerStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
 
-        PlayerStat.Init();
-        CharacterAnimation.Init();
+        PlayerStat.Init(this);
+        CharacterAnimation.Init(this);
 
         onStartTurn += (() => PlayerStat.Shield = 0);
         onStartTurn += (() => PlayerStat.CurrentOrb = PlayerStat.MaxOrb);
@@ -60,9 +60,12 @@ public class Player : Character
 
     public override void Hit(int damage)
     {
+
         Debug.Log("¸Â¾Ò´ç");
         PlayerStat.Hit(damage);
-        CharacterAnimation.SetTrigger("isHitted");
+
+        if (!PlayerStat.IsDead)
+            CharacterAnimation.SetTrigger("isHitted");
     }
 
     public override void Act()

@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
-  m_Name: HeavyBlade
+  m_Name: 11.PerfectedStrike
   m_EditorClassIdentifier: 
-  id: 9
-  cardImage: {fileID: -3004833494061466359, guid: ef6bd3b516fb3414c95fc864d0cc4cf5, type: 3}
-  cardName: "\uB300\uAC80"
+  id: 11
+  cardImage: {fileID: -3808444193008492489, guid: 8d9740ccc8f1575438993ded872c07c8, type: 3}
+  cardName: "\uC644\uBCBD\uD55C \uD0C0\uACA9"
   cost: 2
   cardType: 0
   cardTypeString: "\uACF5\uACA9"
-  cardExplanation: "\uD53C\uD574\uB97C 14 \uC90D\uB2C8\uB2E4.\n\uD798\uC758 \uD6A8\uACFC\uAC00
-    3\uBC30\uB85C\n\uC801\uC6A9\uB429\uB2C8\uB2E4."
+  cardExplanation: "\uD53C\uD574\uB97C 6 \uC90D\uB2C8\uB2E4.\n\uBCF4\uC720 \uC911\uC778
+    \uCE74\uB4DC \uC911 \uC774\uB984\uC5D0 '\uD0C0\uACA9'\n\uC774 \uD3EC\uD568\uB41C
+    \uCE74\uB4DC \uD558\uB098\uB2F9 \uD53C\uD574\uB7C9\uC774 \n2 \uC99D\uAC00\uD569\uB2C8\uB2E4."
   cardGrade: 0
   isBezierCurve: 1
   useEffect:
@@ -28,14 +29,14 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
-        m_TargetAssemblyTypeName: CardEffect, Assembly-CSharp
-        m_MethodName: HitPower
-        m_Mode: 5
+        m_TargetAssemblyTypeName: CommonAttackCardEffect, Assembly-CSharp
+        m_MethodName: PerfectedStrike
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 14,3
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
-  m_Name: Clothsline
+  m_Name: 7.Clothsline
   m_EditorClassIdentifier: 
   id: 7
   cardImage: {fileID: 4026443736203525726, guid: 0434d67f1627c05408bf6e37e8782abe, type: 3}
@@ -28,25 +28,13 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
-        m_TargetAssemblyTypeName: CardEffect, Assembly-CSharp
-        m_MethodName: Hit
-        m_Mode: 3
+        m_TargetAssemblyTypeName: CommonAttackCardEffect, Assembly-CSharp
+        m_MethodName: Clothesline
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 12
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
-        m_TargetAssemblyTypeName: CardEffect, Assembly-CSharp
-        m_MethodName: GiveWeakening
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
