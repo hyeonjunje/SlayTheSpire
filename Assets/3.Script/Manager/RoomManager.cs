@@ -10,6 +10,8 @@ public class RoomManager : MonoBehaviour, IRegisterable
     private InBattleUI inBattleUI;
     [SerializeField]
     private InUnknownUI inUnknownUI;
+    [SerializeField]
+    private InMerchantUI inMerchantUI;
 
     [Header("Battle")]
     [SerializeField]
@@ -82,7 +84,8 @@ public class RoomManager : MonoBehaviour, IRegisterable
     // 상인 방에 들어갈 때
     private void OnEnterMerchantRoom()
     {
-
+        GameManager.UI.ShowThisUI(inMerchantUI);
+        GameManager.Game.CurrentRoom.ClearRoom();
     }
 
     // 휴식 방에 들어갈 때
@@ -111,7 +114,6 @@ public class RoomManager : MonoBehaviour, IRegisterable
 
     public void ClearRoom()
     {
-        // UI 지워줘
         GameManager.Game.CurrentRoom.ClearRoom();
 
         GameManager.UI.ShowUI(mapUI);
