@@ -12,6 +12,8 @@ public class RoomManager : MonoBehaviour, IRegisterable
     private InUnknownUI inUnknownUI;
     [SerializeField]
     private InMerchantUI inMerchantUI;
+    [SerializeField]
+    private InRestUI inRestUI;
 
     [Header("Battle")]
     [SerializeField]
@@ -91,7 +93,8 @@ public class RoomManager : MonoBehaviour, IRegisterable
     // 휴식 방에 들어갈 때
     private void OnEnterRestRoom()
     {
-
+        GameManager.UI.ShowThisUI(inRestUI);
+        inRestUI.IsUsed = false;
     }
 
     // 보물 방에 들어갈 때
