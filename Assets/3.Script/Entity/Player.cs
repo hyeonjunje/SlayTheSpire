@@ -5,99 +5,39 @@ using UnityEngine.UI;
 
 public class Player : Character
 {
-    public delegate void OnDieEvent();
-    public OnDieEvent onDieEvent;
+    public PlayerStat PlayerStat { get; private set; }
+    public CharacterAnimation CharacterAnimation { get; private set; }
+
+
     public List<BaseCard> myCards;
+    public CardHolder cardHolder;
 
-    [SerializeField]
-    private CardHolder _cardHolder;
-    [SerializeField]
-    private Text energyText;
-    [SerializeField]
-    private Text hpText;
-    [SerializeField]
-    private Text moneyText;
-
-    public CardHolder CardHolder => _cardHolder;
-
-    public int maxOrb = 3;
-    private int _orb;
-    public int Orb
+    private void Awake()
     {
-        get { return _orb; }
-        set
-        {
-            _orb = value;
+        PlayerStat = GetComponent<PlayerStat>();
+        CharacterAnimation = GetComponent<CharacterAnimation>();
 
-            _orb = Mathf.Clamp(_orb, 0, 99);
+        PlayerStat.Init();
+        CharacterAnimation.Init();
 
-            // UI
-            energyText.text = _orb + "/" + maxOrb;
-        }
+        onStartTurn += (() => PlayerStat.Shield = 0);
+        onStartTurn += (() => PlayerStat.CurrentOrb = PlayerStat.MaxOrb);
     }
 
-    private int _money;
-    public int Money
-    {
-        get { return _money; }
-        set
-        {
-            _money = value;
-
-            _money = Mathf.Clamp(_money, 0, 9999);
-            // UI활성화
-            moneyText.text = _money.ToString();
-        }
-    }
-
-    protected override void Awake()
-    {
-        base.Awake();
-
-        Money = 99;
-
-        onStartTurn += InitShield;
-        onStartTurn += (() => Orb = maxOrb);
-
-        onChangeHp += (() => hpText.text = CurrentHp + "/" + MaxHp);
-    }
-
-    public override void Dead()
-    {
-        onDieEvent?.Invoke();
-        Debug.Log("으앙 주금");
-    }
-
-    public override void Hit(int damage)
-    {
-        Debug.Log("으앙 아파");
-        base.Hit(damage);
-    }
-
-    public void InitShield()
-    {
-        // if 바리케이트 있으면 이건 안해
-        ShieldAmount = 0;
-    }
-
-    public override void Act()
-    {
-        StartCoroutine(CoAct(true));
-    }
 
     public void ResumeBattle()
     {
-        _cardHolder.ResumeBattle(myCards);
+        cardHolder.ResumeBattle(myCards);
     }
 
     public void StartBattle()
     {
-        _cardHolder.StartBattle(myCards);
+        cardHolder.StartBattle(myCards);
     }
 
     public void EndBattle()
     {
-        _cardHolder.EndBattle(myCards);
+        cardHolder.EndBattle(myCards);
     }
 
     // 플레이어의 카드를 더해준다.
@@ -110,5 +50,24 @@ public class Player : Character
     public void RemoveCard(BaseCard card)
     {
 
+    }
+
+    public override void Dead()
+    {
+        Debug.Log("주겄당");
+        CharacterAnimation.SetTrigger("isDead");
+    }
+
+    public override void Hit(int damage)
+    {
+        Debug.Log("맞았당");
+        PlayerStat.Hit(damage);
+        CharacterAnimation.SetTrigger("isHitted");
+    }
+
+    public override void Act()
+    {
+        Debug.Log("행동한당");
+        StartCoroutine(CharacterAnimation.CoAct(true));
     }
 }

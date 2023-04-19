@@ -14470,6 +14470,8 @@ GameObject:
   - component: {fileID: 2141070374}
   - component: {fileID: 2141070373}
   - component: {fileID: 2141070372}
+  - component: {fileID: 2141070376}
+  - component: {fileID: 2141070377}
   - component: {fileID: 2141070375}
   m_Layer: 0
   m_Name: Ironclad
@@ -14575,14 +14577,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98146ca45603c0742a0c54ade04871ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hpBar: {fileID: 1290512783}
-  _maxHp: 80
   myCards: []
-  _cardHolder: {fileID: 1252302025}
-  energyText: {fileID: 2057693780}
+  cardHolder: {fileID: 1252302025}
+--- !u!114 &2141070376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141070371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd02618a5676c4d49a564c85e76736e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHp: 80
+  _hpBar: {fileID: 1290512783}
   hpText: {fileID: 514823429}
   moneyText: {fileID: 1072149012}
-  maxOrb: 3
+  energyText: {fileID: 2057693780}
+--- !u!114 &2141070377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141070371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b00b7f6cf276547929af9b88c2689b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1349878450265109997
 PrefabInstance:
   m_ObjectHideFlags: 0

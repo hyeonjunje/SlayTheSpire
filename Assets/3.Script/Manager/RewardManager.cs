@@ -114,7 +114,7 @@ public class RewardManager : MonoBehaviour, IRegisterable
 
     private void GetMoney(int value)
     {
-        battleManager.Player.Money += value;
+        battleManager.Player.PlayerStat.Money += value;
     }
 
     private void GetRelic()

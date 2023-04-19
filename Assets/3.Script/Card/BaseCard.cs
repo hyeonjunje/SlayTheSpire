@@ -70,9 +70,9 @@ public class BaseCard : MonoBehaviour
     private bool TryUseCard()
     {
         // 코스트 확인, 저주카드 확인, 부상카드 확인, 유물 확인
-        if (battleManager.Player.Orb >= _cardData.cost)
+        if (battleManager.Player.PlayerStat.CurrentOrb >= _cardData.cost)
         {
-            battleManager.Player.Orb -= _cardData.cost;
+            battleManager.Player.PlayerStat.CurrentOrb -= _cardData.cost;
             return true;
         }
         else

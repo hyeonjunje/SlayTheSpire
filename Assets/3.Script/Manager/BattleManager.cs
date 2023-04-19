@@ -44,7 +44,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
         get { return targetEnemy; }
         set
         {
-            if (Player.CardHolder.selectedCard == null)
+            if (Player.cardHolder.selectedCard == null)
                 return;
 
             targetEnemy?.LockOff();
@@ -52,7 +52,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
             targetEnemy?.LockOn();
 
             // 타겟이 널이 아니면 베지어 곡선 하이라이트
-            Player.CardHolder.BezierCurve.Highlight(targetEnemy != null);
+            Player.cardHolder.BezierCurve.Highlight(targetEnemy != null);
         }
     }
 
@@ -79,7 +79,9 @@ public class BattleManager : MonoBehaviour, IRegisterable
         _player.StartBattle();
 
         // 배틀 UI 활성화
-        inBattleUI.gameObject.SetActive(true);
+        GameManager.UI.ShowThisUI(inBattleUI);
+
+        /*inBattleUI.gameObject.SetActive(true);*/
 
         // 적 생성
         _enemies = new List<Enemy>();
@@ -110,14 +112,14 @@ public class BattleManager : MonoBehaviour, IRegisterable
             _stateFactory.CurrentState.Update();
 
             // 플레이어 죽음 확인
-            if (_player.IsDead)
+            if (_player.PlayerStat.IsDead)
                 break;
 
             // 적 죽음 확인
             bool isAllEnemyDie = true;
 
             foreach(Enemy enemy in _enemies)
-                if (!enemy.IsDead)
+                if (!enemy.CharacterStat.IsDead)
                     isAllEnemyDie = false;
 
             if (isAllEnemyDie)
@@ -127,7 +129,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
             yield return null;
         }
 
-        if (_player.IsDead)
+        if (_player.PlayerStat.IsDead)
         {
 
         }

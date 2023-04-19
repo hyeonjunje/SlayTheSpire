@@ -9,7 +9,7 @@ public class UnknownEvent : MonoBehaviour
 
     public void ChangeMoney(int amount)
     {
-        battleManager.Player.Money += amount;
+        battleManager.Player.PlayerStat.Money += amount;
     }
 
     public void AddCard()
@@ -44,12 +44,12 @@ public class UnknownEvent : MonoBehaviour
 
     public void ChangeMaxHp(int amount)
     {
-        battleManager.Player.MaxHp += amount;
+        battleManager.Player.PlayerStat.MaxHp += amount;
     }
 
     public void ChangeHp(int amount)
     {
-        battleManager.Player.CurrentHp += amount;
+        battleManager.Player.PlayerStat.CurrentHp += amount;
     }
 
     public void Proceed()

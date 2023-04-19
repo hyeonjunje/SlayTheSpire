@@ -8,33 +8,24 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     [SerializeField]
     private GameObject _reticle;
 
-    protected override void Awake()
-    {
-        base.Awake();
+    public CharacterStat CharacterStat { get; private set; }
+    public CharacterAnimation CharacterAnimation { get; private set; }
 
-        onStartTurn += InitShield;
-    }
 
-    public override void Dead()
+    private void Awake()
     {
-        base.Dead();
+        CharacterStat = GetComponent<CharacterStat>();
+        CharacterAnimation = GetComponent<CharacterAnimation>();
+
+        CharacterStat.Init();
+        CharacterAnimation.Init();
+
+        onStartTurn += (() => CharacterStat.Shield = 0);
     }
 
     public void DestroyMySelf()
     {
         Destroy(gameObject);
-    }
-
-    public override void Hit(int damage)
-    {
-        base.Hit(damage);
-    }
-
-    public override void Act()
-    {
-        StartCoroutine(CoAct(false));
-
-        battleManager.Player.Hit(5);
     }
 
     public void LockOn()
@@ -57,9 +48,23 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
         battleManager.TargetEnemy = null;
     }
 
-    public void InitShield()
+    public override void Dead()
     {
-        // if 바리케이트 있으면 이건 안해
-        ShieldAmount = 0;
+        Debug.Log("주겄당");
+        CharacterAnimation.SetTrigger("isDead");
+    }
+
+    public override void Hit(int damage)
+    {
+        Debug.Log("맞았당");
+        CharacterStat.Hit(damage);
+        CharacterAnimation.SetTrigger("isHitted");
+    }
+
+    public override void Act()
+    {
+        Debug.Log("행동한당");
+        battleManager.Player.Hit(5);
+        StartCoroutine(CharacterAnimation.CoAct(false));
     }
 }

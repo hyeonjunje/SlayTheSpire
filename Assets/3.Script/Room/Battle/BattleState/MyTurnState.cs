@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MyTurnState : BaseBattleState
 {
-    CardHolder cardHolder => _battleManager.Player.CardHolder;
+    CardHolder cardHolder => _battleManager.Player.cardHolder;
 
     public MyTurnState(BattleManager battleManager, StateFactory stateFactory) : base(battleManager, stateFactory)
     {
