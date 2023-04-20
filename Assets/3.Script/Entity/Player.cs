@@ -35,7 +35,7 @@ public class Player : Character
     public void OnStartBattle()
     {
         cardHolder.StartBattle(myCards);
-        CharacterIndent.UpdateIndents();
+        CharacterIndent.Visualize();
     }
 
     public void OnEndBattle()
@@ -83,6 +83,6 @@ public class Player : Character
     {
         Debug.Log("행동한당");
         StartCoroutine(CharacterAnimation.CoAct(true));
-        CharacterIndent.UpdateIndents();
+        CharacterIndent.Visualize();
     }
 }

@@ -9,6 +9,7 @@ public class Pattern
     public EnemyPatternData patternData;
     public IndentData indentData;
     public int amount;
+    public int secondAmount;
 }
 
 
@@ -83,6 +84,16 @@ public class EnemyPattern : MonoBehaviour
             case EPatternType.Buff:
                 GetIndent();
                 break;
+            case EPatternType.DefendBuff:
+                // 힘 3 방어 6
+                GetIndent();
+                _enemy.CharacterStat.Shield += _currentPattern.secondAmount;
+                break;
+            case EPatternType.AttackDefend:
+                // 공격 방어
+                battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power);
+                _enemy.CharacterStat.Shield += _currentPattern.secondAmount + _enemy.CharacterStat.Agility;
+                break;
         }
     }
 
@@ -128,6 +139,7 @@ public class EnemyPattern : MonoBehaviour
         switch (_currentPattern.patternData.patternType)
         {
             case EPatternType.Attack:
+            case EPatternType.AttackDefend:
                 result = (_currentPattern.amount + _enemy.CharacterStat.Power).ToString();
                 break;
         }

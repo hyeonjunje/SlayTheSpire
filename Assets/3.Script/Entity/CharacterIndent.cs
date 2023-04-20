@@ -43,7 +43,7 @@ public class CharacterIndent : MonoBehaviour
     }
 
     // 시각화 => indent를 얻을 때나 턴이 시작되면 실행해줌
-    private void Visualize()
+    public void Visualize()
     {
         for(int i = 0; i < indentList.Count; i++)
         {

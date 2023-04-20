@@ -38,7 +38,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     // 전투가 시작되면 실행될 함수
     protected virtual void OnStartBattle()
     {
-        CharacterIndent.UpdateIndents();
+        CharacterIndent.Visualize();
     }
 
     // 전투가 끝나면 실행될 함수 (근데 어짜피 적들이 죽으면 전투가 끝나기 때문에 일단 만들어만 놓음)
@@ -128,6 +128,6 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 
         EnemyPattern.Act();
         StartCoroutine(CharacterAnimation.CoAct(false));
-        CharacterIndent.UpdateIndents();
+        CharacterIndent.Visualize();
     }
 }

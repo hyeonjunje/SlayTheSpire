@@ -8,6 +8,8 @@ public enum EPatternType
     Defense,
     Debuff,
     Buff,
+    DefendBuff,
+    AttackDefend
 }
 
 [CreateAssetMenu()]
