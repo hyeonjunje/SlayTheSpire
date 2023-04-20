@@ -16,7 +16,9 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 
     protected virtual void Awake()
     {
-        CharacterStat = GetComponent<CharacterStat>();
+        indent = new bool[(int)EIndent.Size];
+
+    CharacterStat = GetComponent<CharacterStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
         EnemyPattern = GetComponent<EnemyPattern>();
         CharacterIndent = GetComponent<CharacterIndent>();

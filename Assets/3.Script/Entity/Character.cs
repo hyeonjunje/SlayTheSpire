@@ -6,7 +6,8 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour
 {
     // Indent Á¤º¸
-    [HideInInspector]
+    // [HideInInspector]
+    // public bool[] indent = new bool[(int)EIndent.Size];
     public bool[] indent = new bool[(int)EIndent.Size];
 
     protected BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();

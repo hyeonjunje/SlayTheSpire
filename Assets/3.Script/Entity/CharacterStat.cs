@@ -49,7 +49,7 @@ public class CharacterStat : MonoBehaviour
 
             onChangeHp?.Invoke();
 
-            if (_currentHp == 0)
+            if (_currentHp <= 0)
             {
                 Dead();
             }

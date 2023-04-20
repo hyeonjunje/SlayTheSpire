@@ -10,6 +10,7 @@ public enum EIndent
     Frenzy, // 격분
     Strength, // 힘 얻기
     Roll, // 몸 말기  -> 공벌레
+    SporeCloud,  // 포자 구름
     Size,
 }
 
@@ -18,6 +19,9 @@ public class IndentData : ScriptableObject
 {
     public EIndent indent;
     public Sprite indentSprite;
+    public string indentName;
+    [Multiline(5)]
+    public string indentExplanation;
     public bool isTurn;  // 턴이 지날수록 감소하는 indent인지
     public bool isShowTurn;
 }

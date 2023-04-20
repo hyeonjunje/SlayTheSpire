@@ -124,6 +124,8 @@ public class BattleManager : MonoBehaviour, IRegisterable
             yield return null;
         }
 
+        onEndBattle?.Invoke();
+
         if (_player.PlayerStat.IsDead)
         {
 
@@ -138,7 +140,5 @@ public class BattleManager : MonoBehaviour, IRegisterable
             rewardManager.ShowReward(_currentBattleData);
             GameManager.UI.ShowThisUI(inRewardUI);
         }
-        
-        onEndBattle?.Invoke();
     }
 }

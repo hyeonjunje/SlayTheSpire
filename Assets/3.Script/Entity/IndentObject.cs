@@ -23,6 +23,7 @@ public class IndentObject : MonoBehaviour
 
     public void AddTurn(int turn)
     {
+        Debug.Log("Áõ°¡ ¾å");
         this.turn += turn;
     }
 

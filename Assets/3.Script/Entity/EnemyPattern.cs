@@ -129,6 +129,10 @@ public class EnemyPattern : MonoBehaviour
                 _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
                 _enemy.indent[(int)EIndent.Roll] = true;
                 break;
+            case EIndent.SporeCloud:
+                _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
+                _enemy.indent[(int)EIndent.SporeCloud] = true;
+                break;
         }
     }
 
