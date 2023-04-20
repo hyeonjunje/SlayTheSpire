@@ -15,3 +15,4 @@ MonoBehaviour:
   indent: 1
   indentSprite: {fileID: -8510570625647641878, guid: a2c2113e7dbb3a7408febba3b0ea568b, type: 3}
   isTurn: 1
+  isShowTurn: 1

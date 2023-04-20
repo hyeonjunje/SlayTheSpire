@@ -16205,7 +16205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252302024}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2400, z: 0}
+  m_LocalPosition: {x: 0, y: -2500, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -16817,7 +16817,7 @@ MonoBehaviour:
   inRestUI: {fileID: 1531580272}
   inTreasureUI: {fileID: 808506699}
   act1BattleData:
-  - {fileID: 11400000, guid: 61ebec588713d09498634a4fb3ad4698, type: 2}
+  - {fileID: 11400000, guid: 1a6a98993cd2fe54a847bf372654c6ae, type: 2}
   act1UnknownData:
   - {fileID: 11400000, guid: 5fd84900677012247955f360b7c462b4, type: 2}
   act1Scene: {fileID: 196484991}
@@ -26991,6 +26991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98146ca45603c0742a0c54ade04871ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indent: 0000000000
   myCards: []
   cardHolder: {fileID: 1252302025}
 --- !u!114 &2141070376

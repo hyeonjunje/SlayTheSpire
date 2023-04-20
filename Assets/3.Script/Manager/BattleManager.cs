@@ -20,6 +20,9 @@ public class BattleManager : MonoBehaviour, IRegisterable
     public System.Action onStartEnemyTurn;  // 적 턴 시작 시 발생
     public System.Action onEndEnemyTurn;    // 적 턴 끝 시 발생
 
+    public System.Action onStartBattle;     // 전투가 시작되면 발생
+    public System.Action onEndBattle;        // 전투가 끝나면 발생
+
     public InBattleUI inBattleUI;
     public InRewardUI inRewardUI;
 
@@ -77,9 +80,6 @@ public class BattleManager : MonoBehaviour, IRegisterable
         // 배틀데이터 저장
         _currentBattleData = battleData;
 
-        // 플레이어 전투 시작
-        _player.StartBattle();
-
         // 배틀 UI 활성화
         GameManager.UI.ShowThisUI(inBattleUI);
 
@@ -93,6 +93,8 @@ public class BattleManager : MonoBehaviour, IRegisterable
 
         myTurnCount = 1;
         myTurn = true;
+
+        onStartBattle?.Invoke();
 
         _stateFactory.ChangeState(EBattleState.MyTurnStart);
 
@@ -131,15 +133,12 @@ public class BattleManager : MonoBehaviour, IRegisterable
             // 클리어 처리
             GameManager.Game.CurrentRoom.ClearRoom();
 
-            // 패의 모든 카드 묘지에 이동
-            _player.EndBattle();
-
             // 보상
             Debug.Log("보상을 줍니다.");
             rewardManager.ShowReward(_currentBattleData);
             GameManager.UI.ShowThisUI(inRewardUI);
         }
-
-        inBattleUI.gameObject.SetActive(false);
+        
+        onEndBattle?.Invoke();
     }
 }

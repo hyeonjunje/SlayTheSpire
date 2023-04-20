@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f50f89573675f4885e34dd9dc4f480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indent: 000000000000
   _reticle: {fileID: 2028323557595065655}
 --- !u!114 &5406477547634263892
 MonoBehaviour:
@@ -256,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48506cc4fbe6bf64ab0f7dc070694ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 15
+  _maxHp: 45
   _hpBar: {fileID: 804376901955624150}
 --- !u!114 &3617994845697434765
 MonoBehaviour:

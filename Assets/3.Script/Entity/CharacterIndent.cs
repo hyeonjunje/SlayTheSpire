@@ -19,6 +19,11 @@ public class CharacterIndent : MonoBehaviour
         _character = character;
     }
 
+    public void ClearIndentList()
+    {
+        indentList = new List<IndentObject>();
+    }
+
     public void AddIndent(IndentData indentData, int value)
     {
         // 이미 있는 Indent라면 turn만 증가
@@ -38,7 +43,7 @@ public class CharacterIndent : MonoBehaviour
     }
 
     // 시각화 => indent를 얻을 때나 턴이 시작되면 실행해줌
-    public void Visualize()
+    private void Visualize()
     {
         for(int i = 0; i < indentList.Count; i++)
         {
@@ -77,5 +82,18 @@ public class CharacterIndent : MonoBehaviour
         }
 
         Visualize();
+    }
+
+    public void RemoveIndent(EIndent indentType)
+    {
+        for (int i = 0; i < indentList.Count; i++)
+        {
+            if (indentList[i].indentData.indent == indentType)
+            {
+                IndentObject temp = indentList[i];
+                indentList.Remove(temp);
+                Destroy(temp.gameObject);
+            }
+        }
     }
 }

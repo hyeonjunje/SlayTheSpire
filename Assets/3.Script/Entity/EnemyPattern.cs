@@ -16,8 +16,10 @@ public class EnemyPattern : MonoBehaviour
 {
     private Enemy _enemy;
 
-    public Pattern enemyFirstPattern;
-    public List<Pattern> enemyPatterns;
+    public Pattern alreadyPattern;  // 이미 있는 패턴
+    public Pattern enemyFirstPattern;  // 제일 처음 패턴
+    public List<Pattern> enemyPatterns;  // 그 외에 패턴
+    public bool isAlreadyPattern = false;
     public bool isFirstPattern = false;  // 제일 처음 패턴이 있는가
 
     [SerializeField] private Image _patternImage;
@@ -31,6 +33,12 @@ public class EnemyPattern : MonoBehaviour
     public void Init(Enemy enemy)
     {
         _enemy = enemy;
+
+        if(isAlreadyPattern)
+        {
+            _currentPattern = alreadyPattern;
+            GetIndent();
+        }
     }
 
     public void Act()
@@ -80,6 +88,9 @@ public class EnemyPattern : MonoBehaviour
 
     private void GetIndent()
     {
+        if (_currentPattern == null)
+            return;
+
         switch (_currentPattern.indentData.indent)
         {
             case EIndent.Weakening:
@@ -101,6 +112,11 @@ public class EnemyPattern : MonoBehaviour
             case EIndent.Strength:
                 _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
                 _enemy.indent[(int)EIndent.Strength] = true;
+                _enemy.CharacterStat.Power += _currentPattern.amount;
+                break;
+            case EIndent.Roll:
+                _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
+                _enemy.indent[(int)EIndent.Roll] = true;
                 break;
         }
     }

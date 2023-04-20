@@ -14,7 +14,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     public CharacterIndent CharacterIndent { get; private set; }
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         CharacterStat = GetComponent<CharacterStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
@@ -30,16 +30,32 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
         battleManager.onEndMyTurn += OnEndMyTurn;
         battleManager.onStartEnemyTurn += OnStartEnemyTurn;
         battleManager.onEndEnemyTurn += OnEndEnemyTurn;
+
+        battleManager.onStartBattle += OnStartBattle;
+        battleManager.onEndBattle += OnEndBattle;
+    }
+
+    // 전투가 시작되면 실행될 함수
+    protected virtual void OnStartBattle()
+    {
+        CharacterIndent.UpdateIndents();
+    }
+
+    // 전투가 끝나면 실행될 함수 (근데 어짜피 적들이 죽으면 전투가 끝나기 때문에 일단 만들어만 놓음)
+    protected virtual void OnEndBattle()
+    {
+
     }
 
     // 적 턴이 시작되면 실행될 함수
-    private void OnStartEnemyTurn()
+    protected virtual void OnStartEnemyTurn()
     {
         CharacterStat.Shield = 0;
     }
 
-    private void OnEndEnemyTurn()
+    protected virtual void OnEndEnemyTurn()
     {
+        CharacterIndent.UpdateIndents();
         // 의식이면 내 턴이 시작될 때 파워가 3 상승
         if (indent[(int)EIndent.Consciousness])
         {
@@ -47,13 +63,13 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    private void OnEndMyTurn()
+    protected virtual void OnEndMyTurn()
     {
-        CharacterIndent.UpdateIndents();
+
     }
 
     // 내 턴이 시작되면 실행될 함수
-    private void OnStartMyTurn()
+    protected virtual void OnStartMyTurn()
     {
         EnemyPattern.DicidePattern();
     }
@@ -64,6 +80,8 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
         battleManager.onEndMyTurn -= OnEndMyTurn;
         battleManager.onStartEnemyTurn -= OnStartEnemyTurn;
         battleManager.onEndEnemyTurn -= OnEndEnemyTurn;
+        battleManager.onStartBattle -= OnStartBattle;
+        battleManager.onEndBattle -= OnEndBattle;
 
         battleManager.Enemies.Remove(this);
         Destroy(gameObject);
@@ -110,5 +128,6 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 
         EnemyPattern.Act();
         StartCoroutine(CharacterAnimation.CoAct(false));
+        CharacterIndent.UpdateIndents();
     }
 }

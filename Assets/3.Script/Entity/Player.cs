@@ -26,7 +26,23 @@ public class Player : Character
         battleManager.onStartMyTurn += (() => PlayerStat.Shield = 0);
         battleManager.onStartMyTurn += (() => PlayerStat.CurrentOrb = PlayerStat.MaxOrb);
 
-        battleManager.onEndEnemyTurn += (() => CharacterIndent.UpdateIndents());
+        battleManager.onEndMyTurn += (() => CharacterIndent.UpdateIndents());
+
+        battleManager.onStartBattle += (() => OnStartBattle());
+        battleManager.onEndBattle += (() => OnEndBattle());
+    }
+
+    public void OnStartBattle()
+    {
+        cardHolder.StartBattle(myCards);
+        CharacterIndent.UpdateIndents();
+    }
+
+    public void OnEndBattle()
+    {
+        indent = new bool[(int)EIndent.Size];
+        CharacterIndent.ClearIndentList();
+        cardHolder.EndBattle(myCards);
     }
 
     public void ResumeBattle()
@@ -34,17 +50,6 @@ public class Player : Character
         cardHolder.ResumeBattle(myCards);
     }
 
-    public void StartBattle()
-    {
-        cardHolder.StartBattle(myCards);
-    }
-
-    public void EndBattle()
-    {
-        // indent초기화
-        indent = new bool[(int)EIndent.Size];
-        cardHolder.EndBattle(myCards);
-    }
 
     // 플레이어의 카드를 더해준다.
     public void AddCard(BaseCard card)
@@ -78,5 +83,6 @@ public class Player : Character
     {
         Debug.Log("행동한당");
         StartCoroutine(CharacterAnimation.CoAct(true));
+        CharacterIndent.UpdateIndents();
     }
 }

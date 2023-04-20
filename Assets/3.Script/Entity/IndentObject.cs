@@ -18,8 +18,7 @@ public class IndentObject : MonoBehaviour
         this.turn = turn;
 
         indentImage.sprite = indentData.indentSprite;
-        if(indentData.isTurn)
-            indentText.text = turn.ToString();
+        UpdateIndent();
     }
 
     public void AddTurn(int turn)
@@ -30,9 +29,13 @@ public class IndentObject : MonoBehaviour
 
     public void UpdateIndent()
     {
-        if (indentData.isTurn)
+        if (indentData.isShowTurn)
         {
             indentText.text = turn.ToString();
+        }
+        else
+        {
+            indentText.text = "";
         }
     }
 }

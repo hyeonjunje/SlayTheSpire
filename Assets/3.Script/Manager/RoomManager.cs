@@ -76,7 +76,7 @@ public class RoomManager : MonoBehaviour, IRegisterable
     private void OnEnterEnemyRoom()
     {
         GameManager.UI.ShowThisUI(inBattleUI);
-        battleManager.StartBattle(act1BattleData[0]);
+        battleManager.StartBattle(act1BattleData[Random.Range(0, act1BattleData.Count)]);
     }
 
     // 엘리트 방에 들어갈 때
