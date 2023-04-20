@@ -5,15 +5,9 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    // 몬스터, 플레이어의 부모 스크립트
-
-    // 자신의 턴이 시작될 때 실행될 델리게이트
-    public delegate void OnStartTurn();
-    public OnStartTurn onStartTurn;
-
-    // 자신의 턴이 끝날 때 실행될 델리게이트
-    public delegate void OnEndTurn();
-    public OnEndTurn onEndTurn;
+    // Indent 정보
+    [HideInInspector]
+    public bool[] indent = new bool[(int)EIndent.Size];
 
     protected BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 

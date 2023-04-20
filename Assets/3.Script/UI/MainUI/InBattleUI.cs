@@ -26,6 +26,7 @@ public class InBattleUI : BaseUI
         battleManager.onStartEnemyTurn += turnEndUI.OnClickButtonEvent;
     }
 
+
     public override void Show()
     {
         base.Show();

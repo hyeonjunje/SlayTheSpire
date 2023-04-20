@@ -61,7 +61,15 @@ public class CharacterStat : MonoBehaviour
         get { return _shield; }
         set
         {
-            _shield = value;
+            int shieldAmount = value - _shield;
+
+            // 약화일 때 방어력 25% 감소
+            if(shieldAmount > 0 && _character.indent[(int)EIndent.Weakening])
+            {
+                shieldAmount = Mathf.RoundToInt((float)shieldAmount * 0.75f);
+            }
+
+            _shield += shieldAmount;
             _shield = Mathf.Clamp(_shield, 0, 999);
 
             _hpBar.DisplayShield(_shield);
@@ -87,6 +95,12 @@ public class CharacterStat : MonoBehaviour
 
     public void Hit(int damage)
     {
+        // 취약일 때 데미지 1.5배로 더 받음
+        if(_character.indent[(int)EIndent.Weak])
+        {
+            damage = Mathf.RoundToInt((float)damage * 1.5f);
+        }
+
         if(Shield > 0)
         {
             if(Shield >= damage)

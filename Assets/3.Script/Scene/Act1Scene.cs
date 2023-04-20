@@ -44,6 +44,7 @@ public class Act1Scene : BaseScene
         _player.AddCard(cardGenerator.GenerateCard(33));
         _player.AddCard(cardGenerator.GenerateCard(33));
         _player.AddCard(cardGenerator.GenerateCard(33));
+        _player.AddCard(cardGenerator.GenerateCard(2));  // 강타
 
         // 캐릭터도 만들어야하지
     }

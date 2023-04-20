@@ -12,7 +12,6 @@ public class EnemyTurnStartState : BaseBattleState
     public override void Enter()
     {
         _battleManager.onStartEnemyTurn?.Invoke();
-        _battleManager.Enemies.ForEach(enemy => enemy.onStartTurn?.Invoke());
     }
 
     public override void Exit()

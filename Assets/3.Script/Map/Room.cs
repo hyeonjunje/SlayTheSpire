@@ -34,6 +34,8 @@ public class Room : MonoBehaviour
     private Color _unSelectedColor;
     [SerializeField]
     private Color _selectedColor;
+    [SerializeField]
+    private GameObject _clearCheck;
 
     public float PosX => _posX;
     public float PosY => _posY;
@@ -151,6 +153,8 @@ public class Room : MonoBehaviour
             GameManager.Game.CurrentRoom = this;
 
             roomManager.EnterRoom(RoomType);
+
+            _clearCheck.SetActive(true);
         }
         else
         {

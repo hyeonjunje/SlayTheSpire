@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 37.ShrugItOff
   m_EditorClassIdentifier: 
   id: 37
-  cardImage: {fileID: 2267159672640488225, guid: 887226e3d1d2c4341a8653d482269158, type: 3}
+  cardImage: {fileID: 575785889731529768, guid: 887226e3d1d2c4341a8653d482269158, type: 3}
   cardName: "\uD758\uB824\uBCF4\uB0B4\uAE30"
   cost: 1
   cardType: 1

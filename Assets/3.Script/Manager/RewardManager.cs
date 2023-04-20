@@ -35,14 +35,32 @@ public class RewardManager : MonoBehaviour, IRegisterable
     private CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
+    // 보물상자
+    public void ShowReward()
+    {
+        // 돈이랑 유물만
+        rewardParent.DestroyAllChild();
 
+        // 보상창 켜주기
+        GameManager.UI.ShowThisUI(inRewardUI);
+
+        // 돈
+        Reward moneyReward = Instantiate(rewardPrefab, rewardParent);
+        Button moneyRewardButton = moneyReward.GetComponent<Button>();
+        moneyReward.Init(25 + "골드", moneyRewardImage);
+        moneyRewardButton.onClick.AddListener(() => GetMoney(25));
+        moneyRewardButton.onClick.AddListener(() => Destroy(moneyReward.gameObject));
+
+        // 유물
+    }
+
+    // 전투
     public void ShowReward(BattleData battleData)
     {
         rewardParent.DestroyAllChild();
         cardRewardParent.DestroyAllChild();
 
         // 보상창 켜주기
-        inRewardUI.gameObject.SetActive(true);
         GameManager.UI.ShowThisUI(inRewardUI);
 
         // 전투 끝나고 무조건 카드는 주기 때문에 카드는 일단 생성

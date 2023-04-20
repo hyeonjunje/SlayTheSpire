@@ -7,6 +7,7 @@ public class Player : Character
 {
     public PlayerStat PlayerStat { get; private set; }
     public CharacterAnimation CharacterAnimation { get; private set; }
+    public CharacterIndent CharacterIndent { get; private set; }
 
 
     public List<BaseCard> myCards;
@@ -16,14 +17,17 @@ public class Player : Character
     {
         PlayerStat = GetComponent<PlayerStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
+        CharacterIndent = GetComponent<CharacterIndent>();
 
         PlayerStat.Init(this);
         CharacterAnimation.Init(this);
+        CharacterIndent.Init(this);
 
-        onStartTurn += (() => PlayerStat.Shield = 0);
-        onStartTurn += (() => PlayerStat.CurrentOrb = PlayerStat.MaxOrb);
+        battleManager.onStartMyTurn += (() => PlayerStat.Shield = 0);
+        battleManager.onStartMyTurn += (() => PlayerStat.CurrentOrb = PlayerStat.MaxOrb);
+
+        battleManager.onEndEnemyTurn += (() => CharacterIndent.UpdateIndents());
     }
-
 
     public void ResumeBattle()
     {
@@ -37,6 +41,8 @@ public class Player : Character
 
     public void EndBattle()
     {
+        // indent√ ±‚»≠
+        indent = new bool[(int)EIndent.Size];
         cardHolder.EndBattle(myCards);
     }
 

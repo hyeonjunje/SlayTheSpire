@@ -30,6 +30,8 @@ public class InRestUI : BaseUI
                 progressButton.gameObject.SetActive(true);
 
                 ironcladImage.sprite = darkIroncladImage;
+
+                GameManager.Game.CurrentRoom.ClearRoom();
             }
             else
             {
@@ -40,8 +42,6 @@ public class InRestUI : BaseUI
                 progressButton.gameObject.SetActive(false);
 
                 ironcladImage.sprite = brightIroncladImage;
-
-                GameManager.Game.CurrentRoom.ClearRoom();
             }
         }
     }

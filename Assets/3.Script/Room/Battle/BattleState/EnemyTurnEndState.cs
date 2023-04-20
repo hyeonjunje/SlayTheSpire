@@ -11,11 +11,12 @@ public class EnemyTurnEndState : BaseBattleState
 
     public override void Enter()
     {
-        _battleManager.Enemies.ForEach(enemy => enemy.onEndTurn?.Invoke());
+        _battleManager.onEndEnemyTurn?.Invoke();
     }
 
     public override void Exit()
     {
+
     }
 
     public override void Update()

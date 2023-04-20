@@ -12,10 +12,12 @@ public class BattleTurnUI : MonoBehaviour
     [SerializeField]
     private Text myTurnCountText;
 
+    private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+
     public void DisplayBattleMyTurn()
     {
         myTurn.SetActive(true);
-        // myTurnCountText.text = turnCount + "ео";
+        myTurnCountText.text = battleManager.myTurnCount + "ео";
     }
 
     public void DisplayBattleEnemyTurn()

@@ -13,9 +13,8 @@ public class MyTurnEndState : BaseBattleState
 
     public override void Enter()
     {
+        _battleManager.onEndMyTurn?.Invoke();
         cardHolder.DiscardAllCard();
-
-        _battleManager.Player.onEndTurn?.Invoke();
     }
 
     public override void Exit()

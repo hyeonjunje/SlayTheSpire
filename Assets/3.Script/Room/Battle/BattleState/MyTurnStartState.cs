@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MyTurnStartState : BaseBattleState
 {
-    private int myTurnCount = 1;
-
     public MyTurnStartState(BattleManager battleManager, StateFactory stateFactory) : base(battleManager, stateFactory)
     {
         battleState = EBattleState.MyTurnStart;
@@ -14,7 +12,8 @@ public class MyTurnStartState : BaseBattleState
     public override void Enter()
     {
         _battleManager.onStartMyTurn?.Invoke();
-        _battleManager.Player.onStartTurn?.Invoke();
+
+        _battleManager.myTurnCount++;
 
         _battleManager.myTurn = true;
     }

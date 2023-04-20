@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CommonAttackCardEffect : BaseCardEffect
 {
+    [SerializeField]
+    private IndentData[] indentData;
+
     // 타격
     public void Strike()
     {
@@ -14,6 +18,9 @@ public class CommonAttackCardEffect : BaseCardEffect
     public void Bash()
     {
         targetEnemy.Hit(8 + power);
+
+        targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weak], 2);
+        targetEnemy.indent[(int)EIndent.Weak] = true;
     }
 
     // 분노
@@ -44,6 +51,9 @@ public class CommonAttackCardEffect : BaseCardEffect
     public void Clothesline()
     {
         targetEnemy.Hit(12 + power);
+
+        targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weakening], 2);
+        targetEnemy.indent[(int)EIndent.Weakening] = true;
     }
 
     // 박치기
@@ -91,6 +101,9 @@ public class CommonAttackCardEffect : BaseCardEffect
     public void Thunderclap()
     {
         enemies.ForEach(enemy => enemy.Hit(4));
+
+        enemies.ForEach(enemy => enemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weak], 1));
+        enemies.ForEach(enemy => enemy.indent[(int)EIndent.Weak] = true);
     }
 
     // 이중타격

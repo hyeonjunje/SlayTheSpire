@@ -16,7 +16,9 @@ public enum EBattleState
 public class BattleManager : MonoBehaviour, IRegisterable
 {
     public System.Action onStartMyTurn;     // 내 턴 시작 시 발생
+    public System.Action onEndMyTurn;       // 내 턴 끝 시 발생
     public System.Action onStartEnemyTurn;  // 적 턴 시작 시 발생
+    public System.Action onEndEnemyTurn;    // 적 턴 끝 시 발생
 
     public InBattleUI inBattleUI;
     public InRewardUI inRewardUI;
@@ -81,8 +83,6 @@ public class BattleManager : MonoBehaviour, IRegisterable
         // 배틀 UI 활성화
         GameManager.UI.ShowThisUI(inBattleUI);
 
-        /*inBattleUI.gameObject.SetActive(true);*/
-
         // 적 생성
         _enemies = new List<Enemy>();
         for (int i = 0; i < battleData.Enemies.Count; i++)
@@ -116,15 +116,8 @@ public class BattleManager : MonoBehaviour, IRegisterable
                 break;
 
             // 적 죽음 확인
-            bool isAllEnemyDie = true;
-
-            foreach(Enemy enemy in _enemies)
-                if (!enemy.CharacterStat.IsDead)
-                    isAllEnemyDie = false;
-
-            if (isAllEnemyDie)
+            if(_enemies.Count == 0)
                 break;
-
 
             yield return null;
         }
@@ -138,7 +131,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
             // 클리어 처리
             GameManager.Game.CurrentRoom.ClearRoom();
 
-            // 카드 집어넣기
+            // 패의 모든 카드 묘지에 이동
             _player.EndBattle();
 
             // 보상
