@@ -19,7 +19,13 @@ public class RoomManager : MonoBehaviour, IRegisterable
 
     [Header("Battle")]
     [SerializeField]
-    private List<BattleData> act1BattleData;
+    private List<BattleData> firstAct1BattleData;
+    [SerializeField]
+    private List<BattleData> secondAct1BattleData;
+    [SerializeField]
+    private List<BattleData> eliteAct1BattleData;
+    [SerializeField]
+    private List<BattleData> bossAct1BattleData;
     [Space(3)]
 
     [Header("Unknown")]
@@ -31,6 +37,8 @@ public class RoomManager : MonoBehaviour, IRegisterable
     private Act1Scene act1Scene;
     [SerializeField]
     private Neow neow;
+
+    private bool _isEarly = true;
 
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     private RewardManager rewardManager => ServiceLocator.Instance.GetService<RewardManager>();
@@ -76,13 +84,19 @@ public class RoomManager : MonoBehaviour, IRegisterable
     private void OnEnterEnemyRoom()
     {
         GameManager.UI.ShowThisUI(inBattleUI);
-        battleManager.StartBattle(act1BattleData[Random.Range(0, act1BattleData.Count)]);
+        // 초반에 쉬운 적
+        if(_isEarly)
+            battleManager.StartBattle(firstAct1BattleData[Random.Range(0, firstAct1BattleData.Count)]);
+        // 후반에 조금 쎈 적
+        else
+            battleManager.StartBattle(secondAct1BattleData[Random.Range(0, secondAct1BattleData.Count)]);
     }
 
     // 엘리트 방에 들어갈 때
     private void OnEnterEliteRoom()
     {
-
+        GameManager.UI.ShowThisUI(inBattleUI);
+        battleManager.StartBattle(eliteAct1BattleData[Random.Range(0, eliteAct1BattleData.Count)]);
     }
 
     // 상인 방에 들어갈 때
@@ -105,6 +119,15 @@ public class RoomManager : MonoBehaviour, IRegisterable
         GameManager.UI.ShowThisUI(inTreasureUI);
         inTreasureUI.IsUsed = false;
         GameManager.Game.CurrentRoom.ClearRoom();
+
+        _isEarly = false;
+    }
+
+    // 보스 방에 들어갈 때
+    private void OnEnterBossRoom()
+    {
+        GameManager.UI.ShowThisUI(inBattleUI);
+        battleManager.StartBattle(bossAct1BattleData[Random.Range(0, bossAct1BattleData.Count)]);
     }
 
     // 랜덤 방에 들어갈 때

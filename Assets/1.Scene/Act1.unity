@@ -16920,7 +16920,22 @@ MonoBehaviour:
   inMerchantUI: {fileID: 1362969758}
   inRestUI: {fileID: 1531580272}
   inTreasureUI: {fileID: 808506699}
-  act1BattleData:
+  firstAct1BattleData:
+  - {fileID: 11400000, guid: 61ebec588713d09498634a4fb3ad4698, type: 2}
+  - {fileID: 11400000, guid: 1a6a98993cd2fe54a847bf372654c6ae, type: 2}
+  - {fileID: 11400000, guid: 72746c7751ad3044aa7f6835ac50d096, type: 2}
+  - {fileID: 11400000, guid: 5d4e25aa3c0ec6b4b91661e128d6e3eb, type: 2}
+  - {fileID: 11400000, guid: 5222630d29537d046a040ad1db3bffaf, type: 2}
+  secondAct1BattleData:
+  - {fileID: 11400000, guid: 3745bda1754313f498ece6141887321e, type: 2}
+  - {fileID: 11400000, guid: 95eb7c384992b744fbbb0cf2aec68c07, type: 2}
+  - {fileID: 11400000, guid: eea3224ccea0195439f8183d64e681d8, type: 2}
+  - {fileID: 11400000, guid: d438147abcd1fe34aa7832de7d61a4d0, type: 2}
+  - {fileID: 11400000, guid: 4f95b4a208a80cf4398181f751070262, type: 2}
+  - {fileID: 11400000, guid: d3f72e240ce7dc94abe31dd8d0cc332a, type: 2}
+  eliteAct1BattleData:
+  - {fileID: 11400000, guid: c1f2013b3c3bbca4b9d186c9d780a0db, type: 2}
+  bossAct1BattleData:
   - {fileID: 11400000, guid: 7a811596587aa604691291347c66efc4, type: 2}
   act1UnknownData:
   - {fileID: 11400000, guid: 5fd84900677012247955f360b7c462b4, type: 2}

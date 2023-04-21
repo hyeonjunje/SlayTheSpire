@@ -51,6 +51,7 @@ public class CharacterStat : MonoBehaviour
 
             if (_currentHp <= 0)
             {
+                Debug.Log("ав╬З╢Г");
                 Dead();
             }
         }

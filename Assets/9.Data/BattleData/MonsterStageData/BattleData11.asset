@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ebf8165754ea024aa76a32fc6a26c87, type: 3}
-  m_Name: BattleData5
+  m_Name: BattleData11
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 2071352932406378107, guid: 435846c3fe2694a4a90b5a6596c2eb7e, type: 3}
-  - {fileID: 5113564447126356770, guid: 1f5ec2eb53e6f124a84f3b0e265d06a0, type: 3}
+  - {fileID: 8617494649151198121, guid: de39253b65b76f549aff95b5f87a003a, type: 3}
+  - {fileID: 806314443939616328, guid: 8e5d9390eb1410c41b8c3ce2653cbd15, type: 3}
   spawnPos:
-  - {x: 6.7, y: -1.2, z: 0}
-  - {x: 3.8, y: -0.6, z: 0}
+  - {x: 6.35, y: -0.2, z: 0}
+  - {x: 2.85, y: -0.2, z: 0}
   money: 50
   isRelics: 0
