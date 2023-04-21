@@ -6,9 +6,10 @@ using System;
 
 public enum ECardUsage
 {
-    Battle,
-    Check,
-    Gain
+    Battle,   // 배틀
+    Check,    // 확인
+    Gain,     // 얻기
+    Enforce,  // 강화
 }
 
 public class BaseCard : MonoBehaviour
@@ -39,6 +40,8 @@ public class BaseCard : MonoBehaviour
     // 카드를 생성할 때 이 함수가 실행
     public void Init(CardHolder cardHolder, CardData cardData, CardFrameData cardFrameData, int generateNumber)
     {
+        cardData.Init();
+
         _cardHolder = cardHolder;
         _cardData = cardData;
 
@@ -62,7 +65,7 @@ public class BaseCard : MonoBehaviour
         if (TryUseCard())
         {
             // 카드의 효과를 사용
-            _cardData.useEffect.ForEach(useEffect => useEffect?.Invoke());
+            _cardData.UseEffect.ForEach(useEffect => useEffect?.Invoke());
 
 
             if(_cardData.isExtinction)
@@ -81,9 +84,9 @@ public class BaseCard : MonoBehaviour
     private bool TryUseCard()
     {
         // 코스트 확인, 저주카드 확인, 부상카드 확인, 유물 확인
-        if (battleManager.Player.PlayerStat.CurrentOrb >= _cardData.cost)
+        if (battleManager.Player.PlayerStat.CurrentOrb >= _cardData.Cost)
         {
-            battleManager.Player.PlayerStat.CurrentOrb -= _cardData.cost;
+            battleManager.Player.PlayerStat.CurrentOrb -= _cardData.Cost;
             return true;
         }
         else
@@ -91,5 +94,14 @@ public class BaseCard : MonoBehaviour
             _cardController.SetActiveRaycast(true);
             return false;
         }
+    }
+
+    // 강화모드일 때 카드를 누르면 이 함수가 실행되어야 함
+    public void Enforce()
+    {
+        _cardData.Enforce();
+
+        // 외형이 바껴야 함
+        _baseCardBuilder.Enforce(_cardData);
     }
 }

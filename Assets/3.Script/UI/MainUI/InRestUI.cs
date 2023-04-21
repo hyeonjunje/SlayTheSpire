@@ -13,6 +13,8 @@ public class InRestUI : BaseUI
     [SerializeField] private GameObject progressButton, restText;
     [SerializeField] private GameObject restButton, enforceButton, bonfire;
 
+    private BattleManager _battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+
     private bool isUsed = false;
     public bool IsUsed
     {
@@ -65,6 +67,9 @@ public class InRestUI : BaseUI
     {
         Debug.Log("쉽니다.");
         IsUsed = true;
+
+        // 최대 체력의 30퍼센트를 회복합니다.
+        _battleManager.Player.PlayerStat.CurrentHp += Mathf.RoundToInt(_battleManager.Player.PlayerStat.MaxHp * 0.3f);
     }
 
     // 강화

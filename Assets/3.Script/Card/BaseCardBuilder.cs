@@ -34,10 +34,10 @@ public class BaseCardBuilder : MonoBehaviour
         _baseCard = baseCard;
 
         // 카드 정보
-        cardName.text = cardData.cardName;
+        cardName.text = cardData.CardName;
         cardType.text = cardData.cardTypeString;
-        cardExplanation.text = cardData.cardExplanation;
-        cardCost.text = cardData.cost.ToString();
+        cardExplanation.text = cardData.CardExplanation;
+        cardCost.text = cardData.Cost.ToString();
         cardImage.sprite = cardData.cardImage;
 
         // 카드 프레임 정보
@@ -48,5 +48,17 @@ public class BaseCardBuilder : MonoBehaviour
 
         // 위치 정보
         transform.localScale = Vector3.zero;
+    }
+
+    public void Enforce(CardData cardData)
+    {
+        // 정렬데이터 최신화
+        _baseCard.cost = cardData.Cost;
+        _baseCard.cardName = cardData.CardName;
+
+        // 카드 정보 최신화
+        cardName.text = cardData.CardName;
+        cardExplanation.text = cardData.CardExplanation;
+        cardCost.text = cardData.Cost.ToString();
     }
 }

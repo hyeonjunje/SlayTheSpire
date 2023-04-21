@@ -48,6 +48,9 @@ public class RoomManager : MonoBehaviour, IRegisterable
         // 니오우 있으면 없애주고
         neow.gameObject.SetActive(false);
 
+        // 플레이어 켜주기
+        battleManager.Player.gameObject.SetActive(true);
+
         // UI뜬거 없애주고 (맵, 보상)
         act1Scene.ExitUI();
 
@@ -109,6 +112,8 @@ public class RoomManager : MonoBehaviour, IRegisterable
     // 휴식 방에 들어갈 때
     private void OnEnterRestRoom()
     {
+        battleManager.Player.gameObject.SetActive(false);
+
         GameManager.UI.ShowThisUI(inRestUI);
         inRestUI.IsUsed = false;
     }

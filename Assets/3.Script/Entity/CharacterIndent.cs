@@ -21,6 +21,11 @@ public class CharacterIndent : MonoBehaviour
 
     public void ClearIndentList()
     {
+        while(indentList.Count != 0)
+        {
+            Destroy(indentList[0].gameObject);
+            indentList.RemoveAt(0);
+        }
         indentList = new List<IndentObject>();
     }
 

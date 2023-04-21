@@ -11,7 +11,7 @@ public class CommonAttackCardEffect : BaseCardEffect
     // 타격
     public void Strike()
     {
-        targetEnemy.Hit(6 + power, player);
+        targetEnemy.Hit(50 + power, player);
     }
 
     // 강타
