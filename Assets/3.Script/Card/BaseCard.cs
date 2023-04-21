@@ -10,6 +10,7 @@ public enum ECardUsage
     Check,    // 확인
     Gain,     // 얻기
     Enforce,  // 강화
+    DisCard,  // 제거
 }
 
 public class BaseCard : MonoBehaviour
@@ -20,9 +21,6 @@ public class BaseCard : MonoBehaviour
     public int cost;
     public string cardName;
 
-    // 용도 구분
-    public ECardUsage cardUsage;
-
     // 온클릭 함수
     public Action onClickAction;
 
@@ -31,21 +29,26 @@ public class BaseCard : MonoBehaviour
     [SerializeField]
     private BaseCardBuilder _baseCardBuilder;
 
+    private BaseCardStateFactory _baseCardStateFactory;
     private CardHolder _cardHolder;
     private CardData _cardData;   // 카드 데이터
 
+    public BaseCardState CurrentState => _baseCardStateFactory.CurrentState;
+    public CardHolder  CardHolder => _cardHolder;
     public CardController CardController => _cardController;
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
     // 카드를 생성할 때 이 함수가 실행
     public void Init(CardHolder cardHolder, CardData cardData, CardFrameData cardFrameData, int generateNumber)
     {
+        _baseCardStateFactory = new BaseCardStateFactory(this);
+
         cardData.Init();
 
         _cardHolder = cardHolder;
         _cardData = cardData;
 
-        _cardController.Init(cardHolder, _cardData.isBezierCurve, this);
+        _cardController.Init(_cardData.isBezierCurve, this);
         _baseCardBuilder.Init(cardData, cardFrameData, this);
 
         // 정렬 데이터
@@ -79,6 +82,12 @@ public class BaseCard : MonoBehaviour
                 _cardHolder.DiscardCard(this);
             }
         }
+    }
+
+    // 카드의 상태를 바꿈
+    public void ChangeState(ECardUsage cardUsage)
+    {
+        _baseCardStateFactory.ChangeState(cardUsage);
     }
 
     private bool TryUseCard()

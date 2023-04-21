@@ -22,6 +22,7 @@ MonoBehaviour:
     \uCE74\uB4DC\uB97C 1\uC7A5\n\uC18C\uBA78\uC2DC\uD0B5\uB2C8\uB2E4."
   cardGrade: 0
   isBezierCurve: 0
+  isExtinction: 0
   cardFrameData: 3
   useEffect:
   - m_PersistentCalls:
@@ -31,6 +32,27 @@ MonoBehaviour:
       - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
         m_TargetAssemblyTypeName: CommonSkillCardEffect, Assembly-CSharp
         m_MethodName: TrueGrit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enforcedCardName: "\uC9C4\uC815\uD55C \uB048\uAE30+"
+  enforcedCardCost: 1
+  enforcedCardExplanation: "\uBC29\uC5B4\uB3C4\uB97C 9 \uC5BB\uC2B5\uB2C8\uB2E4.\n\uCE74\uB4DC\uB97C
+    1\uC7A5 \n\uC18C\uBA78\uC2DC\uD0B5\uB2C8\uB2E4."
+  enforcedUseEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
+        m_TargetAssemblyTypeName: CommonSkillCardEffect, Assembly-CSharp
+        m_MethodName: TrueGritPlus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

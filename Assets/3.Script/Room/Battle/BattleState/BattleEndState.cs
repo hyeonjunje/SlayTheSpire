@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleEndState : BaseBattleState
 {
-    public BattleEndState(BattleManager battleManager, StateFactory stateFactory) : base(battleManager, stateFactory)
+    public BattleEndState(BattleManager battleManager, BattleManagerStateFactory stateFactory) : base(battleManager, stateFactory)
     {
         battleState = EBattleState.BattleEnd;
     }

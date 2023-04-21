@@ -67,6 +67,7 @@ public class CardData : ScriptableObject
     [Header("강화 카드 정보")]
     public string enforcedCardName;
     public int enforcedCardCost;
+    [Multiline(6)]
     public string enforcedCardExplanation;
 
 

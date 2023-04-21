@@ -5,10 +5,10 @@ using UnityEngine;
 public abstract class BaseBattleState
 {
     protected BattleManager _battleManager;
-    protected StateFactory _stateFactory;
+    protected BattleManagerStateFactory _stateFactory;
     public EBattleState battleState;
 
-    public BaseBattleState(BattleManager battleManager, StateFactory stateFactory)
+    public BaseBattleState(BattleManager battleManager, BattleManagerStateFactory stateFactory)
     {
         _battleManager = battleManager;
         _stateFactory = stateFactory;

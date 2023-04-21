@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateFactory
+public class BattleManagerStateFactory
 {
     private BattleManager _battleManager;
     private Dictionary<EBattleState, BaseBattleState> _dicState = new Dictionary<EBattleState, BaseBattleState>();
@@ -11,7 +11,7 @@ public class StateFactory
 
     public BaseBattleState CurrentState => _currentState;
 
-    public StateFactory(BattleManager battleManager)
+    public BattleManagerStateFactory(BattleManager battleManager)
     {
         _battleManager = battleManager;
 

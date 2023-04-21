@@ -52,7 +52,7 @@ public class MyCardUI : BaseUI
         myCards = battleManager.Player.myCards;
         for(int i = 0; i < myCards.Count; i++)
         {
-            myCards[i].cardUsage = ECardUsage.Check;
+            myCards[i].ChangeState(ECardUsage.Check);
             myCards[i].transform.SetParent(myCardsParent);
 
             myCards[i].transform.localEulerAngles = Vector3.zero;

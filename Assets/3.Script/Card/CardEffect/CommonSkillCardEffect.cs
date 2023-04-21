@@ -10,8 +10,18 @@ public class CommonSkillCardEffect : BaseCardEffect
         player.PlayerStat.Shield += (5 + agility);
     }
 
+    public void DefendPlus()
+    {
+        player.PlayerStat.Shield += (8 + agility);
+    }
+
     // 전투장비
     public void Armaments()
+    {
+        player.PlayerStat.Shield += (5 + agility);
+    }
+
+    public void ArmamentsPlus()
     {
         player.PlayerStat.Shield += (5 + agility);
     }
@@ -22,8 +32,18 @@ public class CommonSkillCardEffect : BaseCardEffect
         
     }
 
+    public void FlexPlus()
+    {
+
+    }
+
     // 파괴
     public void Havoc()
+    {
+
+    }
+
+    public void HavocPlus()
     {
 
     }
@@ -35,15 +55,32 @@ public class CommonSkillCardEffect : BaseCardEffect
         player.cardHolder.DrawCard();
     }
 
+    public void ShrugItOffPlus()
+    {
+        player.PlayerStat.Shield += (11 + agility);
+        player.cardHolder.DrawCard();
+    }
+
     // 진정한 끈기
     public void TrueGrit()
     {
         player.PlayerStat.Shield += (7 + agility);
     }
 
+    public void TrueGritPlus()
+    {
+        player.PlayerStat.Shield += (9 + agility);
+    }
+
     // 전투의 함성
     public void Warcry()
     {
+        player.cardHolder.DrawCard();
+    }
+
+    public void WarcryPlus()
+    {
+        player.cardHolder.DrawCard();
         player.cardHolder.DrawCard();
     }
 }

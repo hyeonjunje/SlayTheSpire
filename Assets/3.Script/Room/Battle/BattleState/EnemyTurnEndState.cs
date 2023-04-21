@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyTurnEndState : BaseBattleState
 {
-    public EnemyTurnEndState(BattleManager battleManager, StateFactory stateFactory) : base(battleManager, stateFactory)
+    public EnemyTurnEndState(BattleManager battleManager, BattleManagerStateFactory stateFactory) : base(battleManager, stateFactory)
     {
         battleState = EBattleState.EnemyTurnEnd;
     }

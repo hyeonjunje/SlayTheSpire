@@ -51,7 +51,8 @@ public class CardHolder : MonoBehaviour
     {
         foreach (BaseCard card in myCard)
         {
-            card.cardUsage = ECardUsage.Battle;
+            card.ChangeState(ECardUsage.Battle);
+
             card.transform.SetParent(_cardTransform);
             card.onClickAction = null;
         }
