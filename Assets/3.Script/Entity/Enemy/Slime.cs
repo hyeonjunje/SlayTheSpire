@@ -5,7 +5,7 @@ using UnityEngine;
 public class Slime : Enemy
 {
     [SerializeField] private float spawnPosX = 1.5f;
-    [SerializeField] private Enemy splitedSlime;
+    [SerializeField] private Enemy splitedSlime1, splitedSlime2;
     [SerializeField] private Pattern unKnownPattern;
     private bool isReadyToSplit = false;
 
@@ -28,12 +28,18 @@ public class Slime : Enemy
         base.Dead();
 
         // ºÐ¿­
-        Enemy enemy1 = Instantiate(splitedSlime, transform.position + Vector3.right * spawnPosX, Quaternion.identity);
-        Enemy enemy2 = Instantiate(splitedSlime, transform.position + Vector3.left * spawnPosX, Quaternion.identity);
+        Vector3 initPos1 = new Vector3(transform.position.x + spawnPosX , - 0.6f, 0f);
+        Vector3 initPos2 = new Vector3(transform.position.x - spawnPosX , - 0.6f, 0f);
+
+        Enemy enemy1 = Instantiate(splitedSlime1, initPos1, Quaternion.identity);
+        Enemy enemy2 = Instantiate(splitedSlime2, initPos2, Quaternion.identity);
+
         battleManager.Enemies.Add(enemy1);
         battleManager.Enemies.Add(enemy2);
+
         enemy1.CharacterStat.MaxHp = CharacterStat.CurrentHp;
         enemy1.CharacterStat.CurrentHp = CharacterStat.CurrentHp;
+
         enemy2.CharacterStat.MaxHp = CharacterStat.CurrentHp;
         enemy2.CharacterStat.CurrentHp = CharacterStat.CurrentHp;
     }

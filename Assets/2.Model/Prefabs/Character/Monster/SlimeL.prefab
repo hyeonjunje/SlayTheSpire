@@ -1302,8 +1302,10 @@ MonoBehaviour:
     indentData: {fileID: 11400000, guid: 2cd1c72202b3d1342be36f1fb2c48743, type: 2}
     amount: 2
     secondAmount: 0
+  enemyCyclePatterns: []
   isAlreadyPattern: 1
   isFirstPattern: 0
+  isCyclePattern: 0
   _patternImage: {fileID: 192862663089138013}
   _patternText: {fileID: 6752988079624884295}
 --- !u!114 &7458314390871182295
@@ -1334,8 +1336,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indent: 0000000000000000
   _reticle: {fileID: 6711262142496169965}
-  spawnPosX: 1.5
-  splitedSlime: {fileID: 4100081927091204563, guid: 5e435c8a7b20c5a4bb917487b82b2f39, type: 3}
+  spawnPosX: 1
+  splitedSlime1: {fileID: 4100081927091204563, guid: 5e435c8a7b20c5a4bb917487b82b2f39, type: 3}
+  splitedSlime2: {fileID: 4100081927091204563, guid: 5e435c8a7b20c5a4bb917487b82b2f39, type: 3}
   unKnownPattern:
     patternData: {fileID: 11400000, guid: e7e1b482af8bb1a459fe7ec699861c01, type: 2}
     indentData: {fileID: 0}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebf8165754ea024aa76a32fc6a26c87, type: 3}
+  m_Name: BossStageData
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 5075173336366350774, guid: a7fd977b07ae9644e93962b13e9e7a37, type: 3}
+  spawnPos:
+  - {x: 4.7, y: 0.5, z: 0}
+  money: 100
+  isRelics: 1

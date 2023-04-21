@@ -46,6 +46,12 @@ public class EnemyPattern : MonoBehaviour
             _currentPattern = alreadyPattern;
             GetIndent();
         }
+
+        if (_currentPattern == null)
+        {
+            DecidePattern();
+            _isDecided = true;
+        }
     }
 
     public void Act()
@@ -72,11 +78,11 @@ public class EnemyPattern : MonoBehaviour
         {
             _currentPattern = enemyFirstPattern;
             isActFirst = false;
-            _patternTurn = -1;
+            _patternTurn = 0;
         }
         else if(isCyclePattern)
         {
-            _currentPattern = enemyCyclePatterns[_patternTurn % enemyCyclePatterns.Count];
+            _currentPattern = enemyCyclePatterns[(_patternTurn - 1) % enemyCyclePatterns.Count];
         }
         else
         {
@@ -93,7 +99,7 @@ public class EnemyPattern : MonoBehaviour
         _isDecided = true;
 
         _patternImage.sprite = _currentPattern.patternData.patternIcon;
-        _patternText.text = GetPatternAmount();
+        _patternText.text = "";
     }
 
     private void ActPattern()
@@ -123,7 +129,7 @@ public class EnemyPattern : MonoBehaviour
             case EPatternType.AttackDebuff:
                 battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power, _enemy);
                 // 슬라임 카드
-                for(int i = 0; i < _currentPattern.secondAmount; i++)
+                for (int i = 0; i < _currentPattern.secondAmount; i++)
                     battleManager.Player.cardHolder.AddCardTemporary(cardGenerator.GenerateAbnormalStatusCard("점액투성이"));
                 break;
         }
@@ -131,8 +137,6 @@ public class EnemyPattern : MonoBehaviour
 
     private void GetIndent()
     {
-        if (_currentPattern == null)
-            return;
 
         switch (_currentPattern.indentData.indent)
         {
@@ -179,6 +183,8 @@ public class EnemyPattern : MonoBehaviour
     private string GetPatternAmount()
     {
         string result = "";
+
+        Debug.Log(_currentPattern.patternData.patternType);
 
         switch (_currentPattern.patternData.patternType)
         {
