@@ -15,6 +15,8 @@ public class CardHolder : MonoBehaviour
     private Transform _cardDeckTransform; // 카드 덱 위치
     [SerializeField]
     private Transform _cardCemetryTransform; // 카드 묘지 위치
+    [SerializeField]
+    private Transform _cardExtinctionTransform; // 카드 소멸 위치
 
     [SerializeField]
     private List<BaseCard> _cardDeck;  // 카드 덱
@@ -40,6 +42,8 @@ public class CardHolder : MonoBehaviour
     private float overScale = 1.3f;  // 카드 마우스 오버 시 해당 카드가 커지는 값
     [SerializeField]
     private float overUpPosition = 200f; // 카드 마우스 오버 시 해당 카드 Y위치 증가량
+
+    private List<BaseCard> _temporaryList = new List<BaseCard>();
 
     public BezierCurve BezierCurve => _bezierCurve;
 
@@ -75,10 +79,20 @@ public class CardHolder : MonoBehaviour
         selectedCard = null;
         isDrag = false;
 
+        // 필요없는 카드는 제거
+        while(_temporaryList.Count != 0)
+        {
+            BaseCard card = _temporaryList[0];
+            _temporaryList.Remove(card);
+            Destroy(card.gameObject);
+        }
+
         _cardDeck = new List<BaseCard>();
         _cardHands = new List<BaseCard>();
         _cardCemetry = new List<BaseCard>();
         _cardExtinction = new List<BaseCard>();
+
+        _temporaryList = new List<BaseCard>();
 
         // 내 카드 넣기
         foreach (BaseCard card in myCard)
@@ -97,10 +111,48 @@ public class CardHolder : MonoBehaviour
         Util.ShuffleList(_cardDeck);
     }
 
+    // 일시적으로 생성
+    public void AddCardTemporary(BaseCard card)
+    {
+        card.transform.localPosition = _cardDeckTransform.localPosition;
+        card.transform.localEulerAngles = Vector3.zero;
+        card.transform.localScale = Vector3.zero;
+
+        _temporaryList.Add(card);
+        _cardDeck.Add(card);
+
+        // 셔플
+        Util.ShuffleList(_cardDeck);
+    }
+
     public void EndBattle(List<BaseCard> myCard)
     {
         DiscardAllCard();
+
+        _cardExtinctionTransform.gameObject.SetActive(false);
     }
+
+
+    // 소멸
+    public void Extinction(BaseCard card)
+    {
+        _cardHands.Remove(card);
+        _cardExtinction.Add(card);
+
+        Relocation();
+        card.CardController.MoveCard(_cardExtinctionTransform.localPosition, Vector3.zero, Vector3.zero);
+
+        // 소멸된 카드가 1장이라도 있으면 소멸 UI 생성
+        if(_cardExtinction.Count > 0)
+        {
+            _cardExtinctionTransform.gameObject.SetActive(true);
+        }
+        else
+        {
+            _cardExtinctionTransform.gameObject.SetActive(false);
+        }
+    }
+
 
     /// <summary>
     /// 카드 드로우

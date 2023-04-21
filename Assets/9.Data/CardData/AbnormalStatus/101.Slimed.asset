@@ -21,5 +21,6 @@ MonoBehaviour:
   cardExplanation: "\uC18C\uBA78."
   cardGrade: 0
   isBezierCurve: 0
+  isExtinction: 1
   cardFrameData: 0
   useEffect: []

@@ -115,8 +115,14 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
         CharacterAnimation.SetTrigger("isDead");
     }
 
-    public override void Hit(int damage)
+    public override void Hit(int damage, Character attacker)
     {
+        // 약화 상태면 공격력 25퍼 감소
+        if (attacker.indent[(int)EIndent.Weakening] == true)
+        {
+            damage = Mathf.RoundToInt((float)damage * 0.75f);
+        }
+
         Debug.Log("맞았당");
         CharacterStat.Hit(damage);
 

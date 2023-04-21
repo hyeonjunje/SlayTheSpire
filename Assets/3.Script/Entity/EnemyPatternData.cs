@@ -10,6 +10,7 @@ public enum EPatternType
     Buff,
     DefendBuff,
     AttackDefend,
+    AttackDebuff,
     Unknown,
     Size
 }

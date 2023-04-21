@@ -38,9 +38,9 @@ public class Slime : Enemy
         enemy2.CharacterStat.CurrentHp = CharacterStat.CurrentHp;
     }
 
-    public override void Hit(int damage)
+    public override void Hit(int damage, Character attacker)
     {
-        base.Hit(damage);
+        base.Hit(damage, attacker);
 
         // 반피 이하면 분열 준비
         if(CharacterStat.CurrentHp <= CharacterStat.MaxHp / 2)

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 095dafa4eace7ab4f828e872b267aa16, type: 3}
-  m_Name: Weakening
+  m_Name: Damaged
   m_EditorClassIdentifier: 
-  indent: 0
-  indentSprite: {fileID: 2533348233784818886, guid: a2c2113e7dbb3a7408febba3b0ea568b, type: 3}
-  indentName: "\uC57D\uD654"
+  indent: 2
+  indentSprite: {fileID: 806886098706739559, guid: a2c2113e7dbb3a7408febba3b0ea568b, type: 3}
+  indentName: "\uC190\uC0C1"
   indentExplanation: 
   isTurn: 1
   isShowTurn: 1

@@ -23,6 +23,16 @@ public class CardGenerator : MonoBehaviour, IRegisterable
     [SerializeField]
     private List<int> cardPercentage;
 
+    public BaseCard GenerateAbnormalStatusCard(string cardName)
+    {
+        BaseCard baseCard = Instantiate(_baseCardPrefab, _cardParent);
+        CardData cardData = abnormalStatusCardData.Find(card => card.cardName == cardName);
+        baseCard.Init(_cardHolder, cardData, cardFrameDataArray[(int)cardData.cardFrameData], generateNumber);
+        generateNumber++;
+
+        return baseCard;
+    }
+
     public BaseCard GenerateCard(int id)
     {
         for(int i = 0; i < allCardList.Count; i++)

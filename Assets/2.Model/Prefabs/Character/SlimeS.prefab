@@ -1139,7 +1139,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 32, y: 19.333334}
+    oldSize: {x: 24, y: 14.5}
     newSize: {x: 7.82, y: 6.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1235,7 +1235,7 @@ MonoBehaviour:
     amount: 3
     secondAmount: 0
   - patternData: {fileID: 11400000, guid: b1cf60f5e20805a4fbde418590035c25, type: 2}
-    indentData: {fileID: 11400000, guid: 9317f84fcfe3b8d4a869ff69ef0f5fda, type: 2}
+    indentData: {fileID: 11400000, guid: 2cd1c72202b3d1342be36f1fb2c48743, type: 2}
     amount: 1
     secondAmount: 0
   isAlreadyPattern: 0

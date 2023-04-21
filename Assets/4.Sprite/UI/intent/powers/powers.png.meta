@@ -8015,9 +8015,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 402
-        y: 2
-        width: 67
-        height: 67
+        y: 0
+        width: 112
+        height: 69
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -8027,27 +8027,6 @@ TextureImporter:
       bones: []
       spriteID: 6cc7b1fdbc2482320800000000000000
       internalID: 2533348233784818886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: powers_330
-      rect:
-        serializedVersion: 2
-        x: 467
-        y: 10
-        width: 46
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46b01cea020cd38e0800000000000000
-      internalID: -1712001036727547036
       vertices: []
       indices: 
       edges: []

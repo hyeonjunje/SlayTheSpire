@@ -64,7 +64,7 @@ public class CharacterStat : MonoBehaviour
             int shieldAmount = value - _shield;
 
             // 약화일 때 방어력 25% 감소
-            if(shieldAmount > 0 && _character.indent[(int)EIndent.Weakening])
+            if(shieldAmount > 0 && _character.indent[(int)EIndent.damaged])
             {
                 shieldAmount = Mathf.RoundToInt((float)shieldAmount * 0.75f);
             }

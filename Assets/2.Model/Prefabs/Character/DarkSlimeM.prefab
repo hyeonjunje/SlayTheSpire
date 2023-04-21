@@ -629,14 +629,14 @@ MonoBehaviour:
     amount: 1
     secondAmount: 0
   enemyPatterns:
-  - patternData: {fileID: 11400000, guid: 9d2eea48b1637fc4eaa135d5f4c3f3f0, type: 2}
-    indentData: {fileID: 0}
-    amount: 8
-    secondAmount: 0
   - patternData: {fileID: 11400000, guid: b1cf60f5e20805a4fbde418590035c25, type: 2}
     indentData: {fileID: 11400000, guid: 9317f84fcfe3b8d4a869ff69ef0f5fda, type: 2}
     amount: 1
     secondAmount: 0
+  - patternData: {fileID: 11400000, guid: 8cc5e00208c43d6488fa915ab2e8cc8c, type: 2}
+    indentData: {fileID: 0}
+    amount: 8
+    secondAmount: 1
   isAlreadyPattern: 0
   isFirstPattern: 0
   _patternImage: {fileID: 1835525847227406696}

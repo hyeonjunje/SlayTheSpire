@@ -24,9 +24,9 @@ public class Louse : Enemy
         base.Dead();
     }
 
-    public override void Hit(int damage)
+    public override void Hit(int damage, Character attacker)
     {
-        base.Hit(damage);
+        base.Hit(damage, attacker);
 
         if(indent[(int)EIndent.Roll])
         {

@@ -31,6 +31,7 @@ public class EnemyPattern : MonoBehaviour
     private Pattern _currentPattern;
 
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+    private CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
 
     public void Init(Enemy enemy)
     {
@@ -93,7 +94,7 @@ public class EnemyPattern : MonoBehaviour
         switch (_currentPattern.patternData.patternType)
         {
             case EPatternType.Attack:
-                battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power);
+                battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power, _enemy);
                 break;
             case EPatternType.Defense:
                 _enemy.CharacterStat.Shield += _currentPattern.amount + _enemy.CharacterStat.Agility;
@@ -109,8 +110,14 @@ public class EnemyPattern : MonoBehaviour
                 break;
             case EPatternType.AttackDefend:
                 // 공격 방어
-                battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power);
+                battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power, _enemy);
                 _enemy.CharacterStat.Shield += _currentPattern.secondAmount + _enemy.CharacterStat.Agility;
+                break;
+            case EPatternType.AttackDebuff:
+                battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power, _enemy);
+                // 슬라임 카드
+                for(int i = 0; i < _currentPattern.secondAmount; i++)
+                    battleManager.Player.cardHolder.AddCardTemporary(cardGenerator.GenerateAbnormalStatusCard("점액투성이"));
                 break;
         }
     }
@@ -166,6 +173,7 @@ public class EnemyPattern : MonoBehaviour
         {
             case EPatternType.Attack:
             case EPatternType.AttackDefend:
+            case EPatternType.AttackDebuff:
                 result = (_currentPattern.amount + _enemy.CharacterStat.Power).ToString();
                 break;
         }

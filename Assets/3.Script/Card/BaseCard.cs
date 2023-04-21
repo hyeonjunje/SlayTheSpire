@@ -52,6 +52,11 @@ public class BaseCard : MonoBehaviour
         cardName = _cardData.cardName;
     }
 
+    public void AddCardTemporary()
+    {
+        _cardHolder.AddCardTemporary(this);
+    }
+
     public void UseCard()
     {
         if (TryUseCard())
@@ -59,8 +64,18 @@ public class BaseCard : MonoBehaviour
             // 카드의 효과를 사용
             _cardData.useEffect.ForEach(useEffect => useEffect?.Invoke());
 
-            // 카드 버림
-            _cardHolder.DiscardCard(this);
+
+            if(_cardData.isExtinction)
+            {
+                // 소멸 카드면 소멸
+                _cardHolder.Extinction(this);
+            }
+            else
+            {
+                // 카드 버림
+                _cardHolder.DiscardCard(this);
+            }
+
 
             // 카드 레이캐스트 활성화
             _cardController.SetActiveRaycast(true);

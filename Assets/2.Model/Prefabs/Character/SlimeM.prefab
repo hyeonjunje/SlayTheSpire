@@ -1202,17 +1202,17 @@ MonoBehaviour:
     amount: 1
     secondAmount: 0
   enemyPatterns:
-  - patternData: {fileID: 11400000, guid: 9d2eea48b1637fc4eaa135d5f4c3f3f0, type: 2}
+  - patternData: {fileID: 11400000, guid: b1cf60f5e20805a4fbde418590035c25, type: 2}
+    indentData: {fileID: 11400000, guid: 2cd1c72202b3d1342be36f1fb2c48743, type: 2}
+    amount: 1
+    secondAmount: 0
+  - patternData: {fileID: 11400000, guid: 8cc5e00208c43d6488fa915ab2e8cc8c, type: 2}
     indentData: {fileID: 0}
     amount: 7
-    secondAmount: 0
+    secondAmount: 1
   - patternData: {fileID: 11400000, guid: 9d2eea48b1637fc4eaa135d5f4c3f3f0, type: 2}
     indentData: {fileID: 0}
     amount: 10
-    secondAmount: 0
-  - patternData: {fileID: 11400000, guid: b1cf60f5e20805a4fbde418590035c25, type: 2}
-    indentData: {fileID: 11400000, guid: b91b99ae832425a4d98d639ca19fde18, type: 2}
-    amount: 1
     secondAmount: 0
   isAlreadyPattern: 0
   isFirstPattern: 0

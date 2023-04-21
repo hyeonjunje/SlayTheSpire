@@ -6,6 +6,7 @@ public enum EIndent
 {
     Weakening,  // 약화
     Weak, // 취약
+    damaged, // 손상
     Consciousness, // 의식
     Frenzy, // 격분
     Strength, // 힘 얻기

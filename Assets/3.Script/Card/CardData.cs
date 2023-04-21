@@ -51,6 +51,7 @@ public class CardData : ScriptableObject
     public string cardExplanation;
     public ECardGrade cardGrade;
     public bool isBezierCurve;
+    public bool isExtinction;  // true¸é ¼Ò¸ê, false¸é ¼Ò¸ê ¾È ÇÔ 
 
     public ECardFrameData cardFrameData;
 

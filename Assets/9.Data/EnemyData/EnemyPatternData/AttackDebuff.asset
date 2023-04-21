@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 095dafa4eace7ab4f828e872b267aa16, type: 3}
-  m_Name: Weakening
+  m_Script: {fileID: 11500000, guid: 0ab213808ec8d904da70e9ca98d90104, type: 3}
+  m_Name: AttackDebuff
   m_EditorClassIdentifier: 
-  indent: 0
-  indentSprite: {fileID: 2533348233784818886, guid: a2c2113e7dbb3a7408febba3b0ea568b, type: 3}
-  indentName: "\uC57D\uD654"
-  indentExplanation: 
-  isTurn: 1
-  isShowTurn: 1
+  patternType: 6
+  patternIcon: {fileID: 21300000, guid: 3c03d4bab70cc7f40a0d64c3771f5353, type: 3}
+  patternName: "\uC58D"
+  patternExplanation: "\uC58D\uC58D\uC58D\uC560\u3151"
