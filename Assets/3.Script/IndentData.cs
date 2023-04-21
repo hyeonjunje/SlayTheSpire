@@ -11,6 +11,7 @@ public enum EIndent
     Strength, // 힘 얻기
     Roll, // 몸 말기  -> 공벌레
     SporeCloud,  // 포자 구름
+    Split,   // 분열
     Size,
 }
 

@@ -107,8 +107,6 @@ public class BattleManager : MonoBehaviour, IRegisterable
 
     IEnumerator CoBattle()
     {
-        // isBattle Æ®·ç·Î
-        
         while(true)
         {
             _stateFactory.CurrentState.Update();

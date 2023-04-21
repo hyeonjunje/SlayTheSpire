@@ -37,13 +37,13 @@ public class BaseCard : MonoBehaviour
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
     // 카드를 생성할 때 이 함수가 실행
-    public void Init(CardHolder cardHolder, CardData cardData, int generateNumber, Sprite frameSprite, Sprite topFrameSprite)
+    public void Init(CardHolder cardHolder, CardData cardData, CardFrameData cardFrameData, int generateNumber)
     {
         _cardHolder = cardHolder;
         _cardData = cardData;
 
         _cardController.Init(cardHolder, _cardData.isBezierCurve, this);
-        _baseCardBuilder.Init(cardData, frameSprite, topFrameSprite, this);
+        _baseCardBuilder.Init(cardData, cardFrameData, this);
 
         // 정렬 데이터
         this.generateNumber = generateNumber;

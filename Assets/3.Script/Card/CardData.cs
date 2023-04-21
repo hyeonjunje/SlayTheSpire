@@ -20,6 +20,20 @@ public enum ECardGrade
     Unique
 }
 
+public enum ECardFrameData
+{
+    AbnormalStatus,
+    CommonAttack,
+    CommonPower,
+    CommonSkill,
+    SpeicalAttack,
+    SpeicalPower,
+    SpeicalSkill,
+    UniqueAttack,
+    UniquePower,
+    UniqueSkill
+}
+
 [CreateAssetMenu()]
 public class CardData : ScriptableObject
 {
@@ -37,6 +51,8 @@ public class CardData : ScriptableObject
     public string cardExplanation;
     public ECardGrade cardGrade;
     public bool isBezierCurve;
+
+    public ECardFrameData cardFrameData;
 
     [Header("사용효과")]
     public List<UnityEvent> useEffect;

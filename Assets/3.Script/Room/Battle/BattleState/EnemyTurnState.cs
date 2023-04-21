@@ -8,6 +8,8 @@ public class EnemyTurnState : BaseBattleState
     float currentTime = 0f;
     int enemyIndex = 0;
 
+    int enemyCount = 0;
+
     public EnemyTurnState(BattleManager battleManager, StateFactory stateFactory) : base(battleManager, stateFactory)
     {
         battleState = EBattleState.EnemyTurn;
@@ -17,6 +19,7 @@ public class EnemyTurnState : BaseBattleState
     {
         currentTime = 0f;
         enemyIndex = 0;
+        enemyCount = _battleManager.Enemies.Count;
     }
 
     public override void Exit()
@@ -36,7 +39,7 @@ public class EnemyTurnState : BaseBattleState
         }
 
         // 적 행동 다 하면 상태 전환
-        if(enemyIndex == _battleManager.Enemies.Count)
+        if(enemyIndex == enemyCount)
         {
             _stateFactory.ChangeState(EBattleState.EnemyTurnEnd);
         }

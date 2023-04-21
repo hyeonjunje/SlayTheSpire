@@ -185,7 +185,7 @@ public class CardHolder : MonoBehaviour
 
     public void MoveCenter(BaseCard card)
     {
-        Vector3 targetPos = Vector3.up * (-Screen.height / 2 + overUpPosition);
+        Vector3 targetPos = Vector3.up * (-Screen.height / 2 + overUpPosition / 2);
         Vector3 targetRot = Vector3.zero;
         Vector3 targetScl = Vector3.one * overScale;
 

@@ -32,6 +32,7 @@ public class CharacterIndent : MonoBehaviour
             if (indentList[i].indentData == indentData)
             {
                 indentList[i].AddTurn(value);
+                Visualize();
                 return;
             }
         }
@@ -66,7 +67,7 @@ public class CharacterIndent : MonoBehaviour
 
         for(int i = 0; i < indentList.Count; i++)
         {
-            if(indentList[i].turn <= 0)
+            if(indentList[i].indentData.isTurn && indentList[i].turn <= 0)
             {
                 _character.indent[(int)indentList[i].indentData.indent] = false;
                 list.Add(indentList[i]);

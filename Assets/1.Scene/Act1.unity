@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5746327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0275002, y: -0.6700001, z: 2.1284313}
+  m_LocalPosition: {x: 3.0275002, y: 0.27999973, z: 2.1284313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701043424}
@@ -1618,7 +1618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147462214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5775003, y: 2.3200002, z: 2.1284313}
+  m_LocalPosition: {x: 5.5775003, y: 3.27, z: 2.1284313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701043424}
@@ -2331,7 +2331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235891042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1025, y: 1.7999998, z: 2.1284313}
+  m_LocalPosition: {x: -6.1025, y: 2.7499995, z: 2.1284313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701043424}
@@ -2382,50 +2382,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardParent: {fileID: 2039842825}
   _cardHolder: {fileID: 1252302025}
-  _baseCard: {fileID: 1989126131308563894, guid: aa145287bab46494e84c2b360a63800f, type: 3}
-  commonFrameSprites:
-  - {fileID: -3235166575308849988, guid: 67b33f0ee213e334c86ea9e315df5d23, type: 3}
-  - {fileID: 8406758473421020671, guid: c30fd4d99114d614a83e0489dde0a15d, type: 3}
-  - {fileID: -8783021853406769408, guid: c30fd4d99114d614a83e0489dde0a15d, type: 3}
-  commonTopFrameSprite: {fileID: -5361738371724827044, guid: c30fd4d99114d614a83e0489dde0a15d, type: 3}
-  specialFrameSprites:
-  - {fileID: -1800840040912423797, guid: c30fd4d99114d614a83e0489dde0a15d, type: 3}
-  - {fileID: -1752896746745671099, guid: 67b33f0ee213e334c86ea9e315df5d23, type: 3}
-  - {fileID: 1645429234203838156, guid: c30fd4d99114d614a83e0489dde0a15d, type: 3}
-  specialTopFrameSprite: {fileID: -2500162472728006189, guid: 67b33f0ee213e334c86ea9e315df5d23, type: 3}
-  uniqueFrameSprites:
-  - {fileID: -2763529291747158672, guid: 67b33f0ee213e334c86ea9e315df5d23, type: 3}
-  - {fileID: -4057396486440725958, guid: 67b33f0ee213e334c86ea9e315df5d23, type: 3}
-  - {fileID: 1645429234203838156, guid: c30fd4d99114d614a83e0489dde0a15d, type: 3}
-  uniqueTopFrameSprite: {fileID: 9083194344635645897, guid: c30fd4d99114d614a83e0489dde0a15d, type: 3}
-  allCardData:
-  - {fileID: 11400000, guid: 7fb5cb2be8541bc469a334b232811a70, type: 2}
-  - {fileID: 11400000, guid: 144ad62a6eaa28b4193673b3df86c807, type: 2}
-  - {fileID: 11400000, guid: 5a4d2ba5f59c4424d94eb86c7038e140, type: 2}
-  - {fileID: 11400000, guid: f01c7837330c8de4482b7af0fa8720a7, type: 2}
-  - {fileID: 11400000, guid: 943bbf84a10ede2498855e0ead188ee0, type: 2}
-  - {fileID: 11400000, guid: cf70333bb05b5d8438457ec3f1f22404, type: 2}
-  - {fileID: 11400000, guid: 8b0bfaabf7480994a80ad050409b509c, type: 2}
-  - {fileID: 11400000, guid: 836923f77e3a4154180a67281d81bafc, type: 2}
-  - {fileID: 11400000, guid: 108f417ac2ab55c4391d1449d3dd4ccf, type: 2}
-  - {fileID: 11400000, guid: 6f75fe431fd033c4a80d1d30e2ddbce1, type: 2}
-  - {fileID: 11400000, guid: 11d4da387f654b64981417cd390047d8, type: 2}
+  _baseCardPrefab: {fileID: 1989126131308563894, guid: aa145287bab46494e84c2b360a63800f, type: 3}
+  cardFrameDataArray:
+  - {fileID: 11400000, guid: 0ce01f645e631114a99487b1dcfec45a, type: 2}
+  - {fileID: 11400000, guid: 149c4939a7c23c041ae8cce2a57d7cc7, type: 2}
+  - {fileID: 11400000, guid: 2b091241c1dc6764e98ed7baa3e6fca7, type: 2}
+  - {fileID: 11400000, guid: 74881e433a3b01b439acc4b79006800a, type: 2}
+  - {fileID: 11400000, guid: 81de0c3af76126548a9988ecfddf82ef, type: 2}
+  - {fileID: 11400000, guid: b41ae34e63a426c4fb4a5481dcdc238d, type: 2}
+  - {fileID: 11400000, guid: 9dff709ad6aeb034db6e614920d8486f, type: 2}
+  - {fileID: 11400000, guid: ea2fd0715bef7f445a283b347181cb1d, type: 2}
+  - {fileID: 11400000, guid: 2fe9bd7b967036d42bd4688a3fa9aaa6, type: 2}
+  - {fileID: 11400000, guid: 954c18750f5bdaf4a84d3a557b84eeb9, type: 2}
+  allCardList:
   - {fileID: 11400000, guid: 2a226941b8ca1174aacae9bc284d2dab, type: 2}
-  - {fileID: 11400000, guid: 0d8eab8d45c716248b63dfbe0fd61dad, type: 2}
-  - {fileID: 11400000, guid: 13dd17b36b14d3a419a020db35caf2c9, type: 2}
-  - {fileID: 11400000, guid: c69e89b8846afe440b4314f75bcb4d92, type: 2}
-  - {fileID: 11400000, guid: 5a009b96ae9bf2346a6cb7eab90b6a9e, type: 2}
-  - {fileID: 11400000, guid: 12bbe528be46e9644a7711971dda0345, type: 2}
-  - {fileID: 11400000, guid: 4e6d530cdcde4de4a9fc6139ba8f8b9a, type: 2}
-  - {fileID: 11400000, guid: 5ab5ca20eaaf57a4d9df98c9e1d73c14, type: 2}
-  - {fileID: 11400000, guid: 44222e482718fce4185a40000dfba2bb, type: 2}
-  - {fileID: 11400000, guid: 6f9d3dc4ab4512c4693615354972671a, type: 2}
-  - {fileID: 11400000, guid: 39e277f245c98c64b87879c7c2ae9813, type: 2}
-  - {fileID: 11400000, guid: 6bde7b398049e4e47b3ac0f63df1649c, type: 2}
-  commonAttackCardData:
-  - {fileID: 11400000, guid: 2a226941b8ca1174aacae9bc284d2dab, type: 2}
-  - {fileID: 11400000, guid: 7fb5cb2be8541bc469a334b232811a70, type: 2}
   - {fileID: 11400000, guid: 144ad62a6eaa28b4193673b3df86c807, type: 2}
+  - {fileID: 11400000, guid: 7fb5cb2be8541bc469a334b232811a70, type: 2}
   - {fileID: 11400000, guid: 5a4d2ba5f59c4424d94eb86c7038e140, type: 2}
   - {fileID: 11400000, guid: f01c7837330c8de4482b7af0fa8720a7, type: 2}
   - {fileID: 11400000, guid: 943bbf84a10ede2498855e0ead188ee0, type: 2}
@@ -2439,9 +2411,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 13dd17b36b14d3a419a020db35caf2c9, type: 2}
   - {fileID: 11400000, guid: c69e89b8846afe440b4314f75bcb4d92, type: 2}
   - {fileID: 11400000, guid: 5a009b96ae9bf2346a6cb7eab90b6a9e, type: 2}
-  speicalAttackCardData: []
-  uniqueAttackCardData: []
-  commonSkillCardData:
   - {fileID: 11400000, guid: 12bbe528be46e9644a7711971dda0345, type: 2}
   - {fileID: 11400000, guid: 4e6d530cdcde4de4a9fc6139ba8f8b9a, type: 2}
   - {fileID: 11400000, guid: 5ab5ca20eaaf57a4d9df98c9e1d73c14, type: 2}
@@ -2449,11 +2418,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6f9d3dc4ab4512c4693615354972671a, type: 2}
   - {fileID: 11400000, guid: 39e277f245c98c64b87879c7c2ae9813, type: 2}
   - {fileID: 11400000, guid: 6bde7b398049e4e47b3ac0f63df1649c, type: 2}
-  specialSkillCardData: []
-  uniqueSkillCardData: []
-  commonPowerCardData: []
-  specialPowerCardData: []
-  uniquePowerCardData: []
+  abnormalStatusCardData:
+  - {fileID: 11400000, guid: 29320ee3af6213049a49d31c0aaeb3c8, type: 2}
   cardPercentage: 32000000230000000f000000
 --- !u!1 &252627907
 GameObject:
@@ -5031,7 +4997,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608669384}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.26, y: 0.04, z: 2.1284313}
+  m_LocalPosition: {x: 1.26, y: 0.98999983, z: 2.1284313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701043424}
@@ -6637,7 +6603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744319587}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6324998, y: -0.2800001, z: 2.1284313}
+  m_LocalPosition: {x: -0.6324998, y: 0.6699997, z: 2.1284313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701043424}
@@ -14927,7 +14893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104844124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4275001, y: 2.4199998, z: 2.1284313}
+  m_LocalPosition: {x: 1.4275001, y: 3.3699996, z: 2.1284313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701043424}
@@ -16817,7 +16783,13 @@ MonoBehaviour:
   inRestUI: {fileID: 1531580272}
   inTreasureUI: {fileID: 808506699}
   act1BattleData:
+  - {fileID: 11400000, guid: 61ebec588713d09498634a4fb3ad4698, type: 2}
+  - {fileID: 11400000, guid: 1a6a98993cd2fe54a847bf372654c6ae, type: 2}
+  - {fileID: 11400000, guid: 72746c7751ad3044aa7f6835ac50d096, type: 2}
   - {fileID: 11400000, guid: 5d4e25aa3c0ec6b4b91661e128d6e3eb, type: 2}
+  - {fileID: 11400000, guid: 5222630d29537d046a040ad1db3bffaf, type: 2}
+  - {fileID: 11400000, guid: 3745bda1754313f498ece6141887321e, type: 2}
+  - {fileID: 11400000, guid: 95eb7c384992b744fbbb0cf2aec68c07, type: 2}
   act1UnknownData:
   - {fileID: 11400000, guid: 5fd84900677012247955f360b7c462b4, type: 2}
   act1Scene: {fileID: 196484991}
@@ -22083,7 +22055,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483713047}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.7775, y: 1.7599999, z: 2.1284313}
+  m_LocalPosition: {x: 4.7775, y: 2.7099996, z: 2.1284313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701043424}
@@ -22165,7 +22137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500141037}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4275001, y: -6.24, z: 2.1284313}
+  m_LocalPosition: {x: 1.4275001, y: -5.29, z: 2.1284313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701043424}
@@ -23868,7 +23840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713529740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.1275, y: 0.049999952, z: 2.1284313}
+  m_LocalPosition: {x: 8.1275, y: 0.99999976, z: 2.1284313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701043424}
@@ -25760,7 +25732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962685543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0124998, y: 2.13, z: 2.1284313}
+  m_LocalPosition: {x: -2.0124998, y: 3.08, z: 2.1284313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 701043424}
@@ -26972,7 +26944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141070371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.86, y: -0.6, z: 0}
+  m_LocalPosition: {x: -4.86, y: -0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1435301913}

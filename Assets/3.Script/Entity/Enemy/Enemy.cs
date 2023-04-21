@@ -18,7 +18,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     {
         indent = new bool[(int)EIndent.Size];
 
-    CharacterStat = GetComponent<CharacterStat>();
+        CharacterStat = GetComponent<CharacterStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
         EnemyPattern = GetComponent<EnemyPattern>();
         CharacterIndent = GetComponent<CharacterIndent>();
@@ -73,7 +73,7 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     // 내 턴이 시작되면 실행될 함수
     protected virtual void OnStartMyTurn()
     {
-        EnemyPattern.DicidePattern();
+        EnemyPattern.DecidePattern();
     }
 
     public void DestroyMySelf()

@@ -26,6 +26,7 @@ public class EnemyPattern : MonoBehaviour
     [SerializeField] private Image _patternImage;
     [SerializeField] private Text _patternText;
 
+    private bool _isDecided = false;
     private int _patternTurn = 1;
     private Pattern _currentPattern;
 
@@ -50,21 +51,38 @@ public class EnemyPattern : MonoBehaviour
         _patternTurn++;
     }
 
-    public void DicidePattern()
+    public void DecidePattern()
     {
         // 패턴 결정하고 ui로 보여주기
         // 내 턴 시작 델리게이트에 이 함수를 넣어줘야 함
 
         // 첫번째 패턴이 있는 적이면 첫번째 패턴을 해줘야 함
         // 아니면 랜덤(일단은...)
-        if (_patternTurn == 1 && isFirstPattern)
+
+        if(_isDecided)
         {
-            _currentPattern = enemyFirstPattern;
+            _isDecided = false;
         }
         else
         {
-            _currentPattern = enemyPatterns[Random.Range(0, enemyPatterns.Count)];
+            if (_patternTurn == 1 && isFirstPattern)
+            {
+                _currentPattern = enemyFirstPattern;
+            }
+            else
+            {
+                _currentPattern = enemyPatterns[Random.Range(0, enemyPatterns.Count)];
+            }
         }
+
+        _patternImage.sprite = _currentPattern.patternData.patternIcon;
+        _patternText.text = GetPatternAmount();
+    }
+
+    public void DecidePattern(Pattern pattern)
+    {
+        _currentPattern = pattern;
+        _isDecided = true;
 
         _patternImage.sprite = _currentPattern.patternData.patternIcon;
         _patternText.text = GetPatternAmount();
@@ -132,6 +150,10 @@ public class EnemyPattern : MonoBehaviour
             case EIndent.SporeCloud:
                 _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
                 _enemy.indent[(int)EIndent.SporeCloud] = true;
+                break;
+            case EIndent.Split:
+                _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
+                _enemy.indent[(int)EIndent.Split] = true;
                 break;
         }
     }

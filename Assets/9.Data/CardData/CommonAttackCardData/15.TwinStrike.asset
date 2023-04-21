@@ -21,6 +21,7 @@ MonoBehaviour:
   cardExplanation: "\uD53C\uD574\uB97C 5\uB9CC\uD07C\n2\uBC88 \uC90D\uB2C8\uB2E4."
   cardGrade: 0
   isBezierCurve: 1
+  cardFrameData: 1
   useEffect:
   - m_PersistentCalls:
       m_Calls: []

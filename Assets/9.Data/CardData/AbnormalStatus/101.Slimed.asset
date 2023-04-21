@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
+  m_Name: 101.Slimed
+  m_EditorClassIdentifier: 
+  id: 101
+  cardImage: {fileID: -3285006384755922155, guid: 887226e3d1d2c4341a8653d482269158, type: 3}
+  cardName: "\uC810\uC561\uD22C\uC131\uC774"
+  cost: 1
+  cardType: 4
+  cardTypeString: "\uC0C1\uD0DC\uC774\uC0C1"
+  cardExplanation: "\uC18C\uBA78."
+  cardGrade: 0
+  isBezierCurve: 0
+  cardFrameData: 0
+  useEffect: []

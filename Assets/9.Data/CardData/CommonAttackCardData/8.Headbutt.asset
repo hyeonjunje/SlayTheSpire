@@ -23,6 +23,7 @@ MonoBehaviour:
     \uCE74\uB4DC \uB354\uBBF8\uC758\n\uB9E8 \uC704\uC5D0 \uB193\uC2B5\uB2C8\uB2E4."
   cardGrade: 0
   isBezierCurve: 1
+  cardFrameData: 1
   useEffect:
   - m_PersistentCalls:
       m_Calls: []

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebf8165754ea024aa76a32fc6a26c87, type: 3}
+  m_Name: BattleData6
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 2071352932406378107, guid: 435846c3fe2694a4a90b5a6596c2eb7e, type: 3}
+  - {fileID: 7533341927843624384, guid: d763b0fd5281d1346b52da19f83d58e6, type: 3}
+  - {fileID: 2071352932406378107, guid: 435846c3fe2694a4a90b5a6596c2eb7e, type: 3}
+  - {fileID: 7533341927843624384, guid: d763b0fd5281d1346b52da19f83d58e6, type: 3}
+  spawnPos:
+  - {x: 7.7, y: -0.5, z: 0}
+  - {x: 5.77, y: -0.5, z: 0}
+  - {x: 3.88, y: -0.5, z: 0}
+  - {x: 1.69, y: -0.5, z: 0}
+  money: 50
+  isRelics: 0

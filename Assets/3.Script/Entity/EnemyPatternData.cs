@@ -9,7 +9,9 @@ public enum EPatternType
     Debuff,
     Buff,
     DefendBuff,
-    AttackDefend
+    AttackDefend,
+    Unknown,
+    Size
 }
 
 [CreateAssetMenu()]
