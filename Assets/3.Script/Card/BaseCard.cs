@@ -75,10 +75,6 @@ public class BaseCard : MonoBehaviour
                 // 카드 버림
                 _cardHolder.DiscardCard(this);
             }
-
-
-            // 카드 레이캐스트 활성화
-            _cardController.SetActiveRaycast(true);
         }
     }
 

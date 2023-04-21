@@ -20,8 +20,10 @@ public class EnemyPattern : MonoBehaviour
     public Pattern alreadyPattern;  // 이미 있는 패턴
     public Pattern enemyFirstPattern;  // 제일 처음 패턴
     public List<Pattern> enemyPatterns;  // 그 외에 패턴
+    public List<Pattern> enemyCyclePatterns; // 순환하는 패턴
     public bool isAlreadyPattern = false;
     public bool isFirstPattern = false;  // 제일 처음 패턴이 있는가
+    public bool isCyclePattern = false; // 패턴이 순환하는가
 
     [SerializeField] private Image _patternImage;
     [SerializeField] private Text _patternText;
@@ -30,14 +32,16 @@ public class EnemyPattern : MonoBehaviour
     private int _patternTurn = 1;
     private Pattern _currentPattern;
 
+    private bool isActFirst = true;
+
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     private CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
 
     public void Init(Enemy enemy)
     {
         _enemy = enemy;
-
-        if(isAlreadyPattern)
+        isActFirst = true;
+        if (isAlreadyPattern)
         {
             _currentPattern = alreadyPattern;
             GetIndent();
@@ -64,16 +68,19 @@ public class EnemyPattern : MonoBehaviour
         {
             _isDecided = false;
         }
+        else if(_patternTurn == 1 && isFirstPattern && isActFirst)
+        {
+            _currentPattern = enemyFirstPattern;
+            isActFirst = false;
+            _patternTurn = -1;
+        }
+        else if(isCyclePattern)
+        {
+            _currentPattern = enemyCyclePatterns[_patternTurn % enemyCyclePatterns.Count];
+        }
         else
         {
-            if (_patternTurn == 1 && isFirstPattern)
-            {
-                _currentPattern = enemyFirstPattern;
-            }
-            else
-            {
-                _currentPattern = enemyPatterns[Random.Range(0, enemyPatterns.Count)];
-            }
+            _currentPattern = enemyPatterns[Random.Range(0, enemyPatterns.Count)];
         }
 
         _patternImage.sprite = _currentPattern.patternData.patternIcon;
@@ -136,6 +143,10 @@ public class EnemyPattern : MonoBehaviour
             case EIndent.Weak:
                 battleManager.Player.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
                 battleManager.Player.indent[(int)EIndent.Weak] = true;
+                break;
+            case EIndent.damaged:
+                battleManager.Player.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
+                battleManager.Player.indent[(int)EIndent.damaged] = true;
                 break;
             case EIndent.Consciousness:
                 _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);

@@ -16921,7 +16921,7 @@ MonoBehaviour:
   inRestUI: {fileID: 1531580272}
   inTreasureUI: {fileID: 808506699}
   act1BattleData:
-  - {fileID: 11400000, guid: 95eb7c384992b744fbbb0cf2aec68c07, type: 2}
+  - {fileID: 11400000, guid: c1f2013b3c3bbca4b9d186c9d780a0db, type: 2}
   act1UnknownData:
   - {fileID: 11400000, guid: 5fd84900677012247955f360b7c462b4, type: 2}
   act1Scene: {fileID: 196484991}

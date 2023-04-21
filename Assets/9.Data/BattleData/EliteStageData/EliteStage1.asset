@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 095dafa4eace7ab4f828e872b267aa16, type: 3}
-  m_Name: Roll
+  m_Script: {fileID: 11500000, guid: 5ebf8165754ea024aa76a32fc6a26c87, type: 3}
+  m_Name: EliteStage1
   m_EditorClassIdentifier: 
-  indent: 6
-  indentSprite: {fileID: -7352930615352500133, guid: a2c2113e7dbb3a7408febba3b0ea568b, type: 3}
-  indentName: 
-  indentExplanation: 
-  isTurn: 0
-  isShowTurn: 0
+  enemies:
+  - {fileID: 2523390034209334230, guid: c640a410ab0063d40a7ce9423fd2357c, type: 3}
+  spawnPos:
+  - {x: 4.5, y: 0.3, z: 0}
+  money: 75
+  isRelics: 1

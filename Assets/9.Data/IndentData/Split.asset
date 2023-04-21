@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095dafa4eace7ab4f828e872b267aa16, type: 3}
   m_Name: Split
   m_EditorClassIdentifier: 
-  indent: 7
+  indent: 8
   indentSprite: {fileID: -3376141397014823475, guid: a2c2113e7dbb3a7408febba3b0ea568b, type: 3}
   indentName: "\uBD84\uC5F4"
   indentExplanation: "\uCCB4\uB825 \uC774 50% \uC774\uD558\uAC00 \uB418\uBA74 2\uAC1C\uC758

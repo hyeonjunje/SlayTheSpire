@@ -34,6 +34,8 @@ public class Player : Character
 
     public void OnStartBattle()
     {
+        indent = new bool[(int)EIndent.Size];
+
         cardHolder.StartBattle(myCards);
         CharacterIndent.Visualize();
     }

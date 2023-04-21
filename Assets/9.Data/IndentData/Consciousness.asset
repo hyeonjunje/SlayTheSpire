@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095dafa4eace7ab4f828e872b267aa16, type: 3}
   m_Name: Consciousness
   m_EditorClassIdentifier: 
-  indent: 2
+  indent: 3
   indentSprite: {fileID: 634368885702455413, guid: a2c2113e7dbb3a7408febba3b0ea568b, type: 3}
+  indentName: 
+  indentExplanation: 
   isTurn: 0
+  isShowTurn: 0

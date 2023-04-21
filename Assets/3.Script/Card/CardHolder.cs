@@ -177,6 +177,9 @@ public class CardHolder : MonoBehaviour
         _cardHands.Add(card);
         _cardDeck.Remove(card);
 
+        // 뽑으면 카드 레이캐스트 활성화
+        card.CardController.SetActiveRaycast(true);
+
         Relocation();
     }
 
@@ -191,6 +194,9 @@ public class CardHolder : MonoBehaviour
 
         Relocation();
         card.CardController.MoveCard(_cardCemetryTransform.localPosition, Vector3.zero, Vector3.zero);
+
+        // 버리면 카드 레이캐스트 활성화
+        card.CardController.SetActiveRaycast(false);
     }
 
     /// <summary>
