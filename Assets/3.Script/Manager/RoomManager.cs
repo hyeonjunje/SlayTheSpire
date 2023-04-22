@@ -49,7 +49,7 @@ public class RoomManager : MonoBehaviour, IRegisterable
         neow.gameObject.SetActive(false);
 
         // 플레이어 켜주기
-        battleManager.Player.gameObject.SetActive(true);
+        battleManager.Player.gameObject.SetActive(false);
 
         // UI뜬거 없애주고 (맵, 보상)
         act1Scene.ExitUI();
@@ -63,18 +63,22 @@ public class RoomManager : MonoBehaviour, IRegisterable
         switch (roomType)
         {
             case ERoomType.Elite:
+                battleManager.Player.gameObject.SetActive(true);
                 OnEnterEliteRoom();
                 break;
             case ERoomType.Enemy:
+                battleManager.Player.gameObject.SetActive(true);
                 OnEnterEnemyRoom();
                 break;
             case ERoomType.Merchant:
+                battleManager.Player.gameObject.SetActive(true);
                 OnEnterMerchantRoom();
                 break;
             case ERoomType.Rest:
                 OnEnterRestRoom();
                 break;
             case ERoomType.Treasure:
+                battleManager.Player.gameObject.SetActive(true);
                 OnEnterTreasureRoom();
                 break;
             case ERoomType.Unknown:
@@ -142,9 +146,14 @@ public class RoomManager : MonoBehaviour, IRegisterable
         inUnknownUI.ShowUnknown(act1UnknownData[0]);
     }
 
-    public void ProceedNextUnknown()
+    public void NextUnknown()
     {
         inUnknownUI.ShowNext(act1UnknownData[0]);
+    }
+
+    public void AfterUnknown()
+    {
+        inUnknownUI.ShowAfter(act1UnknownData[0]);
     }
 
     public void ClearRoom()

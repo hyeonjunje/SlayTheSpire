@@ -41,6 +41,25 @@ public class InUnknownUI : BaseUI
         // 초기화
         Init();
 
+        eventContents.text = unknownData.nextRoomContents;
+
+        for (int i = 0; i < unknownData.nextOptionText.Length; i++)
+        {
+            optionsButton[i].gameObject.SetActive(true);
+
+            int index = i;
+
+            // 버튼 onclick, text 적용
+            optionsButton[index].onClick.AddListener(() => unknownData.nextOptionEvent[index].Invoke());
+            optionsButton[i].GetComponentInChildren<Text>().text = unknownData.nextOptionText[i];
+        }
+    }
+
+    public void ShowAfter(UnknownData unknownData)
+    {
+        // 초기화
+        Init();
+
         eventContents.text = unknownData.roomContentsAfter;
 
         for (int i = 0; i < unknownData.afterOptionText.Length; i++)

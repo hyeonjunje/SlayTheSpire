@@ -21,6 +21,8 @@ public class BaseCard : MonoBehaviour
     public int cost;
     public string cardName;
 
+    public bool isEnforce = false;
+
     // 온클릭 함수
     public Action onClickAction;
 
@@ -112,6 +114,8 @@ public class BaseCard : MonoBehaviour
 
         // 외형이 바껴야 함
         _baseCardBuilder.Enforce(_cardData);
+
+        isEnforce = true;
     }
 
     public void Discard()

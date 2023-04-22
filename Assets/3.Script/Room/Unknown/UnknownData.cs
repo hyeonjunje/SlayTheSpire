@@ -17,6 +17,14 @@ public class UnknownData : ScriptableObject
 
     [Space(3)]
 
+    [Header("다음 이벤트")]
+    [Multiline(10)]
+    public string nextRoomContents;
+    public string[] nextOptionText;
+    public List<UnityEvent> nextOptionEvent;
+
+    [Space(3)]
+
     [Header("이벤트 종료")]
     [Multiline(10)]
     public string roomContentsAfter;

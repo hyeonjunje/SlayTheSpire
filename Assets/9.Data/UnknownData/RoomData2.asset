@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4f75fee85179843b1c67e64751e474, type: 3}
+  m_Name: RoomData2
+  m_EditorClassIdentifier: 
+  roomName: "\uBAA8\uB2E5\uBD88 \uC815\uB839\uB4E4"
+  roomImage: {fileID: 21300000, guid: 6995be33caa91544a86878918146e8de, type: 3}
+  roomContents: "\uB2F9\uC2E0\uC740 \uBCF4\uB78F\uBE5B\uC758 \uBD88\uC758 \uC815\uB839\uCC98\uB7FC
+    \uBCF4\uC774\uB294 \uBB34\uB9AC\uAC00\n\uCEE4\uB2E4\uB780 \uBAA8\uB2E5\uBD88
+    \uC8FC\uC704\uC5D0\uC11C \uCDA4\uCD94\uACE0 \uC788\uB294 \uAC83\uC744 \uC6B0\uC5F0\uD788\n\uBC1C\uACAC\uD588\uC2B5\uB2C8\uB2E4."
+  optionText:
+  - "[\uACC4\uC18D]"
+  optionEvent:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: Proceed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  nextRoomContents: "\uC815\uB839\uB4E4\uC774 \uC791\uC740 \uBF08\uB4E4\uACFC \uBD80\uC2A4\uB7EC\uAE30\uB97C
+    \uBD88\uB85C \uB358\uC9C8 \uB54C\uB9C8\uB2E4\n\uADF8\uAC83\uB4E4\uC740 \uBC18\uC9DD\uAC70\uB9AC\uBA70
+    \uD280\uC5B4\uC624\uB985\uB2C8\uB2E4.\n\uB2E8\uC2E0\uC774 \uAC00\uAE4C\uC774
+    \uB2E4\uAC00\uAC00\uC790, \uC815\uB839\uB4E4\uC740 \uAE30\uB300\uC5D0 \uBD80\uD480\uC5B4
+    \n\uC77C\uC81C\uD788 \uB2F9\uC2E0\uC744 \uBC14\uB77C\uBD05\uB2C8\uB2E4..."
+  nextOptionText:
+  - "[\uC81C\uBB3C] \uC81C\uBB3C\uC758 \uC885\uB958\uC5D0 \uB530\uB978 \uBCF4\uC0C1\uC744
+    \uD68D\uB4DD\uD569\uB2C8\uB2E4."
+  nextOptionEvent:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: Discard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  roomContentsAfter: "\uB2F9\uC2E0\uC740 \uC81C\uBB3C\uC744 \uBAA8\uB2E5\uBD88\uC5D0
+    \uB358\uC838 \uB123\uC2B5\uB2C8\uB2E4.\n\n\uC544\uBB34 \uC77C\uB3C4 \uC77C\uC5B4\uB098\uC9C0
+    \uC54A\uC2B5\uB2C8\uB2E4...\n\uC815\uB839\uB4E4\uC740 \uC774\uC81C \uB2F9\uC2E0\uC744
+    \uBB34\uC2DC\uD558\uB294 \uAC83\uCC98\uB7FC \uBCF4\uC785\uB2C8\uB2E4.\n\uC2E4\uB9DD\uC2A4\uB7FD\uAD70\uC694..."
+  afterOptionText:
+  - "[\uB5A0\uB09C\uB2E4]"
+  afterOptionEvent:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ClearRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
