@@ -59,7 +59,7 @@ public class CardGenerator : MonoBehaviour, IRegisterable
     /// </summary>
     /// <param name="cardName">생성된 카드</param>
     /// <returns></returns>
-    private BaseCard GenerateCard(string cardName)
+    public BaseCard GenerateCard(string cardName)
     {
         BaseCard baseCard = Instantiate(_baseCardPrefab, _cardParent);
         CardData cardData = allCardList.Find(card => card.cardName == cardName);

@@ -67,6 +67,7 @@ public class CardData : ScriptableObject
     [Header("강화 카드 정보")]
     public string enforcedCardName;
     public int enforcedCardCost;
+    [Multiline(6)]
     public string enforcedCardExplanation;
 
 
@@ -90,6 +91,6 @@ public class CardData : ScriptableObject
         CardExplanation = enforcedCardExplanation;
 
         UseEffect = new List<UnityEvent>();
-        useEffect.ForEach(effect => enforcedUseEffect.Add(effect));
+        enforcedUseEffect.ForEach(effect => UseEffect.Add(effect));
     }
 }

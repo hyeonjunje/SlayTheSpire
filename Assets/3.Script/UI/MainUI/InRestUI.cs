@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class InRestUI : BaseUI
 {
+    [SerializeField] private InEnforceUI inEnforceUI;
+
     [SerializeField] private GameObject originBackground, bonfireBackgorund;
 
     [SerializeField] private Image ironcladImage;
@@ -76,6 +78,7 @@ public class InRestUI : BaseUI
     public void Enforce()
     {
         Debug.Log("강화합니다.");
-        IsUsed = true;
+
+        GameManager.UI.ShowUI(inEnforceUI);
     }
 }

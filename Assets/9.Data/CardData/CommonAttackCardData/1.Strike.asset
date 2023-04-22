@@ -21,6 +21,7 @@ MonoBehaviour:
   cardExplanation: "\uD53C\uD574\uB97C 6 \uC90D\uB2C8\uB2E4."
   cardGrade: 0
   isBezierCurve: 1
+  isExtinction: 0
   cardFrameData: 1
   useEffect:
   - m_PersistentCalls:
@@ -30,6 +31,26 @@ MonoBehaviour:
       - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
         m_TargetAssemblyTypeName: CommonAttackCardEffect, Assembly-CSharp
         m_MethodName: Strike
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enforcedCardName: "\uD0C0\uACA9+"
+  enforcedCardCost: 1
+  enforcedCardExplanation: "\uD53C\uD574\uB97C 9 \uC90D\uB2C8\uB2E4."
+  enforcedUseEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
+        m_TargetAssemblyTypeName: CommonAttackCardEffect, Assembly-CSharp
+        m_MethodName: StrikePlus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -6,7 +6,7 @@ public class MyTurnEndState : BaseBattleState
 {
     CardHolder cardHolder => _battleManager.Player.cardHolder;
 
-    public MyTurnEndState(BattleManager battleManager, StateFactory stateFactory) : base(battleManager, stateFactory)
+    public MyTurnEndState(BattleManager battleManager, BattleManagerStateFactory stateFactory) : base(battleManager, stateFactory)
     {
         battleState = EBattleState.MyTurnEnd;
     }

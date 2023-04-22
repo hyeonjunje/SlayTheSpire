@@ -19,9 +19,10 @@ MonoBehaviour:
   cardType: 1
   cardTypeString: "\uC2A4\uD0AC"
   cardExplanation: "\uBC29\uC5B4\uB3C4\uB97C 5\uC5BB\uC2B5\uB2C8\uB2E4.\n\uCE74\uB4DC
-    1\uC7A5\uC744 \uC800\uD22C\uAC00 \uB05D\uB0A0 \uB54C\uAE4C\uC9C0\n\uAC15\uD654\uD569\uB2C8\uB2E4."
+    1\uC7A5\uC744 \uC804\uD22C\uAC00 \uB05D\uB0A0 \uB54C\uAE4C\uC9C0\n\uAC15\uD654\uD569\uB2C8\uB2E4."
   cardGrade: 0
   isBezierCurve: 0
+  isExtinction: 0
   cardFrameData: 3
   useEffect:
   - m_PersistentCalls:
@@ -31,6 +32,27 @@ MonoBehaviour:
       - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
         m_TargetAssemblyTypeName: CommonSkillCardEffect, Assembly-CSharp
         m_MethodName: Armaments
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enforcedCardName: "\uC804\uD22C\uC7A5\uBE44+"
+  enforcedCardCost: 1
+  enforcedCardExplanation: "\uBC29\uC5B4\uB3C4\uB97C 5\uC5BB\uC2B5\uB2C8\uB2E4.\n\uC190\uC5D0
+    \uC788\uB294 \uBAA8\uB4E0 \uCE74\uB4DC\uB97C \n\uC804\uD22C \uB3D9\uC548 \uAC15\uD654\uD569\uB2C8\uB2E4."
+  enforcedUseEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
+        m_TargetAssemblyTypeName: CommonSkillCardEffect, Assembly-CSharp
+        m_MethodName: ArmamentsPlus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

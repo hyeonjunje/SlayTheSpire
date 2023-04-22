@@ -10,7 +10,7 @@ public class EnemyTurnState : BaseBattleState
 
     int enemyCount = 0;
 
-    public EnemyTurnState(BattleManager battleManager, StateFactory stateFactory) : base(battleManager, stateFactory)
+    public EnemyTurnState(BattleManager battleManager, BattleManagerStateFactory stateFactory) : base(battleManager, stateFactory)
     {
         battleState = EBattleState.EnemyTurn;
     }

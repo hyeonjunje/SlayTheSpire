@@ -28,4 +28,9 @@ public class Merchant : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     {
         merchantObject.color = originColor;
     }
+
+    public void Init()
+    {
+        merchantUI.Init();
+    }
 }

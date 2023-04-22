@@ -22,6 +22,7 @@ MonoBehaviour:
     1\uC7A5\uC744 \uBF51\uC744 \uCE74\uB4DC \uB354\uBBF8\n\uB9E8 \uC704\uC5D0 \uB193\uC2B5\uB2C8\uB2E4.\n\uC18C\uBA78"
   cardGrade: 0
   isBezierCurve: 0
+  isExtinction: 1
   cardFrameData: 3
   useEffect:
   - m_PersistentCalls:
@@ -31,6 +32,27 @@ MonoBehaviour:
       - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
         m_TargetAssemblyTypeName: CommonSkillCardEffect, Assembly-CSharp
         m_MethodName: Warcry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enforcedCardName: "\uC804\uD22C\uC758 \uD568\uC131+"
+  enforcedCardCost: 0
+  enforcedCardExplanation: "\uCE74\uB4DC\uB97C 2 \uC7A5 \uBF51\uC2B5\uB2C8\uB2E4.\n\uCE74\uB4DC
+    1\uC7A5\uC744 \uBF51\uC744 \uCE74\uB4DC \uB354\uBBF8\n\uB9E8 \uC704\uC5D0 \uB193\uC2B5\uB2C8\uB2E4.\n\uC18C\uBA78"
+  enforcedUseEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
+        m_TargetAssemblyTypeName: CommonSkillCardEffect, Assembly-CSharp
+        m_MethodName: WarcryPlus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

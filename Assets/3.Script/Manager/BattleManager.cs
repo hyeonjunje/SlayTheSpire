@@ -35,7 +35,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
     private BattleData _currentBattleData;
 
     private List<Enemy> _enemies;
-    private StateFactory _stateFactory;
+    private BattleManagerStateFactory _stateFactory;
 
     private Coroutine _coBattle = null;
 
@@ -65,7 +65,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
 
     private void Awake()
     {
-        _stateFactory = new StateFactory(this);
+        _stateFactory = new BattleManagerStateFactory(this);
     }
 
     // 버튼에 onclick으로 넣어줌

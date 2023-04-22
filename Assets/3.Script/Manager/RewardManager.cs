@@ -101,9 +101,13 @@ public class RewardManager : MonoBehaviour, IRegisterable
         BaseCard card2 = cardGenerator.GeneratorRandomCard();
         BaseCard card3 = cardGenerator.GeneratorRandomCard();
 
-        card1.cardUsage = ECardUsage.Gain;
-        card2.cardUsage = ECardUsage.Gain;
-        card3.cardUsage = ECardUsage.Gain;
+        card1.ChangeState(ECardUsage.Gain);
+        card2.ChangeState(ECardUsage.Gain);
+        card3.ChangeState(ECardUsage.Gain);
+
+        card1.onClickAction = null;
+        card2.onClickAction = null;
+        card3.onClickAction = null;
 
         card1.onClickAction += (() => OnClickGainCard());
         card2.onClickAction += (() => OnClickGainCard());
