@@ -6,55 +6,104 @@ public class UnknownEvent : MonoBehaviour
 {
     BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     RoomManager roomManager => ServiceLocator.Instance.GetService<RoomManager>();
+    Player player => battleManager.Player;
 
+    // 돈 변화
     public void ChangeMoney(int amount)
     {
-        battleManager.Player.PlayerStat.Money += amount;
+        player.PlayerStat.Money += amount;
     }
 
-    public void AddCard()
+    // 랜덤 강화
+    public void RandomEnforce(int count)
+    {
+        int temp = 0;
+        int c = 0;
+        while(c != count)
+        {
+            int cardIndex = Random.Range(0, player.myCards.Count);
+            if(!player.myCards[cardIndex].isEnforce)
+            {
+                player.myCards[cardIndex].Enforce();
+                c++;
+            }
+            if(temp++ > 100)
+            {
+                break;
+            }
+        }
+    }
+
+
+    // 유물 얻기
+    public void GainRelic()
     {
 
     }
 
-    public void RemoveCard()
+    // 성직자 회복
+    public void ClericCure()
     {
+        if (player.PlayerStat.Money < 35)
+            return;
 
+        player.PlayerStat.Money -= 35;
+        player.PlayerStat.CurrentHp += 18;
+
+        AfterEvent();
     }
 
-    public void ChangeCard()
+    // 성직자 정화
+    public void ClericCleanse()
     {
+        if (player.PlayerStat.Money < 50)
+            return;
 
+        player.PlayerStat.Money -= 50;
+
+        Discard();
     }
 
-    public void EnforceCard()
-    {
-
-    }
-
-    public void GainRelics()
-    {
-
-    }
-
-    public void GainRelicsPercentage()
-    {
-
-    }
-
+    // 최대 체력 올려주기
     public void ChangeMaxHp(int amount)
     {
-        battleManager.Player.PlayerStat.MaxHp += amount;
+        player.PlayerStat.MaxHp += amount;
     }
 
+    // 현재체력 올려주기
     public void ChangeHp(int amount)
     {
-        battleManager.Player.PlayerStat.CurrentHp += amount;
+        player.PlayerStat.CurrentHp += amount;
+    }
+
+    // 카드 제거
+    public void Discard()
+    {
+        InDiscardUI inDiscardUI = GameObject.Find("MainUI").transform.Find("InDiscardEventUI").GetComponent<InDiscardUI>();
+
+        GameManager.UI.ShowUI(inDiscardUI);
+        inDiscardUI.onDiscard = null;
+        inDiscardUI.onDiscard += AfterEvent;
+    }
+
+    // 카드 강화
+    public void Enforce()
+    {
+        InEnforceUI inDiscardUI = GameObject.Find("MainUI").transform.Find("InEnforceEventUI").GetComponent<InEnforceUI>();
+
+        GameManager.UI.ShowUI(inDiscardUI);
+        inDiscardUI.onEnforce = null;
+        inDiscardUI.onEnforce += AfterEvent;
     }
 
     public void Proceed()
     {
-        roomManager.ProceedNextUnknown();
+        roomManager.NextUnknown();
+    }
+
+    public void AfterEvent()
+    {
+        roomManager.AfterUnknown();
     }
 
     public void ClearRoom()

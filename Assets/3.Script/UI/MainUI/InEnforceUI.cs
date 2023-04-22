@@ -12,8 +12,9 @@ using System.Linq;
 /// </summary>
 public class InEnforceUI : BaseUI
 {
+    public System.Action onEnforce;
+
     private List<BaseCard> _myCards;
-    private System.Action _callback = null;
     private BaseCard selectedCard;
 
     [SerializeField]
@@ -110,8 +111,8 @@ public class InEnforceUI : BaseUI
         selectedCard.transform.localEulerAngles = Vector3.zero;
         selectedCard.transform.localScale = Vector3.one;
 
-        inRestUI.IsUsed = true;
-
         GameManager.UI.PopUI();
+
+        onEnforce?.Invoke();
     }
 }

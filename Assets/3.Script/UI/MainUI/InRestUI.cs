@@ -62,6 +62,9 @@ public class InRestUI : BaseUI
         base.Show();
         bonfireBackgorund.SetActive(true);
         originBackground.SetActive(false);
+
+        inEnforceUI.onEnforce = null;
+        inEnforceUI.onEnforce += (() => IsUsed = true);
     }
 
     // ÈÞ½Ä

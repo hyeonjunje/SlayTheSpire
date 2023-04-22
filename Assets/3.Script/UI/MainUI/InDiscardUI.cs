@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class InDiscardUI : BaseUI
 {
+    public System.Action onDiscard;
+
     [HideInInspector]
     public bool isDiscard = false;
     [HideInInspector]
@@ -73,6 +75,11 @@ public class InDiscardUI : BaseUI
         disCardCost.SetActive(true);
         disCardImage.sprite = discardSprite;
         disCardCostText.text = initDiscardCost.ToString();
+
+        onDiscard = null;
+        onDiscard += (() => disCardImage.sprite = soldOutSprite);
+        onDiscard += (() => disCardCost.SetActive(false));
+        onDiscard += (() => battleManager.Player.PlayerStat.Money -= initDiscardCost);
     }
 
     public void ShowDiscard()
@@ -114,9 +121,6 @@ public class InDiscardUI : BaseUI
         isDiscard = true;
         GameManager.UI.PopUI();
 
-        // 상점 관련
-        disCardImage.sprite = soldOutSprite;
-        disCardCost.SetActive(false);
-        battleManager.Player.PlayerStat.Money -= initDiscardCost;
+        onDiscard?.Invoke();
     }
 }

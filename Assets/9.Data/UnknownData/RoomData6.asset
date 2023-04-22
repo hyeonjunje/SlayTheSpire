@@ -10,22 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d4f75fee85179843b1c67e64751e474, type: 3}
-  m_Name: RoomData1
+  m_Name: RoomData6
   m_EditorClassIdentifier: 
-  roomName: "\uB0A0\uAC1C \uC870\uAC01\uC0C1"
-  roomImage: {fileID: 21300000, guid: e9354e282fcd51b459d3b80d8afb5c6e, type: 3}
-  roomContents: "\uB3CC\uACFC \uBC14\uC704\uB4E4 \uC0AC\uC774\uC5D0\uC11C, \uB2F9\uC2E0\uC740
-    \uB0A0\uAC1C \uBAA8\uC591\uC758 \uBCF5\uC7A1\uD558\uACE0 \uCEE4\uB2E4\uB780 \uD478\uB978\n\uC870\uAC01\uC0C1\uC744
-    \uBC1C\uACAC\uD588\uC2B5\uB2C8\uB2E4.\n\uB2F9\uC2E0\uC740 \uADF8\uAC83\uC758
-    \uD2C8\uC0C8\uB85C\uBD80\uD130 \uC3DF\uC544\uC838 \uB098\uC624\uB294 \uACE8\uB4DC\uB97C
-    \uBC1C\uACAC\uD588\uC2B5\uB2C8\uB2E4.\n\uC544\uB9C8 \uC548\uCABD\uC5D0\uB294
-    \uB354 \uB9CE\uC774 \uC788\uACA0\uC8E0..."
+  roomName: "\uBC1D\uC740 \uBE5B"
+  roomImage: {fileID: 21300000, guid: ef3db8c2332525949a393719211f51b0, type: 3}
+  roomContents: "\uB2F9\uC2E0\uC740 \uBC29 \uD55C\uAC00\uC6B4\uB370\uC5D0\uC11C \uC77C\uB7EC\uC774\uB294
+    \uBE5B\uC758 \uB369\uC5B4\uB9AC\uB97C\n\uBC1C\uACAC\uD588\uC2B5\uB2C8\uB2E4.\n\uB530\uB73B\uD55C
+    \uBE5B\uACFC \uD669\uD640\uD55C \uBB38\uC591\uC774 \uB2F9\uC2E0\uC744\n\uD5A5\uD574
+    \uC190\uC9D3\uD569\uB2C8\uB2E4.\t\t"
   optionText:
-  - "[\uB5A0\uB09C\uB2E4]"
-  - "[\uD30C\uAD34] \uACE8\uB4DC\uB97C 50-80 \uD68D\uB4DD\uD55C\uB2E4.(\uB371\uC5D0
-    \uACF5\uACA9\uB825 10\uC774\uC0C1 \uCE74\uB4DC \uD544\uC694)"
-  - "[\uAE30\uB3C4] \uCE74\uB4DC 1\uC7A5\uC744 \uB371\uC5D0\uC11C \uC81C\uAC70\uD569\uB2C8\uB2E4.
-    \uCCB4\uB825\uC744 7\uC783\uC2B5\uB2C8\uB2E4."
+  - "[\uB5A0\uB098\uAE30]"
+  - "[\uB4E4\uC5B4\uAC04\uB2E4] \uBB34\uC791\uC704 \uCE74\uB4DC 2\uC7A5 \uAC15\uD654.
+    \uCCB4\uB825 14\uC783\uC2B5\uB2C8\uB2E4."
   optionEvent:
   - m_PersistentCalls:
       m_Calls:
@@ -36,33 +32,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: -7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
-        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
-        m_MethodName: ChangeMoney
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 50
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
-        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
-        m_MethodName: AfterEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 24
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -76,7 +46,19 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: -7
+          m_IntArgument: -14
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: RandomEnforce
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -93,27 +75,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
-        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
-        m_MethodName: Discard
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   nextRoomContents: 
   nextOptionText: []
   nextOptionEvent: []
-  roomContentsAfter: "\uC608\uC804\uC5D0 \uB204\uAD70\uAC00\uC5D0\uAC8C\uC11C \uAC70\uB300\uD55C
-    \uC0C8\uB97C \uC22D\uBC30\uD588\uB358 \uC9D1\uB2E8\uC5D0 \uB300\uD574 \uB4E4\uC740
-    \uC801\uC774\n\uC788\uC5C8\uC8E0. \uBB34\uB98E\uC744 \uAFC7\uACE0 \uAE30\uB3C4\uD558\uC790
-    \uB2F9\uC2E0\uC740 \uC57D\uAC04\uC758 \uC5B4\uC9C0\uB7EC\uC6C0\uC744 \uB290\uB08D\uB2C8\uB2E4.\n\n\uC5BC\uB9C8
-    \uC218\uC5D0 \uC77C\uC5B4\uB09C \uB2F9\uC2E0\uC740 \uC774\uC0C1\uD558\uAC8C\uB3C4
-    \uAC78\uC74C\uC774 \uBE68\uB77C\uC9C4 \uB290\uB08C\uC774 \uB4ED\uB2C8\uB2E4."
+  roomContentsAfter: "\uBE5B \uC0AC\uC774\uB85C \uAC78\uC5B4\uAC08 \uB54C \uB2F9\uC2E0\uC5D0\uAC8C
+    \uD761\uC218\uB418\uB294 \uAC83\uC744 \n\uC54C\uC544\uCC28\uB9BD\uB2C8\uB2E4.\n\uD0C0\uB294
+    \uB4EF\uC774 \uB728\uAC81\uC2B5\uB2C8\uB2E4. \uADF8\uB7EC\uB098, \uACE0\uD1B5\uC740
+    \uC774\uB0B4 \n\uC0AC\uADF8\uB77C\uB4ED\uB2C8\uB2E4.\n\uB9C8\uCE58 \uCE58\uB97C
+    \uB9CC\uD55C \uB300\uAC00\uB97C \uCE58\uB918\uB2E4\uB294 \uB4EF\n\uB2F9\uC2E0\uC740
+    \uD65C\uAE30\uAC00 \uB118\uCE69\uB2C8\uB2E4."
   afterOptionText:
   - "[\uB5A0\uB09C\uB2E4]"
   afterOptionEvent:
