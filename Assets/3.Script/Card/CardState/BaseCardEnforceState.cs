@@ -12,34 +12,42 @@ public class BaseCardEnforceState : BaseCardState
 
     public override void Enter()
     {
+
     }
 
     public override void Exit()
     {
+
     }
 
     public override void OnBeginDrag(PointerEventData eventData)
     {
+
     }
 
     public override void OnDrag(PointerEventData eventData)
     {
+
     }
 
     public override void OnEndDrag(PointerEventData eventData)
     {
+
     }
 
     public override void OnPointerEnter(PointerEventData eventData)
     {
+
     }
 
     public override void OnPointerExit(PointerEventData eventData)
     {
+
     }
 
     public override void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("이거 해주라 " + _baseCard);
         _baseCard.onClickAction?.Invoke();
     }
 }

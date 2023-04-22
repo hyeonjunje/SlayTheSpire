@@ -46,17 +46,19 @@ public class MyCardUI : BaseUI
         }
     }
 
-    private void OnEnable()
+    public override void Show()
     {
+        base.Show();
+
         myCards = new List<BaseCard>();
         myCards = battleManager.Player.myCards;
-        for(int i = 0; i < myCards.Count; i++)
+        for (int i = 0; i < myCards.Count; i++)
         {
             myCards[i].ChangeState(ECardUsage.Check);
             myCards[i].transform.SetParent(myCardsParent);
-
             myCards[i].transform.localEulerAngles = Vector3.zero;
             myCards[i].transform.localScale = Vector3.one;
+            myCards[i].onClickAction = null;
         }
 
         // 내림차순으로 초기화
@@ -73,8 +75,10 @@ public class MyCardUI : BaseUI
         Sort((int)ESortType.Recent);
     }
 
-    private void OnDisable()
+    public override void Hide()
     {
+        base.Hide();
+
         content.sizeDelta = Vector2.up * Screen.height;
     }
 
@@ -82,7 +86,7 @@ public class MyCardUI : BaseUI
     /// 카드를 어떤 기준으로 정렬해줌
     /// </summary>
     /// <param name="isAscending">오름차순인가? </param>
-    public void Sort(int index)
+    private void Sort(int index)
     {
         Debug.Log("정렬합니다. " + sortType);
 

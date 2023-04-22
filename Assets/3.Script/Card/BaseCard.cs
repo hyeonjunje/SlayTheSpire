@@ -24,6 +24,9 @@ public class BaseCard : MonoBehaviour
     // 온클릭 함수
     public Action onClickAction;
 
+    public delegate void OnClick(System.Action callback);
+    public OnClick onClick;
+
     [SerializeField]
     private CardController _cardController;
     [SerializeField]

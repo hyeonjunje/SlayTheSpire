@@ -91,6 +91,6 @@ public class CardData : ScriptableObject
         CardExplanation = enforcedCardExplanation;
 
         UseEffect = new List<UnityEvent>();
-        useEffect.ForEach(effect => enforcedUseEffect.Add(effect));
+        enforcedUseEffect.ForEach(effect => UseEffect.Add(effect));
     }
 }

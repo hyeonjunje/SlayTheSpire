@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public abstract class BaseUI : MonoBehaviour
 {
-    [SerializeField] private Button _exitButton;
+    [SerializeField] protected Button _exitButton;
     private Vector3 _exitButtonOriginPos;
 
     [SerializeField]

@@ -105,6 +105,10 @@ public class RewardManager : MonoBehaviour, IRegisterable
         card2.ChangeState(ECardUsage.Gain);
         card3.ChangeState(ECardUsage.Gain);
 
+        card1.onClickAction = null;
+        card2.onClickAction = null;
+        card3.onClickAction = null;
+
         card1.onClickAction += (() => OnClickGainCard());
         card2.onClickAction += (() => OnClickGainCard());
         card3.onClickAction += (() => OnClickGainCard());
