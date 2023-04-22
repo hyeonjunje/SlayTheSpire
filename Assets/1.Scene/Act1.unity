@@ -20308,7 +20308,14 @@ MonoBehaviour:
   bossAct1BattleData:
   - {fileID: 11400000, guid: 7a811596587aa604691291347c66efc4, type: 2}
   act1UnknownData:
+  - {fileID: 11400000, guid: 5fd84900677012247955f360b7c462b4, type: 2}
+  - {fileID: 11400000, guid: d0fe789636e5175418b2b58a150d535e, type: 2}
+  - {fileID: 11400000, guid: db82c701f552ffd4dbcd5f6bacee1d3c, type: 2}
+  - {fileID: 11400000, guid: 57cae262b4ccf4c4781cc710f566d7cb, type: 2}
+  - {fileID: 11400000, guid: 4c3e64fdd692baf4583d2a673fe4f252, type: 2}
   - {fileID: 11400000, guid: ac4738d9429c6cb4b9fc9f37158bf732, type: 2}
+  - {fileID: 11400000, guid: 3cc49ec39ececa74ab5db625c517dee1, type: 2}
+  - {fileID: 11400000, guid: 6bace37430db91949aa637d056fd070d, type: 2}
   act1Scene: {fileID: 196484991}
   neow: {fileID: 1837069323}
 --- !u!224 &1435301913 stripped
@@ -33076,7 +33083,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a5992f92bd040df489191c7e187f7055, type: 3}
-    m_FontSize: 32
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2

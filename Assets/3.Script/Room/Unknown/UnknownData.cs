@@ -28,7 +28,12 @@ public class UnknownData : ScriptableObject
     [Header("이벤트 종료")]
     [Multiline(10)]
     public string roomContentsAfter;
-
     public string[] afterOptionText;
     public List<UnityEvent> afterOptionEvent;
+
+    [Header("이벤트 종료2")]
+    [Multiline(10)]
+    public string roomContentsAfter2;
+    public string[] afterOptionText2;
+    public List<UnityEvent> afterOptionEvent2;
 }

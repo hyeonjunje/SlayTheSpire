@@ -6,6 +6,7 @@ public class UnknownEvent : MonoBehaviour
 {
     BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     RoomManager roomManager => ServiceLocator.Instance.GetService<RoomManager>();
+    CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
     Player player => battleManager.Player;
 
     // 돈 변화
@@ -76,6 +77,12 @@ public class UnknownEvent : MonoBehaviour
         player.PlayerStat.CurrentHp += amount;
     }
 
+    // 무작위 카드 얻기
+    public void AddRandomCard()
+    {
+        player.myCards.Add(cardGenerator.GeneratorRandomCard());
+    }
+
     // 카드 제거
     public void Discard()
     {
@@ -104,6 +111,11 @@ public class UnknownEvent : MonoBehaviour
     public void AfterEvent()
     {
         roomManager.AfterUnknown();
+    }
+
+    public void AfterEvent2()
+    {
+        roomManager.AfterUnknown2();
     }
 
     public void ClearRoom()

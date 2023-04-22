@@ -40,8 +40,23 @@ public class RoomManager : MonoBehaviour, IRegisterable
 
     private bool _isEarly = true;
 
+    private int battle1Index = 0;
+    private int battle2Index = 0;
+    private int unknownIndex = 0;
+
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     private RewardManager rewardManager => ServiceLocator.Instance.GetService<RewardManager>();
+
+    private void Awake()
+    {
+        battle1Index = 0;
+        battle2Index = 0;
+        unknownIndex = 0;
+
+        firstAct1BattleData.ShuffleList();
+        secondAct1BattleData.ShuffleList();
+        act1UnknownData.ShuffleList();
+    }
 
     public void EnterRoom(ERoomType roomType)
     {
@@ -90,13 +105,23 @@ public class RoomManager : MonoBehaviour, IRegisterable
     // 일반 적 방에 들어갈 때
     private void OnEnterEnemyRoom()
     {
-        GameManager.UI.ShowThisUI(inBattleUI);
         // 초반에 쉬운 적
         if(_isEarly)
-            battleManager.StartBattle(firstAct1BattleData[Random.Range(0, firstAct1BattleData.Count)]);
+        {
+            battleManager.StartBattle(firstAct1BattleData[battle1Index]);
+            battle1Index++;
+            if (battle1Index == firstAct1BattleData.Count)
+                battle1Index = 0;
+        }
         // 후반에 조금 쎈 적
         else
-            battleManager.StartBattle(secondAct1BattleData[Random.Range(0, secondAct1BattleData.Count)]);
+        {
+            battleManager.StartBattle(secondAct1BattleData[battle2Index]);
+            battle2Index++;
+            if (battle2Index == secondAct1BattleData.Count)
+                battle2Index = 0;
+        }
+        GameManager.UI.ShowThisUI(inBattleUI);
     }
 
     // 엘리트 방에 들어갈 때
@@ -143,18 +168,27 @@ public class RoomManager : MonoBehaviour, IRegisterable
     private void OnEnterUnknownRoom()
     {
         GameManager.UI.ShowThisUI(inUnknownUI);
-        inUnknownUI.ShowUnknown(act1UnknownData[0]);
+        inUnknownUI.ShowUnknown(act1UnknownData[unknownIndex]);
+        unknownIndex++;
+        if (unknownIndex == act1UnknownData.Count)
+            unknownIndex = 0;
     }
 
     public void NextUnknown()
     {
-        inUnknownUI.ShowNext(act1UnknownData[0]);
+        inUnknownUI.ShowNext(act1UnknownData[unknownIndex - 1]);
     }
 
     public void AfterUnknown()
     {
-        inUnknownUI.ShowAfter(act1UnknownData[0]);
+        inUnknownUI.ShowAfter(act1UnknownData[unknownIndex - 1]);
     }
+
+    public void AfterUnknown2()
+    {
+        inUnknownUI.ShowAfter2(act1UnknownData[unknownIndex - 1]);
+    }
+
 
     public void ClearRoom()
     {

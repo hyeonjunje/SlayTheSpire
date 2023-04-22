@@ -8,6 +8,8 @@ public class CardHolder : MonoBehaviour
     public BaseCard selectedCard;  // 현재 집은 카드
     public bool isDrag = false;
 
+    private bool isBattle = false;
+
     [SerializeField]
     private Transform _cardTransform;
 
@@ -49,6 +51,9 @@ public class CardHolder : MonoBehaviour
 
     public void ResumeBattle(List<BaseCard> myCard)
     {
+        if (!isBattle)
+            return;
+
         foreach (BaseCard card in myCard)
         {
             card.ChangeState(ECardUsage.Battle);
@@ -76,6 +81,8 @@ public class CardHolder : MonoBehaviour
 
     public void StartBattle(List<BaseCard> myCard)
     {
+        isBattle = true;
+
         // 초기화
         selectedCard = null;
         isDrag = false;
@@ -129,7 +136,7 @@ public class CardHolder : MonoBehaviour
     public void EndBattle(List<BaseCard> myCard)
     {
         DiscardAllCard();
-
+        isBattle = false;
         _cardExtinctionTransform.gameObject.SetActive(false);
     }
 

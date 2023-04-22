@@ -70,7 +70,26 @@ public class InUnknownUI : BaseUI
 
             // 버튼 onclick, text 적용
             optionsButton[index].onClick.AddListener(() => unknownData.afterOptionEvent[index].Invoke());
-            optionsButton[i].GetComponentInChildren<Text>().text = unknownData.optionText[i];
+            optionsButton[i].GetComponentInChildren<Text>().text = unknownData.afterOptionText[i];
+        }
+    }
+
+    public void ShowAfter2(UnknownData unknownData)
+    {
+        // 초기화
+        Init();
+
+        eventContents.text = unknownData.roomContentsAfter2;
+
+        for (int i = 0; i < unknownData.afterOptionText2.Length; i++)
+        {
+            optionsButton[i].gameObject.SetActive(true);
+
+            int index = i;
+
+            // 버튼 onclick, text 적용
+            optionsButton[index].onClick.AddListener(() => unknownData.afterOptionEvent2[index].Invoke());
+            optionsButton[i].GetComponentInChildren<Text>().text = unknownData.afterOptionText2[i];
         }
     }
 

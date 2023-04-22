@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4f75fee85179843b1c67e64751e474, type: 3}
+  m_Name: RoomData7
+  m_EditorClassIdentifier: 
+  roomName: "\uB048\uC801\uC774 \uCC9C\uC9C0"
+  roomImage: {fileID: 21300000, guid: 7fbd6582f6a41874d906f370916b406f, type: 3}
+  roomContents: "\uB2F9\uC2E0\uC740 \uBB3C\uC6C5\uB369\uC774\uC5D0 \uBE60\uC84C\uC2B5\uB2C8\uB2E4.\n\uADF8
+    \uC6C5\uB369\uC774\uB294 \uB048\uC801\uC774 \uC2AC\uB77C\uC784\uC73C\uB85C \uAC00\uB4DD
+    \uCC28 \uC788\uC2B5\uB2C8\uB2E4!\n\uC11C\uC11C\uD788 \uB048\uC801\uC774\uB4E4\uC774
+    \uD0C0\uC624\uB974\uB294 \uAC83\uC744 \uB290\uB080 \uB2F9\uC2E0\uC740 \uADF9\uB3C4\uB85C
+    \uD765\uBD84\uD558\uC5EC\n\uC218\uBD84\uAC04 \uC2A4\uC2A4\uB85C\uB97C \uAE01\uC5C8\uC2B5\uB2C8\uB2E4.\n\uADC0\uC640
+    \uCF54\uB97C \uD3EC\uD568\uD55C \uBAA8\uB4E0 \uACF3\uC5D0\uC11C \uB048\uC801\uC784\uC774
+    \uB290\uAEF4\uC9D1\uB2C8\uB2E4.\n\n\uAE30\uC5B4 \uC62C\uB77C\uC640\uBCF4\uB2C8
+    \uB2F9\uC2E0\uC740 \uC77C\uBD80 \uACE8\uB4DC\uAC00 \uC0AC\uB77C\uC9C4 \uAC83\uC744
+    \uC54C\uC544\uCC28\uB838\uC2B5\uB2C8\uB2E4.\n\uC6C5\uB369\uC774\uB97C \uB418\uB3CC\uC544\uBCF4\uB2C8
+    \uB2F9\uC2E0\uC740 \uC783\uC5B4\uBC84\uB9B0 \uB3D9\uC804\uB4E4\uC774 \uB2E4\uB978
+    \uBD88\uD589\uD55C \uBAA8\uD5D8\uAC00\uB4E4\uC758\n\uACE8\uB4DC\uC640 \uD568\uAED8
+    \uC6C5\uB369\uC774 \uC18D\uC5D0 \uC11E\uC5EC\uC788\uB294 \uAC83\uC744 \uC54C\uC544\uCC28\uB838\uC2B5\uB2C8\uB2E4."
+  optionText:
+  - "[\uAC74\uB4DC\uB9AC\uC9C0 \uC54A\uB294\uB2E4] \uACE8\uB4DC\uB97C 33 \uC783\uC2B5\uB2C8\uB2E4."
+  - "[\uACE8\uB4DC\uB97C \uCC59\uAE34\uB2E4] \uACE8\uB4DC\uB97C 75 \uD68D\uB4DD\uD569\uB2C8\uB2E4.
+    \uCCB4\uB825\uC744 11 \uC783\uC2B5\uB2C8\uB2E4."
+  optionEvent:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ChangeMoney
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -33
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: AfterEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ChangeMoney
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 75
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ChangeHp
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -11
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: AfterEvent2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  nextRoomContents: 
+  nextOptionText: []
+  nextOptionEvent: []
+  roomContentsAfter: "\uB2F9\uC2E0\uC740 \uC9C0\uC800\uBD84\uD568\uC744 \uAC10\uC218\uD560
+    \uAC00\uCE58\uB294 \uC5C6\uB2E4\uACE0 \n\uD310\uB2E8\uD588\uC2B5\uB2C8\uB2E4."
+  afterOptionText:
+  - "[\uB5A0\uB09C\uB2E4]"
+  afterOptionEvent:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ClearRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  roomContentsAfter2: "\uB178\uCD9C\uC774 \uAE38\uC5B4\uC9C0\uBA74\uC11C \uC2AC\uB77C\uC784\uC758
+    \uB530\uAC00\uC6C0\uC774 \uB179\uC544 \n\uC5C6\uC5B4\uC9C0\uB294 \uAC83\uC744
+    \uB290\uB080 \uB2F9\uC2E0\uC740 \uAC04\uC2E0\uD788 \uACE8\uB4DC\uB97C \n\uAEBC\uB0C8\uC2B5\uB2C8\uB2E4."
+  afterOptionText2:
+  - "[\uB5A0\uB09C\uB2E4]"
+  afterOptionEvent2:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6930782587952210711, guid: 41acfa75ec0143b4582fe8c978789352, type: 3}
+        m_TargetAssemblyTypeName: UnknownEvent, Assembly-CSharp
+        m_MethodName: ClearRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
