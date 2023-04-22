@@ -1,34 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.UI;
 
-/// <summary>
-/// 이 UI는 카드를 보여주는 UI입니다.
-/// 현재 카드의 용도가 강화라면 강화를 해주고
-/// 제거라면 제거를 해주고
-/// show를 해주면 show를 해줍니다. => 전투 시 덱, 소멸, 묘지 등등을 보여줌
-/// </summary>
-public class InEnforceUI : BaseUI
+public class InDiscardUI : BaseUI
 {
+    [HideInInspector]
+    public bool isDiscard = false;
+    [HideInInspector]
+    public int initDiscardCost = 25;
+
     private List<BaseCard> _myCards;
-    private System.Action _callback = null;
     private BaseCard selectedCard;
 
-    [SerializeField]
-    private InRestUI inRestUI;
     [SerializeField]
     private RectTransform content;   // 안에 내용이 많으면 height를 설정해줘야 함
     [SerializeField]
     private Transform myCardsParent; // 카드의 부모가 될 오브젝트
     [SerializeField]
-    private Transform enforceParent;  // 강화 시 부모가 될 오브젝트
+    private Transform discardParent; // 제거 시 부모가 될 오브제긑
     [SerializeField]
-    private GameObject enforceCardUI;
+    private GameObject discardCardUI;
+
+    [SerializeField]
+    private Image disCardImage;
+    [SerializeField]
+    private GameObject disCardCost;
+    [SerializeReference]
+    private Text disCardCostText;
+    [SerializeField]
+    private Sprite discardSprite, soldOutSprite;
 
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
-    private CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
 
     public override void Hide()
     {
@@ -43,20 +47,19 @@ public class InEnforceUI : BaseUI
         selectedCard = null;
 
         _myCards = new List<BaseCard>();
-        for (int i = 0; i < battleManager.Player.myCards.Count; i++)
+        for(int i = 0; i < battleManager.Player.myCards.Count; i++)
         {
             BaseCard card = battleManager.Player.myCards[i];
             _myCards.Add(card);
-            card.ChangeState(ECardUsage.Enforce);
+            card.ChangeState(ECardUsage.DisCard);
             card.transform.SetParent(myCardsParent);
             card.transform.localEulerAngles = Vector3.zero;
             card.transform.localScale = Vector3.one;
             card.onClickAction = null;
             card.onClickAction += (() => selectedCard = card);
-            card.onClickAction += ShowEnforce;
+            card.onClickAction += ShowDiscard;
         }
 
-        // 정렬
         _myCards = _myCards.OrderBy(x => x.generateNumber).ToList();
 
         // 카드 수에 맞게 높이 조정
@@ -64,33 +67,32 @@ public class InEnforceUI : BaseUI
         content.sizeDelta += new Vector2(0, (cardsRow - 1) * 400f);
     }
 
-
-    private void ShowEnforce()
+    public void Init()
     {
-        enforceCardUI.SetActive(true);
-        selectedCard.transform.SetParent(enforceParent);
+        // 상점관련
+        disCardCost.SetActive(true);
+        disCardImage.sprite = discardSprite;
+        disCardCostText.text = initDiscardCost.ToString();
+    }
 
+    public void ShowDiscard()
+    {
+        discardCardUI.SetActive(true);
+        selectedCard.transform.SetParent(discardParent);
+
+        selectedCard.transform.localPosition = Vector3.zero;
         selectedCard.transform.localEulerAngles = Vector3.zero;
         selectedCard.transform.localScale = Vector3.one * 1.5f;
-
-        BaseCard enforcedCard = cardGenerator.GenerateCard(selectedCard.cardName);
-        enforcedCard.Enforce();
-        enforcedCard.transform.SetParent(enforceParent);
-        enforcedCard.ChangeState(ECardUsage.Enforce);
-
-        enforcedCard.transform.localEulerAngles = Vector3.zero;
-        enforcedCard.transform.localScale = Vector3.one * 1.5f;
 
         _exitButton.gameObject.SetActive(false);
     }
 
-    // 강화를 취소할 경우
-    public void EnforceCancel()
+    // 제거를 취소할 경우
+    public void DiscardCancel()
     {
         selectedCard.transform.SetParent(myCardsParent);
-        enforceParent.DestroyAllChild();
 
-        enforceCardUI.SetActive(false);
+        discardCardUI.SetActive(false);
 
         selectedCard.transform.localEulerAngles = Vector3.zero;
         selectedCard.transform.localScale = Vector3.one;
@@ -98,20 +100,23 @@ public class InEnforceUI : BaseUI
         _exitButton.gameObject.SetActive(true);
     }
 
-    // 강화를 확정할 경우
-    public void EnforceYes()
+    // 제거를 확정할 경우
+    public void DiscardYes()
     {
-        selectedCard.Enforce();
-        selectedCard.transform.SetParent(myCardsParent);
-        enforceParent.DestroyAllChild();
+        // 카드 지워주고
+        selectedCard.Discard();
 
-        enforceCardUI.SetActive(false);
+        discardCardUI.SetActive(false);
 
-        selectedCard.transform.localEulerAngles = Vector3.zero;
-        selectedCard.transform.localScale = Vector3.one;
+        // 제거까지
+        discardParent.DestroyAllChild();
 
-        inRestUI.IsUsed = true;
-
+        isDiscard = true;
         GameManager.UI.PopUI();
+
+        // 상점 관련
+        disCardImage.sprite = soldOutSprite;
+        disCardCost.SetActive(false);
+        battleManager.Player.PlayerStat.Money -= initDiscardCost;
     }
 }

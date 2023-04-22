@@ -24,9 +24,6 @@ public class BaseCard : MonoBehaviour
     // 온클릭 함수
     public Action onClickAction;
 
-    public delegate void OnClick(System.Action callback);
-    public OnClick onClick;
-
     [SerializeField]
     private CardController _cardController;
     [SerializeField]
@@ -115,5 +112,11 @@ public class BaseCard : MonoBehaviour
 
         // 외형이 바껴야 함
         _baseCardBuilder.Enforce(_cardData);
+    }
+
+    public void Discard()
+    {
+        // 내 카드에서 제거함
+        battleManager.Player.myCards.Remove(this);
     }
 }
