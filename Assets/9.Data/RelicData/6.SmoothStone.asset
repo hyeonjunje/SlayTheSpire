@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 6.SmoothStone
   m_EditorClassIdentifier: 
   relic: 5
-  relicImage: {fileID: 21300000, guid: bc5eed2756ab296458eeda757d120544, type: 3}
+  relicImage: {fileID: 2905310077528161574, guid: bc5eed2756ab296458eeda757d120544, type: 3}
   relicName: "\uB9E4\uB044\uB7EC\uC6B4 \uB3CC"
   relicExplanation: "\uBBFC\uCCA9\uC744 1 \uC5BB\uC740 \uCC44\uB85C \uC804\uD22C\uB97C\n\uC2DC\uC791\uD569\uB2C8\uB2E4."
   relicGrade: 0

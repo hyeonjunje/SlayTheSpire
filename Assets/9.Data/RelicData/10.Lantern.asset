@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10.Lantern
   m_EditorClassIdentifier: 
   relic: 9
-  relicImage: {fileID: 21300000, guid: 20addf9d3e83af445a1bf7d9133ea734, type: 3}
+  relicImage: {fileID: 5342801015690890752, guid: 20addf9d3e83af445a1bf7d9133ea734, type: 3}
   relicName: "\uC804\uB4F1"
   relicExplanation: "\uC804\uD22C \uC2DC\uC791 \uD6C4 \uCCAB \uD134\uC5D0 1\uC758\n\uC5D0\uB108\uC9C0\uB97C
     \uC5BB\uC2B5\uB2C8\uB2E4."

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 7.BagOfPreparation
   m_EditorClassIdentifier: 
   relic: 6
-  relicImage: {fileID: 21300000, guid: 85898d3f9f6b9d94c9b5c2c580aecbd9, type: 3}
+  relicImage: {fileID: -3072868593099175178, guid: 85898d3f9f6b9d94c9b5c2c580aecbd9, type: 3}
   relicName: "\uC900\uBE44\uB41C \uAC00\uBC29"
   relicExplanation: "\uCCAB \uD134\uC5D0\uB9CC 2\uC7A5\uC758 \uCE74\uB4DC\uB97C\n\uCD94\uAC00\uB85C
     \uBF51\uC2B5\uB2C8\uB2E4."

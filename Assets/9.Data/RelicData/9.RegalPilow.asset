@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 9.RegalPilow
   m_EditorClassIdentifier: 
   relic: 8
-  relicImage: {fileID: 21300000, guid: 89134e5fcd1fbca4f975edf3dc5f866b, type: 3}
+  relicImage: {fileID: 129619724240353906, guid: 89134e5fcd1fbca4f975edf3dc5f866b, type: 3}
   relicName: "\uD638\uD654\uB85C\uC6B4 \uBCA0\uAC1C"
   relicExplanation: "\uD734\uC2DD\uC744 \uCDE8\uD560 \uB54C\uB9C8\uB2E4 15\uC758\n\uCCB4\uB825\uC744
     \uCD94\uAC00\uB85C \uD68C\uBCF5\uD569\uB2C8\uB2E4."

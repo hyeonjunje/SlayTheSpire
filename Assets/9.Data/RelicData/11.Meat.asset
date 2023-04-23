@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 11.Meat
   m_EditorClassIdentifier: 
   relic: 10
-  relicImage: {fileID: 21300000, guid: f98b95c69cd6335439ec57f7836505ac, type: 3}
+  relicImage: {fileID: -2844531463381759980, guid: f98b95c69cd6335439ec57f7836505ac, type: 3}
   relicName: "\uACE0\uAE30 \uB369\uC5B4\uB9AC"
   relicExplanation: "\uC804\uD22C \uC885\uB8CC \uC2DC \uCCB4\uB825\uC774 50% \uC774\uD558\uB77C\uBA74\n\uCCB4\uB825\uC744
     12 \uD68C\uBCF5\uD569\uB2C8\uB2E4."

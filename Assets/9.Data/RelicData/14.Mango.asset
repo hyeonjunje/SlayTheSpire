@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 14.Mango
   m_EditorClassIdentifier: 
   relic: 13
-  relicImage: {fileID: 21300000, guid: 4805935ff1bf3f54ebe3f13dfb1929b6, type: 3}
+  relicImage: {fileID: 8617278338890539712, guid: 4805935ff1bf3f54ebe3f13dfb1929b6, type: 3}
   relicName: "\uB9DD\uACE0"
   relicExplanation: "\uD68D\uB4DD \uC2DC \uCD5C\uB300 \uCCB4\uB825 +14"
   relicGrade: 2

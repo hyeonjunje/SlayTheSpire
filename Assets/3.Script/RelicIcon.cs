@@ -17,7 +17,7 @@ public class RelicIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        GameManager.UI.ShowTipUI(_relicData.relicName, _relicData.relicExplanation, ETipPos.Right, transform);
+        GameManager.UI.ShowTipUI(_relicData.relicName, _relicData.relicExplanation, ETipPos.DownRight, transform);
     }
 
     public void OnPointerExit(PointerEventData eventData)

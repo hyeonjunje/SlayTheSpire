@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 12.Pear
   m_EditorClassIdentifier: 
   relic: 11
-  relicImage: {fileID: 21300000, guid: 26ee20e5909d5bb4a8043426cc14cef3, type: 3}
+  relicImage: {fileID: 4321832919896367110, guid: 26ee20e5909d5bb4a8043426cc14cef3, type: 3}
   relicName: "\uBC30"
   relicExplanation: "\uD68D\uB4DD\uC2DC \uCD5C\uB300 \uCCB4\uB825 +10"
   relicGrade: 1

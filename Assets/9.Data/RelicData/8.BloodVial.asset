@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 8.BloodVial
   m_EditorClassIdentifier: 
   relic: 7
-  relicImage: {fileID: 21300000, guid: 48cc79ddf75d0ad47b6d629f46f18283, type: 3}
+  relicImage: {fileID: 5156059717520713098, guid: 48cc79ddf75d0ad47b6d629f46f18283, type: 3}
   relicName: "\uD53C\uAC00\uB2F4\uAE34\uBCD1"
   relicExplanation: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uCCB4\uB825\uC744 \n2 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
   relicGrade: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 15.Ginger
   m_EditorClassIdentifier: 
   relic: 14
-  relicImage: {fileID: 21300000, guid: 324e8a96bf343f54194a873e5d43545c, type: 3}
+  relicImage: {fileID: 8698163947868029849, guid: 324e8a96bf343f54194a873e5d43545c, type: 3}
   relicName: "\uC0DD\uAC15"
   relicExplanation: "\uB354 \uC774\uC0C1 \uC57D\uD654\uB97C \uBC1B\uC9C0 \n\uC54A\uC2B5\uB2C8\uB2E4."
   relicGrade: 2

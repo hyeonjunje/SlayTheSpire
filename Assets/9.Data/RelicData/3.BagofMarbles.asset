@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3.BagofMarbles
   m_EditorClassIdentifier: 
   relic: 2
-  relicImage: {fileID: 21300000, guid: ea900e685d5898648a4385301a5e00e1, type: 3}
+  relicImage: {fileID: 2084749884835912296, guid: ea900e685d5898648a4385301a5e00e1, type: 3}
   relicName: "\uAD6C\uC2AC\uC8FC\uBA38\uB2C8"
   relicExplanation: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uC801 \uC804\uCCB4\uC5D0\uAC8C\n\uCDE8\uC57D\uC744
     1 \uBD80\uC5EC\uD569\uB2C8\uB2E4."

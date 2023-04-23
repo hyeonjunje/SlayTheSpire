@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cdfba100fc3ccd4fb8c22786b507af4, type: 3}
   m_Name: 1.BurningBlood
   m_EditorClassIdentifier: 
-  relicImage: {fileID: 21300000, guid: a8dbe0b60959c5f43b86bb13b60d3301, type: 3}
+  relic: 0
+  relicImage: {fileID: 6905229547363933818, guid: a8dbe0b60959c5f43b86bb13b60d3301, type: 3}
   relicName: "\uBD88\uD0C0\uB294 \uD608\uC561"
   relicExplanation: "\uC804\uD22C \uC885\uB8CC \uC2DC \uCCB4\uB825\uC744 6\n\uD68C\uBCF5\uD569\uB2C8\uB2E4."
   relicGrade: 0

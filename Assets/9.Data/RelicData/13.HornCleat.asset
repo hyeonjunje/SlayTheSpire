@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 13.HornCleat
   m_EditorClassIdentifier: 
   relic: 12
-  relicImage: {fileID: 21300000, guid: 4ba815933c2d1334782dd61856a6dbff, type: 3}
+  relicImage: {fileID: -5938139707332818137, guid: 4ba815933c2d1334782dd61856a6dbff, type: 3}
   relicName: "\uC18C\uBFD4\uBAA8\uC591 \uAC78\uC774"
   relicExplanation: "2\uBC88\uC9F8 \uD134 \uC2DC\uC791\uC2DC, \uBC29\uC5B4\uB3C4\uB97C\n14
     \uC5BB\uC2B5\uB2C8\uB2E4."

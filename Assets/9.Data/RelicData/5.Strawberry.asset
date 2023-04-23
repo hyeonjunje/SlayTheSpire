@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5.Strawberry
   m_EditorClassIdentifier: 
   relic: 4
-  relicImage: {fileID: 21300000, guid: f200c772abb69a54aa2f74771933f2a2, type: 3}
+  relicImage: {fileID: 1669490993913548592, guid: f200c772abb69a54aa2f74771933f2a2, type: 3}
   relicName: "\uB538\uAE30"
   relicExplanation: "\uCD5C\uB300 \uCCB4\uB825 +7"
   relicGrade: 0

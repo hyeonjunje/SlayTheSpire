@@ -9,6 +9,10 @@ public enum ETipPos
     Down, // 何葛 关俊
     Right, // 何葛 坷弗率
     Left, // 何葛 哭率
+    UpRight, // 何葛 困 坷弗率,
+    UpLeft,  // 何葛 困 哭率,
+    DownRight,  // 何葛 关 坷弗率
+    DownLeft,   // 何葛 关 哭率
 }
 
 public class TipUI : MonoBehaviour
@@ -73,7 +77,7 @@ public class TipUI : MonoBehaviour
         float width = _rectTransform.sizeDelta.x;
         float height = _rectTransform.sizeDelta.y;
 
-        switch(tipPos)
+        switch (tipPos)
         {
             case ETipPos.Up:
                 _rectTransform.anchorMin = new Vector2(0.5f, 1f);
@@ -88,12 +92,32 @@ public class TipUI : MonoBehaviour
             case ETipPos.Right:
                 _rectTransform.anchorMin = new Vector2(1f, 0.5f);
                 _rectTransform.anchorMax = new Vector2(1f, 0.5f);
-                _rectTransform.anchoredPosition = new Vector2(width / 4, 0);
+                _rectTransform.anchoredPosition = new Vector2(width / 2, 0);
                 break;
             case ETipPos.Left:
                 _rectTransform.anchorMin = new Vector2(0f, 0.5f);
                 _rectTransform.anchorMax = new Vector2(0f, 0.5f);
-                _rectTransform.anchoredPosition = new Vector2(-width / 4, 0);
+                _rectTransform.anchoredPosition = new Vector2(-width / 2, 0);
+                break;
+            case ETipPos.UpRight:
+                _rectTransform.anchorMin = new Vector2(1f, 1f);
+                _rectTransform.anchorMax = new Vector2(1f, 1f);
+                _rectTransform.anchoredPosition = new Vector2(width / 2, height / 2);
+                break;
+            case ETipPos.UpLeft:
+                _rectTransform.anchorMin = new Vector2(0f, 1f);
+                _rectTransform.anchorMax = new Vector2(0f, 1f);
+                _rectTransform.anchoredPosition = new Vector2(-width / 2, height / 2);
+                break;
+            case ETipPos.DownRight:
+                _rectTransform.anchorMin = new Vector2(1f, 0f);
+                _rectTransform.anchorMax = new Vector2(1f, 0f);
+                _rectTransform.anchoredPosition = new Vector2(width / 2, -height / 2);
+                break;
+            case ETipPos.DownLeft:
+                _rectTransform.anchorMin = new Vector2(0f, 0f);
+                _rectTransform.anchorMax = new Vector2(0f, 0f);
+                _rectTransform.anchoredPosition = new Vector2(-width / 2, -height / 2);
                 break;
         }
     }

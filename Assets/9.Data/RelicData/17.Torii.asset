@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 17.Torii
   m_EditorClassIdentifier: 
   relic: 16
-  relicImage: {fileID: 21300000, guid: 40edfb32d20427b4f9854b89e6307809, type: 3}
+  relicImage: {fileID: -7722189715786855053, guid: 40edfb32d20427b4f9854b89e6307809, type: 3}
   relicName: "\uD1A0\uB9AC\uC774"
   relicExplanation: "5\uC774\uD558\uC758 \uCCB4\uB825\uC744 \uC783\uC744 \uB54C\n\uB300\uC2E0
     1\uB9CC \uC783\uC2B5\uB2C8\uB2E4."
