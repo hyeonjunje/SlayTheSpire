@@ -7,6 +7,7 @@ public class UnknownEvent : MonoBehaviour
     BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     RoomManager roomManager => ServiceLocator.Instance.GetService<RoomManager>();
     CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
+    RelicGenerator relicGenerator => ServiceLocator.Instance.GetService<RelicGenerator>();
     Player player => battleManager.Player;
 
     // 돈 변화
@@ -39,7 +40,8 @@ public class UnknownEvent : MonoBehaviour
     // 유물 얻기
     public void GainRelic()
     {
-
+        RelicData relicData = relicGenerator.GenerateRandomRelicData();
+        battleManager.Player.PlayerRelic.AddRelic(relicData.relic);
     }
 
     // 성직자 회복

@@ -13,6 +13,11 @@ public class MyTurnStartState : BaseBattleState
     {
         _battleManager.onStartMyTurn?.Invoke();
 
+        if (_battleManager.myTurnCount == 1)
+            _battleManager.onFirstMyTurn?.Invoke();
+        else if (_battleManager.myTurnCount == 2)
+            _battleManager.onSecondMyTurn?.Invoke();
+
         _battleManager.myTurnCount++;
 
         _battleManager.myTurn = true;

@@ -12,6 +12,5 @@ public class Fungi : Enemy
     {
         base.Dead();
         battleManager.Player.CharacterIndent.AddIndent(indentData, 2);
-        battleManager.Player.indent[(int)EIndent.Weak] = true;
     }
 }

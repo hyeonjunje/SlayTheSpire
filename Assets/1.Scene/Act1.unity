@@ -16016,6 +16016,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939845942}
   m_CullTransparentMesh: 1
+--- !u!1 &942921075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 942921076}
+  - component: {fileID: 942921077}
+  m_Layer: 0
+  m_Name: 6.RelicGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &942921076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942921075}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1474556318}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &942921077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942921075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0758dc6bb63aaaf4c86d1dda1562827b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relicDataList:
+  - {fileID: 11400000, guid: 44c32f1a3a3bffb499091d169514592b, type: 2}
+  - {fileID: 11400000, guid: 4a19f9e8c643bc74ca46f469e8f3acca, type: 2}
+  - {fileID: 11400000, guid: d6d7444a8ee05be45b74ff439f184d96, type: 2}
+  - {fileID: 11400000, guid: 4cef8d2bfe5ab644897e4bc8e7c1eba6, type: 2}
+  - {fileID: 11400000, guid: eb2e2513d09609d48b72e51569531bc8, type: 2}
+  - {fileID: 11400000, guid: 60e55a23c79957f4d87c7ef7f3e0b790, type: 2}
+  - {fileID: 11400000, guid: 5970ac4861bf3b34d88ba63f7043b56e, type: 2}
+  - {fileID: 11400000, guid: 33b786809bda87044bce54d183b0f464, type: 2}
+  - {fileID: 11400000, guid: f60cdbf9cd5c7e7479ab885ee132efcf, type: 2}
+  - {fileID: 11400000, guid: 4e480ea8537855e4982644870b4a616d, type: 2}
+  - {fileID: 11400000, guid: 7f58cf4dbe8ca5d4593b8d9e83a405fa, type: 2}
+  - {fileID: 11400000, guid: d4a1e7d4f85df344a832d9f09e457b70, type: 2}
+  - {fileID: 11400000, guid: 74446b1e038a5644aaa0e74b3498ea42, type: 2}
+  - {fileID: 11400000, guid: be782613c7a7e574c8d9201424efec1c, type: 2}
+  - {fileID: 11400000, guid: 1b72061ca56fbc54187a00ef4d2a1610, type: 2}
+  - {fileID: 11400000, guid: 068f8fb397f77404ea841fea1baddb76, type: 2}
+  - {fileID: 11400000, guid: 10d134baffde90d46874ccd602838ecd, type: 2}
+  relicPrefab: {fileID: 3967636158619089620, guid: cf7efc48ebecb1c45b87523e24a32b29, type: 3}
+  relicParent: {fileID: 1501826100}
 --- !u!1 &944583267
 GameObject:
   m_ObjectHideFlags: 0
@@ -25543,6 +25606,7 @@ Transform:
   - {fileID: 1413526035}
   - {fileID: 237171975}
   - {fileID: 904534323}
+  - {fileID: 942921076}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25580,6 +25644,7 @@ MonoBehaviour:
   roomManager: {fileID: 1413526036}
   cardGenerator: {fileID: 237171976}
   mapGenerator: {fileID: 904534324}
+  relicGenerator: {fileID: 942921077}
 --- !u!4 &1477104725
 Transform:
   m_ObjectHideFlags: 0
@@ -25768,6 +25833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1501826100}
   - component: {fileID: 1501826101}
+  - component: {fileID: 1501826102}
   m_Layer: 5
   m_Name: Relics
   m_TagString: Untagged
@@ -25789,8 +25855,8 @@ RectTransform:
   m_Father: {fileID: 1528360429}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.85251856}
-  m_AnchorMax: {x: 1, y: 0.92566687}
+  m_AnchorMin: {x: 0, y: 0.85259265}
+  m_AnchorMax: {x: 0, y: 0.92566687}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
@@ -25802,6 +25868,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501826099}
   m_CullTransparentMesh: 1
+--- !u!114 &1501826102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501826099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1512580184
 GameObject:
   m_ObjectHideFlags: 0
@@ -33304,6 +33396,7 @@ GameObject:
   - component: {fileID: 2141070377}
   - component: {fileID: 2141070375}
   - component: {fileID: 2141070378}
+  - component: {fileID: 2141070379}
   m_Layer: 0
   m_Name: Ironclad
   m_TagString: Untagged
@@ -33425,6 +33518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 80
   _hpBar: {fileID: 1290512783}
+  _isPlayer: 1
   hpText: {fileID: 514823429}
   moneyText: {fileID: 1072149012}
   energyText: {fileID: 2057693780}
@@ -33454,6 +33548,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indentParent: {fileID: 1349878450265109998}
   indentPrefab: {fileID: 5883928541306858370, guid: 890487ec412bc424bbabd5c77dead2b6, type: 3}
+--- !u!114 &2141070379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141070371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0addcce1e27db4f96e3ff2bab10ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weakIndentData: {fileID: 11400000, guid: b91b99ae832425a4d98d639ca19fde18, type: 2}
+  powerIndentData: {fileID: 11400000, guid: c1b91d8349a5c0843a835b733ef15ba9, type: 2}
+  agilityIndentData: {fileID: 11400000, guid: d06d7f875c623c94b8d3a319192a3f07, type: 2}
 --- !u!1001 &1349878450265109997
 PrefabInstance:
   m_ObjectHideFlags: 0

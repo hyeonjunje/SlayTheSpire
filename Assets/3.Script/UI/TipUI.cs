@@ -88,12 +88,12 @@ public class TipUI : MonoBehaviour
             case ETipPos.Right:
                 _rectTransform.anchorMin = new Vector2(1f, 0.5f);
                 _rectTransform.anchorMax = new Vector2(1f, 0.5f);
-                _rectTransform.anchoredPosition = new Vector2(width, 0);
+                _rectTransform.anchoredPosition = new Vector2(width / 4, 0);
                 break;
             case ETipPos.Left:
                 _rectTransform.anchorMin = new Vector2(0f, 0.5f);
                 _rectTransform.anchorMax = new Vector2(0f, 0.5f);
-                _rectTransform.anchoredPosition = new Vector2(-width, 0);
+                _rectTransform.anchoredPosition = new Vector2(-width / 4, 0);
                 break;
         }
     }

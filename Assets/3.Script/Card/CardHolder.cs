@@ -108,6 +108,8 @@ public class CardHolder : MonoBehaviour
             // 위치 초기화
             card.transform.SetParent(_cardTransform);
 
+            card.ChangeState(ECardUsage.Battle);
+
             card.transform.localPosition = _cardDeckTransform.localPosition;
             card.transform.localEulerAngles = Vector3.zero;
             card.transform.localScale = Vector3.zero;
@@ -217,6 +219,10 @@ public class CardHolder : MonoBehaviour
 
         int index = GetCardIndex(card);
 
+        // 해당 카드를 못 찾으면 return;
+        if (index == -1)
+            return;
+
         // 카드 배치
         for (int i = 0; i < _cardHands.Count; i++)
         {
@@ -246,6 +252,7 @@ public class CardHolder : MonoBehaviour
             _cardHands[i].transform.SetAsFirstSibling();
         }
 
+        Debug.Log(_cardHands.Count + "  " + index);
         _cardHands[index].transform.SetAsLastSibling();
     }
 

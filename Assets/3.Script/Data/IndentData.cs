@@ -13,6 +13,7 @@ public enum EIndent
     Roll, // 个 富扁  -> 傍国饭
     SporeCloud,  // 器磊 备抚
     Split,   // 盒凯
+    Agility, // 刮酶
     Size,
 }
 

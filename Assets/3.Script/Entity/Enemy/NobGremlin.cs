@@ -14,7 +14,6 @@ public class NobGremlin : Enemy
         if(indent[(int)EIndent.Frenzy] == true)
         {
             CharacterIndent.AddIndent(indentData, 2);
-            indent[(int)EIndent.Strength] = true;
             CharacterStat.Power += 2;
         }
     }

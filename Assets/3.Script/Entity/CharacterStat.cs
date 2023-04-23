@@ -20,6 +20,12 @@ public class CharacterStat : MonoBehaviour
     [Header("UI")]
     [SerializeField] private HpBar _hpBar;
 
+    [Header("Info")]
+    [SerializeField]
+    private bool _isPlayer = false;
+
+    private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+
     public int MaxHp
     {
         get { return _maxHp; }
@@ -64,7 +70,7 @@ public class CharacterStat : MonoBehaviour
         {
             int shieldAmount = value - _shield;
 
-            // 약화일 때 방어력 25% 감소
+            // 손상일 때 방어력 25% 감소
             if(shieldAmount > 0 && _character.indent[(int)EIndent.damaged])
             {
                 shieldAmount = Mathf.RoundToInt((float)shieldAmount * 0.75f);
@@ -115,6 +121,11 @@ public class CharacterStat : MonoBehaviour
                 Shield = 0;
             }
         }
+        
+        // 플레이어가 유물 토리이가 있고 데미지가 1보다 크고 5보다 작거나 같으면 데미지는 1이 된다.
+        if (_isPlayer && damage > 0 && battleManager.Player.PlayerRelic.GetRelic(ERelic.Torii) && damage <= 5)
+            damage = 1;
+            
         CurrentHp -= damage;
     }
 }

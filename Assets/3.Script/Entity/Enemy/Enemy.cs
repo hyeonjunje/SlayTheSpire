@@ -25,8 +25,8 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 
         CharacterStat.Init(this);
         CharacterAnimation.Init(this);
-        EnemyPattern.Init(this);
         CharacterIndent.Init(this);
+        EnemyPattern.Init(this);
 
         battleManager.onStartMyTurn += OnStartMyTurn;
         battleManager.onEndMyTurn += OnEndMyTurn;

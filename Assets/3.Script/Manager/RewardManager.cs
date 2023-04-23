@@ -32,8 +32,10 @@ public class RewardManager : MonoBehaviour, IRegisterable
 
     private Reward cardReward;
 
+    private RelicGenerator relicGenrator => ServiceLocator.Instance.GetService<RelicGenerator>();
     private CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+
 
     // 보물상자
     public void ShowReward()
@@ -52,6 +54,12 @@ public class RewardManager : MonoBehaviour, IRegisterable
         moneyRewardButton.onClick.AddListener(() => Destroy(moneyReward.gameObject));
 
         // 유물
+        Reward relicsReward = Instantiate(rewardPrefab, rewardParent);
+        Button relicRewardButton = relicsReward.GetComponent<Button>();
+        RelicData relicData = relicGenrator.GenerateRandomRelicData();
+        relicsReward.Init(relicData.relicName, relicData.relicImage);
+        relicRewardButton.onClick.AddListener(() => battleManager.Player.PlayerRelic.AddRelic(relicData.relic));
+        relicRewardButton.onClick.AddListener(() => Destroy(relicsReward.gameObject));
     }
 
     // 전투
@@ -86,7 +94,12 @@ public class RewardManager : MonoBehaviour, IRegisterable
         // 유물이 있으면 (엘리트라면)
         if (battleData.isRelics)
         {
-
+            Reward relicsReward = Instantiate(rewardPrefab, rewardParent);
+            Button relicRewardButton = relicsReward.GetComponent<Button>();
+            RelicData relicData = relicGenrator.GenerateRandomRelicData();
+            relicsReward.Init(relicData.relicName, relicData.relicImage);
+            relicRewardButton.onClick.AddListener(() => battleManager.Player.PlayerRelic.AddRelic(relicData.relic));
+            relicRewardButton.onClick.AddListener(() => Destroy(relicsReward.gameObject));
         }
     }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 4644523113532460279, guid: d0dc2cf77ef225b459960dd18d089c2f, type: 3}
   spriteOutline: {fileID: 5569193263994401236, guid: d23933d615610a14480e48b638e27050, type: 3}
-  percentage: 53
+  percentage: 50
   roomName: "\uC801"
   roomExplanation: "\uC801\uB300\uC801\uC778 \uC874\uC7AC\uB4E4\uC774 \uAE30\uB2E4\uB9AC\uACE0
     \n\uC788\uB294 \uBC29\uC785\uB2C8\uB2E4."

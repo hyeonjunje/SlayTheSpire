@@ -8,6 +8,7 @@ public class Player : Character
     public PlayerStat PlayerStat { get; private set; }
     public CharacterAnimation CharacterAnimation { get; private set; }
     public CharacterIndent CharacterIndent { get; private set; }
+    public PlayerRelic PlayerRelic { get; private set; }
 
 
     public List<BaseCard> myCards;
@@ -18,10 +19,12 @@ public class Player : Character
         PlayerStat = GetComponent<PlayerStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
         CharacterIndent = GetComponent<CharacterIndent>();
+        PlayerRelic = GetComponent<PlayerRelic>();
 
         PlayerStat.Init(this);
         CharacterAnimation.Init(this);
         CharacterIndent.Init(this);
+        PlayerRelic.Init(this);
 
         battleManager.onStartMyTurn += (() => PlayerStat.Shield = 0);
         battleManager.onStartMyTurn += (() => PlayerStat.CurrentOrb = PlayerStat.MaxOrb);

@@ -167,26 +167,34 @@ public class RoomManager : MonoBehaviour, IRegisterable
     // 랜덤 방에 들어갈 때
     private void OnEnterUnknownRoom()
     {
-        GameManager.UI.ShowThisUI(inUnknownUI);
-        inUnknownUI.ShowUnknown(act1UnknownData[unknownIndex]);
-        unknownIndex++;
         if (unknownIndex == act1UnknownData.Count)
             unknownIndex = 0;
+
+        Debug.Log(unknownIndex);
+
+        GameManager.UI.ShowThisUI(inUnknownUI);
+        inUnknownUI.ShowUnknown(act1UnknownData[unknownIndex]);
+
+        unknownIndex++;
     }
 
     public void NextUnknown()
     {
-        inUnknownUI.ShowNext(act1UnknownData[unknownIndex - 1]);
+        inUnknownUI.ShowNext(act1UnknownData[unknownIndex-1]);
     }
 
     public void AfterUnknown()
     {
-        inUnknownUI.ShowAfter(act1UnknownData[unknownIndex - 1]);
+        Debug.Log(unknownIndex-1);
+
+        inUnknownUI.ShowAfter(act1UnknownData[unknownIndex-1]);
     }
 
     public void AfterUnknown2()
     {
-        inUnknownUI.ShowAfter2(act1UnknownData[unknownIndex - 1]);
+        Debug.Log(unknownIndex-1);
+
+        inUnknownUI.ShowAfter2(act1UnknownData[unknownIndex-1]);
     }
 
 

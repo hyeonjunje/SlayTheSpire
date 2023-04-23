@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class BaseCardBattleState : BaseCardState
 {
+    private bool _isDrag = false;
+
     public BaseCardBattleState(BaseCard baseCard, BaseCardStateFactory stateFactory) : base(baseCard, stateFactory)
     {
         cardUsage = ECardUsage.Battle;
@@ -12,7 +14,7 @@ public class BaseCardBattleState : BaseCardState
 
     public override void Enter()
     {
-
+        _isDrag = false;
     }
 
     public override void Exit()
@@ -22,7 +24,7 @@ public class BaseCardBattleState : BaseCardState
 
     public override void OnBeginDrag(PointerEventData eventData)
     {
-        _baseCard.CardHolder.isDrag = true;
+        _isDrag = true;
 
         _baseCard.CardHolder.selectedCard = _baseCard;
 
@@ -52,7 +54,7 @@ public class BaseCardBattleState : BaseCardState
 
     public override void OnEndDrag(PointerEventData eventData)
     {
-        _baseCard.CardHolder.isDrag = false;
+        _isDrag = false;
 
         if (_baseCard.CardController.IsBezierCurve) // 타겟이 있으면
         {
@@ -87,7 +89,7 @@ public class BaseCardBattleState : BaseCardState
 
     public override void OnPointerEnter(PointerEventData eventData)
     {
-        if (_baseCard.CardHolder.isDrag)
+        if (_isDrag)
             return;
 
         _baseCard.CardHolder.OverCard(_baseCard);
@@ -95,7 +97,7 @@ public class BaseCardBattleState : BaseCardState
 
     public override void OnPointerExit(PointerEventData eventData)
     {
-        if (_baseCard.CardHolder.isDrag)
+        if (_isDrag)
             return;
 
         _baseCard.CardHolder.Relocation();

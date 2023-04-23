@@ -140,42 +140,35 @@ public class EnemyPattern : MonoBehaviour
 
         switch (_currentPattern.indentData.indent)
         {
-            case EIndent.Weakening:
-                battleManager.Player.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
-                battleManager.Player.indent[(int)EIndent.Weakening] = true;
+            case EIndent.Weakening: // 약화
+                if(!battleManager.Player.PlayerRelic.GetRelic(ERelic.Ginger))  // 플레이어가 생강있으면 약화 안입음
+                    battleManager.Player.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
                 break;
             case EIndent.Weak:
                 battleManager.Player.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
-                battleManager.Player.indent[(int)EIndent.Weak] = true;
                 break;
-            case EIndent.damaged:
-                battleManager.Player.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
-                battleManager.Player.indent[(int)EIndent.damaged] = true;
+            case EIndent.damaged:  // 손상
+                if (!battleManager.Player.PlayerRelic.GetRelic(ERelic.Turnip))  // 플레이어가 순무있으면 손상 안입음
+                    battleManager.Player.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
                 break;
             case EIndent.Consciousness:
                 _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
-                _enemy.indent[(int)EIndent.Consciousness] = true;
                 break;
             case EIndent.Frenzy:
                 _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
-                _enemy.indent[(int)EIndent.Frenzy] = true;
                 break;
             case EIndent.Strength:
                 _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
-                _enemy.indent[(int)EIndent.Strength] = true;
                 _enemy.CharacterStat.Power += _currentPattern.amount;
                 break;
             case EIndent.Roll:
                 _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
-                _enemy.indent[(int)EIndent.Roll] = true;
                 break;
             case EIndent.SporeCloud:
                 _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
-                _enemy.indent[(int)EIndent.SporeCloud] = true;
                 break;
             case EIndent.Split:
                 _enemy.CharacterIndent.AddIndent(_currentPattern.indentData, _currentPattern.amount);
-                _enemy.indent[(int)EIndent.Split] = true;
                 break;
         }
     }

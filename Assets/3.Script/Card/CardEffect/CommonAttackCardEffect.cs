@@ -26,7 +26,6 @@ public class CommonAttackCardEffect : BaseCardEffect
         targetEnemy.Hit(8 + power, player);
 
         targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weak], 2);
-        targetEnemy.indent[(int)EIndent.Weak] = true;
     }
 
     public void BashPlus()
@@ -34,7 +33,6 @@ public class CommonAttackCardEffect : BaseCardEffect
         targetEnemy.Hit(10 + power, player);
 
         targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weak], 3);
-        targetEnemy.indent[(int)EIndent.Weak] = true;
     }
 
     // 분노
@@ -87,7 +85,6 @@ public class CommonAttackCardEffect : BaseCardEffect
         targetEnemy.Hit(12 + power, player);
 
         targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weakening], 2);
-        targetEnemy.indent[(int)EIndent.Weakening] = true;
     }
 
     public void ClotheslinePlus()
@@ -95,7 +92,6 @@ public class CommonAttackCardEffect : BaseCardEffect
         targetEnemy.Hit(14 + power, player);
 
         targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weakening], 3);
-        targetEnemy.indent[(int)EIndent.Weakening] = true;
     }
 
     // 박치기
@@ -181,14 +177,12 @@ public class CommonAttackCardEffect : BaseCardEffect
         enemies.ForEach(enemy => enemy.Hit(4, player));
 
         enemies.ForEach(enemy => enemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weak], 1));
-        enemies.ForEach(enemy => enemy.indent[(int)EIndent.Weak] = true);
     }
     public void ThunderclapPlus()
     {
         enemies.ForEach(enemy => enemy.Hit(7, player));
 
         enemies.ForEach(enemy => enemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weak], 1));
-        enemies.ForEach(enemy => enemy.indent[(int)EIndent.Weak] = true);
     }
 
     // 이중타격

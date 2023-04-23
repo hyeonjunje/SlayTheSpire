@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 
 public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public bool isDrag = false;
-
     [SerializeField]
     private float _moveTime = 0.2f;   // 움직이는 시간
 
@@ -22,10 +20,7 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerClick
 
     public void Init(bool isBezierCurve , BaseCard baseCard)
     {
-        // isBattle이나 isDrag 처리
         // BaseCard도 여기서 넘겨주자
-        isDrag = false;
-
         IsBezierCurve = isBezierCurve;
         _baseCard = baseCard;
     }

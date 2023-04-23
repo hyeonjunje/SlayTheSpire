@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cdfba100fc3ccd4fb8c22786b507af4, type: 3}
+  m_Name: 11.Meat
+  m_EditorClassIdentifier: 
+  relic: 10
+  relicImage: {fileID: 21300000, guid: f98b95c69cd6335439ec57f7836505ac, type: 3}
+  relicName: "\uACE0\uAE30 \uB369\uC5B4\uB9AC"
+  relicExplanation: "\uC804\uD22C \uC885\uB8CC \uC2DC \uCCB4\uB825\uC774 50% \uC774\uD558\uB77C\uBA74\n\uCCB4\uB825\uC744
+    12 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+  relicGrade: 1

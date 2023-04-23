@@ -36,6 +36,8 @@ public class ServiceLocator : MonoBehaviour
     private CardGenerator cardGenerator;
     [SerializeField]
     private MapGenerator mapGenerator;
+    [SerializeField]
+    private RelicGenerator relicGenerator;
 
 
     private void Init()
@@ -47,6 +49,7 @@ public class ServiceLocator : MonoBehaviour
         services[typeof(RoomManager)] = roomManager;
         services[typeof(CardGenerator)] = cardGenerator;
         services[typeof(MapGenerator)] = mapGenerator;
+        services[typeof(RelicGenerator)] = relicGenerator;
     }
 
     public T GetService<T>()

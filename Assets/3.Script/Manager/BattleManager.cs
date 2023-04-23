@@ -20,6 +20,9 @@ public class BattleManager : MonoBehaviour, IRegisterable
     public System.Action onStartEnemyTurn;  // 적 턴 시작 시 발생
     public System.Action onEndEnemyTurn;    // 적 턴 끝 시 발생
 
+    public System.Action onFirstMyTurn;     // 전투 내 첫 턴
+    public System.Action onSecondMyTurn;    // 전투 내 두번째 턴
+
     public System.Action onStartBattle;     // 전투가 시작되면 발생
     public System.Action onEndBattle;        // 전투가 끝나면 발생
 

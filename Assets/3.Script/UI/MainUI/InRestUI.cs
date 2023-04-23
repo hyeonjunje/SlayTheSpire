@@ -75,6 +75,10 @@ public class InRestUI : BaseUI
 
         // 최대 체력의 30퍼센트를 회복합니다.
         _battleManager.Player.PlayerStat.CurrentHp += Mathf.RoundToInt(_battleManager.Player.PlayerStat.MaxHp * 0.3f);
+
+        // 유물 호화로운 베개가 있으면 추가로 15더 회복
+        if (_battleManager.Player.PlayerRelic.GetRelic(ERelic.RegalPilow))
+            _battleManager.Player.PlayerStat.CurrentHp += 15;
     }
 
     // 강화

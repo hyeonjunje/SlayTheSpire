@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cdfba100fc3ccd4fb8c22786b507af4, type: 3}
+  m_Name: 4.Anchor
+  m_EditorClassIdentifier: 
+  relic: 3
+  relicImage: {fileID: 21300000, guid: 616b41c09542bb24cb18b00b8ebdeaf1, type: 3}
+  relicName: "\uB2FB"
+  relicExplanation: "\uC804\uD22C \uC2DC\uC791\uC2DC \uBC29\uC5B4\uB3C4\uB97C\n10
+    \uC5BB\uC2B5\uB2C8\uB2E4."
+  relicGrade: 0
