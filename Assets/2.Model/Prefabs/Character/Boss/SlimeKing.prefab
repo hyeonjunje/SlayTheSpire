@@ -456,6 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 30
   _hpBar: {fileID: 3944957635799291346}
+  _isPlayer: 0
 --- !u!114 &1126820966835252617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,6 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 000000000000000000
+  _enemyGrade: 2
   _reticle: {fileID: 2427716250144777267}
   spawnPosX: 2
   splitedSlime1: {fileID: 9131386319721864504, guid: 023e31738ac291743bbbad3b39959892, type: 3}

@@ -62,8 +62,8 @@ public class RoomManager : MonoBehaviour, IRegisterable
 
     public void EnterRoom(ERoomType roomType)
     {
-        height++;
-        if (height >= 16)
+        battleManager.Player.PlayerStat.Height++;
+        if(battleManager.Player.PlayerStat.Height >= 15)
             isBossGoable = true;
 
         // 니오우 있으면 없애주고
@@ -168,6 +168,8 @@ public class RoomManager : MonoBehaviour, IRegisterable
     {
         if(isBossGoable)
         {
+            GameManager.Game.height++;
+
             battleManager.Player.gameObject.SetActive(true);
             GameManager.UI.ShowThisUI(inBattleUI);
             battleManager.StartBattle(bossAct1BattleData[Random.Range(0, bossAct1BattleData.Count)]);

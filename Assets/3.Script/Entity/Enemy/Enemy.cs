@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 {
+    private enum EEnemyGrade { common, Elite, Boss}
+    [SerializeField]
+    private EEnemyGrade _enemyGrade;
     [SerializeField]
     private GameObject _reticle;
 
@@ -113,6 +116,19 @@ public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
     {
         Debug.Log("¡÷∞Œ¥Á");
         CharacterAnimation.SetTrigger("isDead");
+
+        switch (_enemyGrade)
+        {
+            case EEnemyGrade.common:
+                GameManager.Game.defeatCommonEnemy++;
+                break;
+            case EEnemyGrade.Elite:
+                GameManager.Game.defeatElite++;
+                break;
+            case EEnemyGrade.Boss:
+                GameManager.Game.defeatBoss++;
+                break;
+        }
     }
 
     public override void Hit(int damage, Character attacker)

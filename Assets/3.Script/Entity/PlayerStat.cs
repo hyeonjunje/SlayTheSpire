@@ -8,10 +8,12 @@ public class PlayerStat : CharacterStat
     [SerializeField] private Text hpText;
     [SerializeField] private Text moneyText;
     [SerializeField] private Text energyText;
+    [SerializeField] private Text stairText;
 
     private int _money;
     private int _maxOrb;
     private int _currentOrb;
+    private int _height;
 
     public int MaxOrb
     {
@@ -46,10 +48,23 @@ public class PlayerStat : CharacterStat
         }
     }
 
+    public int Height
+    {
+        get { return _height; }
+        set
+        {
+            _height = value;
+            GameManager.Game.height = _height;
+
+            stairText.text = _height.ToString();
+        }
+    }
+
     public override void Init(Character character)
     {
         base.Init(character);
 
+        Height = 0;
         MaxOrb = 3;
         CurrentOrb = MaxOrb;
         Money = 99;

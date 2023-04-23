@@ -715,6 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 82
   _hpBar: {fileID: 6054375702406225405}
+  _isPlayer: 0
 --- !u!114 &7861452324639122854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,6 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 000000000000000000
+  _enemyGrade: 1
   _reticle: {fileID: 4830888638247562268}
   indentData: {fileID: 11400000, guid: c1b91d8349a5c0843a835b733ef15ba9, type: 2}
 --- !u!1 &4830888639552139335

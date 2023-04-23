@@ -24,6 +24,12 @@ public class TitleScene : BaseScene
     {
         base.Init();
 
+        // 점수 초기화
+        GameManager.Game.height = 0;
+        GameManager.Game.defeatCommonEnemy = 0;
+        GameManager.Game.defeatElite = 0;
+        GameManager.Game.defeatBoss = 0;
+
         GameManager.Sound.PlayBGM(EBGM.Menu);
 
         ShowUI(_menuGameObject);
