@@ -16,6 +16,8 @@ public class GameManagerEx
     public int defeatElite;          // 엘리트 처치
     public int defeatBoss;           // 보스 처치
 
+    public int totalDamage;          // 내가 준 총 피해량
+
     private Room[,] _mapArray = new Room[16, 7];
     private Room _selectedRoom; // 터치한 방
     private Room _currentRoom; // 현재 위치한 방

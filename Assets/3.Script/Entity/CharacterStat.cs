@@ -125,6 +125,10 @@ public class CharacterStat : MonoBehaviour
         // 플레이어가 유물 토리이가 있고 데미지가 1보다 크고 5보다 작거나 같으면 데미지는 1이 된다.
         if (_isPlayer && damage > 0 && battleManager.Player.PlayerRelic.GetRelic(ERelic.Torii) && damage <= 5)
             damage = 1;
+
+        // 내가 준 총 데미지량(데미지가 0보다 크고 적이 맞았으면 더해줌)
+        if (!_isPlayer && damage > 0)
+            GameManager.Game.totalDamage += damage;
             
         CurrentHp -= damage;
     }
