@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class GameManagerEx
 {
+    // 오른 층 수
+    // 처치한 적
+    // 엘리트 처치
+    // 보스 처치
+    // 바
+    // 총점
+
+    public int height;               // 올라간 층 수
+    public int defeatCommonEnemy;    // 처치한 적
+    public int defeatElite;          // 엘리트 처치
+    public int defeatBoss;           // 보스 처치
+
     private Room[,] _mapArray = new Room[16, 7];
     private Room _selectedRoom; // 터치한 방
     private Room _currentRoom; // 현재 위치한 방

@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: bd93754d7ec29074bbc8ef5e80ab819c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8408046914297300807
+    second: clean_water_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +92,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: clean_water_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 34
+        width: 63
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 747828dee126fa470800000000000000
+      internalID: 8408046914297300807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

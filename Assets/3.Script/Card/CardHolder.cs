@@ -252,7 +252,6 @@ public class CardHolder : MonoBehaviour
             _cardHands[i].transform.SetAsFirstSibling();
         }
 
-        Debug.Log(_cardHands.Count + "  " + index);
         _cardHands[index].transform.SetAsLastSibling();
     }
 

@@ -9,6 +9,8 @@ public class Act1Scene : BaseScene
 
     [SerializeField] private Player _player;
     [SerializeField] private CardHolder _cardHolder;
+    [SerializeField] private GameScoreUI _gameScoreUI;
+    [SerializeField] private GameObject _background;
 
     [SerializeField] private GameObject _map;
     [SerializeField] private GameObject _myCard;
@@ -21,6 +23,10 @@ public class Act1Scene : BaseScene
     public override void Init()
     {
         base.Init();
+
+        _player.onDead = null;
+        _player.onDead += (() => _background.SetActive(false));
+        _player.onDead += (() => GameManager.UI.ShowThisUI(_gameScoreUI));
 
         _neow.gameObject.SetActive(true);
 
@@ -38,6 +44,7 @@ public class Act1Scene : BaseScene
         _player.AddCard(cardGenerator.GenerateCard(1));
         _player.AddCard(cardGenerator.GenerateCard(1));
         _player.AddCard(cardGenerator.GenerateCard(1));
+        _player.AddCard(cardGenerator.GenerateCard(1));
         _player.AddCard(cardGenerator.GenerateCard(1));   // 타격
         _player.AddCard(cardGenerator.GenerateCard(33));  // 수비
         _player.AddCard(cardGenerator.GenerateCard(33));
@@ -45,10 +52,13 @@ public class Act1Scene : BaseScene
         _player.AddCard(cardGenerator.GenerateCard(33));
         _player.AddCard(cardGenerator.GenerateCard(33));
         _player.AddCard(cardGenerator.GenerateCard(2));  // 강타
-
-        // 캐릭터도 만들어야하지
     }
 
+    // 버튼에 온클릭
+    public void GoMainMenu()
+    {
+        GameManager.Scene.LoadScene(ESceneName.Title);
+    }
 
     public void PopUI()
     {

@@ -39,8 +39,6 @@ public class RelicGenerator : MonoBehaviour, IRegisterable
 
     private RelicData GetRelicData(ERelic relic)
     {
-        Debug.Log(relic);
-
         for(int i = 0; i < relicDataList.Count; i++)
         {
             if (relic == relicDataList[i].relic)

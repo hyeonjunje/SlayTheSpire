@@ -177,8 +177,6 @@ public class EnemyPattern : MonoBehaviour
     {
         string result = "";
 
-        Debug.Log(_currentPattern.patternData.patternType);
-
         switch (_currentPattern.patternData.patternType)
         {
             case EPatternType.Attack:

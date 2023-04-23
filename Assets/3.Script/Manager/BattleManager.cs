@@ -125,14 +125,14 @@ public class BattleManager : MonoBehaviour, IRegisterable
             yield return null;
         }
 
-        onEndBattle?.Invoke();
-
         if (_player.PlayerStat.IsDead)
         {
 
         }
         else
         {
+            onEndBattle?.Invoke();
+
             // 클리어 처리
             GameManager.Game.CurrentRoom.ClearRoom();
 

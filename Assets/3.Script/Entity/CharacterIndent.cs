@@ -17,7 +17,6 @@ public class CharacterIndent : MonoBehaviour
     public void Init(Character character)
     {
         _character = character;
-        Debug.Log("Init이다 임마 " + _character);
     }
 
     public void ClearIndentList()
@@ -32,10 +31,6 @@ public class CharacterIndent : MonoBehaviour
 
     public void AddIndent(IndentData indentData, int value)
     {
-        Debug.Log(_character);
-        Debug.Log(indentData);
-        Debug.Log(indentData.indent);
-        Debug.Log(_character.indent[(int)indentData.indent]);
         _character.indent[(int)indentData.indent] = true;
 
         // 이미 있는 Indent라면 turn만 증가

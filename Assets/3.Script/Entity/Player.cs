@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class Player : Character
 {
+    public System.Action onDead;
+
     public PlayerStat PlayerStat { get; private set; }
     public CharacterAnimation CharacterAnimation { get; private set; }
     public CharacterIndent CharacterIndent { get; private set; }
     public PlayerRelic PlayerRelic { get; private set; }
-
-
+    
     public List<BaseCard> myCards;
     public CardHolder cardHolder;
 
@@ -72,6 +73,9 @@ public class Player : Character
     {
         Debug.Log("주겄당");
         CharacterAnimation.SetTrigger("isDead");
+
+        // 죽으면 점수표 뜨고 로비로 돌아가기 창
+        onDead?.Invoke();
     }
 
     public override void Hit(int damage, Character attacker)
