@@ -41,6 +41,8 @@ public class MapGenerator : MonoBehaviour, IRegisterable
     [SerializeField]
     private float _stepDistance = 20f;  // 발자국간의 간격
 
+    private RoomManager roomManager => ServiceLocator.Instance.GetService<RoomManager>();
+
     public Room[,] GenerateMap()
     {
         _mapArray = new Room[16, 7];
@@ -237,6 +239,8 @@ public class MapGenerator : MonoBehaviour, IRegisterable
         // 보스 시각화
         Button bossStage = Instantiate(_bossPrefab, _map);
         bossStage.transform.localPosition = new Vector3(0, 1070f, 0);
+
+        bossStage.onClick.AddListener(() => roomManager.OnEnterBossRoom());
     }
 
 

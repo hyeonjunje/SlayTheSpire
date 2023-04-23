@@ -39,6 +39,8 @@ public class RoomManager : MonoBehaviour, IRegisterable
     private Neow neow;
 
     private bool _isEarly = true;
+    private bool isBossGoable = false;
+    private int height = 1;
 
     private int battle1Index = 0;
     private int battle2Index = 0;
@@ -60,6 +62,10 @@ public class RoomManager : MonoBehaviour, IRegisterable
 
     public void EnterRoom(ERoomType roomType)
     {
+        height++;
+        if (height >= 16)
+            isBossGoable = true;
+
         // 니오우 있으면 없애주고
         neow.gameObject.SetActive(false);
 
@@ -158,10 +164,14 @@ public class RoomManager : MonoBehaviour, IRegisterable
     }
 
     // 보스 방에 들어갈 때
-    private void OnEnterBossRoom()
+    public void OnEnterBossRoom()
     {
-        GameManager.UI.ShowThisUI(inBattleUI);
-        battleManager.StartBattle(bossAct1BattleData[Random.Range(0, bossAct1BattleData.Count)]);
+        if(isBossGoable)
+        {
+            battleManager.Player.gameObject.SetActive(true);
+            GameManager.UI.ShowThisUI(inBattleUI);
+            battleManager.StartBattle(bossAct1BattleData[Random.Range(0, bossAct1BattleData.Count)]);
+        }
     }
 
     // 랜덤 방에 들어갈 때
