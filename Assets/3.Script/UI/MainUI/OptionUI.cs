@@ -10,7 +10,9 @@ public class OptionUI : BaseUI
     [SerializeField]
     private Text bgmVolumeText, seVolumeText;
     [SerializeField]
-    private Toggle cameraShake;
+    private Toggle cameraShake, cheatMode;
+
+    private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
     public override void Hide()
     {
@@ -33,6 +35,8 @@ public class OptionUI : BaseUI
         seVolume.onValueChanged.AddListener(delegate { ValueChangeSEVolume(); });
         cameraShake.isOn = true;
         cameraShake.onValueChanged.AddListener(delegate { ValueChangeCameraShakeToggle(); });
+        cheatMode.isOn = false;
+        cheatMode.onValueChanged.AddListener(delegate { ValueChangeCheatToggle(); });
     }
 
     private void ValueChangeBGMVolume()
@@ -54,5 +58,19 @@ public class OptionUI : BaseUI
     private void ValueChangeCameraShakeToggle()
     {
         WindowShake.Instance.isShake = cameraShake.isOn;
+    }
+
+    private void ValueChangeCheatToggle()
+    {
+        if(cheatMode.isOn)
+        {
+            battleManager.Player.PlayerStat.Power = 50;
+            battleManager.Player.PlayerStat.Agility = 50;
+        }
+        else
+        {
+            battleManager.Player.PlayerStat.Power = 0;
+            battleManager.Player.PlayerStat.Agility = 0;
+        }
     }
 }
