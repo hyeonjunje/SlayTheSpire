@@ -38,6 +38,11 @@ public class TitleScene : BaseScene
         exitButton.onClick.AddListener(() => ExitUI());
     }
 
+    public void PlaySE(int seIndex)
+    {
+        GameManager.Sound.PlaySE((ESE)seIndex);
+    }
+
     // 버튼에 추가
     public void ShowSelectCharacter(int index)
     {
