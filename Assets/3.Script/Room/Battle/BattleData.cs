@@ -10,7 +10,8 @@ public class BattleData : ScriptableObject
     [SerializeField]
     private List<Vector3> spawnPos;
 
-    public int money;
+    public int maxMoney;
+    public int minMoney;
     public bool isRelics;
 
     public List<Enemy> Enemies => enemies;

@@ -49,8 +49,9 @@ public class RewardManager : MonoBehaviour, IRegisterable
         // µ·
         Reward moneyReward = Instantiate(rewardPrefab, rewardParent);
         Button moneyRewardButton = moneyReward.GetComponent<Button>();
-        moneyReward.Init(25 + "°ñµå", moneyRewardImage);
-        moneyRewardButton.onClick.AddListener(() => GetMoney(25));
+        int money = Random.Range(25, 37);
+        moneyReward.Init(money + "°ñµå", moneyRewardImage);
+        moneyRewardButton.onClick.AddListener(() => GetMoney(money));
         moneyRewardButton.onClick.AddListener(() => Destroy(moneyReward.gameObject));
 
         // À¯¹°
@@ -77,8 +78,9 @@ public class RewardManager : MonoBehaviour, IRegisterable
         // µ·
         Reward moneyReward = Instantiate(rewardPrefab, rewardParent);
         Button moneyRewardButton = moneyReward.GetComponent<Button>();
-        moneyReward.Init(battleData.money + "°ñµå", moneyRewardImage);
-        moneyRewardButton.onClick.AddListener(() => GetMoney(battleData.money));
+        int money = Random.Range(battleData.minMoney, battleData.maxMoney);
+        moneyReward.Init(money + "°ñµå", moneyRewardImage);
+        moneyRewardButton.onClick.AddListener(() => GetMoney(money));
         moneyRewardButton.onClick.AddListener(() => Destroy(moneyReward.gameObject));
 
 

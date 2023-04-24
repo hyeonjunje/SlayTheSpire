@@ -47,7 +47,6 @@ public class BaseCardEnforceState : BaseCardState
 
     public override void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("이거 해주라 " + _baseCard);
         _baseCard.onClickAction?.Invoke();
     }
 }

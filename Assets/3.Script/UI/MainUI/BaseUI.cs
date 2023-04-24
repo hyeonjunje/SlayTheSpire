@@ -21,9 +21,6 @@ public abstract class BaseUI : MonoBehaviour
         else
         {
             _exitButton.gameObject.SetActive(true);
-
-            /*StopAllCoroutines();
-            StartCoroutine(CoAppearExitButton());*/
         }
     }
 
@@ -39,6 +36,11 @@ public abstract class BaseUI : MonoBehaviour
             /*StopAllCoroutines();
             StartCoroutine(CoDisAppearExitButton());*/
         }
+    }
+
+    public virtual void Init()
+    {
+
     }
 
     private IEnumerator CoAppearExitButton()

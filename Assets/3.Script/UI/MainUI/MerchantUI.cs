@@ -47,10 +47,14 @@ public class MerchantUI : BaseUI
     }
 
     // 상점 방에 들어올 때마다 값들 갱신
-    public void Init()
+    public void BringItem()
     {
+        ironcladCardItemParent.DestroyAllChild();
+        neutralCardItemParent.DestroyAllChild();
+        relicItemParent.DestroyAllChild();
+
         // 아이언 클래드 카드 5장 채워넣기
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             BaseCard card = cardGenerator.GeneratorRandomCard();
             card.transform.SetParent(ironcladCardItemParent);

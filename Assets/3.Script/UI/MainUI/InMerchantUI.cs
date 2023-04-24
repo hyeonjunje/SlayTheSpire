@@ -17,7 +17,13 @@ public class InMerchantUI : BaseUI
     {
         base.Show();
 
-        merchant.Init();
         merchant.gameObject.SetActive(true);
+    }
+
+    public override void Init()
+    {
+        base.Init();
+
+        merchant.Init();
     }
 }

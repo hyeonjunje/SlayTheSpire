@@ -22,5 +22,6 @@ MonoBehaviour:
   - {x: 5.77, y: -0.5, z: 0}
   - {x: 3.88, y: -0.5, z: 0}
   - {x: 1.69, y: -0.5, z: 0}
-  money: 50
+  maxMoney: 30
+  minMoney: 40
   isRelics: 0

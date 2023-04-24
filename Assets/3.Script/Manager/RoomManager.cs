@@ -220,8 +220,6 @@ public class RoomManager : MonoBehaviour, IRegisterable
         if (unknownIndex == act1UnknownData.Count)
             unknownIndex = 0;
 
-        Debug.Log(unknownIndex);
-
         GameManager.UI.ShowThisUI(inUnknownUI);
         inUnknownUI.ShowUnknown(act1UnknownData[unknownIndex]);
 
@@ -235,15 +233,11 @@ public class RoomManager : MonoBehaviour, IRegisterable
 
     public void AfterUnknown()
     {
-        Debug.Log(unknownIndex-1);
-
         inUnknownUI.ShowAfter(act1UnknownData[unknownIndex-1]);
     }
 
     public void AfterUnknown2()
     {
-        Debug.Log(unknownIndex-1);
-
         inUnknownUI.ShowAfter2(act1UnknownData[unknownIndex-1]);
     }
 

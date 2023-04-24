@@ -50,8 +50,6 @@ public class BaseCard : MonoBehaviour
     {
         _baseCardStateFactory = new BaseCardStateFactory(this);
 
-        cardData.Init();
-
         _cardHolder = cardHolder;
         _cardData = cardData;
 
@@ -75,7 +73,10 @@ public class BaseCard : MonoBehaviour
         if (TryUseCard())
         {
             // 카드의 효과를 사용
-            _cardData.UseEffect.ForEach(useEffect => useEffect?.Invoke());
+            if (isEnforce)
+                _cardData.enforcedUseEffect.ForEach(useEffect => useEffect?.Invoke());
+            else
+                _cardData.useEffect.ForEach(useEffect => useEffect?.Invoke());
 
 
             if(_cardData.isExtinction)
@@ -101,29 +102,49 @@ public class BaseCard : MonoBehaviour
 
     private bool TryUseCard()
     {
-        // 코스트 확인, 저주카드 확인, 부상카드 확인, 유물 확인
-        if (battleManager.Player.PlayerStat.CurrentOrb >= _cardData.Cost)
+        if(isEnforce)
         {
-            battleManager.Player.PlayerStat.CurrentOrb -= _cardData.Cost;
-            return true;
+            // 코스트 확인, 저주카드 확인, 부상카드 확인, 유물 확인
+            if (battleManager.Player.PlayerStat.CurrentOrb >= _cardData.enforcedCardCost)
+            {
+                battleManager.Player.PlayerStat.CurrentOrb -= _cardData.enforcedCardCost;
+                return true;
+            }
+            else
+            {
+                _cardController.SetActiveRaycast(true);
+                return false;
+            }
         }
         else
         {
-            _cardController.SetActiveRaycast(true);
-            return false;
+            if (battleManager.Player.PlayerStat.CurrentOrb >= _cardData.cost)
+            {
+                battleManager.Player.PlayerStat.CurrentOrb -= _cardData.cost;
+                return true;
+            }
+            else
+            {
+                _cardController.SetActiveRaycast(true);
+                return false;
+            }
         }
     }
 
     // 강화모드일 때 카드를 누르면 이 함수가 실행되어야 함
     public void Enforce()
     {
-        // 화면 흔들림
-        WindowShake.Instance.ShakeWindow();
+        foreach(BaseCard card in battleManager.Player.myCards)
+        {
+            if(card == this)
+            {
+                // 화면 흔들림
+                WindowShake.Instance.ShakeWindow();
 
-        // 강화 소리 재생
-        GameManager.Sound.PlaySE(ESE.UpgradeCard);
-
-        _cardData.Enforce();
+                // 강화 소리 재생
+                GameManager.Sound.PlaySE(ESE.UpgradeCard);
+            }
+        }
 
         // 외형이 바껴야 함
         _baseCardBuilder.Enforce(_cardData);

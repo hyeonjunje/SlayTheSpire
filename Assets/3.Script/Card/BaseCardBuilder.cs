@@ -17,27 +17,14 @@ public class BaseCardBuilder : MonoBehaviour
 
     public void Init(CardData cardData, CardFrameData cardFrameData, BaseCard baseCard)
     {
-        /*_baseCard = baseCard;
-
-        cardName.text = cardData.cardName;
-        cardType.text = cardData.cardTypeString;
-        cardExplanation.text = cardData.cardExplanation;
-        cardCost.text = cardData.cost.ToString();
-        cardImage.sprite = cardData.cardImage;
-
-        frame.sprite = frameSprite;
-        topFrame.sprite = topFrameSprite;
-
-        transform.localScale = Vector3.zero;*/
-        
         // base카드 정보
         _baseCard = baseCard;
 
         // 카드 정보
-        cardName.text = cardData.CardName;
+        cardName.text = cardData.cardName;
         cardType.text = cardData.cardTypeString;
-        cardExplanation.text = cardData.CardExplanation;
-        cardCost.text = cardData.Cost.ToString();
+        cardExplanation.text = cardData.cardExplanation;
+        cardCost.text = cardData.cost.ToString();
         cardImage.sprite = cardData.cardImage;
 
         // 카드 프레임 정보
@@ -53,12 +40,12 @@ public class BaseCardBuilder : MonoBehaviour
     public void Enforce(CardData cardData)
     {
         // 정렬데이터 최신화
-        _baseCard.cost = cardData.Cost;
-        _baseCard.cardName = cardData.CardName;
+        _baseCard.cost = cardData.enforcedCardCost;
+        _baseCard.cardName = cardData.enforcedCardName;
 
         // 카드 정보 최신화
-        cardName.text = cardData.CardName;
-        cardExplanation.text = cardData.CardExplanation;
-        cardCost.text = cardData.Cost.ToString();
+        cardName.text = cardData.enforcedCardName;
+        cardExplanation.text = cardData.enforcedCardExplanation;
+        cardCost.text = cardData.enforcedCardCost.ToString();
     }
 }

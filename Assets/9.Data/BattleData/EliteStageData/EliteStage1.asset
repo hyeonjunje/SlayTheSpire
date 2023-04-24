@@ -16,5 +16,6 @@ MonoBehaviour:
   - {fileID: 2523390034209334230, guid: c640a410ab0063d40a7ce9423fd2357c, type: 3}
   spawnPos:
   - {x: 4.5, y: 0.3, z: 0}
-  money: 75
+  maxMoney: 75
+  minMoney: 100
   isRelics: 1

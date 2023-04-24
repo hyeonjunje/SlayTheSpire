@@ -34,6 +34,7 @@ public class RelicGenerator : MonoBehaviour, IRegisterable
     {
         RelicData relicData = relicRandomDataList[0];
         relicRandomDataList.RemoveAt(0);
+
         return relicData;
     }
 

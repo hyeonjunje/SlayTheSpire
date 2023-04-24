@@ -83,6 +83,7 @@ public class UIManager
         {
             stackUI.Peek().gameObject.SetActive(true);
             stackUI.Peek().Show();
+            stackUI.Peek().Init();
         }
     }
 
