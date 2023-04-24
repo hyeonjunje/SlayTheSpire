@@ -20,4 +20,17 @@ public class Dialog
 
         Count = answers.Count;
     }
+
+    public Dialog(string contents, string answers, Action onClickButtons)
+    {
+        this.contents = contents;
+
+        List<string> answersList = new List<string>();
+        answersList.Add(answers);
+
+        this.answers = answersList;
+        this.onClickButtons = onClickButtons;
+
+        Count = 1;
+    }
 }

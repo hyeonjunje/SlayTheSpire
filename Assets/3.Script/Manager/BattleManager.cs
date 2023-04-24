@@ -34,6 +34,11 @@ public class BattleManager : MonoBehaviour, IRegisterable
 
     [SerializeField]
     private Player _player;
+    [SerializeField]
+    private InGoEndingUI inGoEndingUI;
+    [SerializeField]
+    private GameScoreUI _gameScoreUI;
+
 
     private BattleData _currentBattleData;
 
@@ -125,9 +130,14 @@ public class BattleManager : MonoBehaviour, IRegisterable
             yield return null;
         }
 
-        if (_player.PlayerStat.IsDead)
+        if (_player.PlayerStat.IsDead)  // 플레이어가 죽었다.
         {
-
+            _gameScoreUI.GameOver();
+            GameManager.UI.ShowThisUI(_gameScoreUI);
+        }
+        else if(Player.PlayerStat.Height >= 16)  // 보스를 깼다...
+        {
+            GameManager.UI.ShowThisUI(inGoEndingUI);
         }
         else
         {

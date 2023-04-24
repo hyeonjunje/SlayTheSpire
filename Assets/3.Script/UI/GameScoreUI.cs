@@ -24,7 +24,7 @@ public class GameScoreUI : BaseUI
 
     public void GameClear()
     {
-        _gameScoreText.text = "½Â¸®";
+        _gameScoreText.text = "½Â¸®?";
     }
 
     public override void Show()
