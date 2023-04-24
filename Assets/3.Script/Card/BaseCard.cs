@@ -112,6 +112,9 @@ public class BaseCard : MonoBehaviour
     // 강화모드일 때 카드를 누르면 이 함수가 실행되어야 함
     public void Enforce()
     {
+        // 화면 흔들림
+        WindowShake.Instance.ShakeWindow();
+
         // 강화 소리 재생
         GameManager.Sound.PlaySE(ESE.UpgradeCard);
 

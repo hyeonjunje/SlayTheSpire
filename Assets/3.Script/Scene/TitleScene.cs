@@ -14,7 +14,6 @@ public class TitleScene : BaseScene
     private GameObject startButton;
     [SerializeField]
     private Button exitButton;
-
     [SerializeField]
     private float _vibrationForce = 3f;
 
@@ -51,8 +50,8 @@ public class TitleScene : BaseScene
             StopCoroutine(_covibration);
         }
         _covibration = StartCoroutine(CoVibration(index));
-        
-        for(int i = 0; i < selectedCharacters.Length; i++)
+
+        for (int i = 0; i < selectedCharacters.Length; i++)
         {
             if(i == index)
             {

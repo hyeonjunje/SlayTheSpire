@@ -14,6 +14,15 @@ public class UIManager
 
     public TipUI TipUI { get; private set; }
     public List<Button> SelectedButtons { get; private set; } = new List<Button>();
+    public BaseUI CurrentUI
+    {
+        get
+        {
+            if (stackUI.Count == 0)
+                return null;
+            return stackUI.Peek();
+        }
+    }
 
     public GameObject Root
     {

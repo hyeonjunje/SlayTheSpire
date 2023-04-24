@@ -25,6 +25,8 @@ public class CharacterStat : MonoBehaviour
     [SerializeField]
     private bool _isPlayer = false;
 
+    
+
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
     public int MaxHp
@@ -62,6 +64,11 @@ public class CharacterStat : MonoBehaviour
             if(_isPlayer && changeValue > 0)
             {
                 GameManager.Sound.PlaySE(ESE.Heal);
+            }
+            // 데미지를 입으면  (카메라 흔들림, hp)
+            else if(changeValue < 0)
+            {
+                WindowShake.Instance.ShakeWindow();
             }
 
             if (_currentHp <= 0)
@@ -138,7 +145,7 @@ public class CharacterStat : MonoBehaviour
         // 내가 준 총 데미지량(데미지가 0보다 크고 적이 맞았으면 더해줌)
         if (!_isPlayer && damage > 0)
             GameManager.Game.totalDamage += damage;
-            
+        
         CurrentHp -= damage;
     }
 
