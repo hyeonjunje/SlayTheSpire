@@ -18,6 +18,7 @@ public class CharacterStat : MonoBehaviour
     private int _agility;
 
     [Header("UI")]
+    [SerializeField] private GameObject _hpCanvas;
     [SerializeField] private HpBar _hpBar;
 
     [Header("Info")]
@@ -131,5 +132,10 @@ public class CharacterStat : MonoBehaviour
             GameManager.Game.totalDamage += damage;
             
         CurrentHp -= damage;
+    }
+
+    public void IsBattle(bool flag)
+    {
+        _hpCanvas.SetActive(flag);
     }
 }

@@ -69,8 +69,9 @@ public class RoomManager : MonoBehaviour, IRegisterable
         // 니오우 있으면 없애주고
         neow.gameObject.SetActive(false);
 
-        // 플레이어 켜주기
+        // 플레이어 초기화
         battleManager.Player.gameObject.SetActive(false);
+        battleManager.Player.PlayerStat.IsBattle(false);
 
         // UI뜬거 없애주고 (맵, 보상)
         act1Scene.ExitUI();
@@ -85,10 +86,12 @@ public class RoomManager : MonoBehaviour, IRegisterable
         {
             case ERoomType.Elite:
                 battleManager.Player.gameObject.SetActive(true);
+                battleManager.Player.PlayerStat.IsBattle(true);
                 OnEnterEliteRoom();
                 break;
             case ERoomType.Enemy:
                 battleManager.Player.gameObject.SetActive(true);
+                battleManager.Player.PlayerStat.IsBattle(true);
                 OnEnterEnemyRoom();
                 break;
             case ERoomType.Merchant:
@@ -168,9 +171,11 @@ public class RoomManager : MonoBehaviour, IRegisterable
     {
         if(isBossGoable)
         {
-            GameManager.Game.height++;
+            battleManager.Player.PlayerStat.Height++;
 
             battleManager.Player.gameObject.SetActive(true);
+            battleManager.Player.PlayerStat.IsBattle(true);
+
             GameManager.UI.ShowThisUI(inBattleUI);
             battleManager.StartBattle(bossAct1BattleData[Random.Range(0, bossAct1BattleData.Count)]);
         }
