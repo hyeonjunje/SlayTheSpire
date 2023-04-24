@@ -137,6 +137,9 @@ public class UIManager
     {
         InitSelectedButton();
 
+        Vector2 offset = new Vector2(30, 30);
+        float margin = 30f;
+
         for(int i = 0; i < dialog.Count; i++)
         {
             SelectedButtons[i].gameObject.SetActive(true);
@@ -145,7 +148,7 @@ public class UIManager
             SelectedButtons[i].GetComponentInChildren<Text>().text = dialog.answers[i];
             SelectedButtons[i].onClick.AddListener(() => dialog.onClickButtons());
 
-            SelectedButtons[i].GetComponent<RectTransform>().anchoredPosition += Vector2.up * (SelectedButtons[0].GetComponent<RectTransform>().sizeDelta.y * i);
+            SelectedButtons[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(offset.x, offset.y + SelectedButtons[0].GetComponent<RectTransform>().sizeDelta.y * i + margin);
         }
     }
 

@@ -51,9 +51,10 @@ public class SoundManager
     private Dictionary<ESE, AudioClip> _seDic;
 
     private AudioSource _bgmAudio = null;
-    private AudioSource _effectSound = null;
+    private AudioSource _seAudio = null;
 
-    public float bgmVolme = 0.5f;
+    public float bgmVolume = 0.5f;
+    public float seVolume = 0.5f;
 
     public void Init()
     {
@@ -65,11 +66,12 @@ public class SoundManager
             _bgmAudio.loop = true;
             GameObject go1 = new GameObject("EffectSound");
             go1.transform.parent = GameManager.Instance.transform;
-            _effectSound = go1.AddComponent<AudioSource>();
-            _effectSound.loop = false;
+            _seAudio = go1.AddComponent<AudioSource>();
+            _seAudio.loop = false;
         }
 
-        _bgmAudio.volume = bgmVolme;
+        _bgmAudio.volume = bgmVolume;
+        _seAudio.volume = seVolume;
 
         _bgmDic = new Dictionary<EBGM, AudioClip>();
 
@@ -113,7 +115,7 @@ public class SoundManager
     // 효과음 재생
     public void PlaySE(ESE se)
     {
-        _effectSound.PlayOneShot(_seDic[se]);
+        _seAudio.PlayOneShot(_seDic[se]);
     }
 
     // 배경음 재생
@@ -140,6 +142,16 @@ public class SoundManager
     public void StopBgm()
     {
         _bgmAudio.Stop();
+    }
+
+    public void ChangeBGMVolume(float value)
+    {
+        _bgmAudio.volume = value;
+    }
+
+    public void ChangeSEVolume(float value)
+    {
+        _seAudio.volume = value;
     }
 
     // 배경음 fade in, out 재생
@@ -171,7 +183,7 @@ public class SoundManager
         while(currentTime < duration / 2)
         {
             currentTime += Time.deltaTime;
-            _bgmAudio.volume = Mathf.Lerp(bgmVolme, 0, currentTime / (duration / 2));
+            _bgmAudio.volume = Mathf.Lerp(bgmVolume, 0, currentTime / (duration / 2));
             yield return null;
         }
 
@@ -183,7 +195,7 @@ public class SoundManager
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
-            _bgmAudio.volume = Mathf.Lerp(0, bgmVolme, currentTime / duration);
+            _bgmAudio.volume = Mathf.Lerp(0, bgmVolume, currentTime / duration);
             yield return null;
         }
     }

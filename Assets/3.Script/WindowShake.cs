@@ -7,6 +7,8 @@ public class WindowShake : MonoBehaviour
 {
     public static WindowShake Instance;
 
+    public bool isShake = true;
+
     private Vector3 _origin;
 
     [SerializeField]
@@ -22,6 +24,7 @@ public class WindowShake : MonoBehaviour
         if (Instance == null)
             Instance = this;
 
+        isShake = true;
         _origin = transform.position;
     }
 
@@ -29,9 +32,13 @@ public class WindowShake : MonoBehaviour
     {
         // UI도 흔들리고
         // 카메라도 흔들리고
-        if (_coVibration != null)
-            StopCoroutine(_coVibration);
-        _coVibration = StartCoroutine(CoVibration());
+
+        if(isShake)
+        {
+            if (_coVibration != null)
+                StopCoroutine(_coVibration);
+            _coVibration = StartCoroutine(CoVibration());
+        }
     }
 
     private void Update()

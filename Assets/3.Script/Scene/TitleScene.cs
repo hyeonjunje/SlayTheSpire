@@ -29,7 +29,8 @@ public class TitleScene : BaseScene
         GameManager.Game.defeatElite = 0;
         GameManager.Game.defeatBoss = 0;
 
-        GameManager.Sound.PlayBGM(EBGM.Menu);
+        StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.Menu));
+        // GameManager.Sound.PlayBGM(EBGM.Menu);
 
         ShowUI(_menuGameObject);
 
