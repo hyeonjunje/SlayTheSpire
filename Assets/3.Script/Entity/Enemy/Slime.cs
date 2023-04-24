@@ -27,32 +27,52 @@ public class Slime : Enemy
     {
         base.Dead();
 
-        // 분열
-        Vector3 initPos1 = new Vector3(transform.position.x + spawnPosX , - 0.6f, 0f);
-        Vector3 initPos2 = new Vector3(transform.position.x - spawnPosX , - 0.6f, 0f);
+        if(isReadyToSplit)
+        {
+            // 분열
+            Vector3 initPos1 = new Vector3(transform.position.x + spawnPosX, -0.6f, 0f);
+            Vector3 initPos2 = new Vector3(transform.position.x - spawnPosX, -0.6f, 0f);
 
-        Enemy enemy1 = Instantiate(splitedSlime1, initPos1, Quaternion.identity);
-        Enemy enemy2 = Instantiate(splitedSlime2, initPos2, Quaternion.identity);
+            Enemy enemy1 = Instantiate(splitedSlime1, initPos1, Quaternion.identity);
+            Enemy enemy2 = Instantiate(splitedSlime2, initPos2, Quaternion.identity);
 
-        battleManager.Enemies.Add(enemy1);
-        battleManager.Enemies.Add(enemy2);
+            battleManager.Enemies.Add(enemy1);
+            battleManager.Enemies.Add(enemy2);
 
-        enemy1.CharacterStat.MaxHp = CharacterStat.CurrentHp;
-        enemy1.CharacterStat.CurrentHp = CharacterStat.CurrentHp;
+            enemy1.CharacterStat.MaxHp = CharacterStat.CurrentHp;
+            enemy1.CharacterStat.CurrentHp = CharacterStat.CurrentHp;
 
-        enemy2.CharacterStat.MaxHp = CharacterStat.CurrentHp;
-        enemy2.CharacterStat.CurrentHp = CharacterStat.CurrentHp;
+            enemy2.CharacterStat.MaxHp = CharacterStat.CurrentHp;
+            enemy2.CharacterStat.CurrentHp = CharacterStat.CurrentHp;
+        }
     }
 
     public override void Hit(int damage, Character attacker)
     {
-        base.Hit(damage, attacker);
-
         // 반피 이하면 분열 준비
         if(CharacterStat.CurrentHp <= CharacterStat.MaxHp / 2)
         {
             isReadyToSplit = true;
             EnemyPattern.DecidePattern(unKnownPattern);
+        }
+
+        if(CharacterStat.IsDead)
+        {
+            isReadyToSplit = false;
+        }
+
+        base.Hit(damage, attacker);
+
+        // 반피 이하면 분열 준비
+        if (CharacterStat.CurrentHp <= CharacterStat.MaxHp / 2)
+        {
+            isReadyToSplit = true;
+            EnemyPattern.DecidePattern(unKnownPattern);
+        }
+
+        if (CharacterStat.IsDead)
+        {
+            isReadyToSplit = false;
         }
     }
 
