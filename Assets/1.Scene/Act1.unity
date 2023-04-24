@@ -18574,6 +18574,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b72061ca56fbc54187a00ef4d2a1610, type: 2}
   - {fileID: 11400000, guid: 068f8fb397f77404ea841fea1baddb76, type: 2}
   - {fileID: 11400000, guid: 10d134baffde90d46874ccd602838ecd, type: 2}
+  eventRelicDataList:
+  - {fileID: 11400000, guid: 6e4144191d4dbdc4ab3d78c83c6921c3, type: 2}
   relicPrefab: {fileID: 3967636158619089620, guid: cf7efc48ebecb1c45b87523e24a32b29, type: 3}
   relicParent: {fileID: 1501826100}
 --- !u!1 &944583267

@@ -7,6 +7,8 @@ public class RelicGenerator : MonoBehaviour, IRegisterable
     [SerializeField]
     private List<RelicData> relicDataList;
     [SerializeField]
+    private List<RelicData> eventRelicDataList;
+    [SerializeField]
     private RelicIcon relicPrefab;
     [SerializeField]
     private Transform relicParent;
@@ -45,6 +47,13 @@ public class RelicGenerator : MonoBehaviour, IRegisterable
             if (relic == relicDataList[i].relic)
                 return relicDataList[i];
         }
+
+        for(int i = 0; i < eventRelicDataList.Count; i++)
+        {
+            if (relic == eventRelicDataList[i].relic)
+                return eventRelicDataList[i];
+        }
+
         Debug.LogWarning("그런 유물은 없습니다.");
         return null;
     }

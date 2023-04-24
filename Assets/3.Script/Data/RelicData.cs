@@ -21,7 +21,8 @@ public enum ERelic
     Ginger,
     Turnip,
     Torii,
-    Size
+    NeowLament,
+    Size,
 }
 
 [CreateAssetMenu()]
@@ -33,6 +34,6 @@ public class RelicData : ScriptableObject
     [Multiline(5)]
     public string relicExplanation;
 
-    public enum ERelicGrade { Common, Special, Unique}
+    public enum ERelicGrade { Common, Special, Unique, Event}
     public ERelicGrade relicGrade;
 }

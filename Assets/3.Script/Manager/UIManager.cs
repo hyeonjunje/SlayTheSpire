@@ -142,11 +142,13 @@ public class UIManager
 
         for(int i = 0; i < dialog.Count; i++)
         {
+            int index = i;
+
             SelectedButtons[i].gameObject.SetActive(true);
             SelectedButtons[i].transform.SetParent(parent);
             SelectedButtons[i].transform.SetAsFirstSibling();
             SelectedButtons[i].GetComponentInChildren<Text>().text = dialog.answers[i];
-            SelectedButtons[i].onClick.AddListener(() => dialog.onClickButtons());
+            SelectedButtons[i].onClick.AddListener(() => dialog.onClickButtons[index]());
 
             SelectedButtons[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(offset.x, offset.y + SelectedButtons[0].GetComponent<RectTransform>().sizeDelta.y * i + margin);
         }

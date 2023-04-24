@@ -18,22 +18,38 @@ public class Neow : MonoBehaviour
 
     private int dialogIndex = 0;
 
+    private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
+
     private void Awake()
     {
         dialogIndex = 0;
 
         List<string> answers = new List<string>();
+        List<System.Action> actions = new List<System.Action>();
         answers.Add("[대화한다]");
-        dialogs.Add(new Dialog("반갑군...", answers, ProceedConversation));
+        System.Action action = ProceedConversation;
+        actions.Add(action);
+        dialogs.Add(new Dialog("반갑군...", answers, actions));
 
         answers = new List<string>();
+        actions = new List<System.Action>();
+        action = null;
+        action += ProceedConversation;
+        action += () => battleManager.Player.PlayerRelic.AddRelic(ERelic.NeowLament);
+        System.Action action2 = ProceedConversation;
+        action2 += () => battleManager.Player.PlayerStat.MaxHp += 7;
+        actions.Add(action);
+        actions.Add(action2);
         answers.Add("[다음 세 전투를 적들의 체력이 1인 상태로 시작합니다]");
         answers.Add("[최대 체력 +7]");
-        dialogs.Add(new Dialog("선택하여라...", answers, ProceedConversation));
+        dialogs.Add(new Dialog("선택하여라...", answers, actions));
 
         answers = new List<string>();
+        actions = new List<System.Action>();
         answers.Add("[떠난다]");
-        dialogs.Add(new Dialog("허락하마...", answers, EndConversation));
+        action = EndConversation;
+        actions.Add(action);
+        dialogs.Add(new Dialog("허락하마...", answers, actions));
 
         ProceedConversation();
     }

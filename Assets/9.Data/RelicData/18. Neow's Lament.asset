@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cdfba100fc3ccd4fb8c22786b507af4, type: 3}
+  m_Name: 18. Neow's Lament
+  m_EditorClassIdentifier: 
+  relic: 17
+  relicImage: {fileID: 163017270738940643, guid: 091ffab931b912b468830f449f2ed921, type: 3}
+  relicName: "\uB2C8\uC624\uC6B0\uC758 \uBE44\uD0C4"
+  relicExplanation: "\uC55E\uC73C\uB85C 3\uBC88\uC758 \uC804\uD22C \uB3D9\uC548\n\uC801\uC758
+    \uCCB4\uB825\uC774 1\uC774 \uB429\uB2C8\uB2E4."
+  relicGrade: 3

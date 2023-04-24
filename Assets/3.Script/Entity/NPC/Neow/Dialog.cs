@@ -8,11 +8,11 @@ public class Dialog
 {
     public string contents;
     public List<string> answers;
-    public Action onClickButtons;
+    public List<Action> onClickButtons;
 
     public int Count;
 
-    public Dialog(string contents, List<string> answers, Action onClickButtons)
+    public Dialog(string contents, List<string> answers, List<Action> onClickButtons)
     {
         this.contents = contents;
         this.answers = answers;
@@ -21,7 +21,7 @@ public class Dialog
         Count = answers.Count;
     }
 
-    public Dialog(string contents, string answers, Action onClickButtons)
+    public Dialog(string contents, string answers, List<Action> onClickButtons)
     {
         this.contents = contents;
 

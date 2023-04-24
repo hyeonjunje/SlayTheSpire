@@ -15,6 +15,8 @@ public enum EBattleState
 
 public class BattleManager : MonoBehaviour, IRegisterable
 {
+    private int battleCount = 0;
+
     public System.Action onStartMyTurn;     // 내 턴 시작 시 발생
     public System.Action onEndMyTurn;       // 내 턴 끝 시 발생
     public System.Action onStartEnemyTurn;  // 적 턴 시작 시 발생
@@ -73,6 +75,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
 
     public void Init()
     {
+        battleCount = 0;
         _stateFactory = new BattleManagerStateFactory(this);
     }
 
@@ -97,6 +100,12 @@ public class BattleManager : MonoBehaviour, IRegisterable
         {
             Enemy enemy = Object.Instantiate(battleData.Enemies[i], battleData.SpawnPos[i], Quaternion.identity);
             _enemies.Add(enemy);
+        }
+
+        if(Player.PlayerRelic.GetRelic(ERelic.NeowLament) && battleCount <= 2)
+        {
+            _enemies.ForEach(enemy => enemy.CharacterStat.CurrentHp = 1);
+            battleCount++;
         }
 
         myTurnCount = 1;

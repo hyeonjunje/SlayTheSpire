@@ -58,10 +58,18 @@ public class Heart : MonoBehaviour
         string answer3 = "[계속]";
         string answer4 = "[수면]";
 
-        dialogs.Add(new Dialog(str1, answer1, ProceedConversation));
-        dialogs.Add(new Dialog(str2, answer2, AttackAndProceedConversation));
-        dialogs.Add(new Dialog(str3, answer3, ProceedConversation));
-        dialogs.Add(new Dialog(str4, answer4, EndConversation));
+        List<System.Action> actions = new List<System.Action>();
+        actions.Add(ProceedConversation);
+        dialogs.Add(new Dialog(str1, answer1, actions));
+        actions = new List<System.Action>();
+        actions.Add(AttackAndProceedConversation);
+        dialogs.Add(new Dialog(str2, answer2, actions));
+        actions = new List<System.Action>();
+        actions.Add(ProceedConversation);
+        dialogs.Add(new Dialog(str3, answer3, actions));
+        actions = new List<System.Action>();
+        actions.Add(EndConversation);
+        dialogs.Add(new Dialog(str4, answer4, actions));
 
         ProceedConversation();
     }
