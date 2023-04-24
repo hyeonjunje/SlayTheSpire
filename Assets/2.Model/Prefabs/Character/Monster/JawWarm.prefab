@@ -1547,6 +1547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 000000000000
+  _enemyGrade: 0
   _reticle: {fileID: 8617494648180604755}
 --- !u!114 &2357311774408922416
 MonoBehaviour:
@@ -1573,7 +1574,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHp: 45
+  _hpCanvas: {fileID: 7290420654799051620}
   _hpBar: {fileID: 6960533921938853554}
+  _isPlayer: 0
 --- !u!114 &6450495083851396841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1609,8 +1612,10 @@ MonoBehaviour:
     indentData: {fileID: 0}
     amount: 7
     secondAmount: 5
+  enemyCyclePatterns: []
   isAlreadyPattern: 0
   isFirstPattern: 1
+  isCyclePattern: 0
   _patternImage: {fileID: 2889449986800323043}
   _patternText: {fileID: 8575735519959167225}
 --- !u!114 &5563367800836139881

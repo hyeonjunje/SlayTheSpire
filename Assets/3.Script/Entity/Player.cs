@@ -15,15 +15,15 @@ public class Player : Character
     public List<BaseCard> myCards;
     public CardHolder cardHolder;
 
-    private void Awake()
+    public void Init()
     {
-        PlayerStat = GetComponent<PlayerStat>();
         CharacterAnimation = GetComponent<CharacterAnimation>();
+        PlayerStat = GetComponent<PlayerStat>();
         CharacterIndent = GetComponent<CharacterIndent>();
         PlayerRelic = GetComponent<PlayerRelic>();
 
-        PlayerStat.Init(this);
         CharacterAnimation.Init(this);
+        PlayerStat.Init(this);
         CharacterIndent.Init(this);
         PlayerRelic.Init(this);
 

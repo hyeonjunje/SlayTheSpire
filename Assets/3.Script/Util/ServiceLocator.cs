@@ -4,7 +4,6 @@ using UnityEngine;
 
 public interface IRegisterable
 {
-
 }
 
 public class ServiceLocator : MonoBehaviour
@@ -50,6 +49,9 @@ public class ServiceLocator : MonoBehaviour
         services[typeof(CardGenerator)] = cardGenerator;
         services[typeof(MapGenerator)] = mapGenerator;
         services[typeof(RelicGenerator)] = relicGenerator;
+
+        battleManager.Init();
+        relicGenerator.Init();
     }
 
     public T GetService<T>()

@@ -48,6 +48,8 @@ public class CharacterStat : MonoBehaviour
         get { return _currentHp; }
         set
         {
+            int changeValue = value - _currentHp;
+
             // 체력바
             _currentHp = value;
             _currentHp = Mathf.Clamp(_currentHp, 0, _maxHp);
@@ -55,6 +57,12 @@ public class CharacterStat : MonoBehaviour
             _hpBar.DisplayHpBar(_currentHp, _maxHp);
 
             onChangeHp?.Invoke();
+
+            // 플레이어이고 현재 피가 증가하면 회복 사운드
+            if(_isPlayer && changeValue > 0)
+            {
+                GameManager.Sound.PlaySE(ESE.Heal);
+            }
 
             if (_currentHp <= 0)
             {
@@ -91,9 +99,9 @@ public class CharacterStat : MonoBehaviour
 
     public virtual void Init(Character character)
     {
-        CurrentHp = _maxHp;
-        Shield = 0;
         this._character = character;
+        CurrentHp = MaxHp;
+        Shield = 0;
     }
 
     private void Dead()

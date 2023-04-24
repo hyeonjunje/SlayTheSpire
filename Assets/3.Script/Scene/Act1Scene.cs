@@ -24,6 +24,8 @@ public class Act1Scene : BaseScene
     {
         base.Init();
 
+        _player.Init();
+
         _player.onDead = null;
         _player.onDead += (() => _background.SetActive(false));
         _player.onDead += (() => GameManager.UI.ShowThisUI(_gameScoreUI));

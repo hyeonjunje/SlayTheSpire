@@ -70,6 +70,8 @@ public class InRestUI : BaseUI
     // ÈÞ½Ä
     public void Rest()
     {
+        GameManager.Sound.PlaySE(ESE.Sleep);
+
         Debug.Log("½±´Ï´Ù.");
         IsUsed = true;
 

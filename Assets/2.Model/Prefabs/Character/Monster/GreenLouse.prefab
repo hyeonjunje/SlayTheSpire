@@ -1279,7 +1279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHp: 10
+  _hpCanvas: {fileID: 7400803834667582767}
   _hpBar: {fileID: 7133949941994148089}
+  _isPlayer: 0
 --- !u!114 &6493322115920406690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,19 +1298,25 @@ MonoBehaviour:
     patternData: {fileID: 11400000, guid: 485261d4144ccaa41be28bf8e9a82b33, type: 2}
     indentData: {fileID: 11400000, guid: b3cb8b3ef9163cf42bdac7b7c622a727, type: 2}
     amount: 10
+    secondAmount: 0
   enemyFirstPattern:
     patternData: {fileID: 11400000, guid: 485261d4144ccaa41be28bf8e9a82b33, type: 2}
     indentData: {fileID: 11400000, guid: 4f42101a8d67ffd4388d8000554196bb, type: 2}
     amount: 1
+    secondAmount: 0
   enemyPatterns:
   - patternData: {fileID: 11400000, guid: 9d2eea48b1637fc4eaa135d5f4c3f3f0, type: 2}
     indentData: {fileID: 0}
     amount: 5
+    secondAmount: 0
   - patternData: {fileID: 11400000, guid: 485261d4144ccaa41be28bf8e9a82b33, type: 2}
     indentData: {fileID: 11400000, guid: c1b91d8349a5c0843a835b733ef15ba9, type: 2}
     amount: 3
+    secondAmount: 0
+  enemyCyclePatterns: []
   isAlreadyPattern: 1
   isFirstPattern: 0
+  isCyclePattern: 0
   _patternImage: {fileID: 3134868599500412840}
   _patternText: {fileID: 8402321697887202994}
 --- !u!114 &5669227758403532066
@@ -1338,6 +1346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 000000000000
+  _enemyGrade: 0
   _reticle: {fileID: 8362996132629995800}
   origin: {fileID: 21300000, guid: 25052979bb932e6428d593c783a5165f, type: 3}
   rolled: {fileID: 21300000, guid: cffa2b66dd39603428a0355a344f98be, type: 3}

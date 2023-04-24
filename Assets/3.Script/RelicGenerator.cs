@@ -13,7 +13,7 @@ public class RelicGenerator : MonoBehaviour, IRegisterable
 
     private List<RelicData> relicRandomDataList;
 
-    private void Awake()
+    public void Init()
     {
         relicRandomDataList = new List<RelicData>();
 

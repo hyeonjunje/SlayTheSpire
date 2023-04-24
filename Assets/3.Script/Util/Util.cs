@@ -34,4 +34,19 @@ public static class Util
             if (child != parent.transform)
                 GameObject.Destroy(child.gameObject);
     }
+
+
+    public static IEnumerator ShakeCamera(float force = 6f)
+    {
+        Transform cameraPosition = Camera.main.transform;
+        Vector3 origin = cameraPosition.position;
+
+
+        for (int i = 0; i < 5; i++)
+        {
+            cameraPosition.position += new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) * force;
+            yield return new WaitForSeconds(0.03f);
+            cameraPosition.position = origin;
+        }
+    }
 }

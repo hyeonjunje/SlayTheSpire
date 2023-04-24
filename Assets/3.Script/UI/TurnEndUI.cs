@@ -63,13 +63,18 @@ public class TurnEndUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnClickButtonEvent()
     {
-        isActive = false;
+        if(isActive)
+        {
+            GameManager.Sound.PlaySE(ESE.PressEndButton); 
 
-        hoverTurnEnd.SetActive(false);
-        GameManager.UI.HideTipUI();
+            isActive = false;
 
-        turnEndText.text = "적 턴";
+            hoverTurnEnd.SetActive(false);
+            GameManager.UI.HideTipUI();
 
-        image.color = lockSpriteColor;
+            turnEndText.text = "적 턴";
+
+            image.color = lockSpriteColor;
+        }
     }
 }

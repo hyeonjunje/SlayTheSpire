@@ -1103,7 +1103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHp: 65
+  _hpCanvas: {fileID: 421824209291850146}
   _hpBar: {fileID: 31121326597940340}
+  _isPlayer: 0
 --- !u!114 &4139541491849255983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,6 +1170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 0000000000000000
+  _enemyGrade: 0
   _reticle: {fileID: 1684669165510956437}
   spawnPosX: 1
   splitedSlime1: {fileID: 5113564447126356770, guid: 1f5ec2eb53e6f124a84f3b0e265d06a0, type: 3}

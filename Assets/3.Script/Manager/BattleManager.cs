@@ -71,7 +71,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
 
     private RewardManager rewardManager => ServiceLocator.Instance.GetService<RewardManager>();
 
-    private void Awake()
+    public void Init()
     {
         _stateFactory = new BattleManagerStateFactory(this);
     }

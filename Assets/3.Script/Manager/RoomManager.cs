@@ -64,6 +64,9 @@ public class RoomManager : MonoBehaviour, IRegisterable
 
     public void EnterRoom(ERoomType roomType)
     {
+        // 들어가는 소리 재생
+        GameManager.Sound.PlaySE(ESE.EnterRoom);
+
         battleManager.Player.PlayerStat.Height++;
         if(battleManager.Player.PlayerStat.Height >= 15)
             isBossGoable = true;

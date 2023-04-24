@@ -46,12 +46,11 @@ public class TitleScene : BaseScene
     // 버튼에 추가
     public void ShowSelectCharacter(int index)
     {
-        if(_covibration != null)
+        if (_covibration != null)
         {
             StopCoroutine(_covibration);
         }
         _covibration = StartCoroutine(CoVibration(index));
-
         
         for(int i = 0; i < selectedCharacters.Length; i++)
         {

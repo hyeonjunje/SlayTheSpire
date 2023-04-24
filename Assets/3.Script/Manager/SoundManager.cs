@@ -27,6 +27,21 @@ public enum ESE
     SilentSelected,
     DefectSelected,
     WatcherSelected,
+    CardSelect,      // 카드 onDragEnter 할 시
+    BuyItem,         // 아이템 구매
+    OpenTreasureBox, // 상자 열기
+    PressEndButton,  // 내 턴 종료 버튼 누르기
+    StartEnemyTurn,  // 적 턴 시작
+    CardExhaust,     // 카드 소멸
+    Heal,            // 회복
+    ShowMap,         // 맵 UI킬 때
+    EnterRoom,       // 방 들어갈 때
+    StartMyTun,      // 내 턴 시작
+    UpgradeCard,     // 업그레이드 카드
+    CardHover,       // 카드 호버
+    Sleep,           // 휴식처에서 자는 소리
+    MerchantAngry,   // 상점 아저씨 화난 소리
+    MerchantLaugh,   // 상점 아저씨 웃는 소리
     Size,
 }
 
@@ -77,6 +92,22 @@ public class SoundManager
         _seDic[ESE.SilentSelected] = Resources.Load<AudioClip>("SE/SOTE_SFX_FastAtk_v2");
         _seDic[ESE.DefectSelected] = Resources.Load<AudioClip>("SE/STS_SFX_DefectBeam_v1");
         _seDic[ESE.WatcherSelected] = Resources.Load<AudioClip>("SE/STS_SFX_Watcher-Select_v2");
+        
+        _seDic[ESE.CardSelect] = Resources.Load<AudioClip>("SE/SOTE_SFX_CardSelect_v2");
+        _seDic[ESE.BuyItem] = Resources.Load<AudioClip>("SE/SOTE_SFX_CashRegister");
+        _seDic[ESE.OpenTreasureBox] = Resources.Load<AudioClip>("SE/SOTE_SFX_ChestOpen_v2");
+        _seDic[ESE.PressEndButton] = Resources.Load<AudioClip>("SE/SOTE_SFX_EndTurn_v2");
+        _seDic[ESE.StartEnemyTurn] = Resources.Load<AudioClip>("SE/SOTE_SFX_EnemyTurn_v3");
+        _seDic[ESE.CardExhaust] = Resources.Load<AudioClip>("SE/SOTE_SFX_ExhaustCard");
+        _seDic[ESE.Heal] = Resources.Load<AudioClip>("SE/SOTE_SFX_HealShort_1_v2");
+        _seDic[ESE.ShowMap] = Resources.Load<AudioClip>("SE/SOTE_SFX_Map_1_v3");
+        _seDic[ESE.EnterRoom] = Resources.Load<AudioClip>("SE/SOTE_SFX_MapSelect_1_v1");
+        _seDic[ESE.StartMyTun] = Resources.Load<AudioClip>("SE/SOTE_SFX_PlayerTurn_v4_1");
+        _seDic[ESE.UpgradeCard] = Resources.Load<AudioClip>("SE/SOTE_SFX_UpgradeCard_v1");
+        _seDic[ESE.CardHover] = Resources.Load<AudioClip>("SE/STS_SFX_CardHover3_v1");
+        _seDic[ESE.Sleep] = Resources.Load<AudioClip>("SE/STS_SleepJingle_1a_NewMix_v1");
+        _seDic[ESE.MerchantAngry] = Resources.Load<AudioClip>("SE/STS_VO_Merchant_2b");
+        _seDic[ESE.MerchantLaugh] = Resources.Load<AudioClip>("SE/STS_VO_Merchant_3a");
     }
 
     // 효과음 재생

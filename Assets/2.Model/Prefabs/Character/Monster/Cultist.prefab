@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 000000000000
+  _enemyGrade: 0
   _reticle: {fileID: 2028323557595065655}
 --- !u!114 &5406477547634263892
 MonoBehaviour:
@@ -258,7 +259,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHp: 45
+  _hpCanvas: {fileID: 1053198872930093312}
   _hpBar: {fileID: 804376901955624150}
+  _isPlayer: 0
 --- !u!114 &3617994845697434765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,15 +274,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8182121a0958b64799284d74e5645e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alreadyPattern:
+    patternData: {fileID: 0}
+    indentData: {fileID: 0}
+    amount: 0
+    secondAmount: 0
   enemyFirstPattern:
     patternData: {fileID: 11400000, guid: 485261d4144ccaa41be28bf8e9a82b33, type: 2}
     indentData: {fileID: 11400000, guid: 4f42101a8d67ffd4388d8000554196bb, type: 2}
     amount: 1
+    secondAmount: 0
   enemyPatterns:
   - patternData: {fileID: 11400000, guid: 9d2eea48b1637fc4eaa135d5f4c3f3f0, type: 2}
     indentData: {fileID: 0}
     amount: 5
+    secondAmount: 0
+  enemyCyclePatterns: []
+  isAlreadyPattern: 0
   isFirstPattern: 1
+  isCyclePattern: 0
   _patternImage: {fileID: 4875167808698014599}
   _patternText: {fileID: 2067805587986277021}
 --- !u!114 &2775481495720032525
@@ -681,6 +694,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed855ba72ed72b47aec6c5f6e3462ed, type: 3}
+--- !u!1 &1053198872930093312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1349878449418620405, guid: 2ed855ba72ed72b47aec6c5f6e3462ed, type: 3}
+  m_PrefabInstance: {fileID: 2028323556745168117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1053198872930093313 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1349878449418620404, guid: 2ed855ba72ed72b47aec6c5f6e3462ed, type: 3}

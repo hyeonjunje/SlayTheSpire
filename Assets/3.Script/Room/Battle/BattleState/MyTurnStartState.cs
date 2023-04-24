@@ -11,6 +11,9 @@ public class MyTurnStartState : BaseBattleState
 
     public override void Enter()
     {
+        // 내 턴 시작 소리 재생
+        GameManager.Sound.PlaySE(ESE.StartMyTun);
+
         _battleManager.onStartMyTurn?.Invoke();
 
         if (_battleManager.myTurnCount == 1)

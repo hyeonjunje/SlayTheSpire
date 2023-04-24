@@ -50,6 +50,7 @@ public class CardController : MonoBehaviour, IPointerEnterHandler, IPointerClick
     // 해당 카드에 마우스를 호버할 때
     public void OnPointerEnter(PointerEventData eventData)
     {
+        GameManager.Sound.PlaySE(ESE.CardHover);
         _baseCard.CurrentState.OnPointerEnter(eventData);
     }
 

@@ -32,5 +32,8 @@ public class Merchant : MonoBehaviour, IPointerClickHandler, IPointerEnterHandle
     public void Init()
     {
         merchantUI.Init();
+
+        // 상점아저씨의 환영하는 소리
+        GameManager.Sound.PlaySE(ESE.MerchantLaugh);
     }
 }

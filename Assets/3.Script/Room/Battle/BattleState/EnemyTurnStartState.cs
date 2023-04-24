@@ -11,6 +11,8 @@ public class EnemyTurnStartState : BaseBattleState
 
     public override void Enter()
     {
+        GameManager.Sound.PlaySE(ESE.StartEnemyTurn);
+
         _battleManager.onStartEnemyTurn?.Invoke();
     }
 

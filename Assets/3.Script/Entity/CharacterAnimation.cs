@@ -8,9 +8,8 @@ public class CharacterAnimation : MonoBehaviour
     private Animator _animator;
     public void Init(Character character)
     {
-        _animator = GetComponent<Animator>();
-
         this._character = character;
+        _animator = GetComponent<Animator>();
     }
 
     public void SetTrigger(string anim)

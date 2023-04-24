@@ -75,6 +75,8 @@ public class BaseCard : MonoBehaviour
 
             if(_cardData.isExtinction)
             {
+                GameManager.Sound.PlaySE(ESE.CardExhaust);
+
                 // 소멸 카드면 소멸
                 _cardHolder.Extinction(this);
             }
@@ -110,6 +112,9 @@ public class BaseCard : MonoBehaviour
     // 강화모드일 때 카드를 누르면 이 함수가 실행되어야 함
     public void Enforce()
     {
+        // 강화 소리 재생
+        GameManager.Sound.PlaySE(ESE.UpgradeCard);
+
         _cardData.Enforce();
 
         // 외형이 바껴야 함

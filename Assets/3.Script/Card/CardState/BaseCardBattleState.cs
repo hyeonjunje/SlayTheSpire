@@ -26,6 +26,8 @@ public class BaseCardBattleState : BaseCardState
     {
         _isDrag = true;
 
+        GameManager.Sound.PlaySE(ESE.CardSelect);
+
         _baseCard.CardHolder.selectedCard = _baseCard;
 
         _baseCard.CardController.StopAllCoroutine();

@@ -756,7 +756,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 32, y: 19.333334}
+    oldSize: {x: 24, y: 14.5}
     newSize: {x: 7.82, y: 6.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -797,6 +797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 000000000000
+  _enemyGrade: 0
   _reticle: {fileID: 7533341926732470586}
 --- !u!114 &4587595416113853273
 MonoBehaviour:
@@ -823,7 +824,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHp: 8
+  _hpCanvas: {fileID: 8804666866319998221}
   _hpBar: {fileID: 9188605002659703003}
+  _isPlayer: 0
 --- !u!114 &5086939141154656384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,8 +854,10 @@ MonoBehaviour:
     indentData: {fileID: 0}
     amount: 5
     secondAmount: 0
+  enemyCyclePatterns: []
   isAlreadyPattern: 0
   isFirstPattern: 0
+  isCyclePattern: 0
   _patternImage: {fileID: 3964804140788215690}
   _patternText: {fileID: 7502875126112573072}
 --- !u!114 &5920472787201248512

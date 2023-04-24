@@ -78,10 +78,16 @@ public class InTreasureUI : BaseUI
 
     public void OpenTreasure()
     {
-        Debug.Log("보상을 줍니다.");
-        IsUsed = true;
+        if(!IsUsed)
+        {
+            // 상자 여는 소리
+            GameManager.Sound.PlaySE(ESE.OpenTreasureBox);
 
-        // 보상창
-        rewardManager.ShowReward();
+            Debug.Log("보상을 줍니다.");
+            IsUsed = true;
+
+            // 보상창
+            rewardManager.ShowReward();
+        }
     }
 }
