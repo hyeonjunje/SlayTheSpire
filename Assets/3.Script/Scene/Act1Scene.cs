@@ -31,7 +31,8 @@ public class Act1Scene : BaseScene
         _neow.gameObject.SetActive(true);
 
         // 씬 bgm 실행
-        GameManager.Sound.PlayBGM(EBGM.Level1);
+        StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.Level1));
+        // GameManager.Sound.PlayBGM(EBGM.Level1);
 
         // 시작 시 맵 만들기 (보여주는 건 x)
         // 맵 생성 && 맵 데이터 넘겨주기

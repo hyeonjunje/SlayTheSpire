@@ -18,7 +18,6 @@ public class InMerchantUI : BaseUI
         base.Show();
 
         merchant.Init();
-
         merchant.gameObject.SetActive(true);
     }
 }

@@ -46,6 +46,8 @@ public class RoomManager : MonoBehaviour, IRegisterable
     private int battle2Index = 0;
     private int unknownIndex = 0;
 
+    private Coroutine _coBgmFadeInOut;
+
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     private RewardManager rewardManager => ServiceLocator.Instance.GetService<RewardManager>();
 
@@ -85,27 +87,51 @@ public class RoomManager : MonoBehaviour, IRegisterable
         switch (roomType)
         {
             case ERoomType.Elite:
+                if (_coBgmFadeInOut != null)
+                    StopCoroutine(_coBgmFadeInOut);
+                _coBgmFadeInOut = StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.EliteMeet));
+
                 battleManager.Player.gameObject.SetActive(true);
                 battleManager.Player.PlayerStat.IsBattle(true);
                 OnEnterEliteRoom();
                 break;
             case ERoomType.Enemy:
+                if (_coBgmFadeInOut != null)
+                    StopCoroutine(_coBgmFadeInOut);
+                _coBgmFadeInOut = StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.Level1));
+
                 battleManager.Player.gameObject.SetActive(true);
                 battleManager.Player.PlayerStat.IsBattle(true);
                 OnEnterEnemyRoom();
                 break;
             case ERoomType.Merchant:
+                if (_coBgmFadeInOut != null)
+                    StopCoroutine(_coBgmFadeInOut);
+                _coBgmFadeInOut = StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.Merchant));
+
                 battleManager.Player.gameObject.SetActive(true);
                 OnEnterMerchantRoom();
                 break;
             case ERoomType.Rest:
+                if (_coBgmFadeInOut != null)
+                    StopCoroutine(_coBgmFadeInOut);
+                _coBgmFadeInOut = StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.Rest));
+
                 OnEnterRestRoom();
                 break;
             case ERoomType.Treasure:
+                if (_coBgmFadeInOut != null)
+                    StopCoroutine(_coBgmFadeInOut);
+                _coBgmFadeInOut = StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.Level1));
+
                 battleManager.Player.gameObject.SetActive(true);
                 OnEnterTreasureRoom();
                 break;
             case ERoomType.Unknown:
+                if (_coBgmFadeInOut != null)
+                    StopCoroutine(_coBgmFadeInOut);
+                _coBgmFadeInOut = StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.Level1));
+
                 OnEnterUnknownRoom();
                 break;
         }
@@ -171,6 +197,10 @@ public class RoomManager : MonoBehaviour, IRegisterable
     {
         if(isBossGoable)
         {
+            if (_coBgmFadeInOut != null)
+                StopCoroutine(_coBgmFadeInOut);
+            _coBgmFadeInOut = StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.BossMeet));
+
             battleManager.Player.PlayerStat.Height++;
 
             battleManager.Player.gameObject.SetActive(true);

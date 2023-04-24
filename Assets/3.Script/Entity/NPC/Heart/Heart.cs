@@ -22,6 +22,8 @@ public class Heart : MonoBehaviour
 
     public void Awake()
     {
+        // 소리 초기화
+        GameManager.Sound.StopBgm();
         // 대화 초기화
         dialogs = new List<Dialog>();
         dialogIndex = 0;
@@ -33,7 +35,7 @@ public class Heart : MonoBehaviour
         heartComment.SetActive(true);
         // UI초기화
         GameManager.UI.InitSelectedButton();
-        GameManager.UI.ClearUI();
+        GameManager.UI.PopAllUI();
         // 플레이어 상태 초기화
         battleManager.Player.PlayerStat.IsBattle(false);
 
@@ -96,4 +98,12 @@ public class Heart : MonoBehaviour
         gameScoreUI.GameClear();
         GameManager.UI.ShowThisUI(gameScoreUI);
     }
+
+
+    // 애니메이션 이벤트
+    private void PlaySe()
+    {
+        GameManager.Sound.PlaySE(ESE.Heart);
+    }
+
 }

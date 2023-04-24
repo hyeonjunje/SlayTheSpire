@@ -31,6 +31,8 @@ public class GameScoreUI : BaseUI
     {
         base.Show();
 
+        StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.PlayerDead));
+
         _scoreUnitParent.DestroyAllChild();
 
         GameScoreUnit scoreUnit1 = Instantiate(_scoreUnitPrefab, _scoreUnitParent);

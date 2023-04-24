@@ -137,6 +137,8 @@ public class BattleManager : MonoBehaviour, IRegisterable
         }
         else if(Player.PlayerStat.Height >= 16)  // º¸½º¸¦ ²£´Ù...
         {
+            StartCoroutine(GameManager.Sound.FadeInOutAudioSource(EBGM.BossClear));
+
             GameManager.UI.ShowThisUI(inGoEndingUI);
         }
         else
