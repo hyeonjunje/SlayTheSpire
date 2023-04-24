@@ -120,6 +120,10 @@ public class TipUI : MonoBehaviour
                 _rectTransform.anchoredPosition = new Vector2(-width / 2, -height / 2);
                 break;
         }
+
+        // 위치만 바꿔주고 가장 위에 보이게 다시 설정
+        transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>());
+        transform.SetAsLastSibling();
     }
 
     private int CheckContent(string content)

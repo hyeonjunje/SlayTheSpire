@@ -11,6 +11,7 @@ public enum ECardUsage
     Gain,     // 얻기
     Enforce,  // 강화
     DisCard,  // 제거
+    Sell,     // 판매
 }
 
 public class BaseCard : MonoBehaviour
@@ -26,6 +27,9 @@ public class BaseCard : MonoBehaviour
     // 온클릭 함수
     public Action onClickAction;
 
+    // 상점 시 상인의 손이 따라오게 만들려고 만듬
+    public System.Action<Vector3> onPointerEnter;
+
     [SerializeField]
     private CardController _cardController;
     [SerializeField]
@@ -35,6 +39,7 @@ public class BaseCard : MonoBehaviour
     private CardHolder _cardHolder;
     private CardData _cardData;   // 카드 데이터
 
+    public CardData CardData => _cardData;
     public BaseCardState CurrentState => _baseCardStateFactory.CurrentState;
     public CardHolder  CardHolder => _cardHolder;
     public CardController CardController => _cardController;
