@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class CardHolder : MonoBehaviour
@@ -21,13 +22,20 @@ public class CardHolder : MonoBehaviour
     private Transform _cardExtinctionTransform; // 카드 소멸 위치
 
     [SerializeField]
-    private List<BaseCard> _cardDeck;  // 카드 덱
+    private Text _cardDeckCountText;
     [SerializeField]
-    private List<BaseCard> _cardHands; // 카드 패
+    private Text _cardCemetryCountText;
     [SerializeField]
-    private List<BaseCard> _cardCemetry; // 카드 묘지
+    private Text _cardExtinctionCountText; 
+
     [SerializeField]
-    private List<BaseCard> _cardExtinction; // 카드 소멸
+    private MyList<BaseCard> _cardDeck;  // 카드 덱
+    [SerializeField]
+    private MyList<BaseCard> _cardHands; // 카드 패
+    [SerializeField]
+    private MyList<BaseCard> _cardCemetry; // 카드 묘지
+    [SerializeField]
+    private MyList<BaseCard> _cardExtinction; // 카드 소멸
 
     [SerializeField]
     private BezierCurve _bezierCurve;
@@ -95,10 +103,22 @@ public class CardHolder : MonoBehaviour
             Destroy(card.gameObject);
         }
 
-        _cardDeck = new List<BaseCard>();
-        _cardHands = new List<BaseCard>();
-        _cardCemetry = new List<BaseCard>();
-        _cardExtinction = new List<BaseCard>();
+        _cardExtinctionTransform.gameObject.SetActive(false);
+
+        _cardDeck = new MyList<BaseCard>();
+        _cardHands = new MyList<BaseCard>();
+        _cardCemetry = new MyList<BaseCard>();
+        _cardExtinction = new MyList<BaseCard>();
+
+        _cardDeck.onChangeList = null;
+        _cardHands.onChangeList = null;
+        _cardCemetry.onChangeList = null;
+        _cardExtinction.onChangeList = null;
+        
+        _cardDeck.onChangeList += ShowCardCount;
+        _cardHands.onChangeList += ShowCardCount;
+        _cardCemetry.onChangeList += ShowCardCount;
+        _cardExtinction.onChangeList += ShowCardCount;
 
         _temporaryList = new List<BaseCard>();
 
@@ -121,8 +141,15 @@ public class CardHolder : MonoBehaviour
         Util.ShuffleList(_cardDeck);
     }
 
-    // 일시적으로 생성
-    public void AddCardTemporary(BaseCard card)
+    private void ShowCardCount()
+    {
+        _cardDeckCountText.text = _cardDeck.Count.ToString();
+        _cardCemetryCountText.text = _cardCemetry.Count.ToString();
+        _cardExtinctionCountText.text = _cardExtinction.Count.ToString();
+    }
+
+// 일시적으로 생성
+public void AddCardTemporary(BaseCard card)
     {
         card.transform.localPosition = _cardDeckTransform.localPosition;
         card.transform.localEulerAngles = Vector3.zero;
