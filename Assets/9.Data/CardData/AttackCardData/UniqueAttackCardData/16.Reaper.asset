@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
+  m_Name: 16.Reaper
+  m_EditorClassIdentifier: 
+  id: 16
+  cardImage: {fileID: 6452696469822577754, guid: ef6bd3b516fb3414c95fc864d0cc4cf5, type: 3}
+  cardName: "\uC0AC\uC2E0"
+  cost: 2
+  cardType: 0
+  cardTypeString: "\uACF5\uACA9"
+  cardExplanation: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uD53C\uD574\uB97C 4\n\uC90D\uB2C8\uB2E4.
+    \uD53C\uD574\uB9CC\uD07C\n\uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4.\n\uC18C\uBA78."
+  cardGrade: 2
+  isBezierCurve: 0
+  isExtinction: 1
+  cardFrameData: 7
+  useEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
+        m_TargetAssemblyTypeName: AttackCardEffect, Assembly-CSharp
+        m_MethodName: Reaper
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enforcedCardName: "\uC0AC\uC2E0+"
+  enforcedCardCost: 2
+  enforcedCardExplanation: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uD53C\uD574\uB97C 5\n\uC90D\uB2C8\uB2E4.
+    \uD53C\uD574\uB9CC\uD07C\n\uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4.\n\uC18C\uBA78."
+  enforcedUseEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
+        m_TargetAssemblyTypeName: AttackCardEffect, Assembly-CSharp
+        m_MethodName: ReaperPlus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

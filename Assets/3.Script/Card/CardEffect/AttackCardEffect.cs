@@ -198,4 +198,25 @@ public class AttackCardEffect : BaseCardEffect
     }
 
     // ¸ùµÕÀÌÁú
+    public void Bludgeon()
+    {
+        targetEnemy.Hit(21 + power, player);
+    }
+    public void BludgeonPlus()
+    {
+        targetEnemy.Hit(42 + power, player);
+    }
+
+    // »ç½Å
+    public void Reaper()
+    {
+        enemies.ForEach(enemy => enemy.Hit(4 + power, player));
+        player.PlayerStat.CurrentHp += (4 + power) * enemies.Count;
+    }
+    public void ReaperPlus()
+    {
+        enemies.ForEach(enemy => enemy.Hit(5 + power, player));
+        player.PlayerStat.CurrentHp += (5 + power) * enemies.Count;
+
+    }
 }

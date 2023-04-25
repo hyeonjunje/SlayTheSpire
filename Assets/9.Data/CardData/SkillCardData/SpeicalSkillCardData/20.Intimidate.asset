@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
+  m_Name: 20.Intimidate
+  m_EditorClassIdentifier: 
+  id: 20
+  cardImage: {fileID: -5393550468165519912, guid: 887226e3d1d2c4341a8653d482269158, type: 3}
+  cardName: "\uC704\uC555"
+  cost: 0
+  cardType: 1
+  cardTypeString: "\uC2A4\uD0AC"
+  cardExplanation: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uC57D\uD654\uB97C 1\n\uBD80\uC5EC\uD569\uB2C8\uB2E4.\n\uC18C\uBA78"
+  cardGrade: 1
+  isBezierCurve: 0
+  isExtinction: 1
+  cardFrameData: 6
+  useEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
+        m_TargetAssemblyTypeName: SkillCardEffect, Assembly-CSharp
+        m_MethodName: Intimidate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enforcedCardName: "\uC704\uC555+"
+  enforcedCardCost: 0
+  enforcedCardExplanation: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uC57D\uD654\uB97C 2\n\uBD80\uC5EC\uD569\uB2C8\uB2E4.\n\uC18C\uBA78."
+  enforcedUseEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
+        m_TargetAssemblyTypeName: SkillCardEffect, Assembly-CSharp
+        m_MethodName: IntimidatePlus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

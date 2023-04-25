@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
+  m_Name: 15.Bludgeon
+  m_EditorClassIdentifier: 
+  id: 15
+  cardImage: {fileID: 3751014855367143029, guid: 0434d67f1627c05408bf6e37e8782abe, type: 3}
+  cardName: "\uBABD\uB465\uC774\uC9C8"
+  cost: 3
+  cardType: 0
+  cardTypeString: "\uACF5\uACA9"
+  cardExplanation: "\uD53C\uD574\uB97C 32 \uC90D\uB2C8\uB2E4."
+  cardGrade: 2
+  isBezierCurve: 1
+  isExtinction: 0
+  cardFrameData: 7
+  useEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
+        m_TargetAssemblyTypeName: AttackCardEffect, Assembly-CSharp
+        m_MethodName: Bludgeon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enforcedCardName: "\uBABD\uB465\uC774\uC9C8+"
+  enforcedCardCost: 3
+  enforcedCardExplanation: "\uD53C\uD574\uB97C 42 \uC90D\uB2C8\uB2E4."
+  enforcedUseEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
+        m_TargetAssemblyTypeName: AttackCardEffect, Assembly-CSharp
+        m_MethodName: BludgeonPlus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

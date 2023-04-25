@@ -3467,27 +3467,29 @@ MonoBehaviour:
   allCardList:
   - {fileID: 11400000, guid: 2a226941b8ca1174aacae9bc284d2dab, type: 2}
   - {fileID: 11400000, guid: 144ad62a6eaa28b4193673b3df86c807, type: 2}
-  - {fileID: 11400000, guid: 7fb5cb2be8541bc469a334b232811a70, type: 2}
   - {fileID: 11400000, guid: 5a4d2ba5f59c4424d94eb86c7038e140, type: 2}
-  - {fileID: 11400000, guid: f01c7837330c8de4482b7af0fa8720a7, type: 2}
   - {fileID: 11400000, guid: 943bbf84a10ede2498855e0ead188ee0, type: 2}
   - {fileID: 11400000, guid: cf70333bb05b5d8438457ec3f1f22404, type: 2}
-  - {fileID: 11400000, guid: 8b0bfaabf7480994a80ad050409b509c, type: 2}
   - {fileID: 11400000, guid: 836923f77e3a4154180a67281d81bafc, type: 2}
   - {fileID: 11400000, guid: 108f417ac2ab55c4391d1449d3dd4ccf, type: 2}
-  - {fileID: 11400000, guid: 6f75fe431fd033c4a80d1d30e2ddbce1, type: 2}
   - {fileID: 11400000, guid: 11d4da387f654b64981417cd390047d8, type: 2}
   - {fileID: 11400000, guid: 0d8eab8d45c716248b63dfbe0fd61dad, type: 2}
   - {fileID: 11400000, guid: 13dd17b36b14d3a419a020db35caf2c9, type: 2}
   - {fileID: 11400000, guid: c69e89b8846afe440b4314f75bcb4d92, type: 2}
-  - {fileID: 11400000, guid: 5a009b96ae9bf2346a6cb7eab90b6a9e, type: 2}
+  - {fileID: 11400000, guid: d563bf227a799404fa15fd1487626048, type: 2}
+  - {fileID: 11400000, guid: ec5bb9fa5e0877442b876a62c8c08da0, type: 2}
+  - {fileID: 11400000, guid: 63e310700528c0d4b83d58beee6960f3, type: 2}
+  - {fileID: 11400000, guid: f07d4d6fd86f9b6489dcf4ca775c2b74, type: 2}
+  - {fileID: 11400000, guid: a30db034e30636042bd0cb79cfd403b7, type: 2}
   - {fileID: 11400000, guid: 12bbe528be46e9644a7711971dda0345, type: 2}
-  - {fileID: 11400000, guid: 4e6d530cdcde4de4a9fc6139ba8f8b9a, type: 2}
-  - {fileID: 11400000, guid: 5ab5ca20eaaf57a4d9df98c9e1d73c14, type: 2}
-  - {fileID: 11400000, guid: 44222e482718fce4185a40000dfba2bb, type: 2}
   - {fileID: 11400000, guid: 6f9d3dc4ab4512c4693615354972671a, type: 2}
-  - {fileID: 11400000, guid: 39e277f245c98c64b87879c7c2ae9813, type: 2}
-  - {fileID: 11400000, guid: 6bde7b398049e4e47b3ac0f63df1649c, type: 2}
+  - {fileID: 11400000, guid: df1d91c3499685243b0bd133fab36021, type: 2}
+  - {fileID: 11400000, guid: 7d3d7ddef0a7a754aafc8a1a9b816fa6, type: 2}
+  - {fileID: 11400000, guid: 9607ee249338fce4b90505a9187baff3, type: 2}
+  - {fileID: 11400000, guid: 5a46a91fb67f3bc46a340c0b2196ab28, type: 2}
+  - {fileID: 11400000, guid: 9f940a664289c144db74c85b85ec75f1, type: 2}
+  - {fileID: 11400000, guid: a2b3a40ff9ba570449214f747e59c957, type: 2}
+  - {fileID: 11400000, guid: 78020fd6d4e895c4e86ca5ad43189bb2, type: 2}
   abnormalStatusCardData:
   - {fileID: 11400000, guid: 29320ee3af6213049a49d31c0aaeb3c8, type: 2}
   cardPercentage: 32000000230000000f000000

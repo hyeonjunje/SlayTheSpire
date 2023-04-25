@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
+  m_Name: 21.Entrench
+  m_EditorClassIdentifier: 
+  id: 21
+  cardImage: {fileID: 3937048335420172050, guid: 62e6381cf8134fe46b7bfd29b34d0e44, type: 3}
+  cardName: "\uCC38\uD638"
+  cost: 2
+  cardType: 1
+  cardTypeString: "\uC2A4\uD0AC"
+  cardExplanation: "\uBC29\uC5B4\uB3C4\uAC00 2\uBC30\uB85C \n\uC99D\uAC00\uD569\uB2C8\uB2E4."
+  cardGrade: 1
+  isBezierCurve: 0
+  isExtinction: 0
+  cardFrameData: 6
+  useEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
+        m_TargetAssemblyTypeName: SkillCardEffect, Assembly-CSharp
+        m_MethodName: Entrench
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enforcedCardName: "\uCC38\uD638+"
+  enforcedCardCost: 1
+  enforcedCardExplanation: "\uBC29\uC5B4\uB3C4\uAC00 2\uBC30\uB85C\n\uC99D\uAC00\uD569\uB2C8\uB2E4."
+  enforcedUseEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
+        m_TargetAssemblyTypeName: SkillCardEffect, Assembly-CSharp
+        m_MethodName: EntrenchPlus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

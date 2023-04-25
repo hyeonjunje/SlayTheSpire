@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
+  m_Name: 10.Thunderclap
+  m_EditorClassIdentifier: 
+  id: 10
+  cardImage: {fileID: 2088710401218125232, guid: 8d9740ccc8f1575438993ded872c07c8, type: 3}
+  cardName: "\uCC9C\uB465"
+  cost: 1
+  cardType: 0
+  cardTypeString: "\uACF5\uACA9"
+  cardExplanation: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uD53C\uD574\uB97C 4\uC8FC\uACE0\n\uCDE8\uC57D
+    1 \uC744 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
+  cardGrade: 0
+  isBezierCurve: 0
+  isExtinction: 0
+  cardFrameData: 1
+  useEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
+        m_TargetAssemblyTypeName: CommonAttackCardEffect, Assembly-CSharp
+        m_MethodName: Thunderclap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enforcedCardName: "\uCC9C\uB465+"
+  enforcedCardCost: 1
+  enforcedCardExplanation: "\uC801 \uC804\uCCB4\uC5D0\uAC8C \uD53C\uD574\uB97C 7\uC8FC\uACE0\n\uCDE8\uC57D\uC744
+    1 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
+  enforcedUseEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 360811604901304999, guid: c1fa9426fd30d1444ab4d26c6f5ac555, type: 3}
+        m_TargetAssemblyTypeName: CommonAttackCardEffect, Assembly-CSharp
+        m_MethodName: ThunderclapPlus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

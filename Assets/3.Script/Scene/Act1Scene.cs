@@ -49,11 +49,11 @@ public class Act1Scene : BaseScene
         _player.AddCard(cardGenerator.GenerateCard(1));
         _player.AddCard(cardGenerator.GenerateCard(1));
         _player.AddCard(cardGenerator.GenerateCard(1));   // 타격
-        _player.AddCard(cardGenerator.GenerateCard(33));  // 수비
-        _player.AddCard(cardGenerator.GenerateCard(33));
-        _player.AddCard(cardGenerator.GenerateCard(33));
-        _player.AddCard(cardGenerator.GenerateCard(33));
-        _player.AddCard(cardGenerator.GenerateCard(33));
+        _player.AddCard(cardGenerator.GenerateCard(17));  // 수비
+        _player.AddCard(cardGenerator.GenerateCard(17));
+        _player.AddCard(cardGenerator.GenerateCard(17));
+        _player.AddCard(cardGenerator.GenerateCard(17));
+        _player.AddCard(cardGenerator.GenerateCard(17));
         _player.AddCard(cardGenerator.GenerateCard(2));  // 강타
     }
 

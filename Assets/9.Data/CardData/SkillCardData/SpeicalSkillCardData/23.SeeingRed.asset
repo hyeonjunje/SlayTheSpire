@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5190edd7bf5ac3a4cba3ee285cbd0a2b, type: 3}
+  m_Name: 23.SeeingRed
+  m_EditorClassIdentifier: 
+  id: 23
+  cardImage: {fileID: 2698181256295135377, guid: 887226e3d1d2c4341a8653d482269158, type: 3}
+  cardName: "\uD608\uC548"
+  cost: 1
+  cardType: 1
+  cardTypeString: "\uC2A4\uD0AC"
+  cardExplanation: "\uC5D0\uB108\uC9C0 2\uAC1C\uB97C \uC5BB\uC2B5\uB2C8\uB2E4.\n\uC18C\uBA78."
+  cardGrade: 1
+  isBezierCurve: 0
+  isExtinction: 1
+  cardFrameData: 6
+  useEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
+        m_TargetAssemblyTypeName: SkillCardEffect, Assembly-CSharp
+        m_MethodName: SeeingRed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enforcedCardName: "\uD608\uC548+"
+  enforcedCardCost: 0
+  enforcedCardExplanation: "\uC5D0\uB108\uC9C0 2\uAC1C\uB97C \uC5BB\uC2B5\uB2C8\uB2E4.\n\uC18C\uBA78."
+  enforcedUseEffect:
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4121548975929889664, guid: 4ee759c2e5f84b04c89a1a6c82e9a96d, type: 3}
+        m_TargetAssemblyTypeName: SkillCardEffect, Assembly-CSharp
+        m_MethodName: SeeingRedPlus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
