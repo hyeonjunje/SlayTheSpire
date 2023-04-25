@@ -79,6 +79,10 @@ public class Slime : Enemy
     protected override void Awake()
     {
         base.Awake();
+        if(_enemyGrade == EEnemyGrade.Boss)
+        {
+            GameManager.Sound.PlaySE(ESE.KingSlime);
+        }
     }
 
     protected override void OnEndBattle()

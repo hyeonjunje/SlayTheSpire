@@ -113,11 +113,16 @@ public class EnemyPattern : MonoBehaviour
                 _enemy.CharacterStat.Shield += _currentPattern.amount + _enemy.CharacterStat.Agility;
                 break;
             case EPatternType.Debuff:
+                GameManager.Sound.PlaySE(ESE.Debuff);
+                GetIndent();
+                break;
             case EPatternType.Buff:
+                GameManager.Sound.PlaySE(ESE.Buff);
                 GetIndent();
                 break;
             case EPatternType.DefendBuff:
                 // 힘 3 방어 6
+                GameManager.Sound.PlaySE(ESE.Buff);
                 GetIndent();
                 _enemy.CharacterStat.Shield += _currentPattern.secondAmount;
                 break;
@@ -128,6 +133,7 @@ public class EnemyPattern : MonoBehaviour
                 break;
             case EPatternType.AttackDebuff:
                 battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power, _enemy);
+                GameManager.Sound.PlaySE(ESE.SlimeAttack);
                 // 슬라임 카드
                 for (int i = 0; i < _currentPattern.secondAmount; i++)
                     battleManager.Player.cardHolder.AddCardTemporary(cardGenerator.GenerateAbnormalStatusCard("점액투성이"));

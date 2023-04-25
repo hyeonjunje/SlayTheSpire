@@ -42,6 +42,16 @@ public enum ESE
     Sleep,           // 휴식처에서 자는 소리
     MerchantAngry,   // 상점 아저씨 화난 소리
     MerchantLaugh,   // 상점 아저씨 웃는 소리
+    NormalAttack,    // 기본 공격
+    StrongerAttack,  // 더 강한 공격
+    HeavyAttack,     // 더 더 강한 공격
+    GainDefense,     // 방어도 얻기
+    DefenseBreak,    // 방어도 있는 적 때리기
+    Buff,            // 버프
+    Debuff,          // 디버프
+    EnemyAttack,     // 적 공격
+    SlimeAttack,     // 점액투성이 카드 넣기
+    KingSlime,       // 킹슬라임 울음소리
     Size,
 }
 
@@ -87,6 +97,7 @@ public class SoundManager
 
         _seDic = new Dictionary<ESE, AudioClip>();
 
+        // 타이틀 씬
         _seDic[ESE.Heart] = Resources.Load<AudioClip>("SE/SLS_SFX_HeartBeat_Resonant_v1");
         _seDic[ESE.UIHover] = Resources.Load<AudioClip>("SE/SOTE_SFX_UIHover_v2");
         _seDic[ESE.UIClick] = Resources.Load<AudioClip>("SE/SOTE_SFX_UIClick_2_v2");
@@ -95,6 +106,7 @@ public class SoundManager
         _seDic[ESE.DefectSelected] = Resources.Load<AudioClip>("SE/STS_SFX_DefectBeam_v1");
         _seDic[ESE.WatcherSelected] = Resources.Load<AudioClip>("SE/STS_SFX_Watcher-Select_v2");
         
+        // act1 씬
         _seDic[ESE.CardSelect] = Resources.Load<AudioClip>("SE/SOTE_SFX_CardSelect_v2");
         _seDic[ESE.BuyItem] = Resources.Load<AudioClip>("SE/SOTE_SFX_CashRegister");
         _seDic[ESE.OpenTreasureBox] = Resources.Load<AudioClip>("SE/SOTE_SFX_ChestOpen_v2");
@@ -110,6 +122,20 @@ public class SoundManager
         _seDic[ESE.Sleep] = Resources.Load<AudioClip>("SE/STS_SleepJingle_1a_NewMix_v1");
         _seDic[ESE.MerchantAngry] = Resources.Load<AudioClip>("SE/STS_VO_Merchant_2b");
         _seDic[ESE.MerchantLaugh] = Resources.Load<AudioClip>("SE/STS_VO_Merchant_3a");
+
+        // 전투
+        _seDic[ESE.NormalAttack] = Resources.Load<AudioClip>("SE/STS_SFX_DaggerThrow_2_2");
+        _seDic[ESE.StrongerAttack] = Resources.Load<AudioClip>("SE/SOTE_SFX_IronClad_Atk_RR2_v2");
+        _seDic[ESE.HeavyAttack] = Resources.Load<AudioClip>("SE/SOTE_SFX_HeavyBlunt_v2");
+        _seDic[ESE.GainDefense] = Resources.Load<AudioClip>("SE/SOTE_SFX_GainDefense_RR1_v3");
+        _seDic[ESE.DefenseBreak] = Resources.Load<AudioClip>("SE/SOTE_SFX_DefenseBreak_v2");
+        _seDic[ESE.Buff] = Resources.Load<AudioClip>("SE/SOTE_SFX_Buff_1_v1");
+        _seDic[ESE.Debuff] = Resources.Load<AudioClip>("SE/SOTE_SFX_Debuff_1_v1");
+
+        // 적
+        _seDic[ESE.EnemyAttack] = Resources.Load<AudioClip>("SE/STS_SFX_Shiv2_v1");
+        _seDic[ESE.SlimeAttack] = Resources.Load<AudioClip>("SE/STS_SFX_SlimedAtk_v2");
+        _seDic[ESE.KingSlime] = Resources.Load<AudioClip>("SE/STS_VO_SlimeBoss_1a");
     }
 
     // 효과음 재생

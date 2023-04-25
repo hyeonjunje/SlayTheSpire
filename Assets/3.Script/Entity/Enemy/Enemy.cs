@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public class Enemy : Character, IPointerEnterHandler, IPointerExitHandler
 {
-    private enum EEnemyGrade { common, Elite, Boss}
+    protected enum EEnemyGrade { common, Elite, Boss}
     [SerializeField]
-    private EEnemyGrade _enemyGrade;
+    protected EEnemyGrade _enemyGrade;
     [SerializeField]
     private GameObject _reticle;
 

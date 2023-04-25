@@ -86,6 +86,12 @@ public class CharacterStat : MonoBehaviour
         {
             int shieldAmount = value - _shield;
 
+            // 방어도 변화량이 양수면 방어막 얻는 소리 재생
+            if(shieldAmount > 0)
+            {
+                GameManager.Sound.PlaySE(ESE.GainDefense);
+            }
+
             // 손상일 때 방어력 25% 감소
             if(shieldAmount > 0 && _character.indent[(int)EIndent.damaged])
             {
@@ -126,6 +132,7 @@ public class CharacterStat : MonoBehaviour
 
         if(Shield > 0)
         {
+            GameManager.Sound.PlaySE(ESE.DefenseBreak);  // 방어막 때리는 소리
             if(Shield >= damage)
             {
                 Shield -= damage;
@@ -135,6 +142,23 @@ public class CharacterStat : MonoBehaviour
             {
                 damage -= Shield;
                 Shield = 0;
+            }
+        }
+        else
+        {
+            // 플레이어가 때리는거면 10보다 큰 공격이라면 더 강한 공격 소리
+            if(!_isPlayer)
+            {
+                if (damage >= 20)
+                    GameManager.Sound.PlaySE(ESE.HeavyAttack);
+                else if (damage >= 10)
+                    GameManager.Sound.PlaySE(ESE.StrongerAttack);
+                else
+                    GameManager.Sound.PlaySE(ESE.NormalAttack);
+            }
+            else
+            {
+                GameManager.Sound.PlaySE(ESE.EnemyAttack);
             }
         }
         
