@@ -34,6 +34,7 @@ public class EnemyPattern : MonoBehaviour
 
     private bool isActFirst = true;
 
+    private VFXGenerator vfxGenerator => ServiceLocator.Instance.GetService<VFXGenerator>();
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     private CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
 
@@ -134,6 +135,7 @@ public class EnemyPattern : MonoBehaviour
             case EPatternType.AttackDebuff:
                 battleManager.Player.Hit(_currentPattern.amount + _enemy.CharacterStat.Power, _enemy);
                 GameManager.Sound.PlaySE(ESE.SlimeAttack);
+                vfxGenerator.CreateVFX(EVFX.Slime, battleManager.Player.transform.position);
                 // 슬라임 카드
                 for (int i = 0; i < _currentPattern.secondAmount; i++)
                     battleManager.Player.cardHolder.AddCardTemporary(cardGenerator.GenerateAbnormalStatusCard("점액투성이"));

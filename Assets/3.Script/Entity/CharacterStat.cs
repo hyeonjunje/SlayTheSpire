@@ -25,8 +25,8 @@ public class CharacterStat : MonoBehaviour
     [SerializeField]
     private bool _isPlayer = false;
 
-    
 
+    private VFXGenerator vfxGenerator => ServiceLocator.Instance.GetService<VFXGenerator>();
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
     public int MaxHp
@@ -89,6 +89,7 @@ public class CharacterStat : MonoBehaviour
             // 방어도 변화량이 양수면 방어막 얻는 소리 재생
             if(shieldAmount > 0)
             {
+                vfxGenerator.CreateVFX(EVFX.GainShield, transform.position);
                 GameManager.Sound.PlaySE(ESE.GainDefense);
             }
 
@@ -160,6 +161,18 @@ public class CharacterStat : MonoBehaviour
             {
                 GameManager.Sound.PlaySE(ESE.EnemyAttack);
             }
+        }
+
+        if (_isPlayer)
+        {
+            vfxGenerator.CreateVFX(EVFX.EnemyAttack, transform.position);
+        }
+        else
+        {
+            if(damage > 10)
+                vfxGenerator.CreateVFX(EVFX.PlayerStrongAttack, transform.position);
+            else
+                vfxGenerator.CreateVFX(EVFX.PlayerAttack, transform.position);
         }
         
         // 플레이어가 유물 토리이가 있고 데미지가 1보다 크고 5보다 작거나 같으면 데미지는 1이 된다.

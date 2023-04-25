@@ -10,7 +10,7 @@ public class OptionUI : BaseUI
     [SerializeField]
     private Text bgmVolumeText, seVolumeText;
     [SerializeField]
-    private Toggle cameraShake, cheatMode;
+    private Toggle cameraShake, vfxActive, cheatMode;
 
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
@@ -35,6 +35,8 @@ public class OptionUI : BaseUI
         seVolume.onValueChanged.AddListener(delegate { ValueChangeSEVolume(); });
         cameraShake.isOn = true;
         cameraShake.onValueChanged.AddListener(delegate { ValueChangeCameraShakeToggle(); });
+        vfxActive.isOn = true;
+        vfxActive.onValueChanged.AddListener(delegate { ValueChangeVFXActiveToggle(); });
         cheatMode.isOn = false;
         cheatMode.onValueChanged.AddListener(delegate { ValueChangeCheatToggle(); });
     }
@@ -58,6 +60,11 @@ public class OptionUI : BaseUI
     private void ValueChangeCameraShakeToggle()
     {
         WindowShake.Instance.isShake = cameraShake.isOn;
+    }
+
+    private void ValueChangeVFXActiveToggle()
+    {
+        ServiceLocator.Instance.GetService<VFXGenerator>().isVFX = vfxActive.isOn;
     }
 
     private void ValueChangeCheatToggle()

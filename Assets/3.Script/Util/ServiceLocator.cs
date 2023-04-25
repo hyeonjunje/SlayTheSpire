@@ -37,6 +37,8 @@ public class ServiceLocator : MonoBehaviour
     private MapGenerator mapGenerator;
     [SerializeField]
     private RelicGenerator relicGenerator;
+    [SerializeField]
+    private VFXGenerator vfxGenerator;
 
 
     private void Init()
@@ -49,6 +51,7 @@ public class ServiceLocator : MonoBehaviour
         services[typeof(CardGenerator)] = cardGenerator;
         services[typeof(MapGenerator)] = mapGenerator;
         services[typeof(RelicGenerator)] = relicGenerator;
+        services[typeof(VFXGenerator)] = vfxGenerator;
 
         battleManager.Init();
         relicGenerator.Init();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class CommonAttackCardEffect : BaseCardEffect
+public class AttackCardEffect : BaseCardEffect
 {
     [SerializeField]
     private IndentData[] indentData;
@@ -35,17 +35,6 @@ public class CommonAttackCardEffect : BaseCardEffect
         targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weak], 3);
     }
 
-    // ºÐ³ë
-    public void Anger()
-    {
-        targetEnemy.Hit(6 + power, player);
-    }
-
-    public void AngerPlus()
-    {
-        targetEnemy.Hit(8 + power, player);
-    }
-
     // ¸öÅë¹ÚÄ¡±â
     public void BodySlam()
     {
@@ -57,16 +46,6 @@ public class CommonAttackCardEffect : BaseCardEffect
         targetEnemy.Hit(player.PlayerStat.Shield + power, player);
     }
 
-    // °Ýµ¹
-    public void Clash()
-    {
-        targetEnemy.Hit(14 + power, player);
-    }
-
-    public void ClashPlus()
-    {
-        targetEnemy.Hit(18 + power, player);
-    }
 
     // Àý´Ü
     public void Cleave()
@@ -94,16 +73,6 @@ public class CommonAttackCardEffect : BaseCardEffect
         targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weakening], 3);
     }
 
-    // ¹ÚÄ¡±â
-    public void Headbutt()
-    {
-        targetEnemy.Hit(9 + power, player);
-    }
-
-    public void HeadButtPlus()
-    {
-        targetEnemy.Hit(12 + power, player);
-    }
 
     // ´ë°Ë
     public void HeavyBlade()
@@ -127,17 +96,6 @@ public class CommonAttackCardEffect : BaseCardEffect
     {
         targetEnemy.Hit(7 + power, player);
         player.PlayerStat.Shield += (7 + agility);
-    }
-
-    // ¿Ïº®ÇÑ Å¸°Ý
-    public void PerfectedStrike()
-    {
-        targetEnemy.Hit(6 + power, player);
-    }
-
-    public void PerfectedStrikePlus()
-    {
-        targetEnemy.Hit(6 + power, player);
     }
 
     // Æû¸áÅ¸°Ý
@@ -197,13 +155,47 @@ public class CommonAttackCardEffect : BaseCardEffect
         targetEnemy.Hit(7 + power, player);
     }
 
-    // ³­ÆøÇÑ Å¸°Ý
-    public void WildStrike()
+    // Ç÷·ù
+    public void Hemokinesis()
     {
-        targetEnemy.Hit(12 + power, player);
+        targetEnemy.Hit(15 + power, player);
+        player.PlayerStat.CurrentHp -= 2;
     }
-    public void WildStrikePlus()
+    public void HemokinesisPlus()
     {
-        targetEnemy.Hit(17 + power, player);
+        targetEnemy.Hit(20 + power, player);
+        player.PlayerStat.CurrentHp -= 2;
     }
+
+    // ¿¬Å¸
+    public void Pummel()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            targetEnemy.Hit(2 + power, player);
+        }
+    }
+    public void PummelPlus()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            targetEnemy.Hit(2 + power, player);
+        }
+    }
+
+    // ¾îÆÛÄÆ
+    public void Uppercut()
+    {
+        targetEnemy.Hit(13 + power, player);
+        targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weak], 1);
+        targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weakening], 1);
+    }
+    public void UppercutPlus()
+    {
+        targetEnemy.Hit(13 + power, player);
+        targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weak], 2);
+        targetEnemy.CharacterIndent.AddIndent(indentData[(int)EIndent.Weakening], 2);
+    }
+
+    // ¸ùµÕÀÌÁú
 }
