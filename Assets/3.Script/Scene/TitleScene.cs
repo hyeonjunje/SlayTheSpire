@@ -17,6 +17,8 @@ public class TitleScene : BaseScene
     [SerializeField]
     private float _vibrationForce = 3f;
 
+    private int currentIndex = 0;
+
     private Coroutine _covibration = null;
 
     public override void Init()
@@ -46,6 +48,8 @@ public class TitleScene : BaseScene
     // 버튼에 추가
     public void ShowSelectCharacter(int index)
     {
+        currentIndex = index;
+
         if (_covibration != null)
         {
             StopCoroutine(_covibration);
@@ -73,7 +77,10 @@ public class TitleScene : BaseScene
     // 출정 버튼에 추가
     public void MoveAct1()
     {
-        GameManager.Scene.LoadScene(ESceneName.Act1);
+        if(currentIndex == 0)
+        {
+            GameManager.Scene.LoadScene(ESceneName.Act1);
+        }
     }
 
     private void ExitSelectCharacter()
