@@ -15,6 +15,7 @@ MonoBehaviour:
   indent: 2
   indentSprite: {fileID: 806886098706739559, guid: a2c2113e7dbb3a7408febba3b0ea568b, type: 3}
   indentName: "\uC190\uC0C1"
-  indentExplanation: 
+  indentExplanation: "\uCE74\uB4DC\uC758 \uBC29\uC5B4\uB3C4 \uD68D\uB4DD\uB7C9\uC774\n25%
+    \uAC10\uC18C\uD569\uB2C8\uB2E4."
   isTurn: 1
   isShowTurn: 1

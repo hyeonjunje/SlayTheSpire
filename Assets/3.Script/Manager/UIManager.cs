@@ -125,6 +125,12 @@ public class UIManager
         TipUI.ShowTipUI(title + "\n" + content, tipPos, parent);
     }
 
+    public void ShowTipUI(string title, string content, Vector3 pos, ETipPos tipPos)
+    {
+        TipUI.gameObject.SetActive(true);
+        TipUI.ShowTipUI(title + "\n" + content, pos, tipPos);
+    }
+
     // ³ª¿Â ÆÁUI ¼û±â´Â ÇÔ¼ö
     public void HideTipUI()
     {

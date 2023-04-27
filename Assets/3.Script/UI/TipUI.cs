@@ -70,6 +70,38 @@ public class TipUI : MonoBehaviour
         Positioning(parent, tipPos);
     }
 
+    public void ShowTipUI(string content, Vector3 pos, ETipPos tipPos)
+    {
+        // 초기화 작업
+        _tipObjects.ForEach(elem => Destroy(elem));
+        _tipObjects = new List<GameObject>();
+
+        // 개행수 + 2
+        int rowCount = CheckContent(content) + 2;
+
+        // 개행 수 만큼 크기 맞춰줌
+        _rectTransform.sizeDelta = new Vector2(_width, _heightInRow * rowCount);
+
+        // _tipObjects에 생성한 팁 오브젝트들 관리
+        _tipObjects.Add(Instantiate(_tipTop, tipParent));
+        for (int i = 0; i < rowCount - 2; i++)
+        {
+            _tipObjects.Add(Instantiate(_tipMid, tipParent));
+        }
+        _tipObjects.Add(Instantiate(_tipBot, tipParent));
+
+        // 만든 오브젝트들도 크기 맞춰줌
+        for (int i = 0; i < _tipObjects.Count; i++)
+        {
+            _tipObjects[i].GetComponent<RectTransform>().sizeDelta = new Vector3(_width, _heightInRow * rowCount);
+        }
+
+        // 문자 입력
+        tipText.text = content;
+
+        Positioning(pos, tipPos);
+    }
+
     private void Positioning(Transform parent, ETipPos tipPos)
     {
         transform.SetParent(parent);
@@ -118,6 +150,49 @@ public class TipUI : MonoBehaviour
                 _rectTransform.anchorMin = new Vector2(0f, 0f);
                 _rectTransform.anchorMax = new Vector2(0f, 0f);
                 _rectTransform.anchoredPosition = new Vector2(-width / 2, -height / 2);
+                break;
+        }
+
+        // 위치만 바꿔주고 가장 위에 보이게 다시 설정
+        transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>());
+        transform.SetAsLastSibling();
+    }
+
+    private void Positioning(Vector2 pos, ETipPos tipPos)
+    {
+        float width = _rectTransform.sizeDelta.x;
+        float height = _rectTransform.sizeDelta.y;
+
+        _rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        _rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+
+
+
+        switch (tipPos)
+        {
+            case ETipPos.Up:
+                transform.position = pos + new Vector2(0, height / 2);
+                break;
+            case ETipPos.Down:
+                transform.position = pos + new Vector2(0, -height / 2);
+                break;
+            case ETipPos.Right:
+                transform.position = pos + new Vector2(width / 2, 0);
+                break;
+            case ETipPos.Left:
+                transform.position = pos + new Vector2(-width / 2, 0);
+                break;
+            case ETipPos.UpRight:
+                transform.position = pos + new Vector2(width / 2, height / 2);
+                break;
+            case ETipPos.UpLeft:
+                transform.position = pos + new Vector2(-width / 2, height / 2);
+                break;
+            case ETipPos.DownRight:
+                transform.position = pos + new Vector2(width / 2, -height / 2);
+                break;
+            case ETipPos.DownLeft:
+                transform.position = pos + new Vector2(-width / 2, -height / 2);
                 break;
         }
 
