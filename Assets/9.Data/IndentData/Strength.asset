@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indent: 5
   indentSprite: {fileID: -7667729804185777338, guid: a2c2113e7dbb3a7408febba3b0ea568b, type: 3}
-  indentName: 
+  indentName: "\uD798"
   indentExplanation: "\uC8FC\uB294 \uD53C\uD574\uB7C9\uC744\n\uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
   isTurn: 0
   isShowTurn: 1
