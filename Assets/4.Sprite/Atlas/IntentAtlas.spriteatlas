@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: IntentAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 2318fd787f7457b43ba28665fe518bd8, type: 3}
+    - {fileID: 2800000, guid: 3c03d4bab70cc7f40a0d64c3771f5353, type: 3}
+    - {fileID: 2800000, guid: 6745df4d686c2ba4894bc996ce575386, type: 3}
+    - {fileID: 2800000, guid: 346136b59907f2947a4a86dddb27be99, type: 3}
+    - {fileID: 2800000, guid: 05f97e98771df1d49bafda4ac44b9b41, type: 3}
+    - {fileID: 2800000, guid: f826073cc90bbbd47ac6dd496b829a6a, type: 3}
+    - {fileID: 2800000, guid: e1af00527502fa84b9d9ff6ff6ed62a2, type: 3}
+    - {fileID: 2800000, guid: 167e5e1a9f7329d4582825207900fa09, type: 3}
+    - {fileID: 2800000, guid: f03084b372f3e4e4abd03b95c60d5099, type: 3}
+    - {fileID: 2800000, guid: 59ad019492581e0469a21834ce1ccbb4, type: 3}
+    - {fileID: 2800000, guid: 955fca509948afe409e6a4e5862e47f1, type: 3}
+    - {fileID: 2800000, guid: 4618ee721b1322645863c6667fa82f27, type: 3}
+    - {fileID: 2800000, guid: 544a082f15a78454a9cda6026e599ade, type: 3}
+    - {fileID: 2800000, guid: 96dbb3b36ca552648be1dd8714d2d1c2, type: 3}
+    - {fileID: 2800000, guid: 12bee88206c4a9c48afd3a110d38e977, type: 3}
+    - {fileID: 2800000, guid: 4ac6968660d0d6b478e9a77218cd1098, type: 3}
+    - {fileID: 2800000, guid: dc6259264b209ed4cb598c3de258bcbd, type: 3}
+    - {fileID: 2800000, guid: a573822f960f9bf4897d8cc326aefcfa, type: 3}
+    - {fileID: 2800000, guid: 67b3fac5753e08c4fba02012064698a8, type: 3}
+    - {fileID: 2800000, guid: 2db18d6616bd63945ad63e95dc043329, type: 3}
+    - {fileID: 2800000, guid: e38c9e03a3cd85e45ae45268801d9c83, type: 3}
+    - {fileID: 2800000, guid: 0027bd8b2c1f69543b60c1ec0d64966a, type: 3}
+    - {fileID: 2800000, guid: 30f41c8200c603b4eaf5484eb4396986, type: 3}
+    - {fileID: 2800000, guid: dbcc65a031d40a542ac633a3450f5670, type: 3}
+    - {fileID: 2800000, guid: 5f0cd1c787c22324e97e189baf22b84d, type: 3}
+    - {fileID: 2800000, guid: 532d9ef18420a734792800a20d303f4a, type: 3}
+    - {fileID: 2800000, guid: 75455029db80f8844ac02a7555b04a15, type: 3}
+    - {fileID: 2800000, guid: d4f525a7695c2374e8c01c78c3d5a957, type: 3}
+    - {fileID: 2800000, guid: da3d410a7c8d9ec4daa716490f7f6b16, type: 3}
+    - {fileID: 2800000, guid: ae4374ae25b54c545be799d27cac846c, type: 3}
+    - {fileID: 2800000, guid: 8180a152007ceeb4ba287c055d990b00, type: 3}
+    - {fileID: 2800000, guid: 9125966afb1b6dc4faf6ba3d88d2ccd8, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 955fca509948afe409e6a4e5862e47f1, type: 3}
+  - {fileID: 21300000, guid: dbcc65a031d40a542ac633a3450f5670, type: 3}
+  - {fileID: 21300000, guid: 532d9ef18420a734792800a20d303f4a, type: 3}
+  - {fileID: 21300000, guid: e1af00527502fa84b9d9ff6ff6ed62a2, type: 3}
+  - {fileID: 21300000, guid: 8180a152007ceeb4ba287c055d990b00, type: 3}
+  - {fileID: 21300000, guid: 4618ee721b1322645863c6667fa82f27, type: 3}
+  - {fileID: 21300000, guid: 12bee88206c4a9c48afd3a110d38e977, type: 3}
+  - {fileID: 21300000, guid: 30f41c8200c603b4eaf5484eb4396986, type: 3}
+  - {fileID: 21300000, guid: e38c9e03a3cd85e45ae45268801d9c83, type: 3}
+  - {fileID: 21300000, guid: 96dbb3b36ca552648be1dd8714d2d1c2, type: 3}
+  - {fileID: 21300000, guid: f03084b372f3e4e4abd03b95c60d5099, type: 3}
+  - {fileID: 21300000, guid: 59ad019492581e0469a21834ce1ccbb4, type: 3}
+  - {fileID: 21300000, guid: 346136b59907f2947a4a86dddb27be99, type: 3}
+  - {fileID: 21300000, guid: 67b3fac5753e08c4fba02012064698a8, type: 3}
+  - {fileID: 21300000, guid: dc6259264b209ed4cb598c3de258bcbd, type: 3}
+  - {fileID: 21300000, guid: 2db18d6616bd63945ad63e95dc043329, type: 3}
+  - {fileID: 21300000, guid: 4ac6968660d0d6b478e9a77218cd1098, type: 3}
+  - {fileID: 21300000, guid: d4f525a7695c2374e8c01c78c3d5a957, type: 3}
+  - {fileID: 21300000, guid: 5f0cd1c787c22324e97e189baf22b84d, type: 3}
+  - {fileID: 21300000, guid: 2318fd787f7457b43ba28665fe518bd8, type: 3}
+  - {fileID: 21300000, guid: 05f97e98771df1d49bafda4ac44b9b41, type: 3}
+  - {fileID: 21300000, guid: 75455029db80f8844ac02a7555b04a15, type: 3}
+  - {fileID: 21300000, guid: da3d410a7c8d9ec4daa716490f7f6b16, type: 3}
+  - {fileID: 21300000, guid: 167e5e1a9f7329d4582825207900fa09, type: 3}
+  - {fileID: 21300000, guid: 9125966afb1b6dc4faf6ba3d88d2ccd8, type: 3}
+  - {fileID: 21300000, guid: 3c03d4bab70cc7f40a0d64c3771f5353, type: 3}
+  - {fileID: 21300000, guid: 0027bd8b2c1f69543b60c1ec0d64966a, type: 3}
+  - {fileID: 21300000, guid: f826073cc90bbbd47ac6dd496b829a6a, type: 3}
+  - {fileID: 21300000, guid: 6745df4d686c2ba4894bc996ce575386, type: 3}
+  - {fileID: 21300000, guid: ae4374ae25b54c545be799d27cac846c, type: 3}
+  - {fileID: 21300000, guid: a573822f960f9bf4897d8cc326aefcfa, type: 3}
+  - {fileID: 21300000, guid: 544a082f15a78454a9cda6026e599ade, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - debuff2
+  - placeholder
+  - sleepL
+  - buffVFX2
+  - unknown
+  - debuff2L
+  - debuffVFX3
+  - magicL
+  - escapeL
+  - debuffVFX2
+  - debuff1
+  - debuff1L
+  - buff1
+  - defendL
+  - defendBuff
+  - escape
+  - defend
+  - specialL
+  - sleep
+  - attackBuff
+  - buff1L
+  - special
+  - stun
+  - buffVFX3
+  - unknownL
+  - attackDebuff
+  - magic
+  - buffVFX1
+  - attackDefend
+  - stunL
+  - defendBuffL
+  - debuffVFX1
+  m_RenderDataMap: {}
+  m_Tag: IntentAtlas
+  m_IsVariant: 0
