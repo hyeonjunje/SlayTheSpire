@@ -73,6 +73,7 @@ public class BattleManager : MonoBehaviour, IRegisterable
 
     private RewardManager rewardManager => ServiceLocator.Instance.GetService<RewardManager>();
 
+
     public void Init()
     {
         battleCount = 0;

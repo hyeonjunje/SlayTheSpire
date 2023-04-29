@@ -51,7 +51,7 @@ public class RoomManager : MonoBehaviour, IRegisterable
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
     private RewardManager rewardManager => ServiceLocator.Instance.GetService<RewardManager>();
 
-    private void Awake()
+    public void Init()
     {
         battle1Index = 0;
         battle2Index = 0;
@@ -61,6 +61,17 @@ public class RoomManager : MonoBehaviour, IRegisterable
         secondAct1BattleData.ShuffleList();
         act1UnknownData.ShuffleList();
     }
+
+/*    private void Awake()
+    {
+        battle1Index = 0;
+        battle2Index = 0;
+        unknownIndex = 0;
+
+        firstAct1BattleData.ShuffleList();
+        secondAct1BattleData.ShuffleList();
+        act1UnknownData.ShuffleList();
+    }*/
 
     public void EnterRoom(ERoomType roomType)
     {

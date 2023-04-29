@@ -23,6 +23,11 @@ public class CardGenerator : MonoBehaviour, IRegisterable
     [SerializeField]
     private List<int> cardPercentage;
 
+    public void Init()
+    {
+
+    }
+
     public BaseCard GenerateAbnormalStatusCard(string cardName)
     {
         BaseCard baseCard = Instantiate(_baseCardPrefab, _cardParent);

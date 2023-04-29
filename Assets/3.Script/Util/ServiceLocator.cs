@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IRegisterable
 {
+    public void Init();
 }
 
 public class ServiceLocator : MonoBehaviour
@@ -24,44 +25,24 @@ public class ServiceLocator : MonoBehaviour
 
     private IDictionary<object, IRegisterable> services;
 
-    // manager를 넣어줌
-    [SerializeField]
-    private BattleManager battleManager;
-    [SerializeField]
-    private RewardManager rewardManager;
-    [SerializeField]
-    private RoomManager roomManager;
-    [SerializeField]
-    private CardGenerator cardGenerator;
-    [SerializeField]
-    private MapGenerator mapGenerator;
-    [SerializeField]
-    private RelicGenerator relicGenerator;
-    [SerializeField]
-    private VFXGenerator vfxGenerator;
-
-
     private void Init()
     {
         services = new Dictionary<object, IRegisterable>();
-
-        services[typeof(BattleManager)] = battleManager;
-        services[typeof(RewardManager)] = rewardManager;
-        services[typeof(RoomManager)] = roomManager;
-        services[typeof(CardGenerator)] = cardGenerator;
-        services[typeof(MapGenerator)] = mapGenerator;
-        services[typeof(RelicGenerator)] = relicGenerator;
-        services[typeof(VFXGenerator)] = vfxGenerator;
-
-        battleManager.Init();
-        relicGenerator.Init();
     }
 
-    public T GetService<T>()
+    public T GetService<T>() where T : MonoBehaviour, IRegisterable
     {
         if (!services.ContainsKey(typeof(T)))
         {
-            // Init();
+            // 없으면 자식 중에 있는지 확인하고 초기화해준다.
+            T manager = FindObjectOfType<T>();
+            if(manager != null)
+            {
+                services[typeof(T)] = manager;
+                manager.Init();
+
+                return (T)services[typeof(T)];
+            }
 
             Debug.LogError("ServiceLocator::GetService 없는 키입니다.");
             return default(T);

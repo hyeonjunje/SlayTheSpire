@@ -43,6 +43,11 @@ public class MapGenerator : MonoBehaviour, IRegisterable
 
     private RoomManager roomManager => ServiceLocator.Instance.GetService<RoomManager>();
 
+    public void Init()
+    {
+
+    }
+
     public Room[,] GenerateMap()
     {
         _mapArray = new Room[16, 7];

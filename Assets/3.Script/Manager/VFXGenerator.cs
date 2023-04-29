@@ -26,13 +26,13 @@ public class VFXGenerator : MonoBehaviour, IRegisterable
     // 오브젝트 풀링
     private Dictionary<EVFX, Queue<GameObject>> _pool;
 
-    private void Awake()
+    public void Init()
     {
         isVFX = true;
-        Init();
+        InitPool();
     }
 
-    private void Init()
+    private void InitPool()
     {
         _pool = new Dictionary<EVFX, Queue<GameObject>>();
 

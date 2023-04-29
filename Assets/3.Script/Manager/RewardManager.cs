@@ -37,6 +37,11 @@ public class RewardManager : MonoBehaviour, IRegisterable
     private BattleManager battleManager => ServiceLocator.Instance.GetService<BattleManager>();
 
 
+    public void Init()
+    {
+
+    }
+
     // 보물상자
     public void ShowReward()
     {
