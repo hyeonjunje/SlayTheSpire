@@ -26,23 +26,22 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private Transform _stepPrefab;
     [SerializeField] private Room _roomPrefab;
 
-    [SerializeField] private RectTransform _map;  // »ı¼ºÇÒ ¿ÀºêÁ§Æ®ÀÇ ºÎ¸ğ°¡ µÉ ¿ÀºêÁ§Æ®
+    [SerializeField] private RectTransform _map;  // ìƒì„±í•  ì˜¤ë¸Œì íŠ¸ì˜ ë¶€ëª¨ê°€ ë  ì˜¤ë¸Œì íŠ¸
 
     [SerializeField] private float _mapXSize = 900;
     [SerializeField] private float _mapYSize = 2000;
     [SerializeField] private float _yOffset = 300;
-    [SerializeField] private float _stepDistance = 20f;  // ¹ßÀÚ±¹°£ÀÇ °£°İ
+    [SerializeField] private float _stepDistance = 20f;  // ë°œìêµ­ê°„ì˜ ê°„ê²©
 
     private RoomManager roomManager => ServiceLocator.Instance.GetService<RoomManager>();
 
     /// <summary>
-    /// ¸ÊÀ» »ı¼ºÇØ¼­ ¹İÈ¯ÇÏ´Â ¸Ş¼ÒµåÀÔ´Ï´Ù.
-    /// ¸ğµç ¾ÀÀÇ ¸ÊÀÇ Å©±â´Â µ¿ÀÏÇÕ´Ï´Ù.
+    /// ë§µì„ ìƒì„±í•´ì„œ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œì…ë‹ˆë‹¤.
+    /// ëª¨ë“  ì”¬ì˜ ë§µì˜ í¬ê¸°ëŠ” ë™ì¼í•©ë‹ˆë‹¤.
     /// </summary>
-    /// <param name="height">¸ÊÀÇ ³ôÀÌ</param>
-    /// <param name="width">¸ÊÀÇ ³Êºñ</param>
-    /// <param name="pathCount">°æ·Î °³¼ö</param>
-    /// <param name="isHeart">½ÉÀå¹æÀÌ¸é true, ¾Æ´Ï¸é false </param>
+    /// <param name="height">ë§µì˜ ë†’ì´</param>
+    /// <param name="width">ë§µì˜ ë„ˆë¹„</param>
+    /// <param name="pathCount">ê²½ë¡œ ê°œìˆ˜</param>
     /// <returns></returns>
     public Room[,] GenerateMap(int width = 7, int pathCount = 5)
     {
@@ -59,16 +58,16 @@ public class MapGenerator : MonoBehaviour
         return _mapArray;
     }
 
-    // °æ·Î »ı¼º
+    // ê²½ë¡œ ìƒì„±
     private void GenerateRoute()
     {
-        // 6¹ø ¹İº¹
+        // 6ë²ˆ ë°˜ë³µ
         int x = Random.Range(0, _mapArray.GetLength(1));
         List<int> xPosList = new List<int>();
 
         for (int y = 1; y < _mapArray.GetLength(0); y++)
         {
-            // ¹æ»ı¼º
+            // ë°©ìƒì„±
             if (_mapArray[y, x] == null)
             {
                 Vector3 pos = new Vector3(_mapXSize / (_mapArray.GetLength(1) - 1) * x - _mapXSize / 2, _mapYSize / (_mapArray.GetLength(0) - 1) * y - _mapYSize / 2 - _yOffset, 0);
@@ -78,7 +77,7 @@ public class MapGenerator : MonoBehaviour
 
             xPosList.Add(x);
 
-            // x °»½Å
+            // x ê°±ì‹ 
             if(x == 0)
             {
                 x += Random.Range(0, 2);
@@ -96,7 +95,7 @@ public class MapGenerator : MonoBehaviour
         MakeRoutine(xPosList);
     }
 
-    // °æ·Î °£ °£¼±Ãß°¡
+    // ê²½ë¡œ ê°„ ê°„ì„ ì¶”ê°€
     private void MakeRoutine(List<int> xPosList)
     {
         for (int i = xPosList.Count - 1; i >= 1; i--)
@@ -107,9 +106,9 @@ public class MapGenerator : MonoBehaviour
             int prevX = xPosList[i - 1];
             int prevY = i;
 
-            // ÀÌÀ» °£¼±ÀÌ ´Ù¸¥ °£¼±¿¡ Å©·Î½º ÇÏ¸é ¹Ù·Î À§ ¾Æ·¡¿Í ¿¬°á
+            // ì´ì„ ê°„ì„ ì´ ë‹¤ë¥¸ ê°„ì„ ì— í¬ë¡œìŠ¤ í•˜ë©´ ë°”ë¡œ ìœ„ ì•„ë˜ì™€ ì—°ê²°
 
-            // À§ ±âÁØ(¢Ù)
+            // ìœ„ ê¸°ì¤€(â†˜)
             if (x + 1 < _mapArray.GetLength(1) && _mapArray[y, x + 1] != null && _mapArray[y - 1, x] != null &&
                 _mapArray[y - 1, x].connectedRooms.Contains(_mapArray[y, x + 1]) &&
                 x + 1 == prevX)
@@ -117,7 +116,7 @@ public class MapGenerator : MonoBehaviour
                 _mapArray[y - 1, x].connectedRooms.Add(_mapArray[y, x]);
                 _mapArray[prevY, prevX].connectedRooms.Add(_mapArray[y, x + 1]);
             }
-            // À§ ±âÁØ (¢×)
+            // ìœ„ ê¸°ì¤€ (â†™)
             else if (x - 1 >= 0 && _mapArray[y, x - 1] != null && _mapArray[y - 1, x] != null &&
                 _mapArray[y - 1, x].connectedRooms.Contains(_mapArray[y, x - 1]) &&
                 x - 1 == prevX)
@@ -132,14 +131,14 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    // ¹æÀÇ Å¸ÀÔÀ» °ÔÀÓ ·ê¿¡ ¸Â°Ô °áÁ¤
+    // ë°©ì˜ íƒ€ì…ì„ ê²Œì„ ë£°ì— ë§ê²Œ ê²°ì •
     private void DecideRoomType()
     {
-        // dfs ¾Ë°í¸®Áò
+        // dfs ì•Œê³ ë¦¬ì¦˜
 
-        // ºÒ, ¿¤¸®Æ®´Â ÃÖ¼Ò 6ÃşºÎÅÍ µîÀå
-        // ÀÌº¥Æ®, ÀÏ¹İ¸÷¸¸ ¿¬´Ş¾Æ µîÀå°¡´É
-        // ÇÑ ¹æ¿¡¼­ °í¸¦ ¼ö ÀÖ´Â ´ÙÀ½ ¹æµéÀº °°Àº Å¸ÀÔÀ» °¡Áú ¼ö ¾øÀ½
+        // ë¶ˆ, ì—˜ë¦¬íŠ¸ëŠ” ìµœì†Œ 6ì¸µë¶€í„° ë“±ì¥
+        // ì´ë²¤íŠ¸, ì¼ë°˜ëª¹ë§Œ ì—°ë‹¬ì•„ ë“±ì¥ê°€ëŠ¥
+        // í•œ ë°©ì—ì„œ ê³ ë¥¼ ìˆ˜ ìˆëŠ” ë‹¤ìŒ ë°©ë“¤ì€ ê°™ì€ íƒ€ì…ì„ ê°€ì§ˆ ìˆ˜ ì—†ìŒ
         for (int x = 0; x < _mapArray.GetLength(1); x++)
         {
             if(_mapArray[1, x] != null)
@@ -149,20 +148,20 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    // mapArray °¡½ÃÈ­
+    // mapArray ê°€ì‹œí™”
     private void VisualizeMap()
     {
-        // °æ·Î(ÀÌ¹ÌÁö) ½Ã°¢È­
+        // ê²½ë¡œ(ì´ë¯¸ì§€) ì‹œê°í™”
         for (int y = 1; y < _mapArray.GetLength(0) - 1; y++)
         {
             for (int x = 0; x < _mapArray.GetLength(1); x++)
             {
                 if (_mapArray[y, x] != null)
                 {
-                    // ¹ßÀÚ±¹
+                    // ë°œìêµ­
                     Room currentRoom = _mapArray[y, x];
                     
-                    // ÇØ´ç ¹æ¿¡ ¿¬°áµÈ ¸ğµç ¹æ ¹ßÀÚ±¹(ÀÌ¹ÌÁö) ½Ã°¢È­
+                    // í•´ë‹¹ ë°©ì— ì—°ê²°ëœ ëª¨ë“  ë°© ë°œìêµ­(ì´ë¯¸ì§€) ì‹œê°í™”
                     for (int i = 0; i < currentRoom.connectedRooms.Count; i++)
                     {
                         float currentPosX = currentRoom.PosX;
@@ -193,12 +192,12 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        // ¸¶Áö¸· ½ºÅ×ÀÌÁö¿¡¼­ º¸½º¹æ ¹ßÀÚ±¹ ½Ã°¢È­
+        // ë§ˆì§€ë§‰ ìŠ¤í…Œì´ì§€ì—ì„œ ë³´ìŠ¤ë°© ë°œìêµ­ ì‹œê°í™”
         for (int x = 0; x < _mapArray.GetLength(1); x++)
         {
             if (_mapArray[_mapArray.GetLength(0) - 1, x] != null)
             {
-                // ¹ßÀÚ±¹
+                // ë°œìêµ­
                 Room currentRoom = _mapArray[_mapArray.GetLength(0) - 1, x];
 
                 float currentPosX = currentRoom.PosX;
@@ -225,7 +224,7 @@ public class MapGenerator : MonoBehaviour
         }
 
 
-        // ½ºÅ×ÀÌÁö(¹öÆ°) ½Ã°¢È­
+        // ìŠ¤í…Œì´ì§€(ë²„íŠ¼) ì‹œê°í™”
         for (int y = 0; y < _mapArray.GetLength(0); y++)
         {
             for (int x = 0; x < _mapArray.GetLength(1); x++)
@@ -237,7 +236,7 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        // º¸½º ½Ã°¢È­
+        // ë³´ìŠ¤ ì‹œê°í™”
         Button bossStage = Instantiate(_bossPrefab, _map);
         bossStage.transform.localPosition = new Vector3(0, 1070f, 0);
 
@@ -246,37 +245,37 @@ public class MapGenerator : MonoBehaviour
 
 
     /// <summary>
-    /// dfs¾Ë°í¸®ÁòÀ¸·Î ¸ÊÀ» µ¹¸é¼­ ÇØ´ç ¹æÀÇ Á¾·ù¸¦ °»½ÅÇÕ´Ï´Ù.
+    /// dfsì•Œê³ ë¦¬ì¦˜ìœ¼ë¡œ ë§µì„ ëŒë©´ì„œ í•´ë‹¹ ë°©ì˜ ì¢…ë¥˜ë¥¼ ê°±ì‹ í•©ë‹ˆë‹¤.
     /// </summary>
-    /// <param name="height">¹æÀÇ ³ôÀÌ(Ãş)</param>
-    /// <param name="room">ÇØ´ç ¹æ</param>
-    /// <param name="possibleRoomType">ÇöÀç ÇÔ¼ö¿¡¼­ °¡´ÉÇÑ ¹æ Á¾·ù</param>
+    /// <param name="height">ë°©ì˜ ë†’ì´(ì¸µ)</param>
+    /// <param name="room">í•´ë‹¹ ë°©</param>
+    /// <param name="possibleRoomType">í˜„ì¬ í•¨ìˆ˜ì—ì„œ ê°€ëŠ¥í•œ ë°© ì¢…ë¥˜</param>
     private Room DfsMapTraversal(int height, Room room, List<int> possibleRoomType = null)
     {
-        // ÀÌ¹Ì »ı¼ºµÈ ¹æÀÌ¶ó¸é return;
+        // ì´ë¯¸ ìƒì„±ëœ ë°©ì´ë¼ë©´ return;
         if (room.IsGenerate)
             return room;
 
-        // ´ÙÀ½ ÇÔ¼ö¿¡ possibleRoomType·Î ³Ñ°ÜÁÙ ¸®½ºÆ®
-        // 4´Â º¸¹°¹æÀÓ. µû¶ó¼­ ¸®½ºÆ®¿¡ ³ÖÁö ¾ÊÀ½
+        // ë‹¤ìŒ í•¨ìˆ˜ì— possibleRoomTypeë¡œ ë„˜ê²¨ì¤„ ë¦¬ìŠ¤íŠ¸
+        // 4ëŠ” ë³´ë¬¼ë°©ì„. ë”°ë¼ì„œ ë¦¬ìŠ¤íŠ¸ì— ë„£ì§€ ì•ŠìŒ
         List<int> originPossibleRoomTypes = new List<int>() { 0, 1, 2, 3, 5 };
 
         if(possibleRoomType?.Count <= 0)
         {
-            Debug.Log("±×°÷¿¡ µé¾î°¥ ¼ö ÀÖ´Â ¹æÀÌ ¾ø½À´Ï´Ù.");
+            Debug.Log("ê·¸ê³³ì— ë“¤ì–´ê°ˆ ìˆ˜ ìˆëŠ” ë°©ì´ ì—†ìŠµë‹ˆë‹¤.");
         }
 
-        // 1Ãş ÀÏ¹İ Àû
+        // 1ì¸µ ì¼ë°˜ ì 
         if (height == 1)
         {
             room.SetStageType(_stageData[(int)ERoomType.Enemy], ERoomType.Enemy);
         }
-        // 9Ãş º¸¹° ¹æ
+        // 9ì¸µ ë³´ë¬¼ ë°©
         else if (height == 9)
         {
             room.SetStageType(_stageData[(int)ERoomType.Treasure], ERoomType.Treasure);
         }
-        // 15Ãş ÈŞ½Ä ¹æ
+        // 15ì¸µ íœ´ì‹ ë°©
         else if (height == 15)
         {
             room.SetStageType(_stageData[(int)ERoomType.Rest], ERoomType.Rest);
@@ -284,14 +283,14 @@ public class MapGenerator : MonoBehaviour
         }
         else
         {
-            // 15ÃşÀº ¹«Á¶°Ç ÈŞ½Ä ¹æÀÌ¹Ç·Î 14Ãş¿¡´Â ÈŞ½Ä¹æÀ» Á¦¿Ü½ÃÅ²´Ù.
+            // 15ì¸µì€ ë¬´ì¡°ê±´ íœ´ì‹ ë°©ì´ë¯€ë¡œ 14ì¸µì—ëŠ” íœ´ì‹ë°©ì„ ì œì™¸ì‹œí‚¨ë‹¤.
             if (height == 14)
             {
                 possibleRoomType.Remove((int)ERoomType.Rest);
             }
 
 
-            // ¸¸¾à Á¤ÇÏ·Á´Â ¹æ°ú ÀÌ¾îÁø ¹æÁß¿¡ ÀÌ¹Ì Á¤ÇØÁø ¹æÀÌ ÀÖ´Ù¸é ±× ¹æÀÇ Å¸ÀÔµµ Á¦¿Ü(´Ü ÀÏ¹İ¸÷, ¹ÌÁö´Â ¿¬´Ş¾Æ °¡´ÉÇÏ±â ¶§¹®¿¡ »©Áö ¾ÊÀ½)
+            // ë§Œì•½ ì •í•˜ë ¤ëŠ” ë°©ê³¼ ì´ì–´ì§„ ë°©ì¤‘ì— ì´ë¯¸ ì •í•´ì§„ ë°©ì´ ìˆë‹¤ë©´ ê·¸ ë°©ì˜ íƒ€ì…ë„ ì œì™¸(ë‹¨ ì¼ë°˜ëª¹, ë¯¸ì§€ëŠ” ì—°ë‹¬ì•„ ê°€ëŠ¥í•˜ê¸° ë•Œë¬¸ì— ë¹¼ì§€ ì•ŠìŒ)
             for (int i = 0; i < room.connectedRooms.Count; i++)
             {
                 Room nextRoom = room.connectedRooms[i];
@@ -301,12 +300,12 @@ public class MapGenerator : MonoBehaviour
                 }
             }
 
-            // °¢ ¹æÀÇ È®·üÀ» °è»êÇÏ¿© ³ª¿Â ¹æ ÀÎµ¦½º
+            // ê° ë°©ì˜ í™•ë¥ ì„ ê³„ì‚°í•˜ì—¬ ë‚˜ì˜¨ ë°© ì¸ë±ìŠ¤
             int randomRoomType = SelectRoomWeightRandom(possibleRoomType);
 
             room.SetStageType(_stageData[randomRoomType], (ERoomType)randomRoomType);
 
-            // °¡´ÉÇÑ ¹æ °»½Å (¹æÀº ¿¬´Ş¾Æ ³ª¿À¸é ¾ÈµÊ. ´Ü ÀÏ¹İÀû°ú ·£´ı¹æ Á¦¿Ü)
+            // ê°€ëŠ¥í•œ ë°© ê°±ì‹  (ë°©ì€ ì—°ë‹¬ì•„ ë‚˜ì˜¤ë©´ ì•ˆë¨. ë‹¨ ì¼ë°˜ì ê³¼ ëœë¤ë°© ì œì™¸)
             if (randomRoomType != (int)ERoomType.Enemy && randomRoomType != (int)ERoomType.Unknown)
                 originPossibleRoomTypes.Remove(randomRoomType);
         }
@@ -317,16 +316,16 @@ public class MapGenerator : MonoBehaviour
         {
             Room nextRoom = room.connectedRooms[i];
 
-            // 6Ãşº¸´Ù ¹Ø¿¡ ÀÖÀ¸¸é ¿¤¸®Æ®, ÈŞ½Ä ¹æ ¾È ³ª¿È
+            // 6ì¸µë³´ë‹¤ ë°‘ì— ìˆìœ¼ë©´ ì—˜ë¦¬íŠ¸, íœ´ì‹ ë°© ì•ˆ ë‚˜ì˜´
             if(height < 6)
             {
                 originPossibleRoomTypes.Remove((int)ERoomType.Elite);
                 originPossibleRoomTypes.Remove((int)ERoomType.Rest);
             }
 
-            // Àç±ÍÇÔ¼öÀÇ ¹İÈ¯°ªÀ¸·Î ÇØ´ç ¹æ°ú ¿¬°áµÈ ¹æ(¼¼ÆÃµÈ ¹æ)À» °¡Á®¿È.
-            // ¹İÈ¯µÈ ¹æÀÌ nullÀÌ ¾Æ´Ï¶ó¸é originPossibleRoomTypes¿¡¼­ Á¦¿Ü.
-            // ÇÑ ¹æ¿¡¼­ °í¸¦ ¼ö ÀÖ´Â ´ÙÀ½ ¹æµéÀº °°Àº Å¸ÀÔÀ» °¡Áú ¼ö ¾øÀ½.
+            // ì¬ê·€í•¨ìˆ˜ì˜ ë°˜í™˜ê°’ìœ¼ë¡œ í•´ë‹¹ ë°©ê³¼ ì—°ê²°ëœ ë°©(ì„¸íŒ…ëœ ë°©)ì„ ê°€ì ¸ì˜´.
+            // ë°˜í™˜ëœ ë°©ì´ nullì´ ì•„ë‹ˆë¼ë©´ originPossibleRoomTypesì—ì„œ ì œì™¸.
+            // í•œ ë°©ì—ì„œ ê³ ë¥¼ ìˆ˜ ìˆëŠ” ë‹¤ìŒ ë°©ë“¤ì€ ê°™ì€ íƒ€ì…ì„ ê°€ì§ˆ ìˆ˜ ì—†ìŒ.
             Room returnedNextRoom = DfsMapTraversal(height + 1, nextRoom, originPossibleRoomTypes);
             if(returnedNextRoom != null)
             {
@@ -338,23 +337,23 @@ public class MapGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// °¡ÁßÄ¡ ·£´ı »Ì±â
+    /// ê°€ì¤‘ì¹˜ ëœë¤ ë½‘ê¸°
     /// </summary>
-    /// <param name="possibleRoomType">ÀÌ ¸®½ºÆ® Áß¿¡¼­ °¡ÁßÄ¡ ·£´ıÀ» »ÌÀ½</param>
-    /// <returns>°¡ÁßÄ¡ ·£´ıÀ¸·Î ÀÎÇØ ³ª¿Â °ª</returns>
+    /// <param name="possibleRoomType">ì´ ë¦¬ìŠ¤íŠ¸ ì¤‘ì—ì„œ ê°€ì¤‘ì¹˜ ëœë¤ì„ ë½‘ìŒ</param>
+    /// <returns>ê°€ì¤‘ì¹˜ ëœë¤ìœ¼ë¡œ ì¸í•´ ë‚˜ì˜¨ ê°’</returns>
     private int SelectRoomWeightRandom(List<int> possibleRoomType)
     {
 
-        int allPercentage = 0;   // possibleRoomTypeÀÇ ¸ğµç È®·ü ´õÇÑ °ª
-        int currentPercentageSum = 0; // Â÷·Ê´ë·Î È®·ü°ªÀ» ´©ÀûÇÏ¿© ´õÇÑ °ª
-        int selectedRoomIndex = 0; // ¹İÈ¯ÇÒ °ª
+        int allPercentage = 0;   // possibleRoomTypeì˜ ëª¨ë“  í™•ë¥  ë”í•œ ê°’
+        int currentPercentageSum = 0; // ì°¨ë¡€ëŒ€ë¡œ í™•ë¥ ê°’ì„ ëˆ„ì í•˜ì—¬ ë”í•œ ê°’
+        int selectedRoomIndex = 0; // ë°˜í™˜í•  ê°’
 
         foreach (int roomIndex in possibleRoomType)
         {
             allPercentage += _stageData[roomIndex].percentage;
         }
 
-        int percentage = Random.Range(0, allPercentage + 1);  // ·£´ıÀ¸·Î »ÌÀº È®·ü °ª
+        int percentage = Random.Range(0, allPercentage + 1);  // ëœë¤ìœ¼ë¡œ ë½‘ì€ í™•ë¥  ê°’
 
         foreach (int roomIndex in possibleRoomType)
         {
