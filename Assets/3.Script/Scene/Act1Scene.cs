@@ -17,8 +17,9 @@ public class Act1Scene : BaseScene
 
     [SerializeField] private Neow _neow;
 
-    private CardGenerator cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
-    private MapGenerator mapGenerator => ServiceLocator.Instance.GetService<MapGenerator>();
+    private MapGenerator _mapGenerator;
+
+    private CardGenerator _cardGenerator => ServiceLocator.Instance.GetService<CardGenerator>();
 
     public override void Init()
     {
@@ -38,23 +39,24 @@ public class Act1Scene : BaseScene
 
         // 시작 시 맵 만들기 (보여주는 건 x)
         // 맵 생성 && 맵 데이터 넘겨주기
-        GameManager.Game.SetMapArray(mapGenerator.GenerateMap());
+        _mapGenerator = FindObjectOfType<MapGenerator>();
+        GameManager.Game.SetMapArray(_mapGenerator.GenerateMap());
 
         // 1막 태초 코루틴으로 보여주기
         StartCoroutine(CoAppearActInfo());
 
         // 카드도 생성해야 하지
-        _player.AddCard(cardGenerator.GenerateCard(1));
-        _player.AddCard(cardGenerator.GenerateCard(1));
-        _player.AddCard(cardGenerator.GenerateCard(1));
-        _player.AddCard(cardGenerator.GenerateCard(1));
-        _player.AddCard(cardGenerator.GenerateCard(1));   // 타격
-        _player.AddCard(cardGenerator.GenerateCard(17));  // 수비
-        _player.AddCard(cardGenerator.GenerateCard(17));
-        _player.AddCard(cardGenerator.GenerateCard(17));
-        _player.AddCard(cardGenerator.GenerateCard(17));
-        _player.AddCard(cardGenerator.GenerateCard(17));
-        _player.AddCard(cardGenerator.GenerateCard(2));  // 강타
+        _player.AddCard(_cardGenerator.GenerateCard(1));
+        _player.AddCard(_cardGenerator.GenerateCard(1));
+        _player.AddCard(_cardGenerator.GenerateCard(1));
+        _player.AddCard(_cardGenerator.GenerateCard(1));
+        _player.AddCard(_cardGenerator.GenerateCard(1));   // 타격
+        _player.AddCard(_cardGenerator.GenerateCard(17));  // 수비
+        _player.AddCard(_cardGenerator.GenerateCard(17));
+        _player.AddCard(_cardGenerator.GenerateCard(17));
+        _player.AddCard(_cardGenerator.GenerateCard(17));
+        _player.AddCard(_cardGenerator.GenerateCard(17));
+        _player.AddCard(_cardGenerator.GenerateCard(2));  // 강타
     }
 
     // 버튼에 온클릭

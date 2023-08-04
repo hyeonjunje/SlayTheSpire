@@ -14,7 +14,7 @@ public enum ERoomType
     Size = 6
 }
 
-public class MapGenerator : MonoBehaviour, IRegisterable
+public class MapGenerator : MonoBehaviour
 {
     private const int _mapDefaultHeight = 16;
 
@@ -34,11 +34,6 @@ public class MapGenerator : MonoBehaviour, IRegisterable
     [SerializeField] private float _stepDistance = 20f;  // 발자국간의 간격
 
     private RoomManager roomManager => ServiceLocator.Instance.GetService<RoomManager>();
-
-    public void Init()
-    {
-
-    }
 
     /// <summary>
     /// 맵을 생성해서 반환하는 메소드입니다.
