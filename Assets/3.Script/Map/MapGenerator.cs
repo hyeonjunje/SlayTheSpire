@@ -16,30 +16,22 @@ public enum ERoomType
 
 public class MapGenerator : MonoBehaviour, IRegisterable
 {
-    private Room[,] _mapArray = new Room[16, 7];
+    private const int _mapDefaultHeight = 16;
 
-    [SerializeField]
-    private StageData[] _stageData;
+    private Room[,] _mapArray;
 
-    [SerializeField]
-    private Button _bossPrefab;
-    [SerializeField]
-    private Transform _stepPrefab;
-    [SerializeField]
-    private Room _roomPrefab;
+    [SerializeField] private StageData[] _stageData;
 
-    [SerializeField]
-    private RectTransform _map;  // 생성할 오브젝트의 부모가 될 오브젝트
+    [SerializeField] private Button _bossPrefab;
+    [SerializeField] private Transform _stepPrefab;
+    [SerializeField] private Room _roomPrefab;
 
-    [SerializeField]
-    private float _mapXSize = 900;
-    [SerializeField]
-    private float _mapYSize = 2000;
-    [SerializeField]
-    private float _yOffset = 300;
+    [SerializeField] private RectTransform _map;  // 생성할 오브젝트의 부모가 될 오브젝트
 
-    [SerializeField]
-    private float _stepDistance = 20f;  // 발자국간의 간격
+    [SerializeField] private float _mapXSize = 900;
+    [SerializeField] private float _mapYSize = 2000;
+    [SerializeField] private float _yOffset = 300;
+    [SerializeField] private float _stepDistance = 20f;  // 발자국간의 간격
 
     private RoomManager roomManager => ServiceLocator.Instance.GetService<RoomManager>();
 
@@ -48,11 +40,20 @@ public class MapGenerator : MonoBehaviour, IRegisterable
 
     }
 
-    public Room[,] GenerateMap()
+    /// <summary>
+    /// 맵을 생성해서 반환하는 메소드입니다.
+    /// 모든 씬의 맵의 크기는 동일합니다.
+    /// </summary>
+    /// <param name="height">맵의 높이</param>
+    /// <param name="width">맵의 너비</param>
+    /// <param name="pathCount">경로 개수</param>
+    /// <param name="isHeart">심장방이면 true, 아니면 false </param>
+    /// <returns></returns>
+    public Room[,] GenerateMap(int width = 7, int pathCount = 5)
     {
-        _mapArray = new Room[16, 7];
+        _mapArray = new Room[_mapDefaultHeight, width];
 
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < pathCount; i++)
         {
             GenerateRoute();
         }
